@@ -301,3 +301,44 @@ export interface UserProfile {
     netflix?: { connected: boolean; email?: string };
   };
 }
+
+export interface GpuDevice {
+  id: string;
+  name: string;
+  vendor: string | null;
+  manufacturer: string | null;
+  architecture: string | null;
+  generation: string | null;
+  releaseDate: string | null;
+  vram: number | null;
+  memoryType: string | null;
+  memoryBus: number | null;
+  memoryBandwidth: number | null;
+  baseClock: number | null;
+  boostClock: number | null;
+  fp32: number | null;
+  directX: string | null;
+  openGL: string | null;
+  vulkan: string | null;
+  sourceUrl: string | null;
+  gpuName?: string | null;
+}
+
+export interface GpuPagination {
+  page: number;
+  pageSize: number;
+  total: number;
+  totalPages: number;
+}
+
+export interface GpuSearchResponse {
+  query: string;
+  results: GpuDevice[];
+  pagination: GpuPagination;
+  source: 'real';
+}
+
+export interface GpuDetailResponse {
+  gpu: GpuDevice;
+  source: 'real';
+}
