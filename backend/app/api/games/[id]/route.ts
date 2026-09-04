@@ -155,7 +155,13 @@ export async function GET(
         minimum: minimumReq,
         recommended: recommendedReq,
       },
+      publishersList: g.publishers?.map((p) => ({ id: p.id, name: p.name, slug: p.slug })),
+      developersList: g.developers?.map((d) => ({ id: d.id, name: d.name, slug: d.slug })),
+      website: g.website,
       playtime: g.playtime,
+      dominantColor: (g as any).dominant_color,
+      saturatedColor: (g as any).saturated_color,
+      rawRequirements: pcPlatform?.requirements,
     };
 
     return NextResponse.json(

@@ -2,10 +2,8 @@ package com.example.data.repository
 
 import android.util.Log
 import com.example.data.remote.NetworkModule
-import com.example.data.remote.RawgApiService
-import com.example.data.remote.model.RawgGameDetailResponse
-import com.example.data.remote.model.RawgGameDto
-import com.example.data.remote.model.RawgRequirementsDto
+import com.example.data.remote.VeyloraBackendApiService
+import com.example.data.remote.model.VeyloraGameDto
 import com.example.domain.model.GameCompany
 import com.example.domain.model.GameDetails
 import com.example.domain.model.GameEdition
@@ -21,7 +19,7 @@ import kotlinx.coroutines.withContext
 import java.util.concurrent.ConcurrentHashMap
 
 class GameRepository(
-  private val rawgApiService: RawgApiService = NetworkModule.createRawgApiService(),
+  private val backendApiService: VeyloraBackendApiService = NetworkModule.createVeyloraBackendApiService(),
   private val consoleStoreRepository: ConsoleStoreRepository = ConsoleStoreRepository()
 ) {
 
@@ -30,8 +28,8 @@ class GameRepository(
 
   suspend fun fetchTrendingGames(forceRefresh: Boolean = false): Result<List<GameItem>> = withContext(Dispatchers.IO) {
     try {
-      val response = rawgApiService.getTrendingGames(ordering = "-added", page = 1, pageSize = 20)
-      val dtoList = response.results.orEmpty()
+      val response = backendApiService.getGames(category = "trending", page = 1, pageSize = 20)
+      val dtoList = response.data.orEmpty()
       val items = dtoList.map { mapDtoToGameItem(it) }
       items.forEach { gameItemCache[it.id] = it }
       Log.d("GameRepository", "Fetched ${items.size} trending games")
@@ -44,10 +42,11 @@ class GameRepository(
 
   suspend fun fetchUpcomingGames(forceRefresh: Boolean = false): Result<List<GameItem>> = withContext(Dispatchers.IO) {
     try {
-      val response = rawgApiService.getUpcomingGames(ordering = "-added", page = 1, pageSize = 20)
-      val dtoList = response.results.orEmpty()
+      val response = backendApiService.getGames(category = "upcoming", page = 1, pageSize = 20)
+      val dtoList = response.data.orEmpty()
       val items = dtoList.map { mapDtoToGameItem(it) }
       items.forEach { gameItemCache[it.id] = it }
+      Log.d("GameRepository", "Fetched ${items.size} upcoming games")
       Result.success(items)
     } catch (e: Exception) {
       Log.e("GameRepository", "Error fetching upcoming games", e)
@@ -57,8 +56,8 @@ class GameRepository(
 
   suspend fun fetchTop50Games(forceRefresh: Boolean = false): Result<List<GameItem>> = withContext(Dispatchers.IO) {
     try {
-      val response = rawgApiService.getTop50Games(ordering = "-metacritic", page = 1, pageSize = 50)
-      val dtoList = response.results.orEmpty()
+      val response = backendApiService.getGames(category = "top50", page = 1, pageSize = 50)
+      val dtoList = response.data.orEmpty()
       val items = dtoList.map { mapDtoToGameItem(it) }
       items.forEach { gameItemCache[it.id] = it }
       Result.success(items)
@@ -70,8 +69,8 @@ class GameRepository(
 
   suspend fun fetchRecentlyReleasedGames(forceRefresh: Boolean = false): Result<List<GameItem>> = withContext(Dispatchers.IO) {
     try {
-      val response = rawgApiService.getRecentlyReleasedGames(ordering = "-released", page = 1, pageSize = 20)
-      val dtoList = response.results.orEmpty()
+      val response = backendApiService.getGames(category = "recent", page = 1, pageSize = 20)
+      val dtoList = response.data.orEmpty()
       val items = dtoList.map { mapDtoToGameItem(it) }
       items.forEach { gameItemCache[it.id] = it }
       Result.success(items)
@@ -83,8 +82,8 @@ class GameRepository(
 
   suspend fun fetchGamesByPublisher(publisherSlugOrId: String): Result<List<GameItem>> = withContext(Dispatchers.IO) {
     try {
-      val response = rawgApiService.getGamesByPublisher(publishers = publisherSlugOrId, page = 1, pageSize = 40)
-      val dtoList = response.results.orEmpty()
+      val response = backendApiService.getGames(publishers = publisherSlugOrId, page = 1, pageSize = 40)
+      val dtoList = response.data.orEmpty()
       val items = dtoList.map { mapDtoToGameItem(it) }
       items.forEach { gameItemCache[it.id] = it }
       Log.d("GameRepository", "Fetched ${items.size} games for publisher=$publisherSlugOrId")
@@ -97,8 +96,8 @@ class GameRepository(
 
   suspend fun fetchGamesByDeveloper(developerSlugOrId: String): Result<List<GameItem>> = withContext(Dispatchers.IO) {
     try {
-      val response = rawgApiService.getGamesByDeveloper(developers = developerSlugOrId, page = 1, pageSize = 40)
-      val dtoList = response.results.orEmpty()
+      val response = backendApiService.getGames(developers = developerSlugOrId, page = 1, pageSize = 40)
+      val dtoList = response.data.orEmpty()
       val items = dtoList.map { mapDtoToGameItem(it) }
       items.forEach { gameItemCache[it.id] = it }
       Log.d("GameRepository", "Fetched ${items.size} games for developer=$developerSlugOrId")
@@ -131,40 +130,29 @@ class GameRepository(
   suspend fun fetchCompanyDetails(company: GameCompany): Result<GameCompany> = withContext(Dispatchers.IO) {
     try {
       val idOrSlug = if (company.id > 0) company.id.toString() else company.slug
-      if (company.isDeveloper) {
-        val detail = rawgApiService.getDeveloperDetails(idOrSlug)
-        Result.success(
-          company.copy(
-            id = detail.id,
-            name = detail.name ?: company.name,
-            slug = detail.slug ?: company.slug,
-            imageUrl = detail.imageBackground ?: company.imageUrl,
-            description = cleanHtml(detail.description).ifBlank { null } ?: company.description,
-            gamesCount = detail.gamesCount ?: company.gamesCount
-          )
+      val type = if (company.isDeveloper) "developer" else "publisher"
+      val res = backendApiService.getCompanyDetails(idOrSlug, type = type)
+      val detail = res.data ?: throw Exception("Company not found")
+      Result.success(
+        company.copy(
+          id = detail.id?.toLongOrNull() ?: company.id,
+          name = detail.name ?: company.name,
+          slug = detail.slug ?: company.slug,
+          imageUrl = detail.imageUrl ?: company.imageUrl,
+          description = cleanHtml(detail.description).ifBlank { null } ?: company.description,
+          gamesCount = detail.gamesCount ?: company.gamesCount
         )
-      } else {
-        val detail = rawgApiService.getPublisherDetails(idOrSlug)
-        Result.success(
-          company.copy(
-            id = detail.id,
-            name = detail.name ?: company.name,
-            slug = detail.slug ?: company.slug,
-            imageUrl = detail.imageBackground ?: company.imageUrl,
-            description = cleanHtml(detail.description).ifBlank { null } ?: company.description,
-            gamesCount = detail.gamesCount ?: company.gamesCount
-          )
-        )
-      }
+      )
     } catch (e: Exception) {
+      Log.e("GameRepository", "Error fetching company details for ${company.name}", e)
       Result.failure(e)
     }
   }
 
   suspend fun searchGames(query: String): Result<List<GameItem>> = withContext(Dispatchers.IO) {
     try {
-      val response = rawgApiService.getGames(search = query, page = 1, pageSize = 20)
-      val dtoList = response.results.orEmpty()
+      val response = backendApiService.getGames(search = query, page = 1, pageSize = 20)
+      val dtoList = response.data.orEmpty()
       val items = dtoList.map { mapDtoToGameItem(it) }
       items.forEach { gameItemCache[it.id] = it }
       Result.success(items)
@@ -186,37 +174,22 @@ class GameRepository(
     try {
       coroutineScope {
         val gameIdStr = gameId.toString()
-        val detailDeferred = async { rawgApiService.getGameDetails(gameIdStr) }
-        val screenshotsDeferred = async {
-          try {
-            rawgApiService.getGameScreenshots(gameIdStr).results.orEmpty().mapNotNull { it.image }
-          } catch (_: Exception) {
-            emptyList()
-          }
-        }
-        val storesDeferred = async {
-          try {
-            val rawStores = rawgApiService.getGameStores(gameIdStr).results.orEmpty().mapNotNull { item ->
-              item.url?.let { u ->
-                GameStoreLink(
-                  id = item.id ?: 0L,
-                  storeId = item.storeId,
-                  storeName = getStoreNameFromUrlOrId(item.storeId, u),
-                  url = u
-                )
-              }
-            }
-            // Deduplicate store links strictly by storeName
-            rawStores.distinctBy { it.storeName.lowercase().trim() }
-          } catch (_: Exception) {
-            emptyList()
-          }
-        }
+        val detailDeferred = async { backendApiService.getGameDetails(gameIdStr) }
 
         val detailRes = detailDeferred.await()
-        val title = detailRes.name ?: "Game"
-        val screenshots = screenshotsDeferred.await()
-        val stores = storesDeferred.await()
+        val dto = detailRes.data ?: throw Exception("Game $gameId not found")
+        val title = dto.title ?: "Game"
+        val screenshots = dto.screenshots.orEmpty()
+        val stores = dto.stores.orEmpty().mapNotNull { item ->
+          item.url?.let { u ->
+            GameStoreLink(
+              id = 0L,
+              storeId = null,
+              storeName = item.name ?: getStoreNameFromUrlOrId(null, u),
+              url = u
+            )
+          }
+        }.distinctBy { it.storeName.lowercase().trim() }
 
         val resolvedConceptId = conceptId ?: extractPlayStationConceptId(stores)
         val resolvedProductId = productId ?: extractXboxProductId(stores)
@@ -233,16 +206,23 @@ class GameRepository(
         val editions = editionsDeferred.await()
 
         val supportedHardware = mutableListOf<String>()
-        val specificPlatforms = detailRes.platforms.orEmpty().mapNotNull { it.platform?.slug?.lowercase()?.trim() }
-        if (specificPlatforms.isNotEmpty()) {
-          supportedHardware.addAll(specificPlatforms)
-        } else {
-          detailRes.parentPlatforms.orEmpty().forEach { p ->
-            p.platform?.slug?.let { supportedHardware.add(it.lowercase().trim()) }
+        dto.hardwareBadges.orEmpty().forEach {
+          supportedHardware.add(it.lowercase().trim())
+        }
+        if (supportedHardware.isEmpty()) {
+          dto.platforms.orEmpty().forEach { p ->
+            val slug = p.lowercase().trim()
+            if (slug.contains("playstation") || slug.contains("ps5") || slug.contains("ps4")) supportedHardware.add("ps5")
+            if (slug.contains("xbox")) supportedHardware.add("xbox_series")
+            if (slug.contains("pc") || slug.contains("windows")) supportedHardware.add("pc")
+            if (slug.contains("nintendo") || slug.contains("switch")) supportedHardware.add("nintendo_switch")
           }
         }
+        if (supportedHardware.isEmpty()) {
+          supportedHardware.add("pc")
+        }
 
-        val pcReq = extractPcRequirements(detailRes)
+        val pcReq = dto.rawRequirements?.let { com.example.util.PcRequirementsParser.parse(it) }
 
         val price = resolvePriceFromEditions(editions)
 
@@ -256,7 +236,7 @@ class GameRepository(
         Log.d("GameRepository_Diag", "Price: $price")
         Log.d("GameRepository_Diag", "PC Requirements: minimum='${pcReq?.minimum}', recommended='${pcReq?.recommended}'")
 
-        val baseGameItem = mapDetailResponseToGameItem(detailRes, editions, pcReq, supportedHardware, price, stores)
+        val baseGameItem = mapDetailResponseToGameItem(dto, editions, pcReq, supportedHardware, price, stores)
 
         val gameDetails = GameDetails(
           game = baseGameItem,
@@ -290,47 +270,79 @@ class GameRepository(
     return gameItemCache[gameId]
   }
 
-  private fun mapDtoToGameItem(dto: RawgGameDto): GameItem {
+  private fun mapDtoToGameItem(dto: VeyloraGameDto): GameItem {
     val supportedHardware = mutableListOf<String>()
-    val specificPlatforms = dto.platforms.orEmpty().mapNotNull { it.platform?.slug?.lowercase()?.trim() }
-    if (specificPlatforms.isNotEmpty()) {
-      supportedHardware.addAll(specificPlatforms)
-    } else {
-      dto.parentPlatforms.orEmpty().forEach { p ->
-        p.platform?.slug?.let { supportedHardware.add(it.lowercase().trim()) }
+    dto.hardwareBadges.orEmpty().forEach {
+      supportedHardware.add(it.lowercase().trim())
+    }
+    if (supportedHardware.isEmpty()) {
+      dto.platforms.orEmpty().forEach { p ->
+        val slug = p.lowercase().trim()
+        if (slug.contains("playstation") || slug.contains("ps5") || slug.contains("ps4")) supportedHardware.add("ps5")
+        if (slug.contains("xbox")) supportedHardware.add("xbox_series")
+        if (slug.contains("pc") || slug.contains("windows")) supportedHardware.add("pc")
+        if (slug.contains("nintendo") || slug.contains("switch")) supportedHardware.add("nintendo_switch")
       }
     }
-
-    val pcReq = dto.platforms.orEmpty().firstOrNull {
-      it.platform?.slug?.lowercase() == "pc"
-    }?.let { com.example.util.PcRequirementsParser.parse(it.requirements ?: it.requirementsEn) }
-
-    val platforms = dto.platforms.orEmpty().mapNotNull { pDto ->
-      pDto.platform?.let { p ->
-        GamePlatform(
-          id = p.id,
-          name = p.name ?: "",
-          slug = p.slug ?: "",
-          requirements = com.example.util.PcRequirementsParser.parse(pDto.requirements ?: pDto.requirementsEn)
-        )
-      }
+    if (supportedHardware.isEmpty()) {
+      supportedHardware.add("pc")
     }
 
-    val releaseDate = dto.released
-    val releaseYear = releaseDate?.takeIf { it.length >= 4 }?.substring(0, 4) ?: ""
+    val pcReq = dto.rawRequirements?.let { com.example.util.PcRequirementsParser.parse(it) }
+
+    val platforms = dto.platforms.orEmpty().map { pName ->
+      GamePlatform(
+        id = 0L,
+        name = pName,
+        slug = pName.lowercase().replace(" ", "-"),
+        requirements = if (pName.contains("pc", ignoreCase = true) || pName.contains("windows", ignoreCase = true)) pcReq else null
+      )
+    }
+
+    val publishersList = dto.publishersList.orEmpty().map {
+      GameCompany(
+        id = it.id?.toLongOrNull() ?: 0L,
+        name = it.name ?: "",
+        slug = it.slug ?: "",
+        imageUrl = it.imageUrl,
+        isDeveloper = false
+      )
+    }
+
+    val developersList = dto.developersList.orEmpty().map {
+      GameCompany(
+        id = it.id?.toLongOrNull() ?: 0L,
+        name = it.name ?: "",
+        slug = it.slug ?: "",
+        imageUrl = it.imageUrl,
+        isDeveloper = true
+      )
+    }
+
+    val developerCompany = developersList.firstOrNull() ?: publishersList.firstOrNull()
+
+    val releaseDate = dto.releaseDate
+    val releaseYear = dto.releaseYear?.ifBlank { null }
+      ?: releaseDate?.takeIf { it.length >= 4 }?.substring(0, 4)
+      ?: ""
 
     return GameItem(
-      id = dto.id,
-      title = dto.name ?: "Game",
-      overview = "",
-      posterUrl = dto.backgroundImage,
-      backdropUrl = dto.backgroundImage,
+      id = dto.id.toLongOrNull() ?: 0L,
+      title = dto.title ?: "Game",
+      overview = dto.description ?: dto.shortDescription ?: "",
+      posterUrl = dto.cover ?: dto.backdrop,
+      backdropUrl = dto.backdrop ?: dto.cover,
       releaseDate = releaseDate,
       releaseYear = releaseYear,
       rating = dto.rating ?: 0.0,
       metacritic = dto.metacritic,
       platforms = platforms,
-      genres = dto.genres.orEmpty().mapNotNull { it.name },
+      genres = dto.genres.orEmpty(),
+      publishers = if (!dto.publisher.isNullOrBlank()) listOf(dto.publisher) else emptyList(),
+      publishersList = publishersList,
+      developers = if (!dto.developer.isNullOrBlank()) listOf(dto.developer) else emptyList(),
+      developersList = developersList,
+      developerCompany = developerCompany,
       dominantColor = dto.dominantColor,
       saturatedColor = dto.saturatedColor,
       pcRequirements = pcReq,
@@ -339,53 +351,65 @@ class GameRepository(
   }
 
   private fun mapDetailResponseToGameItem(
-    res: RawgGameDetailResponse,
+    res: VeyloraGameDto,
     editions: List<GameEdition>,
     pcReq: PcRequirements?,
     supportedHardware: List<String>,
     price: GamePrice?,
     stores: List<GameStoreLink>
   ): GameItem {
-    val releaseDate = res.released
-    val releaseYear = releaseDate?.takeIf { it.length >= 4 }?.substring(0, 4) ?: ""
+    val releaseDate = res.releaseDate
+    val releaseYear = res.releaseYear?.ifBlank { null }
+      ?: releaseDate?.takeIf { it.length >= 4 }?.substring(0, 4)
+      ?: ""
 
-    val platforms = res.platforms.orEmpty().mapNotNull { pDto ->
-      pDto.platform?.let { p ->
-        GamePlatform(
-          id = p.id,
-          name = p.name ?: "",
-          slug = p.slug ?: "",
-          requirements = com.example.util.PcRequirementsParser.parse(pDto.requirements ?: pDto.requirementsEn)
-        )
-      }
+    val platforms = res.platforms.orEmpty().map { pName ->
+      GamePlatform(
+        id = 0L,
+        name = pName,
+        slug = pName.lowercase().replace(" ", "-"),
+        requirements = if (pName.contains("pc", ignoreCase = true) || pName.contains("windows", ignoreCase = true)) pcReq else null
+      )
     }
 
-    val publishersList = res.publishers.orEmpty().map {
-      GameCompany(id = it.id, name = it.name ?: "", slug = it.slug ?: "", imageUrl = it.imageBackground, isDeveloper = false)
+    val publishersList = res.publishersList.orEmpty().map {
+      GameCompany(
+        id = it.id?.toLongOrNull() ?: 0L,
+        name = it.name ?: "",
+        slug = it.slug ?: "",
+        imageUrl = it.imageUrl,
+        isDeveloper = false
+      )
     }
 
-    val developersList = res.developers.orEmpty().map {
-      GameCompany(id = it.id, name = it.name ?: "", slug = it.slug ?: "", imageUrl = it.imageBackground, isDeveloper = true)
+    val developersList = res.developersList.orEmpty().map {
+      GameCompany(
+        id = it.id?.toLongOrNull() ?: 0L,
+        name = it.name ?: "",
+        slug = it.slug ?: "",
+        imageUrl = it.imageUrl,
+        isDeveloper = true
+      )
     }
 
     val developerCompany = developersList.firstOrNull() ?: publishersList.firstOrNull()
 
     return GameItem(
-      id = res.id,
-      title = res.name ?: "Game",
-      overview = res.descriptionRaw ?: res.description ?: "",
-      posterUrl = res.backgroundImage,
-      backdropUrl = res.backgroundImageAdditional ?: res.backgroundImage,
+      id = res.id.toLongOrNull() ?: 0L,
+      title = res.title ?: "Game",
+      overview = res.description ?: res.shortDescription ?: "",
+      posterUrl = res.cover ?: res.backdrop,
+      backdropUrl = res.backdrop ?: res.cover,
       releaseDate = releaseDate,
       releaseYear = releaseYear,
       rating = res.rating ?: 0.0,
       metacritic = res.metacritic,
       platforms = platforms,
-      genres = res.genres.orEmpty().mapNotNull { it.name },
+      genres = res.genres.orEmpty(),
       stores = stores,
-      publishers = res.publishers.orEmpty().mapNotNull { it.name },
+      publishers = if (!res.publisher.isNullOrBlank()) listOf(res.publisher) else emptyList(),
       publishersList = publishersList,
-      developers = res.developers.orEmpty().mapNotNull { it.name },
+      developers = if (!res.developer.isNullOrBlank()) listOf(res.developer) else emptyList(),
       developersList = developersList,
       developerCompany = developerCompany,
       websiteUrl = res.website,
@@ -396,17 +420,6 @@ class GameRepository(
       supportedHardware = supportedHardware.distinct(),
       price = price
     )
-  }
-
-  private fun extractPcRequirements(res: RawgGameDetailResponse): PcRequirements? {
-    val pcPlatform = res.platforms.orEmpty().firstOrNull {
-      val slug = it.platform?.slug?.lowercase() ?: ""
-      val name = it.platform?.name?.lowercase() ?: ""
-      slug == "pc" || slug == "windows" || name == "pc" || name.contains("pc")
-    } ?: return null
-
-    val rawReq = pcPlatform.requirements ?: pcPlatform.requirementsEn ?: return null
-    return com.example.util.PcRequirementsParser.parse(rawReq)
   }
 
   private fun resolvePriceFromEditions(editions: List<GameEdition>): GamePrice? {

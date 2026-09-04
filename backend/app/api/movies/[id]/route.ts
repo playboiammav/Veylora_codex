@@ -28,9 +28,39 @@ function normalizeTmdbMovieDetail(m: TmdbMovie): NormalizedMovie {
     profileImage: c.profile_path ? getTmdbImageUrl(c.profile_path, 'w500') : null,
   })) || [];
 
-  const director = m.credits?.crew?.find((c) => c.job === 'Director')?.name || 'Acclaimed Director';
-  const directors = m.credits?.crew?.filter((c) => c.job === 'Director').map((c) => c.name) || [director];
+  const crew = m.credits?.crew?.slice(0, 16).map((c) => ({
+    id: c.id,
+    name: c.name,
+    character: c.job || c.department || '',
+    profileImage: c.profile_path ? getTmdbImageUrl(c.profile_path, 'w500') : null,
+  })) || [];
+
+  const director = m.credits?.crew?.find((c) => c.job === 'Director')?.name || undefined;
+  const directors = m.credits?.crew?.filter((c) => c.job === 'Director').map((c) => c.name) || (director ? [director] : []);
   const writers = m.credits?.crew?.filter((c) => c.department === 'Writing' || c.job === 'Writer' || c.job === 'Screenplay').map((c) => c.name) || [];
+
+  const rawWatchProviders = m['watch/providers']?.results;
+  const usProviders = rawWatchProviders?.['US'] || (rawWatchProviders ? Object.values(rawWatchProviders)[0] : undefined);
+  const watchProviders: { id: number; name: string; logoUrl?: string }[] = [];
+  const seenPids = new Set<number>();
+
+  const addProviders = (list?: { provider_id: number; provider_name: string; logo_path: string }[]) => {
+    if (!list) return;
+    for (const p of list) {
+      if (p.provider_id && !seenPids.has(p.provider_id)) {
+        seenPids.add(p.provider_id);
+        watchProviders.push({
+          id: p.provider_id,
+          name: p.provider_name || 'Streaming',
+          logoUrl: p.logo_path ? `https://image.tmdb.org/t/p/w154${p.logo_path}` : undefined,
+        });
+      }
+    }
+  };
+
+  addProviders(usProviders?.flatrate);
+  addProviders(usProviders?.rent);
+  addProviders(usProviders?.buy);
 
   const trailers = m.videos?.results
     ?.filter((v) => v.site === 'YouTube')
@@ -54,12 +84,13 @@ function normalizeTmdbMovieDetail(m: TmdbMovie): NormalizedMovie {
     title: s.title,
     poster: getTmdbImageUrl(s.poster_path, 'w500'),
     rating: Number(s.vote_average.toFixed(1)),
-    releaseYear: s.release_date ? s.release_date.split('-')[0] : '2024',
+    releaseYear: s.release_date ? s.release_date.split('-')[0] : '',
   })) || [];
 
   const companies = m.production_companies?.map((c) => ({
     id: c.id,
     name: c.name,
+    logo: c.logo_path ? getTmdbImageUrl(c.logo_path, 'w500') : undefined,
     country: c.origin_country,
   }));
 
@@ -83,6 +114,7 @@ function normalizeTmdbMovieDetail(m: TmdbMovie): NormalizedMovie {
     runtime,
     formattedRuntime,
     cast,
+    crew,
     director,
     directors,
     writers,
@@ -95,6 +127,10 @@ function normalizeTmdbMovieDetail(m: TmdbMovie): NormalizedMovie {
     budget: m.budget ? `$${(m.budget / 1000000).toFixed(0)}M` : undefined,
     revenue: m.revenue ? `$${(m.revenue / 1000000).toFixed(0)}M` : undefined,
     streamingLinks: [],
+    watchProviders,
+    posterPath: m.poster_path || undefined,
+    backdropPath: m.backdrop_path || undefined,
+    popularity: m.popularity,
   };
 }
 

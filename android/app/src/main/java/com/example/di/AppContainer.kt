@@ -6,16 +6,14 @@ import com.example.data.preferences.UserPreferencesRepository
 import com.example.data.preferences.userDataStore
 import com.example.data.remote.CheapSharkApiService
 import com.example.data.remote.NetworkModule
-import com.example.data.remote.RawgApiService
-import com.example.data.remote.TmdbApiService
+import com.example.data.remote.VeyloraBackendApiService
 import com.example.data.repository.CheapSharkRepository
 import com.example.data.repository.DealsRepository
 import com.example.data.repository.GameRepository
 import com.example.data.repository.MovieRepository
 
 interface AppContainer {
-  val apiService: TmdbApiService
-  val rawgApiService: RawgApiService
+  val veyloraBackendApiService: VeyloraBackendApiService
   val cheapSharkApiService: CheapSharkApiService
   val database: CinemaHubDatabase
   val movieRepository: MovieRepository
@@ -27,12 +25,8 @@ interface AppContainer {
 
 class DefaultAppContainer(private val context: Context) : AppContainer {
 
-  override val apiService: TmdbApiService by lazy {
-    NetworkModule.createTmdbApiService()
-  }
-
-  override val rawgApiService: RawgApiService by lazy {
-    NetworkModule.createRawgApiService()
+  override val veyloraBackendApiService: VeyloraBackendApiService by lazy {
+    NetworkModule.createVeyloraBackendApiService()
   }
 
   override val cheapSharkApiService: CheapSharkApiService by lazy {
@@ -45,8 +39,7 @@ class DefaultAppContainer(private val context: Context) : AppContainer {
 
   override val movieRepository: MovieRepository by lazy {
     MovieRepository(
-      apiService = apiService,
-      rawgApiService = rawgApiService,
+      backendApiService = veyloraBackendApiService,
       movieDao = database.movieDao(),
       userRatingDao = database.userRatingDao()
     )
@@ -54,7 +47,7 @@ class DefaultAppContainer(private val context: Context) : AppContainer {
 
   override val gameRepository: GameRepository by lazy {
     GameRepository(
-      rawgApiService = rawgApiService
+      backendApiService = veyloraBackendApiService
     )
   }
 

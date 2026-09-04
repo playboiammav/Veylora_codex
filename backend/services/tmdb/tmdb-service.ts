@@ -41,6 +41,14 @@ export interface TmdbMovie {
   similar?: {
     results: TmdbMovie[];
   };
+  'watch/providers'?: {
+    results?: Record<string, {
+      link?: string;
+      flatrate?: { provider_id: number; provider_name: string; logo_path: string }[];
+      rent?: { provider_id: number; provider_name: string; logo_path: string }[];
+      buy?: { provider_id: number; provider_name: string; logo_path: string }[];
+    }>;
+  };
 }
 
 export interface TmdbListResponse {
@@ -216,13 +224,48 @@ export class TmdbService {
 
     try {
       const movie = await this.fetchTmdb(`/movie/${id}`, {
-        append_to_response: 'credits,videos,images,similar,recommendations,external_ids',
+        append_to_response: 'credits,videos,images,similar,recommendations,external_ids,watch/providers',
       });
       serverCache.set(cacheKey, movie, 600);
       return { success: true, source: 'live', data: movie };
     } catch (err) {
       console.warn(`TMDB Movie detail for ${id} failed:`, err);
       return { success: false, source: 'live', error: `Movie ${id} not found or TMDB service unavailable.` };
+    }
+  }
+
+  /**
+   * Discover movies by Production Company ID
+   */
+  static async discoverByCompany(companyId: string | number, page: number = 1): Promise<{
+    success: boolean;
+    source: 'live' | 'cache' | 'fallback';
+    data: TmdbMovie[];
+    total_pages?: number;
+    total_results?: number;
+  }> {
+    const cacheKey = `tmdb_company_movies_${companyId}_${page}`;
+    const cached = serverCache.get<TmdbMovie[]>(cacheKey);
+    if (cached) return { success: true, source: 'cache', data: cached };
+
+    try {
+      const res = await this.fetchTmdb('/discover/movie', {
+        with_companies: String(companyId),
+        sort_by: 'popularity.desc',
+        page: String(page),
+      });
+      const data = res.results || [];
+      serverCache.set(cacheKey, data, 600);
+      return {
+        success: true,
+        source: 'live',
+        data,
+        total_pages: res.total_pages,
+        total_results: res.total_results,
+      };
+    } catch (err) {
+      console.warn(`TMDB discover by company for ${companyId} failed:`, err);
+      return { success: false, source: 'live', data: [] };
     }
   }
 
@@ -352,6 +395,7 @@ export class TmdbService {
       place_of_birth?: string;
       profile_path?: string | null;
       known_for_department?: string;
+      popularity?: number;
       combined_credits?: {
         cast: { id: number; title?: string; name?: string; poster_path: string | null; release_date?: string; first_air_date?: string; character?: string; media_type?: string }[];
         crew: { id: number; title?: string; name?: string; job?: string; department?: string; poster_path: string | null }[];

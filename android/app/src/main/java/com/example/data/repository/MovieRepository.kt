@@ -4,12 +4,9 @@ import com.example.data.local.MovieDao
 import com.example.data.local.MovieEntity
 import com.example.data.local.UserRatingDao
 import com.example.data.local.UserRatingEntity
-import com.example.data.remote.RawgApiService
-import com.example.data.remote.TmdbApiService
-import com.example.data.remote.model.RawgGameDto
-import com.example.data.remote.model.TmdbMovieDto
-import com.example.data.remote.model.RawgScreenshotsResponse
-import com.example.data.remote.model.RawgGameStoresResponse
+import com.example.data.remote.NetworkModule
+import com.example.data.remote.VeyloraBackendApiService
+import com.example.data.remote.model.VeyloraMovieDto
 import com.example.domain.model.CastMember
 import com.example.domain.model.GameCompany
 import com.example.domain.model.GameItem
@@ -30,8 +27,7 @@ import kotlinx.coroutines.flow.map
 import java.util.concurrent.ConcurrentHashMap
 
 class MovieRepository(
-  private val apiService: TmdbApiService,
-  private val rawgApiService: RawgApiService,
+  private val backendApiService: VeyloraBackendApiService = NetworkModule.createVeyloraBackendApiService(),
   private val movieDao: MovieDao,
   private val userRatingDao: UserRatingDao,
   private val consoleStoreRepository: ConsoleStoreRepository = ConsoleStoreRepository()
@@ -63,25 +59,25 @@ class MovieRepository(
 
   suspend fun fetchTrendingMovies(forceRefresh: Boolean = false): Result<List<Movie>> {
     return fetchAndCacheCategory("TRENDING") {
-      apiService.getTrendingMovies(timeWindow = "day", page = 1).results.orEmpty()
+      backendApiService.getMovies(category = "trending", page = 1).data.orEmpty()
     }
   }
 
   suspend fun fetchPopularMovies(forceRefresh: Boolean = false): Result<List<Movie>> {
     return fetchAndCacheCategory("POPULAR") {
-      apiService.getPopularMovies(page = 1).results.orEmpty()
+      backendApiService.getMovies(category = "popular", page = 1).data.orEmpty()
     }
   }
 
   suspend fun fetchTopRatedMovies(forceRefresh: Boolean = false): Result<List<Movie>> {
     return fetchAndCacheCategory("TOP_RATED") {
-      apiService.getTopRatedMovies(page = 1).results.orEmpty()
+      backendApiService.getMovies(category = "top_rated", page = 1).data.orEmpty()
     }
   }
 
   suspend fun fetchNowPlayingMovies(forceRefresh: Boolean = false): Result<List<Movie>> {
     return fetchAndCacheCategory("NOW_PLAYING") {
-      apiService.getNowPlayingMovies(page = 1).results.orEmpty()
+      backendApiService.getMovies(category = "now_playing", page = 1).data.orEmpty()
     }
   }
 
@@ -93,11 +89,11 @@ class MovieRepository(
 
   suspend fun searchMovies(query: String): Result<List<Movie>> {
     return try {
-      val response = apiService.searchMovies(query = query, page = 1)
-      val dtoList = response.results.orEmpty()
+      val response = backendApiService.getMovies(search = query, page = 1)
+      val dtoList = response.data.orEmpty()
       val favoriteIds = movieDao.getFavoriteMovieIds().firstOrNull().orEmpty().toSet()
       val domainMovies = dtoList.map { dto ->
-        mapDtoToDomain(dto, isFavorite = favoriteIds.contains(dto.id))
+        mapDtoToDomain(dto, isFavorite = favoriteIds.contains(dto.id.toLongOrNull() ?: dto.tmdbId ?: 0L))
       }
       Result.success(domainMovies)
     } catch (e: Exception) {
@@ -107,15 +103,16 @@ class MovieRepository(
 
   suspend fun fetchCompanyDetails(companyId: Long): Result<ProductionCompany> {
     return try {
-      val dto = apiService.getCompanyDetails(companyId)
+      val res = backendApiService.getCompanyDetails(companyId.toString(), type = "production")
+      val dto = res.data ?: throw Exception("Company not found")
       val company = ProductionCompany(
-        id = dto.id,
+        id = dto.id?.toLongOrNull() ?: companyId,
         name = dto.name ?: "Unknown Studio",
-        logoUrl = dto.logoPath?.let { "https://image.tmdb.org/t/p/w300$it" },
-        originCountry = dto.originCountry,
+        logoUrl = dto.logo,
+        originCountry = dto.country,
         description = dto.description,
         headquarters = dto.headquarters,
-        homepage = dto.homepage
+        homepage = dto.website
       )
       Result.success(company)
     } catch (e: Exception) {
@@ -125,30 +122,16 @@ class MovieRepository(
 
   /**
    * Fetches comprehensive filmography for a company (e.g. Marvel Studios, Warner Bros, Universal)
-   * Fetches multiple pages in parallel to return a complete filmography catalog rather than just 20 items.
    */
   suspend fun fetchCompanyMovies(companyId: Long): Result<List<Movie>> {
     return try {
-      coroutineScope {
-        val page1Deferred = async { apiService.discoverMoviesByCompany(companyId = companyId, page = 1) }
-        val page2Deferred = async { runCatching { apiService.discoverMoviesByCompany(companyId = companyId, page = 2) }.getOrNull() }
-        val page3Deferred = async { runCatching { apiService.discoverMoviesByCompany(companyId = companyId, page = 3) }.getOrNull() }
-
-        val p1 = page1Deferred.await()
-        val p2 = page2Deferred.await()
-        val p3 = page3Deferred.await()
-
-        val allResults = (p1.results.orEmpty() + p2?.results.orEmpty() + p3?.results.orEmpty())
-          .filter { !it.title.isNullOrBlank() }
-          .distinctBy { it.id }
-          .sortedByDescending { it.popularity ?: 0.0 }
-
-        val favoriteIds = movieDao.getFavoriteMovieIds().firstOrNull().orEmpty().toSet()
-        val domainMovies = allResults.map { dto ->
-          mapDtoToDomain(dto, isFavorite = favoriteIds.contains(dto.id))
-        }
-        Result.success(domainMovies)
+      val res = backendApiService.getMovies(withCompanies = companyId.toString(), page = 1)
+      val dtoList = res.data.orEmpty()
+      val favoriteIds = movieDao.getFavoriteMovieIds().firstOrNull().orEmpty().toSet()
+      val domainMovies = dtoList.map { dto ->
+        mapDtoToDomain(dto, isFavorite = favoriteIds.contains(dto.id.toLongOrNull() ?: dto.tmdbId ?: 0L))
       }
+      Result.success(domainMovies)
     } catch (e: Exception) {
       Result.failure(e)
     }
@@ -157,45 +140,41 @@ class MovieRepository(
   suspend fun getPersonDetails(personId: Long): Result<PersonDetails> {
     personCache[personId]?.let { return Result.success(it) }
     return try {
-      coroutineScope {
-        val personDeferred = async { apiService.getPersonDetails(personId) }
-        val creditsDeferred = async {
-          runCatching { apiService.getPersonMovieCredits(personId) }.getOrNull()
-        }
+      val res = backendApiService.getPersonDetails(personId.toString())
+      val personDto = res.data ?: throw Exception("Person not found")
 
-        val personDto = personDeferred.await()
-        val creditsResponse = creditsDeferred.await()
-
-        val favoriteIds = movieDao.getFavoriteMovieIds().firstOrNull().orEmpty().toSet()
-        val castMovies = creditsResponse?.cast.orEmpty()
-        val crewMovies = creditsResponse?.crew.orEmpty()
-
-        // Deduplicate movies by ID and prioritize higher popularity
-        val allDtos = (castMovies + crewMovies)
-          .filter { !it.title.isNullOrBlank() }
-          .distinctBy { it.id }
-          .sortedByDescending { it.popularity ?: 0.0 }
-
-        val domainMovies = allDtos.map { dto ->
-          mapDtoToDomain(dto, isFavorite = favoriteIds.contains(dto.id))
-        }
-
-        val details = PersonDetails(
-          id = personDto.id,
-          name = personDto.name ?: "Unknown",
-          biography = personDto.biography.orEmpty(),
-          profileUrl = personDto.profilePath?.let { "https://image.tmdb.org/t/p/w342$it" },
-          birthday = personDto.birthday,
-          deathday = personDto.deathday,
-          placeOfBirth = personDto.placeOfBirth,
-          knownForDepartment = personDto.knownForDepartment,
-          popularity = personDto.popularity,
-          movies = domainMovies
+      val favoriteIds = movieDao.getFavoriteMovieIds().firstOrNull().orEmpty().toSet()
+      val domainMovies = personDto.filmography.orEmpty().map { credit ->
+        val mId = credit.id.toLongOrNull() ?: 0L
+        Movie(
+          id = mId,
+          title = credit.title ?: "Untitled",
+          overview = "",
+          posterUrl = credit.poster,
+          backdropUrl = credit.poster,
+          releaseDate = credit.year?.let { "$it-01-01" },
+          releaseYear = credit.year ?: "Unknown",
+          voteAverage = credit.rating ?: 0.0,
+          voteCount = 0,
+          isFavorite = favoriteIds.contains(mId)
         )
-
-        personCache[personId] = details
-        Result.success(details)
       }
+
+      val details = PersonDetails(
+        id = personDto.id.toLongOrNull() ?: personDto.tmdbId ?: personId,
+        name = personDto.name ?: "Unknown",
+        biography = personDto.biography.orEmpty(),
+        profileUrl = personDto.photo,
+        birthday = personDto.birthDate,
+        deathday = personDto.deathDate,
+        placeOfBirth = personDto.birthPlace,
+        knownForDepartment = personDto.role,
+        popularity = personDto.popularity,
+        movies = domainMovies
+      )
+
+      personCache[personId] = details
+      Result.success(details)
     } catch (e: Exception) {
       Result.failure(e)
     }
@@ -207,137 +186,73 @@ class MovieRepository(
     }
 
     return try {
-      coroutineScope {
-        val detailsDeferred = async {
-          runCatching { apiService.getMovieDetails(movie.id) }.getOrNull()
-        }
-        val creditsDeferred = async {
-          runCatching { apiService.getMovieCredits(movie.id) }.getOrNull()
-        }
-        val videosDeferred = async {
-          runCatching { apiService.getMovieVideos(movie.id) }.getOrNull()
-        }
-        val providersDeferred = async {
-          runCatching { apiService.getMovieWatchProviders(movie.id) }.getOrNull()
-        }
+      val res = backendApiService.getMovieDetails(movie.id.toString())
+      val detailsDto = res.data ?: throw Exception("Movie details not found")
 
-        val detailsResponse = detailsDeferred.await()
-        val creditsResponse = creditsDeferred.await()
-        val videosResponse = videosDeferred.await()
-        val providersResponse = providersDeferred.await()
+      val prodCompanies = detailsDto.companies.orEmpty().map { dto ->
+        ProductionCompany(
+          id = dto.id?.toLongOrNull() ?: 0L,
+          name = dto.name ?: "Unknown",
+          logoUrl = dto.logo,
+          originCountry = dto.country
+        )
+      }
+      val primaryCompany = prodCompanies.firstOrNull { !it.logoUrl.isNullOrBlank() }
+        ?: prodCompanies.firstOrNull()
 
-        val prodCompanies = detailsResponse?.productionCompanies.orEmpty().map { dto ->
-          ProductionCompany(
-            id = dto.id,
-            name = dto.name ?: "Unknown",
-            logoUrl = dto.logoPath?.let { "https://image.tmdb.org/t/p/w300$it" },
-            originCountry = dto.originCountry
+      val cast = detailsDto.cast.orEmpty().take(15).map { c ->
+        CastMember(
+          id = c.id ?: 0L,
+          name = c.name ?: "Unknown",
+          character = c.character.orEmpty(),
+          profileUrl = c.profileImage
+        )
+      }
+
+      val crew = detailsDto.crew.orEmpty().take(10).map { c ->
+        CastMember(
+          id = c.id ?: 0L,
+          name = c.name ?: "Unknown",
+          character = c.character ?: c.role.orEmpty(),
+          profileUrl = c.profileImage
+        )
+      }
+
+      val videos = detailsDto.trailers.orEmpty()
+        .filter { it.site.equals("YouTube", ignoreCase = true) && !it.key.isNullOrBlank() }
+        .map { v ->
+          MovieVideo(
+            id = v.id ?: "",
+            key = v.key.orEmpty(),
+            title = v.name ?: "Trailer",
+            site = v.site ?: "YouTube",
+            type = v.type ?: "Trailer",
+            isOfficial = true
           )
         }
-        val primaryCompany = prodCompanies.firstOrNull { !it.logoUrl.isNullOrBlank() }
-          ?: prodCompanies.firstOrNull()
 
-        val cast = creditsResponse?.cast.orEmpty()
-          .sortedBy { it.order ?: 999 }
-          .take(15)
-          .map { castDto ->
-            CastMember(
-              id = castDto.id,
-              name = castDto.name ?: "Unknown",
-              character = castDto.character.orEmpty(),
-              profileUrl = castDto.profilePath?.let { "https://image.tmdb.org/t/p/w185$it" }
-            )
-          }
-
-        val crew = creditsResponse?.crew.orEmpty()
-          .take(10)
-          .map { crewDto ->
-            CastMember(
-              id = crewDto.id,
-              name = crewDto.name ?: "Unknown",
-              character = crewDto.job ?: crewDto.department.orEmpty(),
-              profileUrl = crewDto.profilePath?.let { "https://image.tmdb.org/t/p/w185$it" }
-            )
-          }
-
-        val videos = videosResponse?.results.orEmpty()
-          .filter { it.site.equals("YouTube", ignoreCase = true) && !it.key.isNullOrBlank() }
-          .map { videoDto ->
-            MovieVideo(
-              id = videoDto.id,
-              key = videoDto.key.orEmpty(),
-              title = videoDto.name ?: "Trailer",
-              site = videoDto.site ?: "YouTube",
-              type = videoDto.type ?: "Trailer",
-              isOfficial = videoDto.official ?: false
-            )
-          }
-          .sortedWith(compareByDescending<MovieVideo> { it.isOfficial }.thenByDescending { it.type == "Trailer" })
-          .take(6)
-
-        // Only parse real US providers from TMDB
-        val countryProviders = providersResponse?.results?.get("US")
-          ?: providersResponse?.results?.values?.firstOrNull()
-
-        val providerList = mutableListOf<WatchProvider>()
-        val seenIds = mutableSetOf<Int>()
-
-        // Flatrate (streaming subscription)
-        countryProviders?.flatrate?.forEach { p ->
-          val pid = p.providerId ?: return@forEach
-          if (seenIds.add(pid)) {
-            providerList.add(
-              WatchProvider(
-                id = pid,
-                name = p.providerName ?: "Streaming",
-                logoUrl = p.logoPath?.let { "https://image.tmdb.org/t/p/w154$it" }
-              )
-            )
-          }
-        }
-
-        // Buy / Rent providers
-        countryProviders?.rent?.forEach { p ->
-          val pid = p.providerId ?: return@forEach
-          if (seenIds.add(pid) && providerList.size < 8) {
-            providerList.add(
-              WatchProvider(
-                id = pid,
-                name = p.providerName ?: "Digital",
-                logoUrl = p.logoPath?.let { "https://image.tmdb.org/t/p/w154$it" }
-              )
-            )
-          }
-        }
-
-        countryProviders?.buy?.forEach { p ->
-          val pid = p.providerId ?: return@forEach
-          if (seenIds.add(pid) && providerList.size < 8) {
-            providerList.add(
-              WatchProvider(
-                id = pid,
-                name = p.providerName ?: "Digital",
-                logoUrl = p.logoPath?.let { "https://image.tmdb.org/t/p/w154$it" }
-              )
-            )
-          }
-        }
-
-        val finalDetails = MovieDetails(
-          movie = movie,
-          cast = cast,
-          crew = crew,
-          videos = videos,
-          watchProviders = providerList,
-          productionCompany = primaryCompany,
-          productionCompanies = prodCompanies,
-          runtime = detailsResponse?.runtime,
-          tagline = detailsResponse?.tagline
+      val providerList = detailsDto.watchProviders.orEmpty().map { p ->
+        WatchProvider(
+          id = p.id ?: 0,
+          name = p.name ?: "Digital",
+          logoUrl = p.logoUrl
         )
-
-        detailsCache[movie.id] = finalDetails
-        Result.success(finalDetails)
       }
+
+      val finalDetails = MovieDetails(
+        movie = movie,
+        cast = cast,
+        crew = crew,
+        videos = videos,
+        watchProviders = providerList,
+        productionCompany = primaryCompany,
+        productionCompanies = prodCompanies,
+        runtime = detailsDto.runtime,
+        tagline = detailsDto.tagline
+      )
+
+      detailsCache[movie.id] = finalDetails
+      Result.success(finalDetails)
     } catch (e: Exception) {
       val fallback = MovieDetails(movie = movie)
       Result.success(fallback)
@@ -368,24 +283,25 @@ class MovieRepository(
 
   private suspend fun fetchAndCacheCategory(
     category: String,
-    fetchBlock: suspend () -> List<TmdbMovieDto>
+    fetchBlock: suspend () -> List<VeyloraMovieDto>
   ): Result<List<Movie>> {
     return try {
       val dtoList = fetchBlock()
       val favoriteIds = movieDao.getFavoriteMovieIds().firstOrNull().orEmpty().toSet()
 
       val entities = dtoList.mapIndexed { index, dto ->
+        val mId = dto.id.toLongOrNull() ?: dto.tmdbId ?: 0L
         MovieEntity(
-          id = dto.id,
+          id = mId,
           title = dto.title ?: "Untitled",
           overview = dto.overview.orEmpty(),
           posterPath = dto.posterPath,
           backdropPath = dto.backdropPath,
           releaseDate = dto.releaseDate,
-          voteAverage = dto.voteAverage ?: 0.0,
+          voteAverage = dto.rating ?: 0.0,
           voteCount = dto.voteCount ?: 0,
           category = category,
-          isFavorite = favoriteIds.contains(dto.id),
+          isFavorite = favoriteIds.contains(mId),
           savedAt = System.currentTimeMillis() + index
         )
       }
@@ -403,20 +319,22 @@ class MovieRepository(
     }
   }
 
-  private fun mapDtoToDomain(dto: TmdbMovieDto, isFavorite: Boolean): Movie {
-    val year = dto.releaseDate?.takeIf { it.length >= 4 }?.substring(0, 4) ?: "Unknown"
-    val poster = dto.posterPath?.let { "https://image.tmdb.org/t/p/w342$it" }
-    val backdrop = dto.backdropPath?.let { "https://image.tmdb.org/t/p/original$it" }
+  private fun mapDtoToDomain(dto: VeyloraMovieDto, isFavorite: Boolean): Movie {
+    val year = dto.releaseYear?.ifBlank { null }
+      ?: dto.releaseDate?.takeIf { it.length >= 4 }?.substring(0, 4)
+      ?: "Unknown"
+    val poster = dto.poster ?: dto.posterPath?.let { "https://image.tmdb.org/t/p/w342$it" }
+    val backdrop = dto.backdrop ?: dto.backdropPath?.let { "https://image.tmdb.org/t/p/original$it" }
 
     return Movie(
-      id = dto.id,
+      id = dto.id.toLongOrNull() ?: dto.tmdbId ?: 0L,
       title = dto.title ?: "Untitled",
       overview = dto.overview.orEmpty(),
       posterUrl = poster,
       backdropUrl = backdrop,
       releaseDate = dto.releaseDate,
       releaseYear = year,
-      voteAverage = dto.voteAverage ?: 0.0,
+      voteAverage = dto.rating ?: 0.0,
       voteCount = dto.voteCount ?: 0,
       isFavorite = isFavorite,
       posterPath = dto.posterPath,

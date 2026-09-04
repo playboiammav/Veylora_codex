@@ -14,12 +14,12 @@ export async function OPTIONS() {
 }
 
 function normalizeTmdbMovie(m: TmdbMovie): NormalizedMovie {
-  const releaseYear = m.release_date ? m.release_date.split('-')[0] : '2024';
-  const genres = m.genres?.map((g) => g.name) || ['Cinema', 'Drama'];
-  const runtime = m.runtime || 120;
+  const releaseYear = m.release_date ? m.release_date.split('-')[0] : '';
+  const genres = m.genres?.map((g) => g.name) || [];
+  const runtime = m.runtime || 0;
   const hours = Math.floor(runtime / 60);
   const minutes = runtime % 60;
-  const formattedRuntime = `${hours}h ${minutes}m`;
+  const formattedRuntime = runtime > 0 ? `${hours}h ${minutes}m` : '';
 
   const cast = m.credits?.cast?.slice(0, 8).map((c) => ({
     id: c.id,
@@ -28,7 +28,7 @@ function normalizeTmdbMovie(m: TmdbMovie): NormalizedMovie {
     profileImage: c.profile_path ? getTmdbImageUrl(c.profile_path, 'w500') : null,
   })) || [];
 
-  const director = m.credits?.crew?.find((c) => c.job === 'Director')?.name || 'Acclaimed Director';
+  const director = m.credits?.crew?.find((c) => c.job === 'Director')?.name || undefined;
 
   const trailers = m.videos?.results
     ?.filter((v) => v.site === 'YouTube' && (v.type === 'Trailer' || v.type === 'Teaser'))
@@ -80,13 +80,16 @@ function normalizeTmdbMovie(m: TmdbMovie): NormalizedMovie {
     formattedRuntime,
     cast,
     director,
-    directors: [director],
+    directors: director ? [director] : [],
     companies,
     trailers,
     images,
     similar,
     status: m.status || 'Released',
     streamingLinks: [],
+    posterPath: m.poster_path || undefined,
+    backdropPath: m.backdrop_path || undefined,
+    popularity: m.popularity,
   };
 }
 
@@ -99,7 +102,11 @@ export async function GET(request: NextRequest) {
   try {
     let movies: TmdbMovie[] = [];
 
-    if (search.trim()) {
+    const withCompanies = searchParams.get('with_companies') || searchParams.get('company');
+    if (withCompanies) {
+      const res = await TmdbService.discoverByCompany(withCompanies, page);
+      movies = res.data;
+    } else if (search.trim()) {
       const res = await TmdbService.searchMovies(search, page);
       movies = res.data;
     } else if (category === 'trending') {

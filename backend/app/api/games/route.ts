@@ -84,6 +84,11 @@ function normalizeRawgGame(g: RawgGame, rank?: number): NormalizedGame {
     stores,
     rank,
     playtime: g.playtime,
+    dominantColor: (g as any).dominant_color,
+    saturatedColor: (g as any).saturated_color,
+    publishersList: g.publishers?.map((p) => ({ id: p.id, name: p.name, slug: p.slug })),
+    developersList: g.developers?.map((d) => ({ id: d.id, name: d.name, slug: d.slug })),
+    website: g.website,
   };
 }
 
@@ -94,6 +99,9 @@ export async function GET(request: NextRequest) {
   const page = parseInt(searchParams.get('page') || '1', 10);
   const pageSize = parseInt(searchParams.get('pageSize') || searchParams.get('page_size') || '20', 10);
   const genres = searchParams.get('genres') || searchParams.get('genre') || '';
+  const publishers = searchParams.get('publishers') || undefined;
+  const developers = searchParams.get('developers') || undefined;
+  const parentPlatforms = searchParams.get('parent_platforms') || undefined;
 
   try {
     let ordering = '-rating';
@@ -143,7 +151,21 @@ export async function GET(request: NextRequest) {
       dates = `${startStr},${endStr}`;
     } else if (category === 'top50' || category === 'top') {
       ordering = '-metacritic';
+    } else if (category === 'recently_released' || category === 'recent') {
+      ordering = '-released';
+      const now = new Date();
+      const past = new Date();
+      past.setMonth(now.getMonth() - 12);
+      const startStr = past.toISOString().split('T')[0];
+      const endStr = now.toISOString().split('T')[0];
+      dates = `${startStr},${endStr}`;
     }
+
+    const queryOrdering = searchParams.get('ordering');
+    if (queryOrdering) ordering = queryOrdering;
+
+    const queryDates = searchParams.get('dates');
+    if (queryDates) dates = queryDates;
 
     const rawgRes = await RawgService.getGames({
       page,
@@ -152,6 +174,9 @@ export async function GET(request: NextRequest) {
       ordering,
       genres: targetGenres,
       dates,
+      publishers,
+      developers,
+      parent_platforms: parentPlatforms,
     });
 
     const normalizedData: NormalizedGame[] = rawgRes.data.map((g, idx) => {

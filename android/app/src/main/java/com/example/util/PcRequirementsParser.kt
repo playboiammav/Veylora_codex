@@ -28,6 +28,10 @@ object PcRequirementsParser {
         minRaw = rawReq.minimum
         recRaw = rawReq.recommended
       }
+      is com.example.data.remote.model.VeyloraRawRequirementsDto -> {
+        minRaw = rawReq.minimum
+        recRaw = rawReq.recommended
+      }
       is Map<*, *> -> {
         minRaw = rawReq["minimum"]?.toString()
         recRaw = rawReq["recommended"]?.toString()

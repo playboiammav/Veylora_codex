@@ -37,19 +37,7 @@ export async function GET(
         const p = tmdbRes.data;
         const imdbId = p.imdb_id || p.external_ids?.imdb_id;
 
-        const rawCredits = p.combined_credits?.cast || [];
-
-        const knownFor = rawCredits.slice(0, 8).map((m: any) => ({
-          id: String(m.id),
-          title: m.title || m.name || 'Untitled',
-          year: (m.release_date || m.first_air_date) ? (m.release_date || m.first_air_date).split('-')[0] : undefined,
-          role: m.character,
-          poster: m.poster_path ? getTmdbImageUrl(m.poster_path, 'w500') : undefined,
-          rating: m.vote_average ? Number(m.vote_average.toFixed(1)) : undefined,
-          type: (m.media_type === 'tv' ? 'tv' : 'movie') as 'movie' | 'tv',
-        }));
-
-        const filmography = rawCredits.map((m: any) => ({
+        const castCredits = (p.combined_credits?.cast || []).map((m: any) => ({
           id: String(m.id),
           title: m.title || m.name || 'Untitled',
           year: (m.release_date || m.first_air_date) ? (m.release_date || m.first_air_date).split('-')[0] : undefined,
@@ -58,6 +46,38 @@ export async function GET(
           rating: m.vote_average ? Number(m.vote_average.toFixed(1)) : undefined,
           type: (m.media_type === 'tv' ? 'tv' : 'movie') as 'movie' | 'tv',
           poster: m.poster_path ? getTmdbImageUrl(m.poster_path, 'w500') : undefined,
+          popularity: m.popularity || 0,
+        }));
+
+        const crewCredits = (p.combined_credits?.crew || []).map((m: any) => ({
+          id: String(m.id),
+          title: m.title || m.name || 'Untitled',
+          year: (m.release_date || m.first_air_date) ? (m.release_date || m.first_air_date).split('-')[0] : undefined,
+          role: m.job || m.department,
+          character: undefined,
+          rating: m.vote_average ? Number(m.vote_average.toFixed(1)) : undefined,
+          type: (m.media_type === 'tv' ? 'tv' : 'movie') as 'movie' | 'tv',
+          poster: m.poster_path ? getTmdbImageUrl(m.poster_path, 'w500') : undefined,
+          popularity: m.popularity || 0,
+        }));
+
+        const seenIds = new Set<string>();
+        const filmography = [...castCredits, ...crewCredits]
+          .filter((item) => {
+            if (seenIds.has(item.id)) return false;
+            seenIds.add(item.id);
+            return true;
+          })
+          .sort((a, b) => (b.popularity || 0) - (a.popularity || 0));
+
+        const knownFor = filmography.slice(0, 8).map((m) => ({
+          id: m.id,
+          title: m.title,
+          year: m.year,
+          role: m.role,
+          poster: m.poster,
+          rating: m.rating,
+          type: m.type,
         }));
 
         person = {
@@ -67,10 +87,11 @@ export async function GET(
           name: p.name,
           role: p.known_for_department || 'Actor',
           photo: p.profile_path ? getTmdbImageUrl(p.profile_path, 'w500') : null,
-          biography: p.biography || `${p.name} is an internationally recognized talent.`,
+          biography: p.biography || '',
           birthDate: p.birthday,
           deathDate: p.deathday,
           birthPlace: p.place_of_birth,
+          popularity: p.popularity,
           knownFor,
           filmography,
         };
@@ -78,7 +99,7 @@ export async function GET(
         // If person has imdb_id, enrich with TV-API awards
         if (imdbId) {
           const tvEnrichment = await TvApiService.getName(imdbId);
-          if (tvEnrichment) {
+          if (tvEnrichment && person) {
             person.awardsSummary = tvEnrichment.awardsSummary;
             person.height = tvEnrichment.height;
           }

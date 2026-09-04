@@ -63,12 +63,18 @@ export interface NormalizedGame {
     minimum?: NormalizedSystemRequirement;
     recommended?: NormalizedSystemRequirement;
   };
+  publishersList?: { id: number; name: string; slug?: string; imageBackground?: string }[];
+  developersList?: { id: number; name: string; slug?: string; imageBackground?: string }[];
+  website?: string;
   steamAppId?: number;
   steamUrl?: string;
   isUpcoming?: boolean;
   isTrending?: boolean;
   rank?: number;
   playtime?: number;
+  dominantColor?: string;
+  saturatedColor?: string;
+  rawRequirements?: { minimum?: string; recommended?: string };
 }
 
 export interface NormalizedCastMember {
@@ -163,6 +169,11 @@ export interface NormalizedMovie {
   mediaType?: 'movie' | 'tv' | 'episode';
   seasons?: { seasonNumber: number; episodeCount?: number; episodes?: any[] }[];
   streamingLinks?: { name: string; url: string; logo?: string }[];
+  watchProviders?: { id: number; name: string; logoUrl?: string }[];
+  crew?: NormalizedCastMember[];
+  posterPath?: string;
+  backdropPath?: string;
+  popularity?: number;
   isTrending?: boolean;
   isFeatured?: boolean;
 }
@@ -179,6 +190,7 @@ export interface NormalizedPerson {
   deathDate?: string;
   birthPlace?: string;
   height?: string;
+  popularity?: number;
   awardsSummary?: string;
   awards?: MovieAwardItem[];
   knownFor: {
@@ -207,11 +219,14 @@ export interface NormalizedPerson {
 export interface NormalizedCompany {
   id: string;
   name: string;
+  slug?: string;
   description?: string;
   logo?: string;
+  imageUrl?: string;
   country?: string;
   headquarters?: string;
   website?: string;
+  gamesCount?: number;
   type?: 'production' | 'developer' | 'publisher' | 'distributor';
   movies?: {
     id: string;

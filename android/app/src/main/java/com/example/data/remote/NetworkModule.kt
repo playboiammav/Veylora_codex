@@ -1,9 +1,7 @@
 package com.example.data.remote
 
-import com.example.BuildConfig
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
-import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -16,41 +14,8 @@ object NetworkModule {
   const val PRICE_API_BASE_URL = "https://ais-dev-oi34e4dhfwkni5arkpizws-228330439328.europe-west3.run.app/"
   const val VEYLORA_PROXY_BASE_URL = PRICE_API_BASE_URL
 
-  val TMDB_API_KEY: String
-    get() = try {
-      BuildConfig.TMDB_API_KEY.ifBlank { "" }
-    } catch (_: Exception) {
-      ""
-    }
-
-  val RAWG_API_KEY: String
-    get() = try {
-      BuildConfig.RAWG_API_KEY.ifBlank { "" }
-    } catch (_: Exception) {
-      ""
-    }
-
-  const val BASE_URL = "https://api.themoviedb.org/3/"
   const val IMAGE_BASE_URL_W500 = "https://image.tmdb.org/t/p/w500"
   const val IMAGE_BASE_URL_ORIGINAL = "https://image.tmdb.org/t/p/original"
-
-  private fun createApiKeyInterceptor(): Interceptor {
-    return Interceptor { chain ->
-      val originalRequest = chain.request()
-      val originalUrl = originalRequest.url
-
-      val urlWithApiKey = originalUrl.newBuilder()
-        .addQueryParameter("api_key", TMDB_API_KEY)
-        .build()
-
-      val newRequest = originalRequest.newBuilder()
-        .url(urlWithApiKey)
-        .header("Accept", "application/json")
-        .build()
-
-      chain.proceed(newRequest)
-    }
-  }
 
   fun createMoshi(): Moshi {
     return Moshi.Builder()
@@ -58,35 +23,9 @@ object NetworkModule {
       .build()
   }
 
-  fun createOkHttpClient(): OkHttpClient {
-    val logging = HttpLoggingInterceptor().apply {
-      level = HttpLoggingInterceptor.Level.BASIC
-    }
-
-    return OkHttpClient.Builder()
-      .addInterceptor(createApiKeyInterceptor())
-      .addInterceptor(logging)
-      .connectTimeout(15, TimeUnit.SECONDS)
-      .readTimeout(15, TimeUnit.SECONDS)
-      .writeTimeout(15, TimeUnit.SECONDS)
-      .build()
-  }
-
-  fun createTmdbApiService(
-    okHttpClient: OkHttpClient = createOkHttpClient(),
+  fun createVeyloraBackendApiService(
     moshi: Moshi = createMoshi()
-  ): TmdbApiService {
-    return Retrofit.Builder()
-      .baseUrl(BASE_URL)
-      .client(okHttpClient)
-      .addConverterFactory(MoshiConverterFactory.create(moshi))
-      .build()
-      .create(TmdbApiService::class.java)
-  }
-
-  fun createRawgApiService(
-    moshi: Moshi = createMoshi()
-  ): RawgApiService {
+  ): VeyloraBackendApiService {
     val logging = HttpLoggingInterceptor().apply {
       level = HttpLoggingInterceptor.Level.BASIC
     }
@@ -98,11 +37,11 @@ object NetworkModule {
       .build()
 
     return Retrofit.Builder()
-      .baseUrl(RawgApiService.BASE_URL)
+      .baseUrl(VEYLORA_PROXY_BASE_URL)
       .client(okHttpClient)
       .addConverterFactory(MoshiConverterFactory.create(moshi))
       .build()
-      .create(RawgApiService::class.java)
+      .create(VeyloraBackendApiService::class.java)
   }
 
   fun createCheapSharkApiService(
