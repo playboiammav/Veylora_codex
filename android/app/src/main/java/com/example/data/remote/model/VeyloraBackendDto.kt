@@ -50,6 +50,9 @@ data class VeyloraGameDto(
   @Json(name = "playtime") val playtime: Int? = null,
   @Json(name = "dominantColor") val dominantColor: String? = null,
   @Json(name = "saturatedColor") val saturatedColor: String? = null,
+  @Json(name = "steamAppId") val steamAppId: Long? = null,
+  @Json(name = "steamUrl") val steamUrl: String? = null,
+  @Json(name = "systemRequirements") val systemRequirements: VeyloraSystemRequirementsBlockDto? = null,
   @Json(name = "rawRequirements") val rawRequirements: VeyloraRawRequirementsDto? = null
 )
 
@@ -69,9 +72,37 @@ data class VeyloraGameTrailerDto(
 )
 
 @JsonClass(generateAdapter = true)
+data class VeyloraSystemRequirementDto(
+  @Json(name = "os") val os: String? = null,
+  @Json(name = "processor") val processor: String? = null,
+  @Json(name = "memory") val memory: String? = null,
+  @Json(name = "graphics") val graphics: String? = null,
+  @Json(name = "vram") val vram: String? = null,
+  @Json(name = "storage") val storage: String? = null,
+  @Json(name = "directx") val directx: String? = null,
+  @Json(name = "vulkan") val vulkan: String? = null,
+  @Json(name = "opengl") val opengl: String? = null,
+  @Json(name = "additionalNotes") val additionalNotes: String? = null
+)
+
+@JsonClass(generateAdapter = true)
+data class VeyloraSystemRequirementsBlockDto(
+  @Json(name = "minimum") val minimum: VeyloraSystemRequirementDto? = null,
+  @Json(name = "recommended") val recommended: VeyloraSystemRequirementDto? = null,
+  @Json(name = "macMinimum") val macMinimum: VeyloraSystemRequirementDto? = null,
+  @Json(name = "macRecommended") val macRecommended: VeyloraSystemRequirementDto? = null,
+  @Json(name = "linuxMinimum") val linuxMinimum: VeyloraSystemRequirementDto? = null,
+  @Json(name = "linuxRecommended") val linuxRecommended: VeyloraSystemRequirementDto? = null
+)
+
+@JsonClass(generateAdapter = true)
 data class VeyloraRawRequirementsDto(
   @Json(name = "minimum") val minimum: String? = null,
-  @Json(name = "recommended") val recommended: String? = null
+  @Json(name = "recommended") val recommended: String? = null,
+  @Json(name = "macMinimum") val macMinimum: String? = null,
+  @Json(name = "macRecommended") val macRecommended: String? = null,
+  @Json(name = "linuxMinimum") val linuxMinimum: String? = null,
+  @Json(name = "linuxRecommended") val linuxRecommended: String? = null
 )
 
 @JsonClass(generateAdapter = true)
@@ -158,6 +189,7 @@ data class VeyloraCompanyDto(
   @Json(name = "description") val description: String? = null,
   @Json(name = "logo") val logo: String? = null,
   @Json(name = "imageUrl") val imageUrl: String? = null,
+  @Json(name = "imageBackground") val imageBackground: String? = null,
   @Json(name = "country") val country: String? = null,
   @Json(name = "headquarters") val headquarters: String? = null,
   @Json(name = "website") val website: String? = null,

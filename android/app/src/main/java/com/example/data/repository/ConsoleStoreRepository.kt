@@ -226,21 +226,30 @@ class ConsoleStoreRepository(
 
       if (obj.has("price") && obj.get("price").isJsonObject) {
         val priceObj = obj.getAsJsonObject("price")
-        formattedPrice = priceObj.optString("formattedDiscountedPrice") ?: priceObj.optString("formattedPrice") ?: priceObj.optString("formattedBasePrice")
-        formattedOriginalPrice = priceObj.optString("formattedBasePrice") ?: priceObj.optString("formattedOriginalPrice")
-        discountPercentage = priceObj.optInt("discountPercentage")
         isFree = priceObj.optBoolean("isFree")
         price = priceObj.optDouble("discountedPrice") ?: priceObj.optDouble("basePrice")
         originalPrice = priceObj.optDouble("basePrice") ?: priceObj.optDouble("originalPrice")
+        formattedPrice = priceObj.optString("formattedDiscountedPrice") ?: priceObj.optString("formattedPrice") ?: priceObj.optString("formattedBasePrice")
+        formattedOriginalPrice = priceObj.optString("formattedBasePrice") ?: priceObj.optString("formattedOriginalPrice")
+        discountPercentage = priceObj.optInt("discountPercentage")
         currency = priceObj.optString("currency")
       } else {
+        isFree = obj.optBoolean("isFree")
         price = obj.optDouble("price")
         originalPrice = obj.optDouble("originalPrice") ?: obj.optDouble("basePrice")
-        formattedPrice = obj.optString("formattedPrice") ?: price?.let { "$%.2f".format(it) }
-        formattedOriginalPrice = obj.optString("formattedOriginalPrice") ?: originalPrice?.let { "$%.2f".format(it) }
+        formattedPrice = obj.optString("formattedPrice") ?: price?.let { if (it > 0.0) "$%.2f".format(it) else null }
+        formattedOriginalPrice = obj.optString("formattedOriginalPrice") ?: originalPrice?.let { if (it > 0.0) "$%.2f".format(it) else null }
         discountPercentage = obj.optInt("discountPercentage")
-        isFree = obj.optBoolean("isFree")
         currency = obj.optString("currency")
+      }
+
+      if (isFree) {
+        if (formattedPrice.isNullOrBlank()) formattedPrice = "FREE"
+      } else {
+        if (price != null && price <= 0.0) {
+          price = null
+          formattedPrice = null
+        }
       }
 
       val storeUrl = obj.optString("storeUrl") ?: obj.optString("url")

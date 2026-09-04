@@ -16,18 +16,57 @@ function normalizeRawgGame(g: RawgGame, rank?: number): NormalizedGame {
   const hardwareBadges: string[] = [];
   const platforms = g.platforms?.map((p) => {
     const slug = p.platform.slug.toLowerCase();
-    if (slug.includes('playstation') || slug.includes('ps5') || slug.includes('ps4')) {
+
+    // PlayStation
+    if (slug === 'playstation5' || slug === 'ps5') {
       if (!hardwareBadges.includes('ps5')) hardwareBadges.push('ps5');
+    } else if (slug === 'playstation4' || slug === 'ps4') {
+      if (!hardwareBadges.includes('ps4')) hardwareBadges.push('ps4');
+    } else if (slug === 'ps5-pro' || slug === 'playstation-5-pro') {
+      if (!hardwareBadges.includes('ps5_pro')) hardwareBadges.push('ps5_pro');
+    } else if (slug === 'ps4-pro' || slug === 'playstation-4-pro') {
+      if (!hardwareBadges.includes('ps4_pro')) hardwareBadges.push('ps4_pro');
+    } else if (slug.includes('playstation') || slug.includes('ps-vita') || slug.includes('psp')) {
+      if (slug.includes('vita')) {
+        if (!hardwareBadges.includes('ps_vita')) hardwareBadges.push('ps_vita');
+      } else if (!hardwareBadges.includes('ps5') && !hardwareBadges.includes('ps4')) {
+        hardwareBadges.push('ps5');
+      }
     }
-    if (slug.includes('xbox')) {
+
+    // Xbox
+    if (slug.includes('series-x') || slug.includes('series-s') || slug === 'xbox-series') {
       if (!hardwareBadges.includes('xbox_series')) hardwareBadges.push('xbox_series');
+    } else if (slug === 'xbox-one' || slug.includes('xboxone')) {
+      if (!hardwareBadges.includes('xbox_one')) hardwareBadges.push('xbox_one');
+    } else if (slug === 'xbox360' || slug.includes('xbox-360')) {
+      if (!hardwareBadges.includes('xbox_360')) hardwareBadges.push('xbox_360');
+    } else if (slug.includes('xbox')) {
+      if (!hardwareBadges.includes('xbox_series') && !hardwareBadges.includes('xbox_one')) {
+        hardwareBadges.push('xbox_series');
+      }
     }
-    if (slug.includes('pc') || slug.includes('windows')) {
+
+    // Desktops / Mobile
+    if (slug === 'pc' || slug === 'windows') {
       if (!hardwareBadges.includes('pc')) hardwareBadges.push('pc');
     }
-    if (slug.includes('nintendo') || slug.includes('switch')) {
+    if (slug === 'macos' || slug === 'mac') {
+      if (!hardwareBadges.includes('mac')) hardwareBadges.push('mac');
+    }
+    if (slug === 'linux') {
+      if (!hardwareBadges.includes('linux')) hardwareBadges.push('linux');
+    }
+    if (slug === 'android') {
+      if (!hardwareBadges.includes('android')) hardwareBadges.push('android');
+    }
+    if (slug === 'ios') {
+      if (!hardwareBadges.includes('ios')) hardwareBadges.push('ios');
+    }
+    if (slug.includes('switch') || slug === 'nintendo-switch') {
       if (!hardwareBadges.includes('nintendo_switch')) hardwareBadges.push('nintendo_switch');
     }
+
     return p.platform.name;
   }) || ['PC'];
 
@@ -37,21 +76,22 @@ function normalizeRawgGame(g: RawgGame, rank?: number): NormalizedGame {
 
   const stores = g.stores?.map((s) => {
     const domain = s.store.domain?.toLowerCase() || '';
+    const storeName = s.store.name?.toLowerCase() || '';
     let storeId = 'other';
     let url = `https://${s.store.domain || 'rawg.io'}`;
-    if (domain.includes('steampowered')) {
+    if (domain.includes('steampowered') || storeName.includes('steam')) {
       storeId = 'steam';
-      url = `https://store.steampowered.com/app/${g.id}`;
-    } else if (domain.includes('playstation')) {
+      url = 'https://store.steampowered.com/';
+    } else if (domain.includes('playstation') || storeName.includes('playstation')) {
       storeId = 'playstation_store';
-      url = `https://store.playstation.com/`;
-    } else if (domain.includes('xbox') || domain.includes('microsoft')) {
+      url = 'https://store.playstation.com/';
+    } else if (domain.includes('xbox') || domain.includes('microsoft') || storeName.includes('xbox')) {
       storeId = 'xbox_store';
-      url = `https://www.xbox.com/games/store/`;
-    } else if (domain.includes('epicgames')) {
+      url = 'https://www.xbox.com/games/store/';
+    } else if (domain.includes('epicgames') || storeName.includes('epic')) {
       storeId = 'epic_games';
-      url = `https://store.epicgames.com/`;
-    } else if (domain.includes('gog')) {
+      url = 'https://store.epicgames.com/';
+    } else if (domain.includes('gog') || storeName.includes('gog')) {
       storeId = 'gog';
       url = `https://www.gog.com/game/${g.slug}`;
     }
@@ -86,8 +126,20 @@ function normalizeRawgGame(g: RawgGame, rank?: number): NormalizedGame {
     playtime: g.playtime,
     dominantColor: (g as any).dominant_color,
     saturatedColor: (g as any).saturated_color,
-    publishersList: g.publishers?.map((p) => ({ id: p.id, name: p.name, slug: p.slug })),
-    developersList: g.developers?.map((d) => ({ id: d.id, name: d.name, slug: d.slug })),
+    publishersList: g.publishers?.map((p) => ({
+      id: p.id,
+      name: p.name,
+      slug: p.slug,
+      imageBackground: p.image_background,
+      imageUrl: p.image_background,
+    })),
+    developersList: g.developers?.map((d) => ({
+      id: d.id,
+      name: d.name,
+      slug: d.slug,
+      imageBackground: d.image_background,
+      imageUrl: d.image_background,
+    })),
     website: g.website,
   };
 }

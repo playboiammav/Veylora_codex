@@ -1410,8 +1410,8 @@ private fun GameEditionsSection(
       editions.forEach { edition ->
         val priceText = when {
           edition.isFree -> "FREE"
-          !edition.formattedPrice.isNullOrBlank() -> edition.formattedPrice
-          edition.price != null -> "$%.2f".format(java.util.Locale.US, edition.price)
+          !edition.formattedPrice.isNullOrBlank() && edition.formattedPrice != "$0.00" -> edition.formattedPrice
+          edition.price != null && edition.price > 0.0 -> "$%.2f".format(java.util.Locale.US, edition.price)
           else -> "Unavailable"
         }
 
@@ -2054,7 +2054,7 @@ fun PcRequirementsBottomSheet(
           contentAlignment = Alignment.Center
         ) {
           Text(
-            text = "SYSTEM SPECS",
+            text = "MANUAL",
             fontWeight = FontWeight.Bold,
             fontSize = 12.sp,
             letterSpacing = 0.5.sp,
@@ -2128,24 +2128,28 @@ fun PcRequirementsBottomSheet(
         Spacer(modifier = Modifier.height(14.dp))
 
         val specItems = if (reqTab == 0) {
-          listOf(
+          listOfNotNull(
             "OS" to requirements?.minOs,
             "Processor" to requirements?.minCpu,
             "Memory / RAM" to requirements?.minRam,
             "Graphics / GPU" to requirements?.minGpu,
             "VRAM" to requirements?.minVram,
             "DirectX" to requirements?.minDirectX,
+            requirements?.minVulkan?.let { "Vulkan" to it },
+            requirements?.minOpenGl?.let { "OpenGL" to it },
             "Storage" to requirements?.minStorage,
             "Additional Notes" to requirements?.minNotes
           )
         } else {
-          listOf(
+          listOfNotNull(
             "OS" to requirements?.recOs,
             "Processor" to requirements?.recCpu,
             "Memory / RAM" to requirements?.recRam,
             "Graphics / GPU" to requirements?.recGpu,
             "VRAM" to requirements?.recVram,
             "DirectX" to requirements?.recDirectX,
+            requirements?.recVulkan?.let { "Vulkan" to it },
+            requirements?.recOpenGl?.let { "OpenGL" to it },
             "Storage" to requirements?.recStorage,
             "Additional Notes" to requirements?.recNotes
           )
@@ -2161,7 +2165,9 @@ fun PcRequirementsBottomSheet(
           verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
           specItems.forEach { (label, value) ->
-            PcSpecRowItem(label = label, value = value?.ifBlank { "Not specified" } ?: "Not specified")
+            if (!value.isNullOrBlank()) {
+              PcSpecRowItem(label = label, value = value)
+            }
           }
         }
       } else {
@@ -2248,9 +2254,23 @@ fun PcRequirementsBottomSheet(
             .padding(16.dp),
           verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
+          val osOptions = remember(requirements) {
+            val list = mutableListOf<String>()
+            val rawReqText = "${requirements?.minOs} ${requirements?.recOs}".lowercase()
+            if (rawReqText.contains("windows 11") || rawReqText.contains("win 11")) list.add("Windows 11")
+            if (rawReqText.contains("windows 10") || rawReqText.contains("win 10")) list.add("Windows 10")
+            if (rawReqText.contains("windows 8.1") || rawReqText.contains("8.1")) list.add("Windows 8.1")
+            if (rawReqText.contains("windows 8") || rawReqText.contains("win 8")) list.add("Windows 8")
+            if (rawReqText.contains("windows 7") || rawReqText.contains("win 7")) list.add("Windows 7")
+            if (rawReqText.contains("xp") || rawReqText.contains("windows xp")) list.add("Windows XP")
+
+            val fullSet = listOf("Windows 11", "Windows 10", "Windows 8.1", "Windows 8", "Windows 7", "Windows XP", "Linux (SteamOS)", "macOS")
+            if (list.isEmpty()) fullSet else (list + listOf("Linux (SteamOS)", "macOS")).distinct()
+          }
+
           PcHwSelectorRow(
             label = "Operating System",
-            options = listOf("Windows 11", "Windows 10", "Linux (SteamOS)", "macOS"),
+            options = osOptions,
             selectedOption = selectedOs,
             onSelect = { selectedOs = it }
           )

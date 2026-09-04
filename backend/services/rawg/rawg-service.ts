@@ -23,14 +23,14 @@ export interface RawgGame {
     released_at?: string;
     requirements?: { minimum?: string; recommended?: string };
   }[];
-  stores?: { id: number; url_en?: string; store: { id: number; name: string; slug: string; domain: string } }[];
+  stores?: { id: number; url?: string; url_en?: string; store: { id: number; name: string; slug: string; domain: string } }[];
   short_screenshots?: { id: number; image: string }[];
   description_raw?: string;
   description?: string;
   website?: string;
   reddit_url?: string;
-  developers?: { id: number; name: string; slug: string }[];
-  publishers?: { id: number; name: string; slug: string }[];
+  developers?: { id: number; name: string; slug: string; image_background?: string }[];
+  publishers?: { id: number; name: string; slug: string; image_background?: string }[];
   esrb_rating?: { id: number; name: string; slug: string };
 }
 
@@ -290,6 +290,47 @@ export class RawgService {
       }
     } catch (err) {
       console.warn(`RAWG movies error for ${idOrSlug}:`, err);
+    }
+
+    return { success: false, source: 'live', count: 0, data: [] };
+  }
+
+  /**
+   * Get real game-specific store deep links
+   */
+  static async getGameStores(idOrSlug: string | number): Promise<{
+    success: boolean;
+    source: 'live' | 'cache' | 'fallback';
+    count: number;
+    data: Array<{ id: number; game_id: number; store_id: number; url: string }>;
+  }> {
+    const cacheKey = `rawg_stores_${idOrSlug}`;
+    const cached = serverCache.get<any>(cacheKey);
+    if (cached) {
+      return { success: true, source: 'cache', count: cached.length, data: cached };
+    }
+
+    const apiKey = getRawgApiKey();
+    if (!apiKey) {
+      return { success: false, source: 'live', count: 0, data: [] };
+    }
+    try {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 5000);
+
+      const res = await fetch(`${RAWG_BASE_URL}/games/${idOrSlug}/stores?key=${apiKey}`, {
+        signal: controller.signal,
+      });
+      clearTimeout(timeout);
+
+      if (res.ok) {
+        const json = await res.json();
+        const results = json.results || [];
+        serverCache.set(cacheKey, results, 600);
+        return { success: true, source: 'live', count: results.length, data: results };
+      }
+    } catch (err) {
+      console.warn(`RAWG stores error for ${idOrSlug}:`, err);
     }
 
     return { success: false, source: 'live', count: 0, data: [] };

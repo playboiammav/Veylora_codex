@@ -207,7 +207,10 @@ class GameRepository(
 
         val supportedHardware = mutableListOf<String>()
         dto.hardwareBadges.orEmpty().forEach {
-          supportedHardware.add(it.lowercase().trim())
+          val clean = it.lowercase().trim()
+          if (!clean.contains("store") && !clean.contains("steam") && !clean.contains("epic") && !clean.contains("gog")) {
+            supportedHardware.add(clean)
+          }
         }
         if (supportedHardware.isEmpty()) {
           dto.platforms.orEmpty().forEach { p ->
@@ -222,7 +225,8 @@ class GameRepository(
           supportedHardware.add("pc")
         }
 
-        val pcReq = dto.rawRequirements?.let { com.example.util.PcRequirementsParser.parse(it) }
+        val pcReq = dto.systemRequirements?.let { com.example.util.PcRequirementsParser.parse(it) }
+          ?: dto.rawRequirements?.let { com.example.util.PcRequirementsParser.parse(it) }
 
         val price = resolvePriceFromEditions(editions)
 
@@ -236,7 +240,16 @@ class GameRepository(
         Log.d("GameRepository_Diag", "Price: $price")
         Log.d("GameRepository_Diag", "PC Requirements: minimum='${pcReq?.minimum}', recommended='${pcReq?.recommended}'")
 
-        val baseGameItem = mapDetailResponseToGameItem(dto, editions, pcReq, supportedHardware, price, stores)
+        val baseGameItem = mapDetailResponseToGameItem(
+          dto,
+          editions,
+          pcReq,
+          supportedHardware,
+          price,
+          stores,
+          resolvedConceptId,
+          resolvedProductId
+        )
 
         val gameDetails = GameDetails(
           game = baseGameItem,
@@ -273,7 +286,10 @@ class GameRepository(
   private fun mapDtoToGameItem(dto: VeyloraGameDto): GameItem {
     val supportedHardware = mutableListOf<String>()
     dto.hardwareBadges.orEmpty().forEach {
-      supportedHardware.add(it.lowercase().trim())
+      val clean = it.lowercase().trim()
+      if (!clean.contains("store") && !clean.contains("steam") && !clean.contains("epic") && !clean.contains("gog")) {
+        supportedHardware.add(clean)
+      }
     }
     if (supportedHardware.isEmpty()) {
       dto.platforms.orEmpty().forEach { p ->
@@ -288,7 +304,8 @@ class GameRepository(
       supportedHardware.add("pc")
     }
 
-    val pcReq = dto.rawRequirements?.let { com.example.util.PcRequirementsParser.parse(it) }
+    val pcReq = dto.systemRequirements?.let { com.example.util.PcRequirementsParser.parse(it) }
+      ?: dto.rawRequirements?.let { com.example.util.PcRequirementsParser.parse(it) }
 
     val platforms = dto.platforms.orEmpty().map { pName ->
       GamePlatform(
@@ -304,7 +321,8 @@ class GameRepository(
         id = it.id?.toLongOrNull() ?: 0L,
         name = it.name ?: "",
         slug = it.slug ?: "",
-        imageUrl = it.imageUrl,
+        imageUrl = it.imageUrl ?: it.imageBackground,
+        imageBackground = it.imageBackground ?: it.imageUrl,
         isDeveloper = false
       )
     }
@@ -314,7 +332,8 @@ class GameRepository(
         id = it.id?.toLongOrNull() ?: 0L,
         name = it.name ?: "",
         slug = it.slug ?: "",
-        imageUrl = it.imageUrl,
+        imageUrl = it.imageUrl ?: it.imageBackground,
+        imageBackground = it.imageBackground ?: it.imageUrl,
         isDeveloper = true
       )
     }
@@ -356,7 +375,9 @@ class GameRepository(
     pcReq: PcRequirements?,
     supportedHardware: List<String>,
     price: GamePrice?,
-    stores: List<GameStoreLink>
+    stores: List<GameStoreLink>,
+    conceptId: String? = null,
+    productId: String? = null
   ): GameItem {
     val releaseDate = res.releaseDate
     val releaseYear = res.releaseYear?.ifBlank { null }
@@ -377,7 +398,8 @@ class GameRepository(
         id = it.id?.toLongOrNull() ?: 0L,
         name = it.name ?: "",
         slug = it.slug ?: "",
-        imageUrl = it.imageUrl,
+        imageUrl = it.imageUrl ?: it.imageBackground,
+        imageBackground = it.imageBackground ?: it.imageUrl,
         isDeveloper = false
       )
     }
@@ -387,7 +409,8 @@ class GameRepository(
         id = it.id?.toLongOrNull() ?: 0L,
         name = it.name ?: "",
         slug = it.slug ?: "",
-        imageUrl = it.imageUrl,
+        imageUrl = it.imageUrl ?: it.imageBackground,
+        imageBackground = it.imageBackground ?: it.imageUrl,
         isDeveloper = true
       )
     }
@@ -418,7 +441,9 @@ class GameRepository(
       editions = editions,
       pcRequirements = pcReq,
       supportedHardware = supportedHardware.distinct(),
-      price = price
+      price = price,
+      conceptId = conceptId,
+      productId = productId
     )
   }
 
@@ -492,6 +517,18 @@ class GameRepository(
           ?: Regex("(?i)productId=([a-zA-Z0-9]{12})").find(store.url)
         if (match != null) {
           return match.groupValues[1]
+        }
+      }
+    }
+    return null
+  }
+
+  fun extractSteamAppId(stores: List<GameStoreLink>): Long? {
+    for (store in stores) {
+      if (store.url.contains("steampowered.com", ignoreCase = true)) {
+        val match = Regex("(?i)app[/=](\\d+)").find(store.url)
+        if (match != null) {
+          return match.groupValues[1].toLongOrNull()
         }
       }
     }

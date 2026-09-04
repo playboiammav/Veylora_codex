@@ -43,11 +43,28 @@ object LogoManager {
   const val LOCAL_ASSET_BASE_URI = "file:///android_asset/logos/"
   const val FALLBACK_BASE_URL = "https://raw.githubusercontent.com/playboiammav/Logos-/main/"
 
+  private val ASSET_FILE_MAPPING = mapOf(
+    "ps5_pro" to "PS5_Pro_centered",
+    "ps4_pro" to "PS4_Pro",
+    "windows_11" to "windows-11",
+    "windows_10" to "windows-10-icon",
+    "windows_8" to "Windows 8",
+    "windows_8_1" to "Windows 8",
+    "windows_7" to "Windows_7-Logo.wine",
+    "windows_xp" to "Windows xp",
+    "apple" to "apple",
+    "nintendo_2" to "nintendo-2",
+    "nintendo" to "nintendo-2",
+    "playstation_store" to "playstation-store",
+    "linux" to "linux"
+  )
+
   /**
    * Set of verified local SVG assets in the project.
    */
   val ALL_29_ASSETS = setOf(
     "android",
+    "apple",
     "apple_arcade",
     "battlenet",
     "chromeos",
@@ -60,6 +77,8 @@ object LogoManager {
     "linux",
     "mac",
     "meta_quest",
+    "nintendo",
+    "nintendo_2",
     "nintendo_3ds",
     "nintendo_switch",
     "nintendo_switch_2",
@@ -68,7 +87,9 @@ object LogoManager {
     "ps2",
     "ps3",
     "ps4",
+    "ps4_pro",
     "ps5",
+    "ps5_pro",
     "ps_vita",
     "psp",
     "rog_ally",
@@ -78,6 +99,11 @@ object LogoManager {
     "wii",
     "wii_u",
     "windows",
+    "windows_11",
+    "windows_10",
+    "windows_8",
+    "windows_7",
+    "windows_xp",
     "xbox",
     "xbox_360",
     "xbox_one",
@@ -88,7 +114,8 @@ object LogoManager {
    * Returns local asset URI for an asset name (e.g. "ps5" -> "file:///android_asset/logos/ps5.svg")
    */
   fun getLocalAssetUri(assetName: String): String {
-    return "${LOCAL_ASSET_BASE_URI}${assetName}.svg"
+    val mapped = ASSET_FILE_MAPPING[assetName.lowercase()] ?: assetName
+    return "${LOCAL_ASSET_BASE_URI}${mapped}.svg"
   }
 
   fun fetchLogos(scope: CoroutineScope = CoroutineScope(Dispatchers.IO)) {
@@ -169,25 +196,42 @@ object LogoManager {
    */
   fun normalizePlatformAssetName(rawKey: String): String? {
     val key = rawKey.lowercase().replace("-", "_").replace(" ", "_").trim()
+
+    // Explicitly reject store and service names from hardware mapping
+    if (key.contains("store") ||
+        (key.contains("steam") && !key.contains("deck")) ||
+        key.contains("epic") ||
+        key.contains("gog") ||
+        key.contains("battlenet") ||
+        key.contains("ea_app") ||
+        key.contains("ubisoft") ||
+        key.contains("arcade") ||
+        key.contains("eshop")) {
+      return null
+    }
+
     return when {
+      key == "ps5_pro" || key.contains("ps5_pro") || key.contains("playstation_5_pro") -> "ps5_pro"
+      key == "ps4_pro" || key.contains("ps4_pro") || key.contains("playstation_4_pro") -> "ps4_pro"
       key == "ps5" || key.contains("playstation_5") || key.contains("playstation5") || key == "ps_5" -> "ps5"
       key == "ps4" || key.contains("playstation_4") || key.contains("playstation4") || key == "ps_4" -> "ps4"
       key == "ps3" || key.contains("playstation_3") || key.contains("playstation3") || key == "ps_3" -> "ps3"
       key == "ps2" || key.contains("playstation_2") || key.contains("playstation2") || key == "ps_2" -> "ps2"
       key == "psp" || key.contains("playstation_portable") || key.contains("playstationportable") -> "psp"
       key == "ps_vita" || key == "psvita" || key == "vita" || key.contains("playstation_vita") -> "ps_vita"
-      key == "playstation" || key.contains("playstation") -> "ps5"
+      key == "playstation" -> "ps5"
 
       key == "xbox_series" || key.contains("series_x") || key.contains("series_s") || key.contains("xbox_series") || key.contains("series_x_s") -> "xbox_series"
       key == "xbox_one" || key == "xboxone" || key.contains("xbox_one") -> "xbox_one"
       key == "xbox_360" || key == "xbox360" || key.contains("xbox_360") -> "xbox_360"
-      key == "xbox" || key == "original_xbox" || key.contains("xbox") -> "xbox"
+      key == "xbox" || key == "original_xbox" -> "xbox"
 
       key == "nintendo_switch_2" || key == "switch_2" || key.contains("switch_2") -> "nintendo_switch_2"
       key == "nintendo_switch" || key == "switch" || key.contains("switch") -> "nintendo_switch"
       key == "nintendo_3ds" || key == "3ds" || key.contains("3ds") || key.contains("2ds") -> "nintendo_3ds"
       key == "wii_u" || key == "wiiu" || key.contains("wii_u") || key.contains("wiiu") -> "wii_u"
       key == "wii" || key.contains("wii") -> "wii"
+      key == "nintendo" -> "nintendo"
 
       key == "steam_deck" || key.contains("steam_deck") || key.contains("steamdeck") -> "steam_deck"
       key == "rog_ally" || key.contains("rog_ally") || key.contains("ally") -> "rog_ally"
@@ -195,7 +239,13 @@ object LogoManager {
       key == "nvidia" || key.contains("shield") || (key.contains("nvidia") && !key.contains("geforce_now")) -> "nvidia"
 
       key == "chromeos" || key.contains("chrome_os") || key.contains("chromeos") || key.contains("chromebook") -> "chromeos"
+      key == "windows_11" || key == "win11" || key.contains("windows_11") -> "windows_11"
+      key == "windows_10" || key == "win10" || key.contains("windows_10") -> "windows_10"
+      key == "windows_8_1" || key == "windows_8" || key == "win8" || key.contains("windows_8") -> "windows_8"
+      key == "windows_7" || key == "win7" || key.contains("windows_7") -> "windows_7"
+      key == "windows_xp" || key == "winxp" || key.contains("windows_xp") -> "windows_xp"
       key == "windows" || key == "win" || key.contains("windows") || key == "pc_windows" -> "windows"
+      key == "apple" -> "apple"
       key == "mac" || key == "macos" || key == "os_x" || key == "osx" || key.contains("macintosh") || key.contains("apple_mac") -> "mac"
       key == "linux" || key.contains("linux") || key.contains("ubuntu") || key.contains("debian") || key.contains("arch") -> "linux"
       key == "ios" || key.contains("iphone") || key.contains("ipad") || key == "apple_ios" -> "ios"
@@ -223,7 +273,7 @@ object LogoManager {
   }
 
   /**
-   * Normalizes any store/launcher name to one of the 9 store asset names (or PlayStation/Xbox/Nintendo SVG).
+   * Normalizes any store/launcher name to one of the store asset names (or PlayStation/Xbox/Nintendo SVG).
    */
   fun normalizeStoreAssetName(rawKey: String): String? {
     val key = rawKey.lowercase().replace("-", "_").replace(" ", "_").replace(".", "_").trim()

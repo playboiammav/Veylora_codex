@@ -41,6 +41,14 @@ export const HARDWARE_PLATFORMS_MAP: Record<string, HardwarePlatformConfig> = {
     logoPath: '/assets/logos/ps5.svg',
     altText: 'PlayStation 5',
   },
+  ps5_pro: {
+    id: 'ps5_pro',
+    name: 'PlayStation 5 Pro',
+    shortName: 'PS5 Pro',
+    isPc: false,
+    logoPath: '/assets/logos/PS5_Pro_centered.svg',
+    altText: 'PlayStation 5 Pro',
+  },
   ps4: {
     id: 'ps4',
     name: 'PlayStation 4',
@@ -48,6 +56,14 @@ export const HARDWARE_PLATFORMS_MAP: Record<string, HardwarePlatformConfig> = {
     isPc: false,
     logoPath: '/assets/logos/ps4.svg',
     altText: 'PlayStation 4',
+  },
+  ps4_pro: {
+    id: 'ps4_pro',
+    name: 'PlayStation 4 Pro',
+    shortName: 'PS4 Pro',
+    isPc: false,
+    logoPath: '/assets/logos/PS4_Pro.svg',
+    altText: 'PlayStation 4 Pro',
   },
   ps3: {
     id: 'ps3',
@@ -104,6 +120,14 @@ export const HARDWARE_PLATFORMS_MAP: Record<string, HardwarePlatformConfig> = {
     isPc: false,
     logoPath: '/assets/logos/xbox_360.svg',
     altText: 'Xbox 360',
+  },
+  nintendo: {
+    id: 'nintendo',
+    name: 'Nintendo',
+    shortName: 'Nintendo',
+    isPc: false,
+    logoPath: '/assets/logos/nintendo-2.svg',
+    altText: 'Nintendo',
   },
   nintendo_switch: {
     id: 'nintendo_switch',
@@ -168,6 +192,54 @@ export const HARDWARE_PLATFORMS_MAP: Record<string, HardwarePlatformConfig> = {
     isPc: false,
     logoPath: '/assets/logos/windows.svg',
     altText: 'Windows',
+  },
+  windows_11: {
+    id: 'windows_11',
+    name: 'Windows 11',
+    shortName: 'Win 11',
+    isPc: false,
+    logoPath: '/assets/logos/windows-11.svg',
+    altText: 'Windows 11',
+  },
+  windows_10: {
+    id: 'windows_10',
+    name: 'Windows 10',
+    shortName: 'Win 10',
+    isPc: false,
+    logoPath: '/assets/logos/windows-10-icon.svg',
+    altText: 'Windows 10',
+  },
+  windows_8: {
+    id: 'windows_8',
+    name: 'Windows 8',
+    shortName: 'Win 8',
+    isPc: false,
+    logoPath: '/assets/logos/Windows 8.svg',
+    altText: 'Windows 8',
+  },
+  windows_7: {
+    id: 'windows_7',
+    name: 'Windows 7',
+    shortName: 'Win 7',
+    isPc: false,
+    logoPath: '/assets/logos/Windows_7-Logo.wine.svg',
+    altText: 'Windows 7',
+  },
+  windows_xp: {
+    id: 'windows_xp',
+    name: 'Windows XP',
+    shortName: 'Win XP',
+    isPc: false,
+    logoPath: '/assets/logos/Windows xp.svg',
+    altText: 'Windows XP',
+  },
+  apple: {
+    id: 'apple',
+    name: 'Apple',
+    shortName: 'Apple',
+    isPc: false,
+    logoPath: '/assets/logos/apple.svg',
+    altText: 'Apple',
   },
   mac: {
     id: 'mac',
@@ -235,7 +307,7 @@ export const OFFICIAL_STORES_MAP: Record<string, OfficialStoreConfig> = {
     brandColor: '#003791',
     bgClass: 'bg-[#003791] hover:bg-[#0047ba]',
     textClass: 'text-white',
-    logoPath: '/assets/logos/playstation-store-logo-brandlogos.net_trj4r2512.svg',
+    logoPath: '/assets/logos/playstation-store.svg',
     altText: 'PlayStation Store',
   },
   xbox_store: {
@@ -328,14 +400,53 @@ export function resolveHardwarePlatform(raw: string): HardwarePlatformConfig | n
   if (!raw) return null;
   const lower = raw.toLowerCase().trim();
 
+  // Explicitly reject store and launcher names from hardware resolution
+  if (
+    lower.includes('store') ||
+    lower.includes('steam') && !lower.includes('deck') ||
+    lower.includes('epic') ||
+    lower.includes('gog') ||
+    lower.includes('battlenet') ||
+    lower.includes('ea app') ||
+    lower.includes('ubisoft')
+  ) {
+    return null;
+  }
+
   // PC
-  if (lower === 'pc' || lower.includes('windows') || lower.includes('personal computer')) {
+  if (lower === 'pc' || lower.includes('personal computer')) {
     return HARDWARE_PLATFORMS_MAP.pc;
   }
 
-  // PlayStation Generations (must check PS5 first, then PS4, PS3, PS2, PS Vita)
+  // Windows OS versions
+  if (lower.includes('windows 11') || lower === 'windows_11' || lower === 'win11') {
+    return HARDWARE_PLATFORMS_MAP.windows_11;
+  }
+  if (lower.includes('windows 10') || lower === 'windows_10' || lower === 'win10') {
+    return HARDWARE_PLATFORMS_MAP.windows_10;
+  }
+  if (lower.includes('windows 8') || lower === 'windows_8' || lower === 'win8' || lower.includes('windows 8.1')) {
+    return HARDWARE_PLATFORMS_MAP.windows_8;
+  }
+  if (lower.includes('windows 7') || lower === 'windows_7' || lower === 'win7') {
+    return HARDWARE_PLATFORMS_MAP.windows_7;
+  }
+  if (lower.includes('windows xp') || lower === 'windows_xp' || lower === 'winxp') {
+    return HARDWARE_PLATFORMS_MAP.windows_xp;
+  }
+  if (lower === 'windows' || lower.includes('windows')) {
+    return HARDWARE_PLATFORMS_MAP.windows;
+  }
+
+  // PlayStation Generations (pro models first)
+  if (lower.includes('ps5 pro') || lower.includes('ps5_pro') || lower.includes('playstation 5 pro')) {
+    return HARDWARE_PLATFORMS_MAP.ps5_pro;
+  }
   if (lower === 'ps5' || lower.includes('playstation 5') || lower.includes('ps5')) {
     return HARDWARE_PLATFORMS_MAP.ps5;
+  }
+  if (lower.includes('ps4 pro') || lower.includes('ps4_pro') || lower.includes('playstation 4 pro')) {
+    return HARDWARE_PLATFORMS_MAP.ps4_pro;
   }
   if (lower === 'ps4' || lower.includes('playstation 4') || lower.includes('ps4')) {
     return HARDWARE_PLATFORMS_MAP.ps4;
@@ -384,7 +495,7 @@ export function resolveHardwarePlatform(raw: string): HardwarePlatformConfig | n
     return HARDWARE_PLATFORMS_MAP.wii;
   }
   if (lower.includes('nintendo')) {
-    return HARDWARE_PLATFORMS_MAP.nintendo_switch;
+    return HARDWARE_PLATFORMS_MAP.nintendo;
   }
 
   // Handhelds & Desktops
@@ -394,8 +505,11 @@ export function resolveHardwarePlatform(raw: string): HardwarePlatformConfig | n
   if (lower.includes('rog ally') || lower.includes('rogally')) {
     return HARDWARE_PLATFORMS_MAP.rog_ally;
   }
-  if (lower.includes('mac') || lower.includes('macos') || lower.includes('osx') || lower.includes('apple')) {
+  if (lower.includes('mac') || lower.includes('macos') || lower.includes('osx')) {
     return HARDWARE_PLATFORMS_MAP.mac;
+  }
+  if (lower === 'apple' || lower.includes('apple')) {
+    return HARDWARE_PLATFORMS_MAP.apple;
   }
   if (lower.includes('linux')) {
     return HARDWARE_PLATFORMS_MAP.linux;

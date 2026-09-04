@@ -104,15 +104,29 @@ object PlatformLogoUtils {
     if (!supportedHardware.isNullOrEmpty()) {
       for (rawHw in supportedHardware) {
         val hw = rawHw.lowercase().replace("-", "_").trim()
+        // Strictly exclude any stores or non-hardware services
+        if (hw.contains("store") || (hw.contains("steam") && !hw.contains("deck")) || hw.contains("epic") || hw.contains("gog")) {
+          continue
+        }
         when {
+          hw == "ps5_pro" || hw.contains("ps5_pro") || hw.contains("playstation_5_pro") -> {
+            if (addedKeys.add("ps5_pro")) {
+              items.add(GamePlatformDisplay("PS5 Pro", "ps5_pro", LogoManager.getPlatformLogoUrl("ps5_pro"), priority = 1))
+            }
+          }
           hw == "ps5" || hw.contains("playstation_5") || hw.contains("playstation5") || hw == "ps_5" -> {
             if (addedKeys.add("ps5")) {
-              items.add(GamePlatformDisplay("PlayStation 5", "ps5", LogoManager.getPlatformLogoUrl("ps5"), priority = 1))
+              items.add(GamePlatformDisplay("PlayStation 5", "ps5", LogoManager.getPlatformLogoUrl("ps5"), priority = 2))
+            }
+          }
+          hw == "ps4_pro" || hw.contains("ps4_pro") || hw.contains("playstation_4_pro") -> {
+            if (addedKeys.add("ps4_pro")) {
+              items.add(GamePlatformDisplay("PS4 Pro", "ps4_pro", LogoManager.getPlatformLogoUrl("ps4_pro"), priority = 3))
             }
           }
           hw == "ps4" || hw.contains("playstation_4") || hw.contains("playstation4") || hw == "ps_4" -> {
             if (addedKeys.add("ps4")) {
-              items.add(GamePlatformDisplay("PlayStation 4", "ps4", LogoManager.getPlatformLogoUrl("ps4"), priority = 2))
+              items.add(GamePlatformDisplay("PlayStation 4", "ps4", LogoManager.getPlatformLogoUrl("ps4"), priority = 4))
             }
           }
           hw == "ps_vita" || hw == "psvita" || hw == "vita" || hw.contains("playstation_vita") || hw == "psp" -> {

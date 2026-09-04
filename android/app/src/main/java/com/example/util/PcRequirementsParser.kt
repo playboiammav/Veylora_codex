@@ -12,6 +12,8 @@ object PcRequirementsParser {
     "Graphics" to listOf("Graphics / GPU", "Graphics Card", "Graphics", "Video Card", "GPU"),
     "VRAM" to listOf("VRAM", "Video Memory"),
     "DirectX" to listOf("DirectX", "DirectX Version"),
+    "Vulkan" to listOf("Vulkan", "Vulkan Version", "Vulkan API"),
+    "OpenGL" to listOf("OpenGL", "Open GL", "OpenGL Version", "OpenGL API"),
     "Storage" to listOf("Storage", "Hard Drive", "Available Space", "Disk Space", "Hard Disk Space"),
     "Sound" to listOf("Sound Card", "Sound", "Audio"),
     "Notes" to listOf("Additional Notes", "Other Requirements", "Notes")
@@ -31,6 +33,36 @@ object PcRequirementsParser {
       is com.example.data.remote.model.VeyloraRawRequirementsDto -> {
         minRaw = rawReq.minimum
         recRaw = rawReq.recommended
+      }
+      is com.example.data.remote.model.VeyloraSystemRequirementsBlockDto -> {
+        val minDto = rawReq.minimum
+        val recDto = rawReq.recommended
+        if (minDto != null || recDto != null) {
+          return PcRequirements(
+            minimum = minDto?.additionalNotes,
+            recommended = recDto?.additionalNotes,
+            minOs = minDto?.os,
+            minCpu = minDto?.processor,
+            minRam = minDto?.memory,
+            minGpu = minDto?.graphics,
+            minVram = minDto?.vram,
+            minDirectX = minDto?.directx,
+            minVulkan = minDto?.vulkan,
+            minOpenGl = minDto?.opengl,
+            minStorage = minDto?.storage,
+            minNotes = minDto?.additionalNotes,
+            recOs = recDto?.os,
+            recCpu = recDto?.processor,
+            recRam = recDto?.memory,
+            recGpu = recDto?.graphics,
+            recVram = recDto?.vram,
+            recStorage = recDto?.storage,
+            recDirectX = recDto?.directx,
+            recVulkan = recDto?.vulkan,
+            recOpenGl = recDto?.opengl,
+            recNotes = recDto?.additionalNotes
+          )
+        }
       }
       is Map<*, *> -> {
         minRaw = rawReq["minimum"]?.toString()
@@ -65,6 +97,8 @@ object PcRequirementsParser {
       minGpu = minMap["Graphics"],
       minVram = minMap["VRAM"],
       minDirectX = minMap["DirectX"],
+      minVulkan = minMap["Vulkan"],
+      minOpenGl = minMap["OpenGL"],
       minStorage = minMap["Storage"],
       minNotes = minMap["Notes"],
       recOs = recMap["OS"],
@@ -74,20 +108,23 @@ object PcRequirementsParser {
       recVram = recMap["VRAM"],
       recStorage = recMap["Storage"],
       recDirectX = recMap["DirectX"],
+      recVulkan = recMap["Vulkan"],
+      recOpenGl = recMap["OpenGL"],
       recNotes = recMap["Notes"]
     )
   }
 
   fun cleanHtml(html: String?): String {
     if (html.isNullOrBlank()) return ""
-    return html
+
+    var text = html
       .replace("\r\n", "\n")
       .replace("\r", "\n")
       .replace(Regex("(?i)<br\\s*/?>"), "\n")
       .replace(Regex("(?i)</p>"), "\n\n")
       .replace(Regex("(?i)</li>"), "\n")
       .replace(Regex("(?i)</div>"), "\n")
-      .replace(Regex("(?i)<[^>]+>"), "")
+      .replace(Regex("(?i)<[^>]+>"), " ")
       .replace("&nbsp;", " ")
       .replace("&amp;", "&")
       .replace("&quot;", "\"")
@@ -95,6 +132,21 @@ object PcRequirementsParser {
       .replace("&#x27;", "'")
       .replace("&lt;", "<")
       .replace("&gt;", ">")
+
+    // Separate concatenated keywords lacking newlines (e.g. "Minimum:OS: Windows...Processor: Intel...")
+    val kwList = listOf(
+      "Minimum", "Recommended", "Requires a 64-bit",
+      "OS", "Operating System", "Processor", "CPU", "Memory", "RAM",
+      "Graphics", "Video Card", "GPU", "VRAM", "Video Memory",
+      "Storage", "Hard Drive", "Disk Space", "Hard Disk Space",
+      "DirectX", "Direct X", "Vulkan", "OpenGL", "Open GL",
+      "Sound Card", "Sound", "Notes", "Additional Notes"
+    ).sortedByDescending { it.length }
+
+    val regex = Regex("([a-zA-Z0-9\\)\\.\\*\\:])(${kwList.joinToString("|") { Regex.escape(it) }}):", RegexOption.IGNORE_CASE)
+    text = text.replace(regex, "$1\n$2:")
+
+    return text
       .lines()
       .map { it.trim() }
       .filter { it.isNotBlank() }

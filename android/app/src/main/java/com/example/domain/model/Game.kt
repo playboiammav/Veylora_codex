@@ -44,6 +44,8 @@ data class PcRequirements(
   val minVram: String? = null,
   val minStorage: String? = null,
   val minDirectX: String? = null,
+  val minVulkan: String? = null,
+  val minOpenGl: String? = null,
   val minNotes: String? = null,
   val recOs: String? = null,
   val recCpu: String? = null,
@@ -52,6 +54,8 @@ data class PcRequirements(
   val recVram: String? = null,
   val recStorage: String? = null,
   val recDirectX: String? = null,
+  val recVulkan: String? = null,
+  val recOpenGl: String? = null,
   val recNotes: String? = null
 ) {
   val hasData: Boolean
@@ -82,6 +86,7 @@ data class GameCompany(
   val name: String,
   val slug: String = "",
   val imageUrl: String? = null,
+  val imageBackground: String? = null,
   val description: String? = null,
   val gamesCount: Int? = null,
   val isDeveloper: Boolean = false

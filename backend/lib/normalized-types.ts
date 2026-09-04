@@ -32,8 +32,11 @@ export interface NormalizedSystemRequirement {
   processor?: string;
   memory?: string;
   graphics?: string;
+  vram?: string;
   storage?: string;
   directx?: string;
+  vulkan?: string;
+  opengl?: string;
   additionalNotes?: string;
 }
 
@@ -62,9 +65,13 @@ export interface NormalizedGame {
   systemRequirements?: {
     minimum?: NormalizedSystemRequirement;
     recommended?: NormalizedSystemRequirement;
+    macMinimum?: NormalizedSystemRequirement;
+    macRecommended?: NormalizedSystemRequirement;
+    linuxMinimum?: NormalizedSystemRequirement;
+    linuxRecommended?: NormalizedSystemRequirement;
   };
-  publishersList?: { id: number; name: string; slug?: string; imageBackground?: string }[];
-  developersList?: { id: number; name: string; slug?: string; imageBackground?: string }[];
+  publishersList?: { id: number; name: string; slug?: string; imageBackground?: string; imageUrl?: string }[];
+  developersList?: { id: number; name: string; slug?: string; imageBackground?: string; imageUrl?: string }[];
   website?: string;
   steamAppId?: number;
   steamUrl?: string;
@@ -74,7 +81,14 @@ export interface NormalizedGame {
   playtime?: number;
   dominantColor?: string;
   saturatedColor?: string;
-  rawRequirements?: { minimum?: string; recommended?: string };
+  rawRequirements?: {
+    minimum?: string;
+    recommended?: string;
+    macMinimum?: string;
+    macRecommended?: string;
+    linuxMinimum?: string;
+    linuxRecommended?: string;
+  };
 }
 
 export interface NormalizedCastMember {
@@ -223,6 +237,7 @@ export interface NormalizedCompany {
   description?: string;
   logo?: string;
   imageUrl?: string;
+  imageBackground?: string;
   country?: string;
   headquarters?: string;
   website?: string;
