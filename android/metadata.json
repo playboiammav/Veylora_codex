@@ -1,0 +1,6 @@
+{
+  "name": "Veylora",
+  "description": "A premium AI-powered entertainment tracker app with a cinematic monochrome design.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

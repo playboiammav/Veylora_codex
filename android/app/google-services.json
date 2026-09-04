@@ -1,0 +1,44 @@
+{
+  "project_info": {
+    "project_number": "246707705856",
+    "firebase_url": "https://aura-music-568f9-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "aura-music-568f9",
+    "storage_bucket": "aura-music-568f9.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:246707705856:android:5fa8d7e2cd6e31c30620e5",
+        "android_client_info": {
+          "package_name": "com.aistudio.cinemahub.ba90"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "246707705856-pd84hoflfimo4sl8gkb95hdgar1jpka7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.aistudio.cinemahub.ba90",
+            "certificate_hash": "44f13272e5ae361cbb16543150532c1b165835d8"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6OXOrlqP6ykoYcDBdC6BVxzahp1VHQ40"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "246707705856-l9pg53nn958notneqctobolkuc24k75v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

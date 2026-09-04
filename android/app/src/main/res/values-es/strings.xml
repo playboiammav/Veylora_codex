@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">Veylora</string>
+    <string name="nav_home">Inicio</string>
+    <string name="nav_explore">Explorar</string>
+    <string name="nav_library">Biblioteca</string>
+    <string name="nav_settings">Ajustes</string>
+    <string name="view_game">Ver juego</string>
+    <string name="not_available_now">No disponible ahora</string>
+    <string name="verified">Verificado</string>
+    <string name="sign_in_register">Iniciar sesión / Registrarse</string>
+    <string name="sign_out">Cerrar sesión</string>
+    <string name="available_platforms">PLATAFORMAS DISPONIBLES</string>
+
+    <string name="settings_title">Perfil y Ajustes</string>
+    <string name="manage_account">Gestionar cuenta</string>
+    <string name="manage_account_subtitle">Editar usuario, nombre y fecha de nacimiento</string>
+    <string name="language_label">Idioma</string>
+    <string name="import_data_button">Importar datos (CSV/JSON)</string>
+    <string name="app_theme">Tema de la app</string>
+    <string name="dark_mode">Modo oscuro</string>
+    <string name="light_mode">Modo claro</string>
+    <string name="guest_mode">Modo invitado</string>
+    <string name="guest_mode_sub">Inicia sesión para sincronizar tu lista en todos tus dispositivos.</string>
+    <string name="continue_with_google">Continuar con Google</string>
+    <string name="continue_with_yahoo">Continuar con Yahoo</string>
+    <string name="continue_with_facebook">Continuar con Facebook</string>
+    <string name="personal_information">INFORMACIÓN PERSONAL</string>
+    <string name="username">Nombre de usuario</string>
+    <string name="first_name">Nombre</string>
+    <string name="last_name">Apellido</string>
+    <string name="dob">Fecha de nacimiento (AAAA-MM-DD)</string>
+    <string name="country">País</string>
+    <string name="save_changes">Guardar cambios</string>
+</resources>

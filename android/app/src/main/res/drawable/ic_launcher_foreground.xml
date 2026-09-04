@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <group
+        android:pivotX="54"
+        android:pivotY="54"
+        android:scaleX="0.55"
+        android:scaleY="0.55"
+        android:translateX="24.3"
+        android:translateY="24.3">
+        <!-- Cinema Clapper & Film Reel Icon -->
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M18,4v4h2l-2,4h3l2,-4h2l-2,4h3l2,-4h2l-2,4h3l2,-4h3.29c0.95,0 1.71,0.76 1.71,1.71V20c0,1.1 -0.9,2 -2,2H4c-1.1,0 -2,-0.9 -2,-2V5.71C2,4.76 2.76,4 3.71,4H18z M4,10v10h16V10H4z M7,13h3v4H7V13z M12,13h5v4h-5V13z" />
+    </group>
+</vector>
+

@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">فيلورا</string>
+    <string name="nav_home">الرئيسية</string>
+    <string name="nav_explore">استكشف</string>
+    <string name="nav_library">المكتبة</string>
+    <string name="nav_settings">الإعدادات</string>
+    <string name="view_game">عرض اللعبة</string>
+    <string name="not_available_now">غير متوفر الآن</string>
+    <string name="verified">موثق</string>
+    <string name="sign_in_register">تسجيل الدخول / إنشاء حساب</string>
+    <string name="sign_out">تسجيل الخروج</string>
+    <string name="available_platforms">المنصات المتاحة</string>
+
+    <string name="settings_title">الملف الشخصي والإعدادات</string>
+    <string name="manage_account">إدارة الحساب</string>
+    <string name="manage_account_subtitle">تعديل اسم المستخدم والاسم وتاريخ الميلاد</string>
+    <string name="language_label">اللغة</string>
+    <string name="import_data_button">استيراد البيانات (CSV/JSON)</string>
+    <string name="app_theme">مظهر التطبيق</string>
+    <string name="dark_mode">الوضع الداكن</string>
+    <string name="light_mode">الوضع الفاتح</string>
+    <string name="guest_mode">وضع الزائر</string>
+    <string name="guest_mode_sub">سجل الدخول لمزامنة قائمة المتابعة عبر جميع أجهزتك.</string>
+    <string name="continue_with_google">المتابعة باستخدام Google</string>
+    <string name="continue_with_yahoo">المتابعة باستخدام Yahoo</string>
+    <string name="continue_with_facebook">المتابعة باستخدام Facebook</string>
+    <string name="personal_information">المعلومات الشخصية</string>
+    <string name="username">اسم المستخدم</string>
+    <string name="first_name">الاسم الأول</string>
+    <string name="last_name">اسم العائلة</string>
+    <string name="dob">تاريخ الميلاد (YYYY-MM-DD)</string>
+    <string name="country">الدولة</string>
+    <string name="save_changes">حفظ التغييرات</string>
+</resources>

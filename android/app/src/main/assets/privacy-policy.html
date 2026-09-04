@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Veylora</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0A0A0C;
+            --card-bg: #131317;
+            --border-color: #23232A;
+            --accent-color: #3B82F6;
+            --accent-hover: #2563EB;
+            --danger-color: #EF4444;
+            --text-primary: #F4F4F5;
+            --text-secondary: #A1A1AA;
+            --text-muted: #71717A;
+            --header-bg: rgba(10, 10, 12, 0.85);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            padding-bottom: 60dp;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-color: var(--header-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 16px 24px;
+        }
+
+        .header-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #EF4444, #3B82F6);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 800;
+            color: #FFF;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 16px;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-link.danger {
+            color: var(--danger-color);
+        }
+
+        main {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 24px;
+        }
+
+        .hero-card {
+            background: linear-gradient(180deg, #181820 0%, var(--card-bg) 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 40px 32px;
+            margin-bottom: 32px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        .hero-title {
+            font-size: 2.25rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #FFFFFF 0%, #A1A1AA 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .meta-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-top: 8px;
+        }
+
+        .badge {
+            background-color: rgba(59, 130, 246, 0.1);
+            color: var(--accent-color);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            padding: 2px 10px;
+            border-radius: 9999px;
+            font-weight: 500;
+        }
+
+        .content-section {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 28px 32px;
+            margin-bottom: 24px;
+        }
+
+        .content-section h2 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            letter-spacing: -0.01em;
+        }
+
+        .section-number {
+            color: var(--accent-color);
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .content-section p {
+            color: var(--text-secondary);
+            margin-bottom: 14px;
+            font-size: 0.975rem;
+        }
+
+        .content-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .content-section ul {
+            margin-left: 20px;
+            margin-bottom: 16px;
+            color: var(--text-secondary);
+        }
+
+        .content-section li {
+            margin-bottom: 8px;
+            font-size: 0.975rem;
+        }
+
+        .highlight-box {
+            background-color: rgba(239, 68, 68, 0.05);
+            border-left: 4px solid var(--danger-color);
+            border-radius: 0 8px 8px 0;
+            padding: 18px 20px;
+            margin: 16px 0;
+        }
+
+        .highlight-box.info {
+            background-color: rgba(59, 130, 246, 0.05);
+            border-left-color: var(--accent-color);
+        }
+
+        .highlight-box p {
+            margin-bottom: 8px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-danger {
+            background-color: var(--danger-color);
+            color: #FFFFFF;
+        }
+
+        .btn-danger:hover {
+            background-color: #DC2626;
+        }
+
+        .btn-secondary {
+            background-color: #27272A;
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: #3F3F46;
+        }
+
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 40px 24px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 640px) {
+            .hero-title {
+                font-size: 1.75rem;
+            }
+
+            .content-section {
+                padding: 20px;
+            }
+
+            .hero-card {
+                padding: 24px 20px;
+            }
+
+            .header-container {
+                flex-direction: column;
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">CH</div>
+                <span>Veylora</span>
+            </a>
+            <nav class="nav-links">
+                <a href="/privacy-policy" class="nav-link">Privacy Policy</a>
+                <a href="/data-deletion" class="nav-link danger">Data Deletion</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="privacy">
+        <section class="hero-card">
+            <h1 class="hero-title">Privacy Policy</h1>
+            <p style="color: var(--text-secondary); font-size: 1.05rem;">
+                This Privacy Policy describes how <strong>Veylora</strong> collects, uses, and safeguards your personal information when you use our mobile application and related services.
+            </p>
+            <div class="meta-info">
+                <span><strong>App Name:</strong> Veylora</span>
+                <span>•</span>
+                <span class="badge">Last Updated: August 29, 2026</span>
+            </div>
+        </section>
+
+        <!-- 1. Introduction -->
+        <section class="content-section">
+            <h2><span class="section-number">1.</span> Introduction</h2>
+            <p>
+                Welcome to <strong>Veylora</strong> ("we", "our", or "us"). Veylora is a movie and TV-series discovery and catalog application that allows users to search, explore, rate, and curate personal watchlists for entertainment titles.
+            </p>
+            <p>
+                We respect your privacy and are committed to protecting your personal data. By downloading, accessing, or using Veylora, you agree to the collection and use of information in accordance with this Privacy Policy. If you do not agree with any part of this policy, please refrain from using the application.
+            </p>
+        </section>
+
+        <!-- 2. Information We Collect -->
+        <section class="content-section">
+            <h2><span class="section-number">2.</span> Information We Collect</h2>
+            <p>
+                We only collect information that is strictly necessary to provide and enhance your experience with Veylora.
+            </p>
+            <ul>
+                <li><strong>Account & Profile Information:</strong> When you register or authenticate using third-party sign-in providers (such as Facebook Login or Google Sign-In), we receive basic public profile information, including your full name, email address, and profile picture URL.</li>
+                <li><strong>App Usage & User Content:</strong> Information you explicitly create within the app, including your saved movies, TV series watchlists, custom lists, title ratings, and search preferences.</li>
+                <li><strong>Technical & Device Data:</strong> Non-personally identifiable diagnostic information such as your device model, operating system version, app performance logs, and unique anonymous installation tokens required for push notifications or crash reporting.</li>
+            </ul>
+            <div class="highlight-box info">
+                <p><strong>What We Do NOT Collect:</strong></p>
+                <p>Veylora does <em>not</em> collect sensitive personal health information, financial numbers, credit card data, precise GPS location, or device contacts.</p>
+            </div>
+        </section>
+
+        <!-- 3. How We Use Information -->
+        <section class="content-section">
+            <h2><span class="section-number">3.</span> How We Use Information</h2>
+            <p>We use the collected information for the following legitimate purposes:</p>
+            <ul>
+                <li><strong>Service Functionality:</strong> To create and manage your user account, authenticate your login sessions, and save your personal watchlists and ratings across devices.</li>
+                <li><strong>Personalization:</strong> To deliver tailored movie and TV show recommendations based on your preferences and watchlist history.</li>
+                <li><strong>App Maintenance & Improvement:</strong> To monitor app performance, fix bugs, optimize user interface components, and ensure high security standards.</li>
+                <li><strong>Customer Support:</strong> To communicate with you and assist with account inquiries, bug reports, or data deletion requests.</li>
+            </ul>
+        </section>
+
+        <!-- 4. Authentication / Login -->
+        <section class="content-section">
+            <h2><span class="section-number">4.</span> Authentication / Login (Facebook & Google)</h2>
+            <p>
+                Veylora offers social login options, including <strong>Facebook Login (Meta Authentication)</strong> and <strong>Google Sign-In</strong>, to simplify sign-up and account access.
+            </p>
+            <p>
+                When you choose to authenticate via Facebook Login:
+            </p>
+            <ul>
+                <li>Meta/Facebook provides us with your basic account details: full name, primary email address, and public profile picture.</li>
+                <li>We do <strong>not</strong> post to your Facebook profile or access your Facebook friends list or private messages.</li>
+                <li>Your Facebook account credentials (passwords) are handled securely by Meta and are never disclosed to or stored by Veylora.</li>
+            </ul>
+        </section>
+
+        <!-- 5. Third-Party Services -->
+        <section class="content-section">
+            <h2><span class="section-number">5.</span> Third-Party Services</h2>
+            <p>
+                Veylora integrates trusted third-party SDKs and service providers to enable core application functionalities:
+            </p>
+            <ul>
+                <li><strong>Meta / Facebook SDK:</strong> Utilized strictly for user authentication and login verification.</li>
+                <li><strong>Google Identity & Firebase:</strong> Used for Google authentication, Firebase Firestore cloud database storage, and app security rules.</li>
+                <li><strong>TMDB (The Movie Database) & RAWG APIs:</strong> Utilized to retrieve public entertainment metadata, movie details, cast lists, trailers, and game información.</li>
+            </ul>
+            <p>
+                Each third-party service operates under its own respective privacy policy regarding data handling.
+            </p>
+        </section>
+
+        <!-- 6. Data Storage and Security -->
+        <section class="content-section">
+            <h2><span class="section-number">6.</span> Data Storage and Security</h2>
+            <p>
+                The security of your personal data is paramount to us. Veylora implements industry-standard administrative, technical, and physical security measures:
+            </p>
+            <ul>
+                <li>All data transferred between Veylora and our servers is encrypted in transit using standard Transport Layer Security (TLS / HTTPS).</li>
+                <li>Cloud database storage is governed by strict security rules and access controls through Firebase Cloud Infrastructure.</li>
+                <li>Local database caches stored on your mobile device (via Android Room Database) are secured within the app's sandboxed storage environment.</li>
+            </ul>
+        </section>
+
+        <!-- 7. Data Retention -->
+        <section class="content-section">
+            <h2><span class="section-number">7.</span> Data Retention</h2>
+            <p>
+                We retain your personal information only for as long as your account remains active or as needed to provide you with the application services. If you choose to delete your account or request data deletion, all associated personal account records, watchlists, and preferences will be permanently removed from our active databases.
+            </p>
+        </section>
+
+        <!-- 8. User Rights -->
+        <section class="content-section">
+            <h2><span class="section-number">8.</span> User Rights</h2>
+            <p>Depending on your location, you hold the following rights regarding your personal data:</p>
+            <ul>
+                <li><strong>Right to Access:</strong> You can request a copy of the personal information stored in your account.</li>
+                <li><strong>Right to Rectification:</strong> You can update or edit your profile details at any time in the app settings.</li>
+                <li><strong>Right to Deletion (Erasure):</strong> You have the absolute right to request full deletion of your account and personal data.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Children's Privacy -->
+        <section class="content-section">
+            <h2><span class="section-number">9.</span> Children's Privacy</h2>
+            <p>
+                Veylora does not knowingly collect or solicit personal data from children under the age of 13 (or 16 in the EU). If we discover that personal information has been collected from a child without verified parental consent, we will take immediate steps to purge that data from our servers.
+            </p>
+        </section>
+
+        <!-- 10. Data Deletion -->
+        <section class="content-section" id="data-deletion">
+            <h2><span class="section-number">10.</span> Data Deletion Request (Facebook / Meta & Account Data)</h2>
+            <p>
+                In compliance with Meta Platform Terms and global privacy standards, Veylora provides user-friendly ways to request total deletion of your account and associated personal data.
+            </p>
+            <div class="highlight-box">
+                <p><strong>How to Delete Your Data:</strong></p>
+                <ol style="margin-left: 20px; color: var(--text-secondary);">
+                    <li style="margin-bottom: 6px;"><strong>In-App Deletion:</strong> Open Veylora &gt; Navigate to <em>Settings</em> &gt; Tap <em>Account Settings</em> &gt; Select <em>Delete Account & Data</em>.</li>
+                    <li style="margin-bottom: 6px;"><strong>Email Request:</strong> Send an email to <code>support@veylora.app</code> with the subject line <em>"Data Deletion Request"</em> and your registered email address.</li>
+                    <li style="margin-bottom: 6px;"><strong>Facebook Data Deletion:</strong> If you logged in via Facebook, you can also remove Veylora via your Facebook Account Settings &gt; <em>Apps and Websites</em> &gt; <em>Veylora</em> &gt; <em>Remove</em>.</li>
+                </ol>
+            </div>
+            <p style="margin-top: 12px;">
+                For detailed instructions or to access our standalone deletion instructions page, visit our dedicated <a href="/data-deletion" style="color: var(--danger-color); font-weight: 600;">Data Deletion Page</a>.
+            </p>
+        </section>
+
+        <!-- 11. Changes to This Privacy Policy -->
+        <section class="content-section">
+            <h2><span class="section-number">11.</span> Changes to This Privacy Policy</h2>
+            <p>
+                We may update our Privacy Policy from time to time to reflect changes in app functionalities or legal regulations. Any updates will be posted directly on this page with an updated "Last Updated" revision date. We encourage you to review this page periodically.
+            </p>
+        </section>
+
+        <!-- 12. Contact Us -->
+        <section class="content-section" id="contact">
+            <h2><span class="section-number">12.</span> Contact Us</h2>
+            <p>
+                If you have any questions, concerns, or inquiries regarding this Privacy Policy or your personal data handling, please contact our Privacy Team at:
+            </p>
+            <p style="margin-top: 12px; background-color: rgba(255,255,255,0.03); padding: 16px; border-radius: 8px; border: 1px solid var(--border-color);">
+                <strong>Veylora Support Team</strong><br>
+                Email: <a href="mailto:support@veylora.app" style="color: var(--accent-color);">support@veylora.app</a><br>
+                App Name: Veylora
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Veylora. All rights reserved.</p>
+        <p style="margin-top: 8px;">
+            <a href="/privacy-policy" style="color: var(--text-muted); text-decoration: underline; margin-right: 12px;">Privacy Policy</a>
+            <a href="/data-deletion" style="color: var(--text-muted); text-decoration: underline;">Data Deletion Instructions</a>
+        </p>
+    </footer>
+
+</body>
+</html>

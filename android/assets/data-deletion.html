@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Data Deletion Instructions - Veylora</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0A0A0C;
+            --card-bg: #131317;
+            --border-color: #23232A;
+            --accent-color: #3B82F6;
+            --danger-color: #EF4444;
+            --danger-hover: #DC2626;
+            --text-primary: #F4F4F5;
+            --text-secondary: #A1A1AA;
+            --text-muted: #71717A;
+            --header-bg: rgba(10, 10, 12, 0.85);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding-bottom: 60px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-color: var(--header-bg);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 16px 24px;
+        }
+
+        .header-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #EF4444, #3B82F6);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 800;
+            color: #FFF;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 16px;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        main {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 24px;
+        }
+
+        .hero-card {
+            background: linear-gradient(180deg, #1C1315 0%, var(--card-bg) 100%);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            border-radius: 16px;
+            padding: 36px 32px;
+            margin-bottom: 32px;
+        }
+
+        .hero-title {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+            color: #FFFFFF;
+        }
+
+        .content-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 28px 32px;
+            margin-bottom: 24px;
+        }
+
+        .content-card h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .step-list {
+            list-style: none;
+            counter-reset: step-counter;
+        }
+
+        .step-item {
+            position: relative;
+            padding-left: 48px;
+            margin-bottom: 20px;
+        }
+
+        .step-item::before {
+            counter-increment: step-counter;
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 32px;
+            height: 32px;
+            background-color: rgba(59, 130, 246, 0.15);
+            color: var(--accent-color);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .step-title {
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .step-desc {
+            font-size: 0.925rem;
+            color: var(--text-secondary);
+        }
+
+        .info-box {
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 16px;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #FFFFFF;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.2s;
+            margin-top: 12px;
+        }
+
+        .btn-primary:hover {
+            background-color: #2563EB;
+        }
+
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 40px 24px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="/privacy-policy" class="logo">
+                <div class="logo-icon">CH</div>
+                <span>Veylora</span>
+            </a>
+            <nav class="nav-links">
+                <a href="/privacy-policy" class="nav-link">Privacy Policy</a>
+                <a href="mailto:support@veylora.app" class="nav-link">Contact Support</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-card">
+            <h1 class="hero-title">User Account & Data Deletion Instructions</h1>
+            <p style="color: var(--text-secondary);">
+                Veylora respects your privacy rights. Follow the instructions below to permanently delete your account and all associated personal data from our systems.
+            </p>
+        </section>
+
+        <!-- Method 1: In-App Deletion -->
+        <section class="content-card">
+            <h2>Option 1: Direct In-App Account Deletion</h2>
+            <ol class="step-list">
+                <li class="step-item">
+                    <div class="step-title">Open Veylora</div>
+                    <div class="step-desc">Launch the Veylora app on your Android device and log into your account.</div>
+                </li>
+                <li class="step-item">
+                    <div class="step-title">Navigate to Settings</div>
+                    <div class="step-desc">Tap the <strong>Settings</strong> icon on the bottom navigation bar.</div>
+                </li>
+                <li class="step-item">
+                    <div class="step-title">Select Account & Privacy</div>
+                    <div class="step-desc">Scroll down to the <em>Account & Privacy</em> section and tap <strong>Delete Account & Personal Data</strong>.</div>
+                </li>
+                <li class="step-item">
+                    <div class="step-title">Confirm Account Deletion</div>
+                    <div class="step-desc">Read the deletion warning and tap <strong>Confirm Permanent Deletion</strong>. Your account, watchlists, ratings, and profile data will be removed instantly.</div>
+                </li>
+            </ol>
+        </section>
+
+        <!-- Method 2: Facebook / Meta Data Deletion Callback -->
+        <section class="content-card">
+            <h2>Option 2: Deleting Data via Facebook (Meta) Settings</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 16px;">
+                If you created or logged into your Veylora account using <strong>Facebook Login</strong>, you can revoke application permissions and trigger data deletion via Facebook:
+            </p>
+            <ol class="step-list">
+                <li class="step-item">
+                    <div class="step-title">Open Facebook Settings</div>
+                    <div class="step-desc">Go to your Facebook profile settings and select <strong>Settings & Privacy</strong> &gt; <strong>Settings</strong>.</div>
+                </li>
+                <li class="step-item">
+                    <div class="step-title">Apps and Websites</div>
+                    <div class="step-desc">Navigate to <strong>Apps and Websites</strong> to view all active integrations.</div>
+                </li>
+                <li class="step-item">
+                    <div class="step-title">Remove Veylora</div>
+                    <div class="step-desc">Find <strong>Veylora</strong> in the list, click <strong>Remove</strong>, and check the box requesting Facebook to notify us to delete your activity and data.</div>
+                </li>
+            </ol>
+        </section>
+
+        <!-- Method 3: Direct Support Request -->
+        <section class="content-card">
+            <h2>Option 3: Request Deletion via Email Support</h2>
+            <p style="color: var(--text-secondary);">
+                If you no longer have access to the app or prefer assistance from our team, you can submit a manual deletion request:
+            </p>
+            <div class="info-box">
+                <p><strong>Email Address:</strong> <a href="mailto:support@veylora.app" style="color: var(--accent-color);">support@veylora.app</a></p>
+                <p style="margin-top: 8px;"><strong>Subject Line:</strong> <code>Data Deletion Request - Veylora</code></p>
+                <p style="margin-top: 8px; color: var(--text-secondary);">Please include your registered email address or account ID. Our support team will process your request and purge your data within 48 hours.</p>
+            </div>
+            <a href="mailto:support@veylora.app?subject=Data%20Deletion%20Request%20-%20Cinema%20Hub" class="btn-primary">Email Support Team</a>
+        </section>
+
+        <!-- What Data Gets Removed -->
+        <section class="content-card">
+            <h2>What Data Will Be Deleted?</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 12px;">Upon confirmation of your deletion request, the following records are permanently erased from active storage:</p>
+            <ul style="margin-left: 20px; color: var(--text-secondary);">
+                <li>Your name, email address, and authentication tokens</li>
+                <li>Your profile picture reference</li>
+                <li>Your entire movie and TV show watchlist</li>
+                <li>Your ratings, reviews, and custom collections</li>
+                <li>Your app settings and preference history</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Veylora. All rights reserved.</p>
+        <p style="margin-top: 8px;">
+            <a href="/privacy-policy" style="color: var(--text-muted); text-decoration: underline;">Back to Privacy Policy</a>
+        </p>
+    </footer>
+
+</body>
+</html>

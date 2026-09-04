@@ -1,0 +1,6 @@
+{
+  "name": "Veylora Game Hub & Proxy API",
+  "description": "Faithful web version of the mobile entertainment app featuring unified Games & Movies exploration, RAWG and TMDB integration, official store links, trailers, and hardware specs.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

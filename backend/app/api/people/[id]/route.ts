@@ -1,0 +1,112 @@
+import { NextRequest, NextResponse } from 'next/server';
+import { TmdbService, getTmdbImageUrl } from '@/services/tmdb/tmdb-service';
+import { TvApiService } from '@/services/tv-api/tv-api-service';
+import { NormalizedPerson } from '@/lib/normalized-types';
+
+const CORS_HEADERS = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Methods': 'GET, OPTIONS',
+  'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+};
+
+export async function OPTIONS() {
+  return new NextResponse(null, { status: 204, headers: CORS_HEADERS });
+}
+
+export async function GET(
+  request: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
+) {
+  const { id } = await params;
+
+  try {
+    let person: NormalizedPerson | null = null;
+
+    // Check if ID is TV-API/IMDb format (nm...)
+    if (id.startsWith('nm')) {
+      const tvPerson = await TvApiService.getName(id);
+      if (tvPerson) {
+        person = tvPerson;
+      }
+    }
+
+    if (!person) {
+      // Lookup person via TMDB
+      const tmdbRes = await TmdbService.getPersonDetails(id);
+      if (tmdbRes.success && tmdbRes.data) {
+        const p = tmdbRes.data;
+        const imdbId = p.imdb_id || p.external_ids?.imdb_id;
+
+        const rawCredits = p.combined_credits?.cast || [];
+
+        const knownFor = rawCredits.slice(0, 8).map((m: any) => ({
+          id: String(m.id),
+          title: m.title || m.name || 'Untitled',
+          year: (m.release_date || m.first_air_date) ? (m.release_date || m.first_air_date).split('-')[0] : undefined,
+          role: m.character,
+          poster: m.poster_path ? getTmdbImageUrl(m.poster_path, 'w500') : undefined,
+          rating: m.vote_average ? Number(m.vote_average.toFixed(1)) : undefined,
+          type: (m.media_type === 'tv' ? 'tv' : 'movie') as 'movie' | 'tv',
+        }));
+
+        const filmography = rawCredits.map((m: any) => ({
+          id: String(m.id),
+          title: m.title || m.name || 'Untitled',
+          year: (m.release_date || m.first_air_date) ? (m.release_date || m.first_air_date).split('-')[0] : undefined,
+          role: m.character,
+          character: m.character,
+          rating: m.vote_average ? Number(m.vote_average.toFixed(1)) : undefined,
+          type: (m.media_type === 'tv' ? 'tv' : 'movie') as 'movie' | 'tv',
+          poster: m.poster_path ? getTmdbImageUrl(m.poster_path, 'w500') : undefined,
+        }));
+
+        person = {
+          id: String(p.id),
+          tmdbId: p.id,
+          imdbId,
+          name: p.name,
+          role: p.known_for_department || 'Actor',
+          photo: p.profile_path ? getTmdbImageUrl(p.profile_path, 'w500') : null,
+          biography: p.biography || `${p.name} is an internationally recognized talent.`,
+          birthDate: p.birthday,
+          deathDate: p.deathday,
+          birthPlace: p.place_of_birth,
+          knownFor,
+          filmography,
+        };
+
+        // If person has imdb_id, enrich with TV-API awards
+        if (imdbId) {
+          const tvEnrichment = await TvApiService.getName(imdbId);
+          if (tvEnrichment) {
+            person.awardsSummary = tvEnrichment.awardsSummary;
+            person.height = tvEnrichment.height;
+          }
+        }
+      }
+    }
+
+    if (!person) {
+      return NextResponse.json(
+        { success: false, error: `Person ${id} not found.` },
+        { status: 404, headers: CORS_HEADERS }
+      );
+    }
+
+    return NextResponse.json(
+      {
+        success: true,
+        data: person,
+      },
+      { status: 200, headers: CORS_HEADERS }
+    );
+  } catch (error: any) {
+    return NextResponse.json(
+      {
+        success: false,
+        error: error.message || `Failed to fetch person ${id}`,
+      },
+      { status: 500, headers: CORS_HEADERS }
+    );
+  }
+}
