@@ -218,45 +218,6 @@ data class StoreListing(
     val storeUrl: String = ""
 )
 
-val mockStoreListings = listOf(
-    StoreListing(
-        storeName = "PlayStation Store",
-        storeDomain = "playstation.com",
-        editionName = "Ultimate Edition",
-        priceUsd = 99.99,
-        isPreOrder = true,
-        gradientColors = listOf(Color(0xFF003791), Color(0xFF0070CC)),
-        storeUrl = "https://store.playstation.com"
-    ),
-    StoreListing(
-        storeName = "Xbox Store",
-        storeDomain = "xbox.com",
-        editionName = "Cross-Gen Bundle",
-        priceUsd = 79.99,
-        isPreOrder = true,
-        gradientColors = listOf(Color(0xFF107C10), Color(0xFF159A15)),
-        storeUrl = "https://www.xbox.com"
-    ),
-    StoreListing(
-        storeName = "Steam",
-        storeDomain = "steampowered.com",
-        editionName = "Special Edition",
-        priceUsd = 59.49,
-        isPreOrder = false,
-        gradientColors = listOf(Color(0xFF171A21), Color(0xFF2A475E)),
-        storeUrl = "https://store.steampowered.com"
-    ),
-    StoreListing(
-        storeName = "Epic Games",
-        storeDomain = "epicgames.com",
-        editionName = "Standard Edition",
-        priceUsd = 69.99,
-        isPreOrder = false,
-        gradientColors = listOf(Color(0xFF2A2A2A), Color(0xFF121212)),
-        storeUrl = "https://store.epicgames.com"
-    )
-)
-
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class)
 @Composable
 fun DetailsScreen(
@@ -354,7 +315,7 @@ fun DetailsScreen(
     if (gameScreenshots.isNotEmpty()) {
       gameScreenshots
     } else {
-      listOfNotNull(backdropPath, posterUrl).ifEmpty { listOf("https://images.unsplash.com/photo-1550745165-9bc0b252726f") }
+      listOfNotNull(backdropPath, posterUrl).ifEmpty { emptyList() }
     }
   }
 
@@ -588,7 +549,7 @@ fun DetailsScreen(
         Box(modifier = Modifier.fillMaxWidth().height(300.dp)) {
           HorizontalPager(state = pagerState, modifier = Modifier.fillMaxSize()) { page ->
             AsyncImage(
-              model = gameCovers[page],
+              model = gameCovers.getOrNull(page) ?: "",
               contentDescription = "Cover",
               contentScale = ContentScale.Crop,
               modifier = Modifier.fillMaxSize()

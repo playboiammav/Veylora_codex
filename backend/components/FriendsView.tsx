@@ -65,67 +65,77 @@ export function FriendsView() {
 
       {/* Friends List */}
       <div className="space-y-3">
-        {friends.map((friend) => (
-          <div
-            key={friend.id}
-            className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 bg-[#0D0D10] hover:bg-[#131318] rounded-2xl border border-zinc-850 transition-all duration-200"
-          >
-            {/* Friend Avatar & Identity */}
-            <div className="flex items-center gap-3.5 min-w-0">
-              <div className="relative w-12 h-12 rounded-2xl overflow-hidden bg-zinc-800 flex-shrink-0 border border-zinc-700">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={friend.friendAvatar}
-                  alt={friend.friendName}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
-              <div className="min-w-0">
-                <div className="flex items-center gap-2">
-                  <h3 className="text-sm font-bold text-white truncate">{friend.friendName}</h3>
-                  {friend.mutualFriends && (
-                    <span className="text-[10px] font-mono text-zinc-500 hidden sm:inline">
-                      {friend.mutualFriends} mutual friends
-                    </span>
-                  )}
-                </div>
-                <div className="mt-0.5">{getStatusBadge(friend.status)}</div>
-              </div>
-            </div>
-
-            {/* Friend Activity Card */}
-            {friend.currentActivity && (
-              <div className="flex items-center gap-3 p-2.5 rounded-xl bg-[#14141A] border border-zinc-800/80 min-w-0 sm:max-w-md w-full sm:w-auto">
-                <div className="w-10 h-10 rounded-lg overflow-hidden bg-zinc-900 flex-shrink-0">
+        {friends.length === 0 ? (
+          <div className="text-center py-16 px-4 rounded-2xl border border-dashed border-zinc-800 bg-[#0D0D10]">
+            <Users className="w-12 h-12 text-zinc-600 mx-auto mb-3" />
+            <h3 className="text-base font-bold text-zinc-300">No Friends Connected</h3>
+            <p className="text-xs text-zinc-500 max-w-sm mx-auto mt-1">
+              Connect your gaming and streaming profiles to see friends activity here.
+            </p>
+          </div>
+        ) : (
+          friends.map((friend) => (
+            <div
+              key={friend.id}
+              className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 bg-[#0D0D10] hover:bg-[#131318] rounded-2xl border border-zinc-850 transition-all duration-200"
+            >
+              {/* Friend Avatar & Identity */}
+              <div className="flex items-center gap-3.5 min-w-0">
+                <div className="relative w-12 h-12 rounded-2xl overflow-hidden bg-zinc-800 flex-shrink-0 border border-zinc-700">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src={friend.currentActivity.image}
-                    alt={friend.currentActivity.title}
+                    src={friend.friendAvatar}
+                    alt={friend.friendName}
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="min-w-0 flex-1">
-                  <div className="flex items-center gap-1.5">
-                    {friend.currentActivity.type === 'game' ? (
-                      <Gamepad2 className="w-3 h-3 text-[#00E5FF] flex-shrink-0" />
-                    ) : (
-                      <Film className="w-3 h-3 text-red-400 flex-shrink-0" />
+
+                <div className="min-w-0">
+                  <div className="flex items-center gap-2">
+                    <h3 className="text-sm font-bold text-white truncate">{friend.friendName}</h3>
+                    {friend.mutualFriends && (
+                      <span className="text-[10px] font-mono text-zinc-500 hidden sm:inline">
+                        {friend.mutualFriends} mutual friends
+                      </span>
                     )}
-                    <span className="text-xs font-bold text-zinc-200 truncate">
-                      {friend.currentActivity.title}
-                    </span>
                   </div>
-                  {friend.currentActivity.details && (
-                    <p className="text-[11px] text-zinc-400 truncate mt-0.5">
-                      {friend.currentActivity.details}
-                    </p>
-                  )}
+                  <div className="mt-0.5">{getStatusBadge(friend.status)}</div>
                 </div>
               </div>
-            )}
-          </div>
-        ))}
+
+              {/* Friend Activity Card */}
+              {friend.currentActivity && (
+                <div className="flex items-center gap-3 p-2.5 rounded-xl bg-[#14141A] border border-zinc-800/80 min-w-0 sm:max-w-md w-full sm:w-auto">
+                  <div className="w-10 h-10 rounded-lg overflow-hidden bg-zinc-900 flex-shrink-0">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={friend.currentActivity.image}
+                      alt={friend.currentActivity.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-center gap-1.5">
+                      {friend.currentActivity.type === 'game' ? (
+                        <Gamepad2 className="w-3 h-3 text-[#00E5FF] flex-shrink-0" />
+                      ) : (
+                        <Film className="w-3 h-3 text-red-400 flex-shrink-0" />
+                      )}
+                      <span className="text-xs font-bold text-zinc-200 truncate">
+                        {friend.currentActivity.title}
+                      </span>
+                    </div>
+                    {friend.currentActivity.details && (
+                      <p className="text-[11px] text-zinc-400 truncate mt-0.5">
+                        {friend.currentActivity.details}
+                      </p>
+                    )}
+                  </div>
+                </div>
+              )}
+            </div>
+          ))
+        )}
       </div>
     </div>
   );

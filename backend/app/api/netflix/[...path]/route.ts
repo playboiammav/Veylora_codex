@@ -62,16 +62,10 @@ export async function GET(
 
     // 7. GET profile /profile
     if (pathStr === 'profile') {
-      return NextResponse.json({
-        success: true,
-        user: {
-          id: 'usr-421',
-          name: 'Demo Subscriber',
-          email: 'demo@example.com',
-          plan: 'Premium 4K HDR',
-          isSubscribed: true,
-        },
-      }, { status: 200, headers: CORS_HEADERS });
+      return NextResponse.json(
+        { success: false, error: 'UNAUTHORIZED', message: 'User profile requires authentication.' },
+        { status: 401, headers: CORS_HEADERS }
+      );
     }
 
     // Fallback: proxy directly to Netflix Base API
@@ -140,13 +134,31 @@ export async function POST(
     if (path[0] === 'media' && path[1] === 'stream') {
       const mediaId = path[2];
       const userId = path[3];
-      return NextResponse.json({
-        success: true,
-        message: 'Stream playback session initialized.',
-        mediaId,
-        userId,
-        streamUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
-      }, { status: 200, headers: CORS_HEADERS });
+      try {
+        const base = process.env.NETFLIX_API_URL || 'https://netflix-api-g992.onrender.com';
+        const streamRes = await fetch(`${base}/media/stream/${encodeURIComponent(mediaId)}/${encodeURIComponent(userId)}`, {
+          method: 'POST',
+          headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
+          body: JSON.stringify(body),
+        });
+        if (streamRes.ok) {
+          const streamData = await streamRes.json();
+          return NextResponse.json(streamData, { status: 200, headers: CORS_HEADERS });
+        }
+      } catch {
+        // Fall through to unavailable response
+      }
+
+      return NextResponse.json(
+        {
+          success: false,
+          error: 'STREAM_UNAVAILABLE',
+          message: 'Netflix streaming service is unconfigured or stream playback is unavailable.',
+          mediaId,
+          userId,
+        },
+        { status: 503, headers: CORS_HEADERS }
+      );
     }
 
     // 6. POST /media/watchlist/{mediaId}/{userId}

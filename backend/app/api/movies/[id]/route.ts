@@ -41,16 +41,7 @@ function normalizeTmdbMovieDetail(m: TmdbMovie): NormalizedMovie {
       site: v.site,
       type: v.type,
       url: `https://www.youtube.com/watch?v=${v.key}`,
-    })) || [
-    {
-      id: 'trailer-1',
-      name: `${m.title} - Main Trailer`,
-      key: 'Way9Dexny3w',
-      site: 'YouTube',
-      type: 'Trailer',
-      url: 'https://www.youtube.com/watch?v=Way9Dexny3w',
-    },
-  ];
+    })) || [];
 
   const images = m.images?.backdrops?.slice(0, 8).map((img) => getTmdbImageUrl(img.file_path, 'w780')) || [
     getTmdbImageUrl(m.backdrop_path, 'original'),
@@ -84,11 +75,11 @@ function normalizeTmdbMovieDetail(m: TmdbMovie): NormalizedMovie {
     backdrop: getTmdbImageUrl(m.backdrop_path || m.poster_path, 'original'),
     rating: Number(m.vote_average.toFixed(1)),
     voteCount: m.vote_count,
-    releaseDate: m.release_date || '2024-01-01',
+    releaseDate: m.release_date || '',
     releaseYear,
     genres,
-    overview: m.overview || `${m.title} is a premier cinematic film.`,
-    tagline: m.tagline || 'Experience the cinematic spectacle.',
+    overview: m.overview || '',
+    tagline: m.tagline || undefined,
     runtime,
     formattedRuntime,
     cast,
@@ -103,11 +94,7 @@ function normalizeTmdbMovieDetail(m: TmdbMovie): NormalizedMovie {
     status: m.status || 'Released',
     budget: m.budget ? `$${(m.budget / 1000000).toFixed(0)}M` : undefined,
     revenue: m.revenue ? `$${(m.revenue / 1000000).toFixed(0)}M` : undefined,
-    streamingLinks: [
-      { name: 'Netflix', url: `https://www.netflix.com/search?q=${encodeURIComponent(m.title)}` },
-      { name: 'Apple TV', url: `https://tv.apple.com/search?term=${encodeURIComponent(m.title)}` },
-      { name: 'Prime Video', url: `https://www.amazon.com/s?k=${encodeURIComponent(m.title)}` },
-    ],
+    streamingLinks: [],
   };
 }
 
@@ -146,11 +133,11 @@ export async function GET(
             title: tvApiData.title || tvApiData.fullTitle || 'Untitled',
             poster: tvApiData.image || getTmdbImageUrl(null),
             backdrop: tvApiData.image || getTmdbImageUrl(null),
-            rating: tvApiData.imDbRating ? parseFloat(tvApiData.imDbRating) : 7.5,
-            releaseDate: tvApiData.releaseDate || (tvApiData.year ? `${tvApiData.year}-01-01` : '2024-01-01'),
-            releaseYear: tvApiData.year || '2024',
+            rating: tvApiData.imDbRating ? parseFloat(tvApiData.imDbRating) : 0,
+            releaseDate: tvApiData.releaseDate || (tvApiData.year ? `${tvApiData.year}-01-01` : ''),
+            releaseYear: tvApiData.year || '',
             genres: tvApiData.genreList?.map((g) => g.value) || ['Drama'],
-            overview: tvApiData.plot || 'Cinematic production.',
+            overview: tvApiData.plot || '',
             cast: (tvApiData.actorList || []).map((a) => ({
               id: a.id,
               imdbId: a.id,

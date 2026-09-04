@@ -97,32 +97,10 @@ export class AppStoreConnectService {
 
       return { success: true, data: apps, source: 'live' };
     } catch {
-      // Return structured sample/demo dataset if credentials are not yet configured
       return {
-        success: true,
-        source: 'sample',
-        data: [
-          {
-            id: '6443892110',
-            name: 'Veylora Game Hub Companion',
-            bundleId: 'com.veylora.ios.gamehub',
-            sku: 'VEYLORA-IOS-01',
-            primaryLocale: 'en-US',
-            platform: 'IOS',
-            appStoreVersions: [{ versionString: '1.4.2', appStoreState: 'READY_FOR_SALE' }],
-            iconUrl: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80',
-          },
-          {
-            id: '6443892111',
-            name: 'Veylora Spatial VR',
-            bundleId: 'com.veylora.visionos.explorer',
-            sku: 'VEYLORA-VIS-01',
-            primaryLocale: 'en-US',
-            platform: 'VISION_OS',
-            appStoreVersions: [{ versionString: '1.0.0', appStoreState: 'PROCESSING_FOR_APP_STORE' }],
-            iconUrl: 'https://images.unsplash.com/photo-1592478411213-6153e4ebc07d?auto=format&fit=crop&w=800&q=80',
-          },
-        ],
+        success: false,
+        source: 'live',
+        data: [],
       };
     }
   }
@@ -139,9 +117,7 @@ export class AppStoreConnectService {
       return await res.json();
     } catch {
       return {
-        data: [
-          { id: 'ver-100', type: 'appStoreVersions', attributes: { versionString: '1.4.2', appStoreState: 'READY_FOR_SALE', releaseType: 'AFTER_APPROVAL' } },
-        ],
+        data: [],
       };
     }
   }
@@ -159,9 +135,7 @@ export class AppStoreConnectService {
       return await res.json();
     } catch {
       return {
-        data: [
-          { id: 'bld-42', type: 'builds', attributes: { version: '142', processingState: 'VALID', uploadedDate: new Date().toISOString() } },
-        ],
+        data: [],
       };
     }
   }
@@ -170,16 +144,19 @@ export class AppStoreConnectService {
    * Review status / Validation summary
    */
   static async getReviewStatus(appId: string) {
+    try {
+      const token = this.generateToken();
+      const res = await fetch(`https://api.appstoreconnect.apple.com/v1/apps/${encodeURIComponent(appId)}/appStoreVersionSubmissions`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      if (res.ok) return await res.json();
+    } catch {
+      // Fallback below
+    }
     return {
       appId,
-      status: 'WAITING_FOR_REVIEW',
-      submissionDate: new Date().toISOString(),
-      issuesFound: 0,
-      validation: {
-        passed: true,
-        privacyManifestsChecked: true,
-        exportCompliance: 'EXEMPT',
-      },
+      status: 'UNAVAILABLE',
+      data: null,
     };
   }
 }

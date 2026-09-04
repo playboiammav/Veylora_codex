@@ -14,117 +14,6 @@ export async function OPTIONS() {
   });
 }
 
-const VERIFIED_XBOX_EDITIONS: Record<string, GameEdition[]> = {
-  '9N87T989146B': [
-    {
-      id: '9N87T989146B-STD',
-      name: 'Forza Horizon 5 Standard Edition',
-      editionType: 'STANDARD',
-      price: {
-        formattedBasePrice: '$59.99',
-        formattedDiscountedPrice: '$29.99',
-        discountPercentage: 50,
-        isFree: false,
-      },
-      originalPrice: '$59.99',
-      discountPercentage: 50,
-      currency: 'USD',
-      isFree: false,
-      storeUrl: 'https://www.xbox.com/games/store/game/9N87T989146B',
-      platform: 'Xbox',
-    },
-    {
-      id: '9N87T989146B-DLX',
-      name: 'Forza Horizon 5 Deluxe Edition',
-      editionType: 'DELUXE',
-      price: {
-        formattedBasePrice: '$79.99',
-        formattedDiscountedPrice: '$39.99',
-        discountPercentage: 50,
-        isFree: false,
-      },
-      originalPrice: '$79.99',
-      discountPercentage: 50,
-      currency: 'USD',
-      isFree: false,
-      storeUrl: 'https://www.xbox.com/games/store/game/9N87T989146B',
-      platform: 'Xbox',
-    },
-    {
-      id: '9N87T989146B-PRM',
-      name: 'Forza Horizon 5 Premium Edition',
-      editionType: 'PREMIUM',
-      price: {
-        formattedBasePrice: '$99.99',
-        formattedDiscountedPrice: '$49.99',
-        discountPercentage: 50,
-        isFree: false,
-      },
-      originalPrice: '$99.99',
-      discountPercentage: 50,
-      currency: 'USD',
-      isFree: false,
-      storeUrl: 'https://www.xbox.com/games/store/game/9N87T989146B',
-      platform: 'Xbox',
-    },
-  ],
-  '9NCXN9090P8N': [
-    {
-      id: '9NCXN9090P8N-STD',
-      name: 'Starfield Standard Edition',
-      editionType: 'STANDARD',
-      price: {
-        formattedBasePrice: '$69.99',
-        formattedDiscountedPrice: '$46.89',
-        discountPercentage: 33,
-        isFree: false,
-      },
-      originalPrice: '$69.99',
-      discountPercentage: 33,
-      currency: 'USD',
-      isFree: false,
-      storeUrl: 'https://www.xbox.com/games/store/game/9NCXN9090P8N',
-      platform: 'Xbox',
-    },
-    {
-      id: '9NCXN9090P8N-PRM',
-      name: 'Starfield Premium Edition',
-      editionType: 'PREMIUM',
-      price: {
-        formattedBasePrice: '$99.99',
-        formattedDiscountedPrice: '$69.99',
-        discountPercentage: 30,
-        isFree: false,
-      },
-      originalPrice: '$99.99',
-      discountPercentage: 30,
-      currency: 'USD',
-      isFree: false,
-      storeUrl: 'https://www.xbox.com/games/store/game/9NCXN9090P8N',
-      platform: 'Xbox',
-    },
-  ],
-  '9WZDNCRFJBMP': [
-    {
-      id: '9WZDNCRFJBMP-STD',
-      name: 'Halo Infinite (Campaign)',
-      editionType: 'STANDARD',
-      price: {
-        formattedBasePrice: '$59.99',
-        formattedDiscountedPrice: '$23.99',
-        discountPercentage: 60,
-        isFree: false,
-      },
-      originalPrice: '$59.99',
-      discountPercentage: 60,
-      currency: 'USD',
-      isFree: false,
-      storeUrl: 'https://www.xbox.com/games/store/game/9WZDNCRFJBMP',
-      platform: 'Xbox',
-    },
-  ],
-};
-
 function categorizeEditionType(title: string): GameEdition['editionType'] {
   const lower = title.toLowerCase();
   if (lower.includes('ultimate')) return 'ULTIMATE';
@@ -141,17 +30,14 @@ export async function GET(request: NextRequest) {
   const productId = searchParams.get('productId') || searchParams.get('id') || '';
   const market = searchParams.get('market') || 'US';
 
-  if (productId && VERIFIED_XBOX_EDITIONS[productId]) {
+  if (!productId) {
     return NextResponse.json(
       {
-        success: true,
-        source: 'live',
-        productId,
-        market,
-        count: VERIFIED_XBOX_EDITIONS[productId].length,
-        data: VERIFIED_XBOX_EDITIONS[productId],
+        success: false,
+        error: 'MISSING_PARAM',
+        message: "Query parameter 'productId' or 'id' is required for Xbox editions lookup.",
       },
-      { status: 200, headers: CORS_HEADERS }
+      { status: 400, headers: CORS_HEADERS }
     );
   }
 
@@ -186,7 +72,7 @@ export async function GET(request: NextRequest) {
 
           const title = skuProperties.SkuTitle || prod.LocalizedProperties?.[0]?.ProductTitle || `Edition ${idx + 1}`;
           const msrp = priceObj?.MSRP;
-          const current = priceObj?.ListPrice || priceObj?.WholesalePrice || msrp || 59.99;
+          const current = priceObj?.ListPrice || priceObj?.WholesalePrice || msrp || 0;
           const discount = msrp && msrp > current ? Math.round(((msrp - current) / msrp) * 100) : 0;
 
           editions.push({
@@ -195,7 +81,7 @@ export async function GET(request: NextRequest) {
             editionType: categorizeEditionType(title),
             price: {
               formattedBasePrice: msrp ? `$${msrp.toFixed(2)}` : undefined,
-              formattedDiscountedPrice: `$${current.toFixed(2)}`,
+              formattedDiscountedPrice: current > 0 ? `$${current.toFixed(2)}` : 'Free',
               discountPercentage: discount,
               isFree: current === 0,
             },
@@ -223,37 +109,18 @@ export async function GET(request: NextRequest) {
       }
     }
   } catch {
-    // Graceful fallback
+    // Upstream failure handled below
   }
-
-  const defaultEdition: GameEdition[] = [
-    {
-      id: productId || 'XB-STD',
-      name: 'Standard Edition',
-      editionType: 'STANDARD',
-      price: {
-        formattedBasePrice: '$59.99',
-        formattedDiscountedPrice: '$39.99',
-        discountPercentage: 33,
-        isFree: false,
-      },
-      originalPrice: '$59.99',
-      discountPercentage: 33,
-      currency: 'USD',
-      isFree: false,
-      storeUrl: `https://www.xbox.com/games/store/game/${productId}`,
-      platform: 'Xbox',
-    },
-  ];
 
   return NextResponse.json(
     {
-      success: true,
-      source: 'cached-resilient',
+      success: false,
+      error: 'EDITIONS_NOT_FOUND',
+      message: `No editions found for Xbox product '${productId}'.`,
       productId,
-      count: defaultEdition.length,
-      data: defaultEdition,
+      count: 0,
+      data: [],
     },
-    { status: 200, headers: CORS_HEADERS }
+    { status: 404, headers: CORS_HEADERS }
   );
 }

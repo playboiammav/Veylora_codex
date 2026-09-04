@@ -328,44 +328,45 @@ export function GameDetailModal({ game, onClose, onSelectSimilar }: GameDetailMo
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {(gameEditions.length > 0 ? gameEditions : [
-                    {
-                      id: `${current.id}-std`,
-                      name: `${current.title} Standard Edition`,
-                      editionType: 'STANDARD',
-                      price: { formattedDiscountedPrice: '$59.99' },
-                    }
-                  ]).map((ed, idx) => {
-                    const priceObj = ed.price || {};
-                    const priceDisplay = priceObj.formattedDiscountedPrice || ed.priceDisplay || (priceObj.isFree ? 'FREE' : '$59.99');
-                    const origPrice = priceObj.formattedOriginalPrice;
-                    const discount = priceObj.discountPercent;
+                  {gameEditions.length === 0 ? (
+                    <div className="col-span-full py-4 text-center text-xs text-zinc-500">
+                      No edition details available for this platform.
+                    </div>
+                  ) : (
+                    gameEditions.map((ed, idx) => {
+                      const priceObj = ed.price || {};
+                      const priceDisplay = priceObj.formattedDiscountedPrice || ed.priceDisplay || (priceObj.isFree ? 'FREE' : '');
+                      const origPrice = priceObj.formattedOriginalPrice;
+                      const discount = priceObj.discountPercent;
 
-                    return (
-                      <div
-                        key={ed.id || idx}
-                        className="p-4 rounded-2xl bg-[#0D0D10] border border-zinc-800 space-y-2 flex items-center justify-between shadow-sm"
-                      >
-                        <div className="space-y-1">
-                          <span className="px-2 py-0.5 rounded text-[10px] font-mono font-extrabold uppercase bg-zinc-800 text-zinc-300 border border-zinc-700">
-                            {ed.editionType || 'STANDARD'}
-                          </span>
-                          <h5 className="text-xs sm:text-sm font-extrabold text-white">{ed.name}</h5>
-                        </div>
-
-                        <div className="flex flex-col items-end gap-0.5">
-                          {origPrice && discount && discount > 0 && (
-                            <span className="text-[10px] font-mono line-through text-zinc-500">
-                              {origPrice}
+                      return (
+                        <div
+                          key={ed.id || idx}
+                          className="p-4 rounded-2xl bg-[#0D0D10] border border-zinc-800 space-y-2 flex items-center justify-between shadow-sm"
+                        >
+                          <div className="space-y-1">
+                            <span className="px-2 py-0.5 rounded text-[10px] font-mono font-extrabold uppercase bg-zinc-800 text-zinc-300 border border-zinc-700">
+                              {ed.editionType || 'STANDARD'}
                             </span>
-                          )}
-                          <span className="text-sm font-black font-mono text-emerald-400">
-                            {priceDisplay !== '$0.00' ? priceDisplay : 'FREE'}
-                          </span>
+                            <h5 className="text-xs sm:text-sm font-extrabold text-white">{ed.name}</h5>
+                          </div>
+
+                          <div className="flex flex-col items-end gap-0.5">
+                            {origPrice && discount && discount > 0 && (
+                              <span className="text-[10px] font-mono line-through text-zinc-500">
+                                {origPrice}
+                              </span>
+                            )}
+                            {priceDisplay && (
+                              <span className="text-sm font-black font-mono text-emerald-400">
+                                {priceDisplay !== '$0.00' ? priceDisplay : 'FREE'}
+                              </span>
+                            )}
+                          </div>
                         </div>
-                      </div>
-                    );
-                  })}
+                      );
+                    })
+                  )}
                 </div>
               </div>
             </div>

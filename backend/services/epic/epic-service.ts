@@ -39,7 +39,10 @@ export class EpicService {
    */
   static getAuthorizationUrl(state?: string, scope: string = 'basic_profile'): string {
     const config = this.getConfig();
-    const clientId = config.clientId || 'SAMPLE_EPIC_CLIENT_ID';
+    const clientId = config.clientId || '';
+    if (!clientId) {
+      throw new Error('SERVICE_NOT_CONFIGURED: EPIC_CLIENT_ID is not configured on the backend server.');
+    }
     const redirectUri = encodeURIComponent(config.redirectUri || '');
     const stateParam = state ? `&state=${encodeURIComponent(state)}` : '';
     return `https://www.epicgames.com/id/authorize?client_id=${encodeURIComponent(clientId)}&response_type=code&scope=${encodeURIComponent(scope)}&redirect_uri=${redirectUri}${stateParam}`;

@@ -181,15 +181,8 @@ fun DigitalProfileCardScreen(
           SavedWatchlistItem(
             id = d.id,
             title = d.getString("title") ?: d.getString("name") ?: "Saved Media",
-            posterUrl = d.getString("posterPath") ?: d.getString("posterUrl") ?: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=400&q=80",
-            rating = d.getDouble("rating")?.toString() ?: "8.5"
-          )
-        }
-        if (watchlistItems.isEmpty()) {
-          watchlistItems = listOf(
-            SavedWatchlistItem("1", "Dune: Part Two", "https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=400&q=80", "8.6"),
-            SavedWatchlistItem("2", "Interstellar", "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=400&q=80", "8.7"),
-            SavedWatchlistItem("3", "Cyberpunk 2077", "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=400&q=80", "9.0")
+            posterUrl = d.getString("posterPath") ?: d.getString("posterUrl") ?: "",
+            rating = d.getDouble("rating")?.toString() ?: ""
           )
         }
       } catch (_: Exception) {
@@ -301,7 +294,7 @@ fun DigitalProfileCardScreen(
                   .border(1.5.dp, Color.White.copy(alpha = 0.4f), CircleShape)
               ) {
                 AsyncImage(
-                  model = currentUser?.photoUrl ?: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=400&q=80",
+                  model = currentUser?.photoUrl ?: "",
                   contentDescription = "Avatar",
                   contentScale = ContentScale.Crop,
                   modifier = Modifier.fillMaxSize()

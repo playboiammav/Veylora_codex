@@ -22,43 +22,40 @@ export function WatchlistView({ onSelectGame, onSelectMovie, onGoHome }: Watchli
 
   const handleOpenItem = (item: (typeof watchlist)[0]) => {
     if (item.type === 'game') {
-      const mockGame: NormalizedGame = {
+      const gameItem: NormalizedGame = {
         id: item.id,
         slug: item.id,
         title: item.title,
-        cover: item.image,
-        backdrop: item.image,
-        rating: item.rating,
+        cover: item.image || '',
+        backdrop: item.image || '',
+        rating: item.rating || 0,
         releaseYear: item.releaseYear,
         releaseDate: item.releaseYear,
-        platforms: item.platforms || ['PC', 'PS5'],
-        hardwareBadges: ['pc'],
-        genres: item.genres || ['Action'],
-        description: `${item.title} saved in your library.`,
-        screenshots: [item.image],
-        stores: [
-          { storeId: 'steam', name: 'Steam', url: `https://store.steampowered.com/search/?term=${encodeURIComponent(item.title)}` },
-        ],
+        platforms: item.platforms || [],
+        hardwareBadges: [],
+        genres: item.genres || [],
+        description: '',
+        screenshots: item.image ? [item.image] : [],
+        stores: [],
       };
-      onSelectGame(mockGame);
+      onSelectGame(gameItem);
     } else {
-      const mockMovie: NormalizedMovie = {
+      const movieItem: NormalizedMovie = {
         id: item.id,
         title: item.title,
-        poster: item.image,
-        backdrop: item.image,
-        rating: item.rating,
-        voteCount: 1200,
+        poster: item.image || '',
+        backdrop: item.image || '',
+        rating: item.rating || 0,
         releaseYear: item.releaseYear,
         releaseDate: item.releaseYear,
-        genres: item.genres || ['Feature Film'],
-        overview: `${item.title} saved in your watchlist.`,
+        genres: item.genres || [],
+        overview: '',
         formattedRuntime: item.runtime,
         cast: [],
         trailers: [],
-        images: [item.image],
+        images: item.image ? [item.image] : [],
       };
-      onSelectMovie(mockMovie);
+      onSelectMovie(movieItem);
     }
   };
 

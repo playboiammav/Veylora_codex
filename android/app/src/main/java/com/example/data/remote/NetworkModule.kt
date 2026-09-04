@@ -18,16 +18,16 @@ object NetworkModule {
 
   val TMDB_API_KEY: String
     get() = try {
-      BuildConfig.TMDB_API_KEY.ifBlank { "4ab19d12cb3b454ebdf649044e6f698b" }
+      BuildConfig.TMDB_API_KEY.ifBlank { "" }
     } catch (_: Exception) {
-      "4ab19d12cb3b454ebdf649044e6f698b"
+      ""
     }
 
   val RAWG_API_KEY: String
     get() = try {
-      BuildConfig.RAWG_API_KEY.ifBlank { "7fec0c952263468d982273c01e2e977c" }
+      BuildConfig.RAWG_API_KEY.ifBlank { "" }
     } catch (_: Exception) {
-      "7fec0c952263468d982273c01e2e977c"
+      ""
     }
 
   const val BASE_URL = "https://api.themoviedb.org/3/"

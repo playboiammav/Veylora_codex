@@ -242,7 +242,7 @@ export class UnifiedSearchService {
               id: app.id,
               name: app.name,
               description: `Bundle: ${app.bundleId} (${app.primaryLocale})`,
-              image: app.iconUrl || 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80',
+              image: app.iconUrl || '',
               url: `https://apps.apple.com/app/id${app.id}`,
               category: 'iOS / macOS',
               type: 'app',

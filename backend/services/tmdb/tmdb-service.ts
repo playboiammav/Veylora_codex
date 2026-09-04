@@ -55,142 +55,22 @@ const TMDB_IMG_BASE = 'https://image.tmdb.org/t/p';
 
 export function getTmdbImageUrl(path: string | null | undefined, size: 'w500' | 'original' | 'w780' = 'w500'): string {
   if (!path) {
-    return 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=800&auto=format&fit=crop&q=80';
+    return '';
   }
   if (path.startsWith('http')) return path;
   return `${TMDB_IMG_BASE}/${size}${path}`;
 }
 
 function getTmdbApiKey(): string {
-  return process.env.TMDB_KEY || process.env.TMDB_API_KEY || '2dca580c2a14b55200e784d157207b4d';
+  return process.env.TMDB_KEY || process.env.TMDB_API_KEY || '';
 }
-
-const FALLBACK_MOVIES: TmdbMovie[] = [
-  {
-    id: 693134,
-    title: 'Dune: Part Two',
-    overview: 'Follow the mythic journey of Paul Atreides as he unites with Chani and the Fremen while on a warpath of revenge against the conspirators who destroyed his family.',
-    poster_path: '/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg',
-    backdrop_path: '/xOMo8BRK7PfcJv9JCnx7s520b40.jpg',
-    release_date: '2024-02-27',
-    vote_average: 8.3,
-    vote_count: 5120,
-    popularity: 420.5,
-    genre_ids: [878, 12],
-    genres: [{ id: 878, name: 'Science Fiction' }, { id: 12, name: 'Adventure' }],
-    runtime: 166,
-    tagline: 'Long live the fighters.',
-  },
-  {
-    id: 533535,
-    title: 'Deadpool & Wolverine',
-    overview: 'A listless Wade Wilson toils away in civilian life with his days as the morally flexible mercenary, Deadpool, behind him. But when his homeworld faces an existential threat, Wade must reluctantly suit-up again.',
-    poster_path: '/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg',
-    backdrop_path: '/yDHYTfa2wfbyGKM8SJDCZnfZQ0G.jpg',
-    release_date: '2024-07-24',
-    vote_average: 7.8,
-    vote_count: 4890,
-    popularity: 580.2,
-    genre_ids: [28, 35, 878],
-    genres: [{ id: 28, name: 'Action' }, { id: 35, name: 'Comedy' }, { id: 878, name: 'Science Fiction' }],
-    runtime: 128,
-    tagline: 'Come together.',
-  },
-  {
-    id: 1022789,
-    title: 'Inside Out 2',
-    overview: 'Teenager Riley\'s mind headquarters is undergoing a sudden demolition to make room for something entirely unexpected: new Emotions! Joy, Sadness, Anger, Fear and Disgust aren\'t sure how to feel when Anxiety shows up.',
-    poster_path: '/vpnVM9B6NMmQpWeZvzLvDESb2QY.jpg',
-    backdrop_path: '/stKGOm8fM5kbtj9JnF5ezmMRYk.jpg',
-    release_date: '2024-06-11',
-    vote_average: 7.7,
-    vote_count: 4320,
-    popularity: 390.1,
-    genre_ids: [16, 10751, 35, 12],
-    genres: [{ id: 16, name: 'Animation' }, { id: 10751, name: 'Family' }, { id: 35, name: 'Comedy' }],
-    runtime: 96,
-    tagline: 'Make room for new emotions.',
-  },
-  {
-    id: 945961,
-    title: 'Alien: Romulus',
-    overview: 'While scavenging the deep ends of a derelict space station, a group of young space colonizers come face to face with the most terrifying life form in the universe.',
-    poster_path: '/b33nnKl1GSFbao8l3KiM6q4893.jpg',
-    backdrop_path: '/9SSEUrSqhljBMzRe4aBTh17rUaC.jpg',
-    release_date: '2024-08-13',
-    vote_average: 7.3,
-    vote_count: 2450,
-    popularity: 340.8,
-    genre_ids: [27, 878],
-    genres: [{ id: 27, name: 'Horror' }, { id: 878, name: 'Science Fiction' }],
-    runtime: 119,
-    tagline: 'In space no one can hear you.',
-  },
-  {
-    id: 573435,
-    title: 'Bad Boys: Ride or Die',
-    overview: 'After their late former Captain is framed, Lowrey and Burnett try to clear his name, only to end up on the run themselves.',
-    poster_path: '/nP6RliHjxsz4irTKsxe8FRhKZYl.jpg',
-    backdrop_path: '/gKkl37BQuKTanygYQG1pyYgLVgf.jpg',
-    release_date: '2024-06-05',
-    vote_average: 7.5,
-    vote_count: 2180,
-    popularity: 295.4,
-    genre_ids: [28, 35, 80],
-    genres: [{ id: 28, name: 'Action' }, { id: 35, name: 'Comedy' }, { id: 80, name: 'Crime' }],
-    runtime: 115,
-    tagline: 'Miami\'s finest are now Miami\'s most wanted.',
-  },
-  {
-    id: 823464,
-    title: 'Godzilla x Kong: The New Empire',
-    overview: 'Following their explosive showdown, Godzilla and Kong must reunite against a colossal undiscovered threat hidden within our world, challenging their very existence – and our own.',
-    poster_path: '/z1p34vh7dEOnLDmyCrlUVLuoDzd.jpg',
-    backdrop_path: '/qrGtVFxaD8c7et0j3sjYv10xGvi.jpg',
-    release_date: '2024-03-27',
-    vote_average: 7.2,
-    vote_count: 3650,
-    popularity: 280.9,
-    genre_ids: [28, 878, 12],
-    genres: [{ id: 28, name: 'Action' }, { id: 878, name: 'Science Fiction' }],
-    runtime: 115,
-    tagline: 'Rise together or fall alone.',
-  },
-  {
-    id: 157336,
-    title: 'Interstellar',
-    overview: 'The adventures of a group of explorers who make use of a newly discovered wormhole to surpass the limitations on human space travel and conquer the vast distances involved in an interstellar voyage.',
-    poster_path: '/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg',
-    backdrop_path: '/xJHokMbljvjADYdit5fK5VQsXEG.jpg',
-    release_date: '2014-11-05',
-    vote_average: 8.4,
-    vote_count: 34500,
-    popularity: 260.0,
-    genre_ids: [12, 18, 878],
-    genres: [{ id: 12, name: 'Adventure' }, { id: 18, name: 'Drama' }, { id: 878, name: 'Science Fiction' }],
-    runtime: 169,
-    tagline: 'Mankind was born on Earth. It was never meant to die here.',
-  },
-  {
-    id: 27205,
-    title: 'Inception',
-    overview: 'Cobb, a skilled thief who commits corporate espionage by infiltrating the subconscious of his targets is offered a chance to regain his old life as payment for a task considered to be impossible: "inception".',
-    poster_path: '/oYuLEt3zVCKq57qu2F8dT7NIa6f.jpg',
-    backdrop_path: '/8ZTVqvKDQ8emSGUEMjsS4yHAwrp.jpg',
-    release_date: '2010-07-15',
-    vote_average: 8.4,
-    vote_count: 36000,
-    popularity: 210.3,
-    genre_ids: [28, 878, 12],
-    genres: [{ id: 28, name: 'Action' }, { id: 878, name: 'Science Fiction' }, { id: 12, name: 'Adventure' }],
-    runtime: 148,
-    tagline: 'Your mind is the scene of the crime.',
-  },
-];
 
 export class TmdbService {
   private static async fetchTmdb(endpoint: string, params: Record<string, string> = {}): Promise<any> {
     const apiKey = getTmdbApiKey();
+    if (!apiKey) {
+      throw new Error('TMDB API key is not configured.');
+    }
     const query = new URLSearchParams({ api_key: apiKey, ...params });
     const url = `${TMDB_BASE_URL}${endpoint}?${query.toString()}`;
 
@@ -236,13 +116,13 @@ export class TmdbService {
       serverCache.set(cacheKey, result, 300);
       return { success: true, source: 'live', ...result };
     } catch (err) {
-      console.warn('TMDB Trending fetch failed, using fallback:', err);
+      console.warn('TMDB Trending fetch failed:', err);
       return {
-        success: true,
-        source: 'fallback',
-        data: FALLBACK_MOVIES,
-        totalPages: 1,
-        totalResults: FALLBACK_MOVIES.length,
+        success: false,
+        source: 'live',
+        data: [],
+        totalPages: 0,
+        totalResults: 0,
       };
     }
   }
@@ -265,8 +145,8 @@ export class TmdbService {
       serverCache.set(cacheKey, data, 300);
       return { success: true, source: 'live', data };
     } catch (err) {
-      console.warn('TMDB Popular fetch fallback:', err);
-      return { success: true, source: 'fallback', data: FALLBACK_MOVIES };
+      console.warn('TMDB Popular fetch failed:', err);
+      return { success: false, source: 'live', data: [] };
     }
   }
 
@@ -288,11 +168,11 @@ export class TmdbService {
       serverCache.set(cacheKey, data, 600);
       return { success: true, source: 'live', data };
     } catch (err) {
-      console.warn('TMDB Top Rated fetch fallback:', err);
+      console.warn('TMDB Top Rated fetch failed:', err);
       return {
-        success: true,
-        source: 'fallback',
-        data: [...FALLBACK_MOVIES].sort((a, b) => b.vote_average - a.vote_average),
+        success: false,
+        source: 'live',
+        data: [],
       };
     }
   }
@@ -315,8 +195,8 @@ export class TmdbService {
       serverCache.set(cacheKey, data, 300);
       return { success: true, source: 'live', data };
     } catch (err) {
-      console.warn('TMDB Now Playing fallback:', err);
-      return { success: true, source: 'fallback', data: FALLBACK_MOVIES.slice(0, 6) };
+      console.warn('TMDB Now Playing fetch failed:', err);
+      return { success: false, source: 'live', data: [] };
     }
   }
 
@@ -341,38 +221,8 @@ export class TmdbService {
       serverCache.set(cacheKey, movie, 600);
       return { success: true, source: 'live', data: movie };
     } catch (err) {
-      console.warn(`TMDB Movie detail for ${id} fallback:`, err);
-      const match = FALLBACK_MOVIES.find((m) => String(m.id) === id) || FALLBACK_MOVIES[0];
-      if (match) {
-        return {
-          success: true,
-          source: 'fallback',
-          data: {
-            ...match,
-            credits: {
-              cast: [
-                { id: 1, name: 'Timothée Chalamet', character: 'Paul Atreides', profile_path: null },
-                { id: 2, name: 'Zendaya', character: 'Chani', profile_path: null },
-                { id: 3, name: 'Rebecca Ferguson', character: 'Lady Jessica', profile_path: null },
-                { id: 4, name: 'Javier Bardem', character: 'Stilgar', profile_path: null },
-              ],
-              crew: [{ id: 10, name: 'Denis Villeneuve', job: 'Director', department: 'Directing' }],
-            },
-            videos: {
-              results: [
-                {
-                  id: 'vid1',
-                  key: 'Way9Dexny3w',
-                  name: 'Official Trailer',
-                  site: 'YouTube',
-                  type: 'Trailer',
-                },
-              ],
-            },
-          },
-        };
-      }
-      return { success: false, source: 'fallback', error: `Movie ${id} not found.` };
+      console.warn(`TMDB Movie detail for ${id} failed:`, err);
+      return { success: false, source: 'live', error: `Movie ${id} not found or TMDB service unavailable.` };
     }
   }
 
@@ -384,7 +234,7 @@ export class TmdbService {
     source: 'live' | 'cache' | 'fallback';
     data: TmdbMovie[];
   }> {
-    if (!query.trim()) return { success: true, source: 'fallback', data: [] };
+    if (!query.trim()) return { success: true, source: 'live', data: [] };
 
     const cacheKey = `tmdb_search_${query.toLowerCase()}_${page}`;
     const cached = serverCache.get<TmdbMovie[]>(cacheKey);
@@ -396,10 +246,8 @@ export class TmdbService {
       serverCache.set(cacheKey, data, 300);
       return { success: true, source: 'live', data };
     } catch (err) {
-      console.warn(`TMDB search for ${query} fallback:`, err);
-      const q = query.toLowerCase();
-      const filtered = FALLBACK_MOVIES.filter((m) => m.title.toLowerCase().includes(q));
-      return { success: true, source: 'fallback', data: filtered };
+      console.warn(`TMDB search for ${query} failed:`, err);
+      return { success: false, source: 'live', data: [] };
     }
   }
 
@@ -411,7 +259,7 @@ export class TmdbService {
     source: 'live' | 'cache' | 'fallback';
     data: any[];
   }> {
-    if (!query.trim()) return { success: true, source: 'fallback', data: [] };
+    if (!query.trim()) return { success: true, source: 'live', data: [] };
 
     const cacheKey = `tmdb_search_person_${query.toLowerCase()}_${page}`;
     const cached = serverCache.get<any[]>(cacheKey);
@@ -423,19 +271,11 @@ export class TmdbService {
       serverCache.set(cacheKey, data, 300);
       return { success: true, source: 'live', data };
     } catch (err) {
-      console.warn(`TMDB search person for ${query} fallback:`, err);
+      console.warn(`TMDB search person for ${query} failed:`, err);
       return {
-        success: true,
-        source: 'fallback',
-        data: [
-          {
-            id: 1190668,
-            name: 'Timothée Chalamet',
-            known_for_department: 'Acting',
-            profile_path: null,
-            known_for: [{ id: 693134, title: 'Dune: Part Two', vote_average: 8.2 }],
-          },
-        ],
+        success: false,
+        source: 'live',
+        data: [],
       };
     }
   }
@@ -458,19 +298,8 @@ export class TmdbService {
       serverCache.set(cacheKey, data, 3600);
       return { success: true, source: 'live', data };
     } catch (err) {
-      const fallback = [
-        { id: 28, name: 'Action' },
-        { id: 12, name: 'Adventure' },
-        { id: 16, name: 'Animation' },
-        { id: 35, name: 'Comedy' },
-        { id: 80, name: 'Crime' },
-        { id: 18, name: 'Drama' },
-        { id: 14, name: 'Fantasy' },
-        { id: 27, name: 'Horror' },
-        { id: 878, name: 'Science Fiction' },
-        { id: 53, name: 'Thriller' },
-      ];
-      return { success: true, source: 'fallback', data: fallback };
+      console.warn('TMDB genres fetch failed:', err);
+      return { success: false, source: 'live', data: [] };
     }
   }
 
@@ -482,7 +311,7 @@ export class TmdbService {
     source: 'live' | 'cache' | 'fallback';
     data?: TmdbMovie;
   }> {
-    if (!imdbId) return { success: false, source: 'fallback' };
+    if (!imdbId) return { success: false, source: 'live' };
     const cacheKey = `tmdb_find_${imdbId}`;
     const cached = serverCache.get<TmdbMovie>(cacheKey);
     if (cached) return { success: true, source: 'cache', data: cached };
@@ -503,7 +332,7 @@ export class TmdbService {
       return { success: false, source: 'live' };
     } catch (err) {
       console.warn(`TMDB findByImdbId ${imdbId} failed:`, err);
-      return { success: false, source: 'fallback' };
+      return { success: false, source: 'live' };
     }
   }
 
@@ -549,25 +378,8 @@ export class TmdbService {
     } catch (err) {
       console.warn(`TMDB Person detail for ${id} failed:`, err);
       return {
-        success: true,
-        source: 'fallback',
-        data: {
-          id: typeof personId === 'number' ? personId : 1,
-          name: 'Acclaimed Artist',
-          biography: 'Renowned award-winning performer with a celebrated filmography across cinema and television.',
-          known_for_department: 'Acting',
-          combined_credits: {
-            cast: FALLBACK_MOVIES.map((m) => ({
-              id: m.id,
-              title: m.title,
-              poster_path: m.poster_path,
-              release_date: m.release_date,
-              character: 'Lead Role',
-              media_type: 'movie',
-            })),
-            crew: [],
-          },
-        },
+        success: false,
+        source: 'live',
       };
     }
   }
@@ -609,15 +421,8 @@ export class TmdbService {
     } catch (err) {
       console.warn(`TMDB Company detail for ${id} failed:`, err);
       return {
-        success: true,
-        source: 'fallback',
-        data: {
-          id: typeof companyId === 'number' ? companyId : 1,
-          name: typeof companyId === 'string' ? companyId.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase()) : 'Production Company',
-          description: 'A distinguished motion picture production and entertainment studio.',
-          origin_country: 'US',
-        },
-        movies: FALLBACK_MOVIES,
+        success: false,
+        source: 'live',
       };
     }
   }

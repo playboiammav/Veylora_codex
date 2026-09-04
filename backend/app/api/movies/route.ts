@@ -39,16 +39,7 @@ function normalizeTmdbMovie(m: TmdbMovie): NormalizedMovie {
       site: v.site,
       type: v.type,
       url: `https://www.youtube.com/watch?v=${v.key}`,
-    })) || [
-    {
-      id: 'default-trailer',
-      name: `${m.title} - Official Trailer`,
-      key: 'Way9Dexny3w',
-      site: 'YouTube',
-      type: 'Trailer',
-      url: 'https://www.youtube.com/watch?v=Way9Dexny3w',
-    },
-  ];
+    })) || [];
 
   const images = m.images?.backdrops?.slice(0, 6).map((img) => getTmdbImageUrl(img.file_path, 'w780')) || [
     getTmdbImageUrl(m.backdrop_path, 'original'),
@@ -80,11 +71,11 @@ function normalizeTmdbMovie(m: TmdbMovie): NormalizedMovie {
     backdrop: getTmdbImageUrl(m.backdrop_path || m.poster_path, 'original'),
     rating: Number(m.vote_average.toFixed(1)),
     voteCount: m.vote_count,
-    releaseDate: m.release_date || '2024-01-01',
+    releaseDate: m.release_date || '',
     releaseYear,
     genres,
-    overview: m.overview || `${m.title} is an acclaimed blockbuster motion picture.`,
-    tagline: m.tagline || 'Experience the cinematic spectacle.',
+    overview: m.overview || '',
+    tagline: m.tagline || undefined,
     runtime,
     formattedRuntime,
     cast,
@@ -95,11 +86,7 @@ function normalizeTmdbMovie(m: TmdbMovie): NormalizedMovie {
     images,
     similar,
     status: m.status || 'Released',
-    streamingLinks: [
-      { name: 'Netflix', url: `https://www.netflix.com/search?q=${encodeURIComponent(m.title)}` },
-      { name: 'Apple TV', url: `https://tv.apple.com/search?term=${encodeURIComponent(m.title)}` },
-      { name: 'Prime Video', url: `https://www.amazon.com/s?k=${encodeURIComponent(m.title)}` },
-    ],
+    streamingLinks: [],
   };
 }
 
@@ -136,11 +123,11 @@ export async function GET(request: NextRequest) {
           title: item.title || item.fullTitle,
           poster: item.image || getTmdbImageUrl(null),
           backdrop: item.image || getTmdbImageUrl(null),
-          rating: item.imDbRating ? parseFloat(item.imDbRating) : 8.5,
-          releaseDate: item.year ? `${item.year}-01-01` : '2024-01-01',
-          releaseYear: item.year || '2024',
+          rating: item.imDbRating ? parseFloat(item.imDbRating) : 0,
+          releaseDate: item.year ? `${item.year}-01-01` : '',
+          releaseYear: item.year || '',
           genres: ['Classic', 'Drama'],
-          overview: `${item.title} ranks among the top critically acclaimed motion pictures of all time.`,
+          overview: '',
           cast: (item.crew ? item.crew.split(',').map((name: string, i: number) => ({ id: i, name: name.trim(), character: 'Principal Cast', profileImage: null })) : []),
           trailers: [],
           images: [item.image].filter(Boolean),

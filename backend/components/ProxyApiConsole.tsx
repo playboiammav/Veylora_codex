@@ -95,7 +95,7 @@ export function ProxyApiConsole({ isOpen, onClose }: ProxyApiConsoleProps) {
       case 'netflix':
         if (netflixEndpoint === 'search') return `/api/netflix/media/search/${encodeURIComponent(netflixSearch)}`;
         if (netflixEndpoint === 'profile') return `/api/netflix/profile`;
-        if (netflixEndpoint === 'watchlist') return `/api/netflix/media/watchlist/usr-421`;
+        if (netflixEndpoint === 'watchlist') return `/api/netflix/media/watchlist/me`;
         return `/api/netflix/media`;
       case 'rawg':
         if (rawgEndpoint === 'details') return `/api/rawg/games/${rawgGameId}?screenshots=true&movies=true`;

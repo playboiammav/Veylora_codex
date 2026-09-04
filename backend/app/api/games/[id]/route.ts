@@ -128,61 +128,15 @@ export async function GET(
       };
     }) || [];
 
-    // Check if steam store exists
-    const hasSteam = stores.some((s) => s.storeId === 'steam');
-    if (!hasSteam) {
-      stores.push({
-        storeId: 'steam',
-        name: 'Steam Store',
-        url: `https://store.steampowered.com/search/?term=${encodeURIComponent(g.name)}`,
-      });
-    }
-    const hasPs = stores.some((s) => s.storeId === 'playstation_store');
-    if (!hasPs) {
-      stores.push({
-        storeId: 'playstation_store',
-        name: 'PlayStation Store',
-        url: `https://store.playstation.com/search/${encodeURIComponent(g.name)}`,
-      });
-    }
-    const hasXbox = stores.some((s) => s.storeId === 'xbox_store');
-    if (!hasXbox) {
-      stores.push({
-        storeId: 'xbox_store',
-        name: 'Xbox Store',
-        url: `https://www.xbox.com/search?q=${encodeURIComponent(g.name)}`,
-      });
-    }
-
-    // Default rich PC system requirements fallback if game supports PC but RAWG has no parsed text
-    if (platforms.some((p) => p.toLowerCase().includes('pc')) && !minimumReq) {
-      minimumReq = {
-        os: 'Windows 10 / 11 64-bit',
-        processor: 'Intel Core i5-8400 or AMD Ryzen 5 2600',
-        memory: '16 GB RAM',
-        graphics: 'NVIDIA GeForce GTX 1060 6GB or AMD Radeon RX 580 8GB',
-        directx: 'Version 12',
-        storage: '85 GB available SSD space',
-      };
-      recommendedReq = {
-        os: 'Windows 11 64-bit',
-        processor: 'Intel Core i7-10700K or AMD Ryzen 7 5800X',
-        memory: '32 GB RAM',
-        graphics: 'NVIDIA GeForce RTX 3080 or AMD Radeon RX 6800 XT',
-        directx: 'Version 12 Ultimate',
-        storage: '85 GB NVMe SSD space',
-      };
-    }
-
     const releaseYear = g.released ? g.released.split('-')[0] : 'TBA';
 
     const normalizedGame: NormalizedGame = {
       id: String(g.id),
       slug: g.slug,
       title: g.name,
-      cover: g.background_image || 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&auto=format&fit=crop&q=80',
-      backdrop: g.background_image_additional || g.background_image || 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1200&auto=format&fit=crop&q=80',
-      rating: g.rating ? Number(g.rating.toFixed(1)) : 4.5,
+      cover: g.background_image || '',
+      backdrop: g.background_image_additional || g.background_image || '',
+      rating: g.rating ? Number(g.rating.toFixed(1)) : 0,
       metacritic: g.metacritic,
       ratingsCount: g.ratings_count,
       releaseDate: g.released || 'TBA',
@@ -190,10 +144,10 @@ export async function GET(
       platforms,
       hardwareBadges,
       genres: g.genres?.map((gen) => gen.name) || ['Action'],
-      developer: g.developers?.[0]?.name || 'Game Studio',
-      publisher: g.publishers?.[0]?.name || 'Publisher',
-      description: g.description_raw || g.description || `${g.name} is an acclaimed interactive gaming experience with rich story and gameplay.`,
-      shortDescription: `${g.name} (${releaseYear}) - ${g.genres?.map((ge) => ge.name).join(', ')}`,
+      developer: g.developers?.[0]?.name,
+      publisher: g.publishers?.[0]?.name,
+      description: g.description_raw || g.description || '',
+      shortDescription: g.released ? `${g.name} (${releaseYear})` : g.name,
       screenshots,
       trailers,
       stores,

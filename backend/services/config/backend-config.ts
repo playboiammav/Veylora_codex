@@ -43,7 +43,7 @@ export function getBackendConfig(): BackendConfig {
 
   const netflixApiUrl = process.env.NETFLIX_API_URL || 'https://netflix-api-g992.onrender.com';
 
-  const rawgApiKey = process.env.RAWG_API_KEY || '7fec0c952263468d982273c01e2e977c';
+  const rawgApiKey = process.env.RAWG_API_KEY || '';
 
   return {
     steam: {

@@ -49,8 +49,8 @@ export function CompanyProfileModal({
             name: companyName,
             slug,
             games_count: 0,
-            image_background: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1200&auto=format&fit=crop&q=80',
-            description: `${companyName} is an industry-recognized game creator and publisher.`,
+            image_background: '',
+            description: undefined,
           });
         }
       } catch (err) {
@@ -91,7 +91,7 @@ export function CompanyProfileModal({
             {/* Background Image */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={company?.image_background || 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1200&auto=format&fit=crop&q=80'}
+              src={company?.image_background || ''}
               alt={companyName}
               className="w-full h-full object-cover opacity-40 blur-[1px]"
             />

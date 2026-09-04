@@ -315,7 +315,7 @@ class AuthViewModel(
           country = "Global",
           email = auth.currentUser?.email ?: "",
           isEmailVerified = auth.currentUser?.isEmailVerified == true,
-          veyloraId = "7A9B3X1"
+          veyloraId = ""
         )
         _userProfile.value = fallbackProfile
         onResult?.invoke(fallbackProfile)

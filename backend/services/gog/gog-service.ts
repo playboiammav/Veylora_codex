@@ -22,93 +22,6 @@ export interface GogGameItem {
   description?: string;
 }
 
-const FALLBACK_GOG_GAMES: GogGameItem[] = [
-  {
-    id: 1207658924,
-    title: 'The Witcher 3: Wild Hunt - Complete Edition',
-    slug: 'the_witcher_3_wild_hunt_complete_edition',
-    image: 'https://images.gog-statics.com/bb45f5a8cb5d6e2467d58309df442da6ba103c80ff6579e0a0a5202613d9cfc8.jpg',
-    url: 'https://www.gog.com/game/the_witcher_3_wild_hunt_complete_edition',
-    price: {
-      amount: '$12.49',
-      baseAmount: '$49.99',
-      discountPercentage: 75,
-      isFree: false,
-      currency: 'USD',
-    },
-    genres: ['RPG', 'Open World', 'Story Rich'],
-    operatingSystems: ['windows'],
-    developer: 'CD PROJEKT RED',
-    publisher: 'CD PROJEKT RED',
-    rating: 4.9,
-    releaseDate: '2015-05-18',
-    description: 'You are Geralt of Rivia, mercenary monster slayer. Before you stands a war-torn, monster-infested continent you can explore at will.',
-  },
-  {
-    id: 1423049311,
-    title: 'Cyberpunk 2077',
-    slug: 'cyberpunk_2077',
-    image: 'https://images.gog-statics.com/8354c03b1e39a31505c21db33f5242273634ca649a4087e59b951b149b5ee976.jpg',
-    url: 'https://www.gog.com/game/cyberpunk_2077',
-    price: {
-      amount: '$29.99',
-      baseAmount: '$59.99',
-      discountPercentage: 50,
-      isFree: false,
-      currency: 'USD',
-    },
-    genres: ['RPG', 'Open World', 'Cyberpunk'],
-    operatingSystems: ['windows'],
-    developer: 'CD PROJEKT RED',
-    publisher: 'CD PROJEKT RED',
-    rating: 4.7,
-    releaseDate: '2020-12-10',
-    description: 'Cyberpunk 2077 is an open-world, action-adventure RPG set in the megalopolis of Night City.',
-  },
-  {
-    id: 1448888062,
-    title: 'Baldur’s Gate 3',
-    slug: 'baldurs_gate_iii',
-    image: 'https://images.gog-statics.com/46944ec7f0b8754b2cf0ee8f056d05f32eb5aa8823b1856cf22d4f58c751ba86.jpg',
-    url: 'https://www.gog.com/game/baldurs_gate_iii',
-    price: {
-      amount: '$59.99',
-      baseAmount: '$59.99',
-      discountPercentage: 0,
-      isFree: false,
-      currency: 'USD',
-    },
-    genres: ['RPG', 'Turn-Based', 'Party-Based'],
-    operatingSystems: ['windows', 'mac'],
-    developer: 'Larian Studios',
-    publisher: 'Larian Studios',
-    rating: 4.9,
-    releaseDate: '2023-08-03',
-    description: 'Gather your party, and return to the Forgotten Realms in a tale of fellowship and betrayal, sacrifice and survival.',
-  },
-  {
-    id: 1198516294,
-    title: 'Heroes of Might and Magic 3: Complete',
-    slug: 'heroes_of_might_and_magic_3_complete_edition',
-    image: 'https://images.gog-statics.com/71239eb85b736ee1fc1ae4e3f4e24ef5470c1737be543a6d134dc238805f1345.jpg',
-    url: 'https://www.gog.com/game/heroes_of_might_and_magic_3_complete_edition',
-    price: {
-      amount: '$2.49',
-      baseAmount: '$9.99',
-      discountPercentage: 75,
-      isFree: false,
-      currency: 'USD',
-    },
-    genres: ['Strategy', 'Turn-Based', 'Classic'],
-    operatingSystems: ['windows'],
-    developer: 'New World Computing',
-    publisher: 'Ubisoft',
-    rating: 4.9,
-    releaseDate: '1999-06-01',
-    description: 'The all-time classic turn-based fantasy strategy game including Restoration of Erathia, Armageddon’s Blade, and Shadow of Death.',
-  },
-];
-
 export class GogService {
   /**
    * Retrieves filtered GOG game catalog
@@ -140,7 +53,7 @@ export class GogService {
 
       const items: GogGameItem[] = products.map((p: any) => {
         const isFree = p.price?.isFree || false;
-        const amount = p.price?.amount || (isFree ? 'Free' : '$19.99');
+        const amount = p.price?.amount || (isFree ? 'Free' : '');
         const baseAmount = p.price?.baseAmount || amount;
         const discountPercentage = p.price?.discountPercentage || 0;
 
@@ -148,18 +61,18 @@ export class GogService {
           id: p.id,
           title: p.title,
           slug: p.slug,
-          image: p.image ? `https:${p.image}.jpg` : 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=800&q=80',
+          image: p.image ? `https:${p.image}.jpg` : '',
           url: `https://www.gog.com${p.url || `/game/${p.slug}`}`,
           price: {
-            amount: isFree ? 'Free' : (amount.startsWith('$') ? amount : `$${amount}`),
-            baseAmount: baseAmount.startsWith('$') ? baseAmount : `$${baseAmount}`,
+            amount: isFree ? 'Free' : (amount ? (amount.startsWith('$') ? amount : `$${amount}`) : ''),
+            baseAmount: baseAmount ? (baseAmount.startsWith('$') ? baseAmount : `$${baseAmount}`) : '',
             discountPercentage,
             isFree,
             currency: 'USD',
           },
           genres: p.genres || ['Action', 'Classic'],
           operatingSystems: p.worksOn ? Object.keys(p.worksOn).filter((k) => p.worksOn[k]) : ['windows'],
-          rating: p.rating ? p.rating / 10 : 4.8,
+          rating: p.rating ? p.rating / 10 : 0,
           developer: p.developer,
           publisher: p.publisher,
         };
@@ -169,13 +82,7 @@ export class GogService {
       serverCache.set(cacheKey, { data: items, totalCount }, 300);
       return { success: true, data: items, totalCount, source: 'live' };
     } catch {
-      // Fallback
-      let list = FALLBACK_GOG_GAMES;
-      if (search) {
-        const q = search.toLowerCase();
-        list = list.filter((g) => g.title.toLowerCase().includes(q) || g.genres.some((genre) => genre.toLowerCase().includes(q)));
-      }
-      return { success: true, data: list, totalCount: list.length, source: 'cache' };
+      return { success: false, data: [], totalCount: 0, source: 'live' };
     }
   }
 
@@ -203,11 +110,11 @@ export class GogService {
           id: p.id,
           title: p.title,
           slug: p.slug,
-          image: p.images?.logo2x ? `https:${p.images.logo2x}` : (p.images?.icon ? `https:${p.images.icon}` : 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=800&q=80'),
+          image: p.images?.logo2x ? `https:${p.images.logo2x}` : (p.images?.icon ? `https:${p.images.icon}` : ''),
           url: `https://www.gog.com/game/${p.slug}`,
           price: {
-            amount: '$29.99',
-            baseAmount: '$29.99',
+            amount: '',
+            baseAmount: '',
             discountPercentage: 0,
             isFree: false,
             currency: 'USD',
@@ -216,7 +123,7 @@ export class GogService {
           operatingSystems: p.operating_systems || ['windows'],
           developer: p.publisher,
           publisher: p.publisher,
-          rating: 4.8,
+          rating: 0,
           description: p.description?.lead || p.description?.full || '',
         };
 
@@ -227,15 +134,10 @@ export class GogService {
       // Fallback below
     }
 
-    const fallback = FALLBACK_GOG_GAMES.find((g) => String(g.id) === key || g.slug === key);
-    if (fallback) {
-      return { success: true, data: fallback, source: 'cache' };
-    }
-
     return {
       success: false,
       error: `GOG Game '${key}' not found.`,
-      source: 'cache',
+      source: 'live',
     };
   }
 }

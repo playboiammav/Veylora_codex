@@ -15,221 +15,6 @@ export async function OPTIONS() {
   });
 }
 
-// Verified Steam Editions Catalog
-const VERIFIED_STEAM_EDITIONS: Record<string, GameEdition[]> = {
-  '1245620': [
-    {
-      id: '1245620-390000',
-      name: 'ELDEN RING Standard Edition',
-      editionType: 'STANDARD',
-      price: {
-        formattedBasePrice: '$59.99',
-        formattedDiscountedPrice: '$39.59',
-        discountPercentage: 34,
-        isFree: false,
-      },
-      originalPrice: '$59.99',
-      discountPercentage: 34,
-      currency: 'USD',
-      isFree: false,
-      storeUrl: 'https://store.steampowered.com/app/1245620',
-      platform: 'PC',
-    },
-    {
-      id: '1245620-390001',
-      name: 'ELDEN RING Deluxe Edition',
-      editionType: 'DELUXE',
-      price: {
-        formattedBasePrice: '$79.99',
-        formattedDiscountedPrice: '$55.99',
-        discountPercentage: 30,
-        isFree: false,
-      },
-      originalPrice: '$79.99',
-      discountPercentage: 30,
-      currency: 'USD',
-      isFree: false,
-      storeUrl: 'https://store.steampowered.com/app/1245620',
-      platform: 'PC',
-    },
-    {
-      id: '1245620-390002',
-      name: 'ELDEN RING Shadow of the Erdtree Edition',
-      editionType: 'ULTIMATE',
-      price: {
-        formattedBasePrice: '$79.99',
-        formattedDiscountedPrice: '$67.99',
-        discountPercentage: 15,
-        isFree: false,
-      },
-      originalPrice: '$79.99',
-      discountPercentage: 15,
-      currency: 'USD',
-      isFree: false,
-      storeUrl: 'https://store.steampowered.com/app/1245620',
-      platform: 'PC',
-    },
-  ],
-  '1091500': [
-    {
-      id: '1091500-STD',
-      name: 'Cyberpunk 2077 Standard Edition',
-      editionType: 'STANDARD',
-      price: {
-        formattedBasePrice: '$59.99',
-        formattedDiscountedPrice: '$29.99',
-        discountPercentage: 50,
-        isFree: false,
-      },
-      originalPrice: '$59.99',
-      discountPercentage: 50,
-      currency: 'USD',
-      isFree: false,
-      storeUrl: 'https://store.steampowered.com/app/1091500',
-      platform: 'PC',
-    },
-    {
-      id: '1091500-ULTIMATE',
-      name: 'Cyberpunk 2077: Ultimate Edition',
-      editionType: 'ULTIMATE',
-      price: {
-        formattedBasePrice: '$89.99',
-        formattedDiscountedPrice: '$51.29',
-        discountPercentage: 43,
-        isFree: false,
-      },
-      originalPrice: '$89.99',
-      discountPercentage: 43,
-      currency: 'USD',
-      isFree: false,
-      storeUrl: 'https://store.steampowered.com/app/1091500',
-      platform: 'PC',
-    },
-  ],
-  '2322010': [
-    {
-      id: '2322010-STD',
-      name: 'God of War Ragnarök Standard Edition',
-      editionType: 'STANDARD',
-      price: {
-        formattedBasePrice: '$59.99',
-        formattedDiscountedPrice: '$59.99',
-        discountPercentage: 0,
-        isFree: false,
-      },
-      originalPrice: '$59.99',
-      discountPercentage: 0,
-      currency: 'USD',
-      isFree: false,
-      storeUrl: 'https://store.steampowered.com/app/2322010',
-      platform: 'PC',
-    },
-    {
-      id: '2322010-DLX',
-      name: 'God of War Ragnarök Digital Deluxe Edition',
-      editionType: 'DELUXE',
-      price: {
-        formattedBasePrice: '$69.99',
-        formattedDiscountedPrice: '$69.99',
-        discountPercentage: 0,
-        isFree: false,
-      },
-      originalPrice: '$69.99',
-      discountPercentage: 0,
-      currency: 'USD',
-      isFree: false,
-      storeUrl: 'https://store.steampowered.com/app/2322010',
-      platform: 'PC',
-    },
-  ],
-  '1551360': [
-    {
-      id: '1551360-STD',
-      name: 'Forza Horizon 5 Standard Edition',
-      editionType: 'STANDARD',
-      price: {
-        formattedBasePrice: '$59.99',
-        formattedDiscountedPrice: '$29.99',
-        discountPercentage: 50,
-        isFree: false,
-      },
-      originalPrice: '$59.99',
-      discountPercentage: 50,
-      currency: 'USD',
-      isFree: false,
-      storeUrl: 'https://store.steampowered.com/app/1551360',
-      platform: 'PC',
-    },
-    {
-      id: '1551360-DLX',
-      name: 'Forza Horizon 5 Deluxe Edition',
-      editionType: 'DELUXE',
-      price: {
-        formattedBasePrice: '$79.99',
-        formattedDiscountedPrice: '$39.99',
-        discountPercentage: 50,
-        isFree: false,
-      },
-      originalPrice: '$79.99',
-      discountPercentage: 50,
-      currency: 'USD',
-      isFree: false,
-      storeUrl: 'https://store.steampowered.com/app/1551360',
-      platform: 'PC',
-    },
-    {
-      id: '1551360-PRM',
-      name: 'Forza Horizon 5 Premium Edition',
-      editionType: 'PREMIUM',
-      price: {
-        formattedBasePrice: '$99.99',
-        formattedDiscountedPrice: '$49.99',
-        discountPercentage: 50,
-        isFree: false,
-      },
-      originalPrice: '$99.99',
-      discountPercentage: 50,
-      currency: 'USD',
-      isFree: false,
-      storeUrl: 'https://store.steampowered.com/app/1551360',
-      platform: 'PC',
-    },
-  ],
-  '730': [
-    {
-      id: '730-STD',
-      name: 'Counter-Strike 2 Standard Free Edition',
-      editionType: 'STANDARD',
-      price: {
-        formattedDiscountedPrice: 'Free to Play',
-        discountPercentage: 0,
-        isFree: true,
-      },
-      currency: 'USD',
-      isFree: true,
-      storeUrl: 'https://store.steampowered.com/app/730',
-      platform: 'PC',
-    },
-    {
-      id: '730-PRIME',
-      name: 'Counter-Strike 2 Prime Status Upgrade',
-      editionType: 'PREMIUM',
-      price: {
-        formattedBasePrice: '$14.99',
-        formattedDiscountedPrice: '$14.99',
-        discountPercentage: 0,
-        isFree: false,
-      },
-      originalPrice: '$14.99',
-      discountPercentage: 0,
-      currency: 'USD',
-      isFree: false,
-      storeUrl: 'https://store.steampowered.com/app/730',
-      platform: 'PC',
-    },
-  ],
-};
-
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const appId = searchParams.get('appId') || searchParams.get('id') || '';
@@ -244,20 +29,6 @@ export async function GET(request: NextRequest) {
         message: "Query parameter 'appId' is required for Steam editions lookup.",
       },
       { status: 400, headers: CORS_HEADERS }
-    );
-  }
-
-  // Check verified editions
-  if (VERIFIED_STEAM_EDITIONS[appId]) {
-    return NextResponse.json(
-      {
-        success: true,
-        source: 'live',
-        appId,
-        count: VERIFIED_STEAM_EDITIONS[appId].length,
-        data: VERIFIED_STEAM_EDITIONS[appId],
-      },
-      { status: 200, headers: CORS_HEADERS }
     );
   }
 
@@ -355,7 +126,7 @@ export async function GET(request: NextRequest) {
             editionType: 'STANDARD',
             price: {
               formattedBasePrice: singlePrice?.initial_formatted,
-              formattedDiscountedPrice: singlePrice?.final_formatted || (isFree ? 'Free to Play' : '$59.99'),
+              formattedDiscountedPrice: singlePrice?.final_formatted || (isFree ? 'Free to Play' : ''),
               discountPercentage: disc,
               isFree,
             },
@@ -394,35 +165,15 @@ export async function GET(request: NextRequest) {
     // Graceful fallback below
   }
 
-  // Resilient single edition fallback
-  const fallbackEdition: GameEdition[] = [
-    {
-      id: `${appId}-std`,
-      name: 'Standard Edition',
-      editionType: 'STANDARD',
-      price: {
-        formattedBasePrice: '$59.99',
-        formattedDiscountedPrice: '$39.99',
-        discountPercentage: 33,
-        isFree: false,
-      },
-      originalPrice: '$59.99',
-      discountPercentage: 33,
-      currency: 'USD',
-      isFree: false,
-      storeUrl: `https://store.steampowered.com/app/${appId}`,
-      platform: 'PC',
-    },
-  ];
-
   return NextResponse.json(
     {
-      success: true,
-      source: 'cached-resilient',
+      success: false,
+      error: 'EDITIONS_NOT_FOUND',
+      message: `No editions found for Steam App ID '${appId}'.`,
       appId,
-      count: fallbackEdition.length,
-      data: fallbackEdition,
+      count: 0,
+      data: [],
     },
-    { status: 200, headers: CORS_HEADERS }
+    { status: 404, headers: CORS_HEADERS }
   );
 }

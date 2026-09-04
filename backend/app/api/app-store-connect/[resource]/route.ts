@@ -17,7 +17,7 @@ export async function GET(
 ) {
   const { resource } = await params;
   const { searchParams } = new URL(request.url);
-  const appId = searchParams.get('appId') || '6443892110';
+  const appId = searchParams.get('appId') || '';
 
   try {
     switch (resource.toLowerCase()) {
@@ -25,17 +25,23 @@ export async function GET(
         const apps = await AppStoreConnectService.listApps();
         return NextResponse.json(
           {
-            success: true,
+            success: apps.success,
             resource: 'apps',
             source: apps.source,
             count: apps.data.length,
             data: apps.data,
           },
-          { status: 200, headers: CORS_HEADERS }
+          { status: apps.success ? 200 : 503, headers: CORS_HEADERS }
         );
       }
 
       case 'versions': {
+        if (!appId) {
+          return NextResponse.json(
+            { success: false, error: 'MISSING_PARAM', message: "Query parameter 'appId' is required." },
+            { status: 400, headers: CORS_HEADERS }
+          );
+        }
         const versions = await AppStoreConnectService.listVersions(appId);
         return NextResponse.json(
           { success: true, resource: 'versions', appId, data: versions },
@@ -44,7 +50,7 @@ export async function GET(
       }
 
       case 'builds': {
-        const builds = await AppStoreConnectService.listBuilds(appId);
+        const builds = await AppStoreConnectService.listBuilds(appId || undefined);
         return NextResponse.json(
           { success: true, resource: 'builds', appId, data: builds },
           { status: 200, headers: CORS_HEADERS }
@@ -52,6 +58,12 @@ export async function GET(
       }
 
       case 'review': {
+        if (!appId) {
+          return NextResponse.json(
+            { success: false, error: 'MISSING_PARAM', message: "Query parameter 'appId' is required." },
+            { status: 400, headers: CORS_HEADERS }
+          );
+        }
         const review = await AppStoreConnectService.getReviewStatus(appId);
         return NextResponse.json(
           { success: true, resource: 'review', data: review },
@@ -70,7 +82,7 @@ export async function GET(
           {
             success: true,
             resource,
-            status: isConfigured ? 'CONFIGURED' : 'SANDBOX_SAMPLE_MODE',
+            status: isConfigured ? 'CONFIGURED' : 'UNCONFIGURED',
             isConfigured,
             supportedPlatforms: ['iOS', 'macOS', 'tvOS', 'visionOS'],
             timestamp: new Date().toISOString(),
