@@ -1,0 +1,512 @@
+{
+  "totalPhones": 3777,
+  "totalTablets": 352,
+  "recordsByManufacturer": {
+    "Samsung": 824,
+    "vivo": 470,
+    "Motorola": 432,
+    "OPPO": 400,
+    "Realme": 288,
+    "Huawei": 287,
+    "Honor": 274,
+    "Redmi": 240,
+    "Xiaomi": 154,
+    "Nokia": 152,
+    "Sony": 136,
+    "iQOO": 108,
+    "OnePlus": 96,
+    "Apple": 92,
+    "POCO": 76,
+    "ASUS": 52,
+    "Google": 36,
+    "Nothing": 12
+  },
+  "recordsByFormFactor": {
+    "phone": 3777,
+    "tablet": 352
+  },
+  "recordsBySource": {
+    "Apple Developer / GSMArena": 92,
+    "Google Play / Secondary Technical Synthesis": 913,
+    "GSMArena Technical Hardware Tree": 3020,
+    "GSMArena / Google Play Verified": 104
+  },
+  "recordsBySoCManufacturer": {
+    "Apple": 48,
+    "Qualcomm": 942,
+    "Google": 21,
+    "Mediatek": 270,
+    "Hisilicon": 68,
+    "Unisoc": 32,
+    "Samsung": 107
+  },
+  "socLinkedCount": 1488,
+  "socUnresolvedCount": 2641,
+  "socLinkageRate": "36.04%",
+  "regionalVariantCount": 52,
+  "duplicateCount": 1,
+  "excludedRumorCount": 193,
+  "excludedPriceFields": 3749,
+  "excludedEditorialFields": 1198,
+  "nullRates": {
+    "ram": "3.15% (130/4129)",
+    "storage": "3.61% (149/4129)",
+    "displayResolution": "0.00% (0/4129)",
+    "refreshRate": "60.01% (2478/4129)",
+    "SoC": "63.96% (2641/4129)",
+    "Vulkan": "62.90% (2597/4129)",
+    "OpenGLES": "65.12% (2689/4129)",
+    "osApi": "12.55% (518/4129)",
+    "releaseDate": "0.31% (13/4129)"
+  },
+  "sampleRecords": [
+    {
+      "id": "apple:iphone-16e-a3212",
+      "brand": "Apple",
+      "marketName": "iPhone 16e",
+      "modelNumbers": [
+        "A3212",
+        "A3409",
+        "A3410",
+        "A3408",
+        "iPhone17,5"
+      ],
+      "aliases": [
+        "a3212",
+        "a3408",
+        "a3409",
+        "a3410",
+        "apple iphone 16e",
+        "iphone 16e",
+        "iphone-16e",
+        "iphone17,5",
+        "iphone175"
+      ],
+      "deviceType": "phone",
+      "formFactor": "phone",
+      "socId": "apple:a18-apl1v01",
+      "socName": "Apple A18",
+      "chipsetPartNumber": "APL1V01",
+      "ramGb": [
+        8
+      ],
+      "baseRamGb": 8,
+      "maxRamGb": 8,
+      "storageGb": [
+        128,
+        256,
+        512
+      ],
+      "gpu": "Apple 5-Core GPU (Family 9)",
+      "gpuArchitecture": "Apple 9th Gen",
+      "displayResolution": "1170 x 2532 pixels",
+      "displayWidth": 1170,
+      "displayHeight": 2532,
+      "displaySize": 6.1,
+      "displayRefreshRate": null,
+      "refreshRateModes": [],
+      "launchAndroidVersion": null,
+      "currentAndroidVersion": null,
+      "iosVersion": "18.3",
+      "androidApiLevel": null,
+      "vulkanSupported": false,
+      "vulkanVersion": null,
+      "openGlEsVersion": null,
+      "releaseDate": "2025-02-28",
+      "sourceUrl": "https://www.gsmarena.com/apple_iphone_16e-review-2805.php",
+      "sourceName": "Apple Developer / GSMArena",
+      "sourceTier": "tier1-official-registry",
+      "licenseClassification": "Public Technical Facts (Feist Non-Copyrightable)",
+      "provenance": {
+        "primarySource": "Apple Developer / GSMArena",
+        "sourceUrls": [
+          "https://www.gsmarena.com/apple_iphone_16e-review-2805.php"
+        ],
+        "sourceTier": "tier1-official-registry",
+        "licenseClassification": "Public Technical Facts (Feist Non-Copyrightable)",
+        "verificationNotes": "Pure factual hardware specifications verified against official device indices."
+      },
+      "regionalVariant": null,
+      "region": null,
+      "storageExpandable": false,
+      "deviceCodenames": [
+        "iPhone17,5"
+      ]
+    },
+    {
+      "id": "apple:iphone-16-a3287",
+      "brand": "Apple",
+      "marketName": "iPhone 16",
+      "modelNumbers": [
+        "A3287",
+        "A3081",
+        "A3286",
+        "A3288",
+        "iPhone17,3"
+      ],
+      "aliases": [
+        "a3081",
+        "a3286",
+        "a3287",
+        "a3288",
+        "apple iphone 16",
+        "iphone 16",
+        "iphone-16",
+        "iphone17,3",
+        "iphone173"
+      ],
+      "deviceType": "phone",
+      "formFactor": "phone",
+      "socId": "apple:a18-apl1v01",
+      "socName": "Apple A18",
+      "chipsetPartNumber": "APL1V01",
+      "ramGb": [
+        8
+      ],
+      "baseRamGb": 8,
+      "maxRamGb": 8,
+      "storageGb": [
+        128,
+        256,
+        512
+      ],
+      "gpu": "Apple 5-Core GPU (Family 9)",
+      "gpuArchitecture": "Apple 9th Gen",
+      "displayResolution": "1179 x 2556 pixels",
+      "displayWidth": 1179,
+      "displayHeight": 2556,
+      "displaySize": 6.1,
+      "displayRefreshRate": null,
+      "refreshRateModes": [],
+      "launchAndroidVersion": null,
+      "currentAndroidVersion": null,
+      "iosVersion": "18",
+      "androidApiLevel": null,
+      "vulkanSupported": false,
+      "vulkanVersion": null,
+      "openGlEsVersion": null,
+      "releaseDate": "2024-09-20",
+      "sourceUrl": "https://www.gsmarena.com/apple_iphone_16-review-2749.php",
+      "sourceName": "Apple Developer / GSMArena",
+      "sourceTier": "tier1-official-registry",
+      "licenseClassification": "Public Technical Facts (Feist Non-Copyrightable)",
+      "provenance": {
+        "primarySource": "Apple Developer / GSMArena",
+        "sourceUrls": [
+          "https://www.gsmarena.com/apple_iphone_16-review-2749.php"
+        ],
+        "sourceTier": "tier1-official-registry",
+        "licenseClassification": "Public Technical Facts (Feist Non-Copyrightable)",
+        "verificationNotes": "Pure factual hardware specifications verified against official device indices."
+      },
+      "regionalVariant": null,
+      "region": null,
+      "storageExpandable": false,
+      "deviceCodenames": [
+        "iPhone17,3"
+      ]
+    },
+    {
+      "id": "apple:iphone-16-plus-a3290",
+      "brand": "Apple",
+      "marketName": "iPhone 16 Plus",
+      "modelNumbers": [
+        "A3290",
+        "A3082",
+        "A3289",
+        "A3291",
+        "iPhone17,4"
+      ],
+      "aliases": [
+        "a3082",
+        "a3289",
+        "a3290",
+        "a3291",
+        "apple iphone 16 plus",
+        "iphone 16 plus",
+        "iphone-16-plus",
+        "iphone17,4",
+        "iphone174"
+      ],
+      "deviceType": "phone",
+      "formFactor": "phone",
+      "socId": "apple:a18-apl1v01",
+      "socName": "Apple A18",
+      "chipsetPartNumber": "APL1V01",
+      "ramGb": [
+        8
+      ],
+      "baseRamGb": 8,
+      "maxRamGb": 8,
+      "storageGb": [
+        128,
+        256,
+        512
+      ],
+      "gpu": "Apple 5-Core GPU (Family 9)",
+      "gpuArchitecture": "Apple 9th Gen",
+      "displayResolution": "1290 x 2796 pixels",
+      "displayWidth": 1290,
+      "displayHeight": 2796,
+      "displaySize": 6.7,
+      "displayRefreshRate": null,
+      "refreshRateModes": [],
+      "launchAndroidVersion": null,
+      "currentAndroidVersion": null,
+      "iosVersion": "18",
+      "androidApiLevel": null,
+      "vulkanSupported": false,
+      "vulkanVersion": null,
+      "openGlEsVersion": null,
+      "releaseDate": "2024-09-20",
+      "sourceUrl": "https://www.gsmarena.com/apple_iphone_16_plus-review-2751.php",
+      "sourceName": "Apple Developer / GSMArena",
+      "sourceTier": "tier1-official-registry",
+      "licenseClassification": "Public Technical Facts (Feist Non-Copyrightable)",
+      "provenance": {
+        "primarySource": "Apple Developer / GSMArena",
+        "sourceUrls": [
+          "https://www.gsmarena.com/apple_iphone_16_plus-review-2751.php"
+        ],
+        "sourceTier": "tier1-official-registry",
+        "licenseClassification": "Public Technical Facts (Feist Non-Copyrightable)",
+        "verificationNotes": "Pure factual hardware specifications verified against official device indices."
+      },
+      "regionalVariant": null,
+      "region": null,
+      "storageExpandable": false,
+      "deviceCodenames": [
+        "iPhone17,4"
+      ]
+    },
+    {
+      "id": "apple:ipad-mini-2024-a2993",
+      "brand": "Apple",
+      "marketName": "iPad mini (2024)",
+      "modelNumbers": [
+        "A2993",
+        "A2995",
+        "A2996",
+        "iPad16,1",
+        "iPad16,2"
+      ],
+      "aliases": [
+        "a2993",
+        "a2995",
+        "a2996",
+        "apple ipad mini (2024)",
+        "ipad mini (2024)",
+        "ipad-mini-2024",
+        "ipad16,1",
+        "ipad16,2",
+        "ipad161",
+        "ipad162"
+      ],
+      "deviceType": "tablet",
+      "formFactor": "tablet",
+      "socId": "apple:a17-pro-apl1v02-t8130",
+      "socName": "Apple A17 Pro",
+      "chipsetPartNumber": "APL1V02",
+      "ramGb": [
+        8
+      ],
+      "baseRamGb": 8,
+      "maxRamGb": 8,
+      "storageGb": [
+        128,
+        256,
+        512
+      ],
+      "gpu": "Apple 6-Core GPU (Family 9)",
+      "gpuArchitecture": "Apple 9th Gen",
+      "displayResolution": "1488 x 2266 pixels",
+      "displayWidth": 1488,
+      "displayHeight": 2266,
+      "displaySize": 8.3,
+      "displayRefreshRate": null,
+      "refreshRateModes": [],
+      "launchAndroidVersion": null,
+      "currentAndroidVersion": null,
+      "iosVersion": "18",
+      "androidApiLevel": null,
+      "vulkanSupported": false,
+      "vulkanVersion": null,
+      "openGlEsVersion": null,
+      "releaseDate": "2024-10-23",
+      "sourceUrl": "https://www.gsmarena.com/apple-ipad-mini-2024.php",
+      "sourceName": "Apple Developer / GSMArena",
+      "sourceTier": "tier1-official-registry",
+      "licenseClassification": "Public Technical Facts (Feist Non-Copyrightable)",
+      "provenance": {
+        "primarySource": "Apple Developer / GSMArena",
+        "sourceUrls": [
+          "https://www.gsmarena.com/apple-ipad-mini-2024.php"
+        ],
+        "sourceTier": "tier1-official-registry",
+        "licenseClassification": "Public Technical Facts (Feist Non-Copyrightable)",
+        "verificationNotes": "Pure factual hardware specifications verified against official device indices."
+      },
+      "regionalVariant": null,
+      "region": null,
+      "storageExpandable": false,
+      "deviceCodenames": [
+        "iPad16,1",
+        "iPad16,2"
+      ]
+    },
+    {
+      "id": "apple:ipad-air-11-2024-a2902",
+      "brand": "Apple",
+      "marketName": "iPad Air 11 (2024)",
+      "modelNumbers": [
+        "A2902",
+        "A2903",
+        "A2904",
+        "iPad14,8",
+        "iPad14,9"
+      ],
+      "aliases": [
+        "a2902",
+        "a2903",
+        "a2904",
+        "apple ipad air 11 (2024)",
+        "ipad air 11 (2024)",
+        "ipad-air-11-2024",
+        "ipad14,8",
+        "ipad14,9",
+        "ipad148",
+        "ipad149"
+      ],
+      "deviceType": "tablet",
+      "formFactor": "tablet",
+      "socId": "apple:m2-t8112",
+      "socName": "Apple M2",
+      "chipsetPartNumber": "T8112",
+      "ramGb": [
+        8
+      ],
+      "baseRamGb": 8,
+      "maxRamGb": 8,
+      "storageGb": [
+        128,
+        256,
+        512,
+        1024
+      ],
+      "gpu": "Apple 10-Core GPU (Family 8)",
+      "gpuArchitecture": "Apple 8th Gen",
+      "displayResolution": "1640 x 2360 pixels",
+      "displayWidth": 1640,
+      "displayHeight": 2360,
+      "displaySize": 11.0,
+      "displayRefreshRate": null,
+      "refreshRateModes": [],
+      "launchAndroidVersion": null,
+      "currentAndroidVersion": null,
+      "iosVersion": "17.4",
+      "androidApiLevel": null,
+      "vulkanSupported": false,
+      "vulkanVersion": null,
+      "openGlEsVersion": null,
+      "releaseDate": "2024-05-15",
+      "sourceUrl": "https://www.gsmarena.com/apple-ipad-air-11-2024.php",
+      "sourceName": "Apple Developer / GSMArena",
+      "sourceTier": "tier1-official-registry",
+      "licenseClassification": "Public Technical Facts (Feist Non-Copyrightable)",
+      "provenance": {
+        "primarySource": "Apple Developer / GSMArena",
+        "sourceUrls": [
+          "https://www.gsmarena.com/apple-ipad-air-11-2024.php"
+        ],
+        "sourceTier": "tier1-official-registry",
+        "licenseClassification": "Public Technical Facts (Feist Non-Copyrightable)",
+        "verificationNotes": "Pure factual hardware specifications verified against official device indices."
+      },
+      "regionalVariant": null,
+      "region": null,
+      "storageExpandable": false,
+      "deviceCodenames": [
+        "iPad14,8",
+        "iPad14,9"
+      ]
+    }
+  ],
+  "unresolvedSocExamples": [
+    {
+      "brand": "Apple",
+      "marketName": "iPad 10.2 (2021)",
+      "rawChipset": "Apple A13 Bionic (7 nm+)"
+    },
+    {
+      "brand": "Apple",
+      "marketName": "iPad 2 CDMA",
+      "rawChipset": "Apple A5 (45 nm)"
+    },
+    {
+      "brand": "Apple",
+      "marketName": "iPad 2 Wi-Fi",
+      "rawChipset": "Apple A5 (45 nm)"
+    },
+    {
+      "brand": "Apple",
+      "marketName": "iPad 2 Wi-Fi + 3G",
+      "rawChipset": "Apple A5 (45 nm)"
+    },
+    {
+      "brand": "Apple",
+      "marketName": "iPad 3 Wi-Fi",
+      "rawChipset": "Apple A5X (45 nm)"
+    },
+    {
+      "brand": "Apple",
+      "marketName": "iPad 3 Wi-Fi + Cellular",
+      "rawChipset": "Apple A5X (45 nm)"
+    },
+    {
+      "brand": "Apple",
+      "marketName": "iPad 4 Wi-Fi",
+      "rawChipset": "Apple A6X (32 nm)"
+    },
+    {
+      "brand": "Apple",
+      "marketName": "iPad 4 Wi-Fi + Cellular",
+      "rawChipset": "Apple A6X (32 nm)"
+    },
+    {
+      "brand": "Apple",
+      "marketName": "iPad 9.7 (2017)",
+      "rawChipset": "Apple A9 (14 nm)"
+    },
+    {
+      "brand": "Apple",
+      "marketName": "iPad Air",
+      "rawChipset": "Apple A7 (28 nm)"
+    },
+    {
+      "brand": "Apple",
+      "marketName": "iPad Air 2",
+      "rawChipset": "Apple A8X (20 nm)"
+    },
+    {
+      "brand": "Apple",
+      "marketName": "iPad Pro 10.5 (2017)",
+      "rawChipset": "Apple A10X Fusion (10 nm)"
+    },
+    {
+      "brand": "Apple",
+      "marketName": "iPad Pro 11 (2018)",
+      "rawChipset": "Apple A12X Bionic (7 nm)"
+    },
+    {
+      "brand": "Apple",
+      "marketName": "iPad Pro 11 (2020)",
+      "rawChipset": "Apple A12Z Bionic"
+    },
+    {
+      "brand": "Apple",
+      "marketName": "iPad Pro 12.9 (2015)",
+      "rawChipset": "Apple A9X (16 nm)"
+    }
+  ],
+  "buildTimestamp": "2026-09-05T16:28:54.140924+00:00"
+}

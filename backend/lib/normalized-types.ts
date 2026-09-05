@@ -474,3 +474,94 @@ export interface SocDetailResponse {
   source: 'real';
 }
 
+export interface DeviceProvenance {
+  primarySource: string;
+  sourceUrls: string[];
+  sourceTier: 'tier1-official-registry' | 'tier2-technical-synthesis' | 'multi-tier-verified';
+  licenseClassification: string;
+  verificationNotes?: string | null;
+}
+
+export interface DeviceRecord {
+  id: string;
+  brand: string;
+  marketName: string;
+  modelNumbers: string[];
+  aliases: string[];
+  deviceType: 'phone' | 'tablet';
+  formFactor: 'phone' | 'tablet';
+
+  socId: string | null;
+  socName: string | null;
+  chipsetPartNumber: string | null;
+
+  ramGb: number[];
+  baseRamGb: number | null;
+  maxRamGb: number | null;
+  storageGb: number[];
+
+  gpu: string | null;
+  gpuArchitecture: string | null;
+
+  displayResolution: string | null;
+  displayWidth: number | null;
+  displayHeight: number | null;
+  displaySize: number | null;
+  displayRefreshRate: number | null;
+  refreshRateModes: number[];
+
+  launchAndroidVersion: string | null;
+  currentAndroidVersion: string | null;
+  iosVersion: string | null;
+  androidApiLevel: number | null;
+
+  vulkanSupported: boolean | null;
+  vulkanVersion: string | null;
+  openGlEsVersion: string | null;
+
+  releaseDate: string | null;
+
+  sourceUrl: string | null;
+  sourceName: string;
+  sourceTier: string;
+  licenseClassification: string;
+  provenance: DeviceProvenance;
+
+  ramType?: string | null;
+  storageType?: string | null;
+  storageExpandable?: boolean | null;
+  supportedArchitectures?: string[] | null;
+  is64Bit?: boolean | null;
+  regionalVariant?: string | null;
+  region?: string | null;
+  carrier?: string | null;
+  modelFamily?: string | null;
+  deviceCodenames?: string[] | null;
+}
+
+export type SmartphoneDevice = DeviceRecord;
+
+export interface DevicePagination {
+  page: number;
+  pageSize: number;
+  total: number;
+  totalPages: number;
+}
+
+export interface DeviceSearchResponse {
+  query?: string;
+  manufacturer?: string;
+  formFactor?: string;
+  socId?: string;
+  total: number;
+  page: number;
+  pageSize: number;
+  totalPages: number;
+  results: DeviceRecord[];
+}
+
+export interface DeviceDetailResponse {
+  device: DeviceRecord;
+  source: 'real';
+}
+
