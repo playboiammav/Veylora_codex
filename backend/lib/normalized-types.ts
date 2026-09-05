@@ -342,3 +342,53 @@ export interface GpuDetailResponse {
   gpu: GpuDevice;
   source: 'real';
 }
+
+export interface CpuDevice {
+  id: string;
+  name: string;
+  manufacturer: string;
+  family: string | null;
+  generation: string | null;
+  architecture: string | null;
+  cores: number | null;
+  threads: number | null;
+  baseClock: number | null;
+  boostClock: number | null;
+  cache: string | null;
+  integratedGpu: string | null;
+  releaseDate: string | null;
+  sourceUrl: string | null;
+
+  // useful provenance/details
+  partNumber?: string | null;
+  microarchitecture?: string | null;
+  socket?: string | null;
+  processSize?: string | null;
+  isa?: string | null;
+  instructionSet?: string | null;
+  l1Cache?: string | null;
+  l2Cache?: string | null;
+  l3Cache?: string | null;
+  power?: string | null;
+  sourceReferences?: string[];
+}
+
+export interface CpuPagination {
+  page: number;
+  pageSize: number;
+  total: number;
+  totalPages: number;
+}
+
+export interface CpuSearchResponse {
+  total: number;
+  page: number;
+  pageSize: number;
+  results: CpuDevice[];
+}
+
+export interface CpuDetailResponse {
+  cpu: CpuDevice;
+  source: 'real';
+}
+
