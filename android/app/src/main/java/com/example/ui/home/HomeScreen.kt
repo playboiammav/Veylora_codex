@@ -39,6 +39,7 @@ import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.SportsEsports
+import androidx.compose.material.icons.filled.SystemUpdate
 import androidx.compose.material.icons.outlined.BookmarkBorder
 import androidx.compose.material.icons.outlined.Bookmarks
 import androidx.compose.material.icons.outlined.Home
@@ -185,6 +186,16 @@ fun HomeScreen(
   val focusManager = LocalFocusManager.current
   val context = LocalContext.current
 
+  val cinemaApp = context.applicationContext as? com.example.CinemaHubApp
+  val devUpdateManager = remember { cinemaApp?.container?.devUpdateManager }
+  val devUpdateState by devUpdateManager?.updateState?.collectAsStateWithLifecycle(com.example.data.update.DevUpdateState.Idle) ?: remember { mutableStateOf(com.example.data.update.DevUpdateState.Idle) }
+
+  LaunchedEffect(devUpdateManager) {
+    if (devUpdateManager?.isDevBuild == true) {
+      devUpdateManager.checkForUpdates(force = false)
+    }
+  }
+
   var currentRoute by remember { mutableStateOf("movies") }
   var needsOnboarding by remember { mutableStateOf(false) }
 
@@ -308,6 +319,86 @@ fun HomeScreen(
             }
           },
           actions = {
+            if (devUpdateManager?.isDevBuild == true) {
+              // Subtle DEV build indicator pill
+              Surface(
+                shape = RoundedCornerShape(8.dp),
+                color = Color(0xFFFF9800).copy(alpha = 0.18f),
+                border = BorderStroke(1.dp, Color(0xFFFF9800).copy(alpha = 0.6f)),
+                modifier = Modifier
+                  .padding(end = 6.dp)
+                  .clickable { currentRoute = "settings" }
+              ) {
+                Text(
+                  text = "DEV",
+                  color = Color(0xFFFF9800),
+                  fontSize = 11.sp,
+                  fontWeight = FontWeight.Bold,
+                  modifier = Modifier.padding(horizontal = 7.dp, vertical = 3.dp)
+                )
+              }
+
+              // DEV update affordance when update is found or ready
+              val currentState = devUpdateState
+              if (currentState is com.example.data.update.DevUpdateState.UpdateAvailable) {
+                Surface(
+                  shape = RoundedCornerShape(8.dp),
+                  color = Color(0xFF2E7D32).copy(alpha = 0.25f),
+                  border = BorderStroke(1.dp, Color(0xFF4CAF50)),
+                  modifier = Modifier
+                    .padding(end = 8.dp)
+                    .clickable { currentRoute = "settings" }
+                ) {
+                  Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier.padding(horizontal = 7.dp, vertical = 3.dp)
+                  ) {
+                    Icon(
+                      imageVector = Icons.Default.SystemUpdate,
+                      contentDescription = "Update Available",
+                      tint = Color(0xFF4CAF50),
+                      modifier = Modifier.size(13.dp)
+                    )
+                    Spacer(modifier = Modifier.width(4.dp))
+                    Text(
+                      text = "UPDATE",
+                      color = Color(0xFF4CAF50),
+                      fontSize = 11.sp,
+                      fontWeight = FontWeight.Bold
+                    )
+                  }
+                }
+              } else if (currentState is com.example.data.update.DevUpdateState.ReadyToInstall) {
+                Surface(
+                  shape = RoundedCornerShape(8.dp),
+                  color = Color(0xFF1E88E5).copy(alpha = 0.25f),
+                  border = BorderStroke(1.dp, Color(0xFF1E88E5)),
+                  modifier = Modifier
+                    .padding(end = 8.dp)
+                    .clickable { devUpdateManager.launchInstaller(currentState.apkFile) }
+                ) {
+                  Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier.padding(horizontal = 7.dp, vertical = 3.dp)
+                  ) {
+                    Icon(
+                      imageVector = Icons.Default.SystemUpdate,
+                      contentDescription = "Install Update",
+                      tint = Color(0xFF1E88E5),
+                      modifier = Modifier.size(13.dp)
+                    )
+                    Spacer(modifier = Modifier.width(4.dp))
+                    Text(
+                      text = "INSTALL",
+                      color = Color(0xFF1E88E5),
+                      fontSize = 11.sp,
+                      fontWeight = FontWeight.Bold
+                    )
+                  }
+                }
+              }
+            }
+
             // Circular Search Button ONLY (Gamepad icon REMOVED)
             Box(
               modifier = Modifier

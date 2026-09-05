@@ -11,8 +11,14 @@ import java.util.concurrent.TimeUnit
 
 object NetworkModule {
 
-  const val PRICE_API_BASE_URL = "https://ais-dev-oi34e4dhfwkni5arkpizws-228330439328.europe-west3.run.app/"
-  const val VEYLORA_PROXY_BASE_URL = PRICE_API_BASE_URL
+  val BACKEND_BASE_URL: String
+    get() = com.example.BuildConfig.BACKEND_BASE_URL
+
+  val PRICE_API_BASE_URL: String
+    get() = BACKEND_BASE_URL
+
+  val VEYLORA_PROXY_BASE_URL: String
+    get() = BACKEND_BASE_URL
 
   const val IMAGE_BASE_URL_W500 = "https://image.tmdb.org/t/p/w500"
   const val IMAGE_BASE_URL_ORIGINAL = "https://image.tmdb.org/t/p/original"

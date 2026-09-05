@@ -735,6 +735,14 @@ fun SettingsScreen(
           )
         }
 
+        // 5.5 DEVELOPER BUILD & UPDATES CARD (DEV builds only)
+        val cinemaApp = context.applicationContext as? com.example.CinemaHubApp
+        cinemaApp?.container?.devUpdateManager?.let { devUpdateManager ->
+          if (devUpdateManager.isDevBuild) {
+            DeveloperBuildCard(updateManager = devUpdateManager)
+          }
+        }
+
         // 6. "SIGN OUT" / "SIGN IN" BUTTON (Alone at the very bottom)
         if (currentUser != null) {
           Spacer(modifier = Modifier.height(8.dp))

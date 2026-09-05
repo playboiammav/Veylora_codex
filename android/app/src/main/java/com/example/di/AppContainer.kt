@@ -11,6 +11,7 @@ import com.example.data.repository.CheapSharkRepository
 import com.example.data.repository.DealsRepository
 import com.example.data.repository.GameRepository
 import com.example.data.repository.MovieRepository
+import com.example.data.update.DevUpdateManager
 
 interface AppContainer {
   val veyloraBackendApiService: VeyloraBackendApiService
@@ -21,6 +22,7 @@ interface AppContainer {
   val cheapSharkRepository: CheapSharkRepository
   val dealsRepository: DealsRepository
   val userPreferencesRepository: UserPreferencesRepository
+  val devUpdateManager: DevUpdateManager
 }
 
 class DefaultAppContainer(private val context: Context) : AppContainer {
@@ -65,6 +67,10 @@ class DefaultAppContainer(private val context: Context) : AppContainer {
     UserPreferencesRepository(
       dataStore = context.userDataStore
     )
+  }
+
+  override val devUpdateManager: DevUpdateManager by lazy {
+    DevUpdateManager(context.applicationContext)
   }
 }
 

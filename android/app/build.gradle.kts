@@ -1,4 +1,11 @@
 import com.google.gms.googleservices.GoogleServicesPlugin.MissingGoogleServicesStrategy
+import java.io.File
+import java.security.MessageDigest
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
+import java.util.TimeZone
+import java.util.concurrent.TimeUnit
 
 plugins {
   alias(libs.plugins.android.application)
@@ -8,6 +15,59 @@ plugins {
   alias(libs.plugins.secrets)
   alias(libs.plugins.google.services)
 }
+
+fun determineGitCommitCount(): Int {
+  val envCode = providers.environmentVariable("DEV_VERSION_CODE").orNull?.toIntOrNull()
+  if (envCode != null) return envCode - 1000
+  return try {
+    providers.exec {
+      commandLine("git", "rev-list", "--count", "HEAD")
+      isIgnoreExitValue = true
+    }.standardOutput.asText.map { it.trim().toIntOrNull() ?: 15 }.getOrElse(15)
+  } catch (_: Exception) {
+    15
+  }
+}
+
+fun determineGitCommitSha(): String {
+  val envSha = providers.environmentVariable("GIT_COMMIT_SHA").orNull?.trim()
+  if (!envSha.isNullOrBlank() && envSha.length == 40) return envSha
+  return try {
+    providers.exec {
+      commandLine("git", "rev-parse", "HEAD")
+      isIgnoreExitValue = true
+    }.standardOutput.asText.map {
+      val sha = it.trim()
+      if (sha.length == 40) sha else "unknown"
+    }.getOrElse("unknown")
+  } catch (_: Exception) {
+    "unknown"
+  }
+}
+
+val gitCommitCount = determineGitCommitCount()
+val gitCommitSha = determineGitCommitSha()
+val gitCommitShaShort = if (gitCommitSha.length >= 7) gitCommitSha.substring(0, 7) else gitCommitSha
+
+val devVersionCode = (providers.environmentVariable("DEV_VERSION_CODE").orNull?.toIntOrNull()
+  ?: providers.gradleProperty("devVersionCode").orNull?.toIntOrNull()
+  ?: (1000 + gitCommitCount))
+
+val devVersionName = (providers.environmentVariable("DEV_VERSION_NAME").orNull
+  ?: providers.gradleProperty("devVersionName").orNull
+  ?: "1.1.${devVersionCode}-dev")
+
+val backendBaseUrl = providers.environmentVariable("BACKEND_BASE_URL").orNull
+  ?: providers.gradleProperty("backendBaseUrl").orNull
+  ?: "https://api.veylora.app/"
+
+val devUpdateMetadataUrl = providers.environmentVariable("DEV_UPDATE_METADATA_URL").orNull
+  ?: providers.gradleProperty("devUpdateMetadataUrl").orNull
+  ?: "https://github.com/playboiammav/Veylora_codex/releases/download/dev-latest/latest.json"
+
+val buildTimestamp = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.US).apply {
+  timeZone = TimeZone.getTimeZone("UTC")
+}.format(Date())
 
 android {
   namespace = "com.example"
@@ -21,6 +81,31 @@ android {
     versionName = "1.1.0"
 
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+  }
+
+  flavorDimensions += "environment"
+
+  productFlavors {
+    create("dev") {
+      dimension = "environment"
+      versionCode = devVersionCode
+      versionName = devVersionName
+      buildConfigField("boolean", "IS_DEV_BUILD", "true")
+      buildConfigField("String", "DEV_UPDATE_METADATA_URL", "\"$devUpdateMetadataUrl\"")
+      buildConfigField("String", "GIT_COMMIT_SHA", "\"$gitCommitSha\"")
+      buildConfigField("String", "GIT_COMMIT_SHA_SHORT", "\"$gitCommitShaShort\"")
+      buildConfigField("String", "BUILD_TIMESTAMP", "\"$buildTimestamp\"")
+      buildConfigField("String", "BACKEND_BASE_URL", "\"$backendBaseUrl\"")
+    }
+    create("prod") {
+      dimension = "environment"
+      buildConfigField("boolean", "IS_DEV_BUILD", "false")
+      buildConfigField("String", "DEV_UPDATE_METADATA_URL", "\"\"")
+      buildConfigField("String", "GIT_COMMIT_SHA", "\"$gitCommitSha\"")
+      buildConfigField("String", "GIT_COMMIT_SHA_SHORT", "\"$gitCommitShaShort\"")
+      buildConfigField("String", "BUILD_TIMESTAMP", "\"$buildTimestamp\"")
+      buildConfigField("String", "BACKEND_BASE_URL", "\"$backendBaseUrl\"")
+    }
   }
 
   signingConfigs {
@@ -44,7 +129,12 @@ android {
       isCrunchPngs = false
       isMinifyEnabled = false
       proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-      signingConfig = signingConfigs.getByName("release")
+      val keystorePath = System.getenv("KEYSTORE_PATH") ?: "${rootDir}/my-upload-key.jks"
+      if (file(keystorePath).exists()) {
+        signingConfig = signingConfigs.getByName("release")
+      } else {
+        signingConfig = signingConfigs.getByName("debugConfig")
+      }
     }
     debug { signingConfig = signingConfigs.getByName("debugConfig") }
   }
@@ -145,4 +235,55 @@ dependencies {
   debugImplementation(libs.androidx.compose.ui.tooling)
   "ksp"(libs.androidx.room.compiler)
   "ksp"(libs.moshi.kotlin.codegen)
+}
+
+tasks.register("generateDevUpdateMetadata") {
+  notCompatibleWithConfigurationCache("Ad-hoc metadata generation task accessing script context")
+  group = "publishing"
+  description = "Generates latest.json update contract metadata from built DEV APK"
+  doLast {
+    val apkDir = layout.buildDirectory.dir("outputs/apk/dev/release").get().asFile
+    val fallbackDir = layout.buildDirectory.dir("outputs/apk/dev/debug").get().asFile
+    val apkFile = (apkDir.listFiles() ?: emptyArray())
+      .firstOrNull { it.extension == "apk" && !it.name.contains("unaligned") }
+      ?: (fallbackDir.listFiles() ?: emptyArray())
+        .firstOrNull { it.extension == "apk" && !it.name.contains("unaligned") }
+
+    val sha256 = if (apkFile != null && apkFile.exists()) {
+      val digest = MessageDigest.getInstance("SHA-256")
+      apkFile.inputStream().use { stream ->
+        val buffer = ByteArray(8192)
+        var read: Int
+        while (stream.read(buffer).also { read = it } != -1) {
+          digest.update(buffer, 0, read)
+        }
+      }
+      digest.digest().joinToString("") { b -> String.format("%02x", b) }
+    } else {
+      ""
+    }
+
+    val apkSize = apkFile?.length() ?: 0L
+    val apkName = "veylora-dev.apk"
+    val apkUrl = "https://github.com/playboiammav/Veylora_codex/releases/download/v${devVersionName}/${apkName}"
+
+    val json = """
+    {
+      "versionCode": $devVersionCode,
+      "versionName": "$devVersionName",
+      "apkUrl": "$apkUrl",
+      "apkName": "$apkName",
+      "apkSize": $apkSize,
+      "sha256": "$sha256",
+      "releaseNotes": "Veylora DEV build $devVersionName (commit $gitCommitShaShort)",
+      "commitSha": "$gitCommitSha",
+      "publishedAt": "$buildTimestamp"
+    }
+    """.trimIndent()
+
+    val outputFile = File(rootDir, "latest.json")
+    outputFile.writeText(json)
+    println("Generated DEV update metadata at: " + outputFile.absolutePath)
+    println(json)
+  }
 }

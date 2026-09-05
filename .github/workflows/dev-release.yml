@@ -1,0 +1,160 @@
+name: Android DEV Release
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'android/**'
+      - '.github/workflows/dev-release.yml'
+  workflow_dispatch:
+    inputs:
+      release_notes:
+        description: 'Optional custom release notes'
+        required: false
+        default: 'Automated DEV build'
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-publish-dev:
+    name: Build & Publish DEV APK
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+          cache: 'gradle'
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Determine Deterministic DEV Version
+        id: versioning
+        run: |
+          COMMIT_COUNT=$(git rev-list --count HEAD)
+          COMMIT_SHA=$(git rev-parse HEAD)
+          COMMIT_SHA_SHORT=$(git rev-parse --short HEAD)
+          VERSION_CODE=$((1000 + COMMIT_COUNT))
+          VERSION_NAME="1.1.${VERSION_CODE}-dev"
+          BUILD_TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+          
+          echo "COMMIT_COUNT=${COMMIT_COUNT}" >> $GITHUB_OUTPUT
+          echo "COMMIT_SHA=${COMMIT_SHA}" >> $GITHUB_OUTPUT
+          echo "COMMIT_SHA_SHORT=${COMMIT_SHA_SHORT}" >> $GITHUB_OUTPUT
+          echo "VERSION_CODE=${VERSION_CODE}" >> $GITHUB_OUTPUT
+          echo "VERSION_NAME=${VERSION_NAME}" >> $GITHUB_OUTPUT
+          echo "BUILD_TIMESTAMP=${BUILD_TIMESTAMP}" >> $GITHUB_OUTPUT
+          
+          echo "Calculated DEV Version: ${VERSION_NAME} (code: ${VERSION_CODE}) for commit ${COMMIT_SHA_SHORT}"
+
+      - name: Grant execute permission for gradlew
+        run: |
+          chmod +x android/gradlew
+
+      - name: Build DEV APK
+        env:
+          DEV_VERSION_CODE: ${{ steps.versioning.outputs.VERSION_CODE }}
+          DEV_VERSION_NAME: ${{ steps.versioning.outputs.VERSION_NAME }}
+        run: |
+          cd android
+          ./gradlew assembleDevRelease --stacktrace
+
+      - name: Package DEV APK artifact
+        run: |
+          mkdir -p dist
+          APK_PATH=$(find android/app/build/outputs/apk/dev -name "*.apk" ! -name "*unaligned*" | head -n 1)
+          if [ -z "$APK_PATH" ]; then
+            echo "Error: DEV APK not found!"
+            exit 1
+          fi
+          echo "Found APK at: ${APK_PATH}"
+          cp "${APK_PATH}" dist/veylora-dev.apk
+          
+          APK_SHA256=$(sha256sum dist/veylora-dev.apk | cut -d' ' -f1)
+          APK_SIZE=$(stat -c%s dist/veylora-dev.apk)
+          
+          echo "APK_SHA256=${APK_SHA256}" >> $GITHUB_ENV
+          echo "APK_SIZE=${APK_SIZE}" >> $GITHUB_ENV
+          echo "Dev APK packaged: size=${APK_SIZE} bytes, sha256=${APK_SHA256}"
+
+      - name: Generate latest.json metadata contract
+        env:
+          VERSION_CODE: ${{ steps.versioning.outputs.VERSION_CODE }}
+          VERSION_NAME: ${{ steps.versioning.outputs.VERSION_NAME }}
+          COMMIT_SHA: ${{ steps.versioning.outputs.COMMIT_SHA }}
+          COMMIT_SHA_SHORT: ${{ steps.versioning.outputs.COMMIT_SHA_SHORT }}
+          BUILD_TIMESTAMP: ${{ steps.versioning.outputs.BUILD_TIMESTAMP }}
+          CUSTOM_NOTES: ${{ inputs.release_notes }}
+        run: |
+          RELEASE_NOTES="${CUSTOM_NOTES:-Automated DEV build for commit ${COMMIT_SHA_SHORT}}"
+          cat <<EOF > dist/latest.json
+          {
+            "versionCode": ${VERSION_CODE},
+            "versionName": "${VERSION_NAME}",
+            "apkUrl": "https://github.com/playboiammav/Veylora_codex/releases/download/v${VERSION_NAME}/veylora-dev.apk",
+            "apkName": "veylora-dev.apk",
+            "apkSize": ${APK_SIZE},
+            "sha256": "${APK_SHA256}",
+            "releaseNotes": "${RELEASE_NOTES}",
+            "commitSha": "${COMMIT_SHA}",
+            "publishedAt": "${BUILD_TIMESTAMP}"
+          }
+          EOF
+          
+          cp dist/latest.json android/latest.json
+          echo "Generated latest.json:"
+          cat dist/latest.json
+
+      - name: Upload Build Artifacts to GitHub Actions Run
+        uses: actions/upload-artifact@v4
+        with:
+          name: veylora-dev-apk-${{ steps.versioning.outputs.VERSION_NAME }}
+          path: |
+            dist/veylora-dev.apk
+            dist/latest.json
+
+      - name: Publish Versioned GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ steps.versioning.outputs.VERSION_NAME }}
+          name: Veylora DEV v${{ steps.versioning.outputs.VERSION_NAME }}
+          body: |
+            ### Veylora Development Build
+            - **Version Name:** `${{ steps.versioning.outputs.VERSION_NAME }}`
+            - **Version Code:** `${{ steps.versioning.outputs.VERSION_CODE }}`
+            - **Commit:** `${{ steps.versioning.outputs.COMMIT_SHA }}`
+            - **Built At:** `${{ steps.versioning.outputs.BUILD_TIMESTAMP }}`
+            - **SHA-256:** `${{ env.APK_SHA256 }}`
+            - **Size:** `${{ env.APK_SIZE }} bytes`
+            
+            ${{ inputs.release_notes || 'Automated DEV channel build.' }}
+          draft: false
+          prerelease: true
+          files: |
+            dist/veylora-dev.apk
+            dist/latest.json
+
+      - name: Update Rolling dev-latest GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: dev-latest
+          name: Veylora DEV Channel (Latest)
+          body: |
+            Latest Veylora DEV channel release.
+            - **Latest Version:** `${{ steps.versioning.outputs.VERSION_NAME }}` (`${{ steps.versioning.outputs.VERSION_CODE }}`)
+            - **Commit:** `${{ steps.versioning.outputs.COMMIT_SHA }}`
+            - **Updated:** `${{ steps.versioning.outputs.BUILD_TIMESTAMP }}`
+          draft: false
+          prerelease: true
+          files: |
+            dist/veylora-dev.apk
+            dist/latest.json
