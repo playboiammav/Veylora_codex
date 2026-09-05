@@ -1,0 +1,503 @@
+[
+  {
+    "id": "hisilicon:kirin-9010-hi36a0",
+    "name": "HiSilicon Kirin 9010",
+    "manufacturer": "HiSilicon",
+    "family": "Kirin",
+    "partNumber": "Hi36A0",
+    "architecture": "ARMv8.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Prime Taishan",
+        "cores": 1,
+        "microarchitecture": "Taishan Big (12-thread SMT)",
+        "maxClock": 2300,
+        "efficiencyClass": "prime"
+      },
+      {
+        "name": "Performance Taishan",
+        "cores": 3,
+        "microarchitecture": "Taishan Mid (SMT)",
+        "maxClock": 2180,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Cortex-A510",
+        "maxClock": 1550,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2300,
+    "cpuBitness": 64,
+    "gpu": "Maleoon 910",
+    "gpuFamily": "HiSilicon Maleoon",
+    "gpuArchitecture": "Maleoon",
+    "gpuClockMhz": 750,
+    "gpuExecutionUnits": 4,
+    "npu": "HiSilicon DaVinci NPU (Dual Big + Tiny)",
+    "aiPerformance": "14 TOPS",
+    "processNode": "7 nm (SMIC N+2)",
+    "vulkanVersion": "1.2",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR5",
+    "memoryChannels": 4,
+    "memoryBandwidth": "51.2 GB/s",
+    "maxMemorySizeGb": 16,
+    "isp": "Kirin ISP 7.0",
+    "dsp": "HiSilicon DSP",
+    "modem": "Integrated 5G Balong Modem",
+    "videoEncode": [
+      "4K@60fps"
+    ],
+    "videoDecode": [
+      "4K@60fps AV1/HEVC"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2024-04-18",
+    "sourceUrl": "https://consumer.huawei.com/en/phones/pura70-ultra/specs/",
+    "aliases": [
+      "hi36a0",
+      "hisilicon-kirin-9010",
+      "hisilicon:kirin-9010-hi36a0",
+      "kirin-9010",
+      "kirin-9010-hi36a0",
+      "kirin9010"
+    ],
+    "provenance": {
+      "primarySource": "Huawei Consumer Device Specifications",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry",
+        "Wikimedia Cited Specifications"
+      ],
+      "sourceUrls": [
+        "https://consumer.huawei.com/en/phones/pura70-ultra/specs/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Powers Huawei Pura 70 series. Custom Taishan CPU cores with multithreading support."
+    }
+  },
+  {
+    "id": "hisilicon:kirin-9000s-hi36a0",
+    "name": "HiSilicon Kirin 9000S",
+    "manufacturer": "HiSilicon",
+    "family": "Kirin",
+    "partNumber": "Hi36A0",
+    "architecture": "ARMv8.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Prime Taishan",
+        "cores": 1,
+        "microarchitecture": "Taishan Big (12-thread SMT)",
+        "maxClock": 2620,
+        "efficiencyClass": "prime"
+      },
+      {
+        "name": "Performance Taishan",
+        "cores": 3,
+        "microarchitecture": "Taishan Mid (SMT)",
+        "maxClock": 2150,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Cortex-A510",
+        "maxClock": 1530,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2620,
+    "cpuBitness": 64,
+    "gpu": "Maleoon 910",
+    "gpuFamily": "HiSilicon Maleoon",
+    "gpuArchitecture": "Maleoon",
+    "gpuClockMhz": 750,
+    "gpuExecutionUnits": 4,
+    "npu": "HiSilicon DaVinci NPU",
+    "aiPerformance": "12 TOPS",
+    "processNode": "7 nm (SMIC N+2)",
+    "vulkanVersion": "1.2",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR5",
+    "memoryChannels": 4,
+    "memoryBandwidth": "51.2 GB/s",
+    "maxMemorySizeGb": 16,
+    "isp": "Kirin ISP 6.0",
+    "dsp": "HiSilicon DSP",
+    "modem": "Integrated 5G Balong Modem",
+    "videoEncode": [
+      "4K@60fps"
+    ],
+    "videoDecode": [
+      "4K@60fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2023-08-29",
+    "sourceUrl": "https://consumer.huawei.com/en/phones/mate60-pro/specs/",
+    "aliases": [
+      "hi36a0",
+      "hisilicon-kirin-9000s",
+      "hisilicon:kirin-9000s-hi36a0",
+      "kirin-9000s",
+      "kirin-9000s-hi36a0",
+      "kirin9000s"
+    ],
+    "provenance": {
+      "primarySource": "Huawei Consumer Device Specifications",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://consumer.huawei.com/en/phones/mate60-pro/specs/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Powers Huawei Mate 60 Pro. First domestic advanced node Chinese silicon."
+    }
+  },
+  {
+    "id": "hisilicon:kirin-9000-hi36a0",
+    "name": "HiSilicon Kirin 9000 5G",
+    "manufacturer": "HiSilicon",
+    "family": "Kirin",
+    "partNumber": "Hi36A0",
+    "architecture": "ARMv8.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Prime",
+        "cores": 1,
+        "microarchitecture": "Cortex-A77",
+        "maxClock": 3130,
+        "efficiencyClass": "prime"
+      },
+      {
+        "name": "Performance",
+        "cores": 3,
+        "microarchitecture": "Cortex-A77",
+        "maxClock": 2540,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Cortex-A55",
+        "maxClock": 2050,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 3130,
+    "cpuBitness": 64,
+    "gpu": "Arm Mali-G78 MP24",
+    "gpuFamily": "Arm Mali Valhall",
+    "gpuArchitecture": "Valhall 2nd Gen",
+    "gpuClockMhz": 759,
+    "gpuExecutionUnits": 24,
+    "npu": "HiSilicon DaVinci NPU (Dual Big + Tiny)",
+    "aiPerformance": "15 TOPS",
+    "processNode": "5 nm (TSMC N5)",
+    "vulkanVersion": "1.3",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR5",
+    "memoryChannels": 4,
+    "memoryBandwidth": "44.0 GB/s",
+    "maxMemorySizeGb": 16,
+    "isp": "Kirin ISP 6.0",
+    "dsp": "HiSilicon DSP",
+    "modem": "Integrated Balong 5000 5G",
+    "videoEncode": [
+      "4K@60fps HDR"
+    ],
+    "videoDecode": [
+      "4K@60fps HDR"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2020-10-22",
+    "sourceUrl": "https://consumer.huawei.com/en/phones/mate40-pro/specs/",
+    "aliases": [
+      "hi36a0",
+      "hisilicon-kirin-9000-5g",
+      "hisilicon:kirin-9000-hi36a0",
+      "kirin-9000",
+      "kirin-9000-5g",
+      "kirin-9000-hi36a0",
+      "kirin9000"
+    ],
+    "provenance": {
+      "primarySource": "Huawei Device Specifications & HiSilicon Whitepapers",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://consumer.huawei.com/en/phones/mate40-pro/specs/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Powers Huawei Mate 40 Pro. Peak Mali-G78 MP24 implementation (24 cores)."
+    }
+  },
+  {
+    "id": "hisilicon:kirin-990-5g-hi3690",
+    "name": "HiSilicon Kirin 990 5G",
+    "manufacturer": "HiSilicon",
+    "family": "Kirin",
+    "partNumber": "Hi3690 5G",
+    "architecture": "ARMv8.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Prime",
+        "cores": 2,
+        "microarchitecture": "Cortex-A76",
+        "maxClock": 2860,
+        "efficiencyClass": "prime"
+      },
+      {
+        "name": "Performance",
+        "cores": 2,
+        "microarchitecture": "Cortex-A76",
+        "maxClock": 2360,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Cortex-A55",
+        "maxClock": 1950,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2860,
+    "cpuBitness": 64,
+    "gpu": "Arm Mali-G76 MP16",
+    "gpuFamily": "Arm Mali Bifrost",
+    "gpuArchitecture": "Bifrost 3rd Gen",
+    "gpuClockMhz": 700,
+    "gpuExecutionUnits": 16,
+    "npu": "HiSilicon DaVinci NPU (Dual Big + Tiny)",
+    "aiPerformance": "10 TOPS",
+    "processNode": "7 nm (TSMC N7+ EUV)",
+    "vulkanVersion": "1.2",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR4X",
+    "memoryChannels": 4,
+    "memoryBandwidth": "34.1 GB/s",
+    "maxMemorySizeGb": 12,
+    "isp": "Kirin ISP 5.0",
+    "dsp": "HiSilicon DSP",
+    "modem": "Integrated 5G Balong Modem",
+    "videoEncode": [
+      "4K@60fps"
+    ],
+    "videoDecode": [
+      "4K@60fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2019-09-06",
+    "sourceUrl": "https://consumer.huawei.com/en/phones/mate30-pro/specs/",
+    "aliases": [
+      "hi3690",
+      "hi3690 5g",
+      "hi36905g",
+      "hisilicon-kirin-990-5g",
+      "hisilicon:kirin-990-5g-hi3690",
+      "kirin-990",
+      "kirin-990-5g",
+      "kirin-990-5g-hi3690",
+      "kirin9905g"
+    ],
+    "provenance": {
+      "primarySource": "Huawei Device Specifications & HiSilicon Whitepapers",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://consumer.huawei.com/en/phones/mate30-pro/specs/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "First integrated 5G flagship SoC on 7nm EUV. Powers Mate 30 Pro and P40 Pro."
+    }
+  },
+  {
+    "id": "hisilicon:kirin-980-hi3680",
+    "name": "HiSilicon Kirin 980",
+    "manufacturer": "HiSilicon",
+    "family": "Kirin",
+    "partNumber": "Hi3680",
+    "architecture": "ARMv8.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Prime",
+        "cores": 2,
+        "microarchitecture": "Cortex-A76",
+        "maxClock": 2600,
+        "efficiencyClass": "prime"
+      },
+      {
+        "name": "Performance",
+        "cores": 2,
+        "microarchitecture": "Cortex-A76",
+        "maxClock": 1920,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Cortex-A55",
+        "maxClock": 1800,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2600,
+    "cpuBitness": 64,
+    "gpu": "Arm Mali-G76 MP10",
+    "gpuFamily": "Arm Mali Bifrost",
+    "gpuArchitecture": "Bifrost 3rd Gen",
+    "gpuClockMhz": 720,
+    "gpuExecutionUnits": 10,
+    "npu": "HiSilicon Dual NPU",
+    "aiPerformance": "4.5 TOPS",
+    "processNode": "7 nm (TSMC N7)",
+    "vulkanVersion": "1.1",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR4X",
+    "memoryChannels": 4,
+    "memoryBandwidth": "34.1 GB/s",
+    "maxMemorySizeGb": 8,
+    "isp": "Kirin ISP 4.0",
+    "dsp": "HiSilicon DSP",
+    "modem": "Integrated LTE-A Pro Cat.21",
+    "videoEncode": [
+      "4K@30fps"
+    ],
+    "videoDecode": [
+      "4K@60fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2018-08-31",
+    "sourceUrl": "https://consumer.huawei.com/en/phones/mate20-pro/specs/",
+    "aliases": [
+      "hi3680",
+      "hisilicon-kirin-980",
+      "hisilicon:kirin-980-hi3680",
+      "kirin-980",
+      "kirin-980-hi3680",
+      "kirin980"
+    ],
+    "provenance": {
+      "primarySource": "Huawei Device Specifications & HiSilicon Whitepapers",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://consumer.huawei.com/en/phones/mate20-pro/specs/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "First 7nm Android SoC. Powers Mate 20 Pro and P30 Pro."
+    }
+  },
+  {
+    "id": "hisilicon:kirin-710-hi6260",
+    "name": "HiSilicon Kirin 710",
+    "manufacturer": "HiSilicon",
+    "family": "Kirin",
+    "partNumber": "Hi6260",
+    "architecture": "ARMv8.0-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 4,
+        "microarchitecture": "Cortex-A73",
+        "maxClock": 2200,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Cortex-A53",
+        "maxClock": 1700,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2200,
+    "cpuBitness": 64,
+    "gpu": "Arm Mali-G51 MP4",
+    "gpuFamily": "Arm Mali Bifrost",
+    "gpuArchitecture": "Bifrost 1st Gen",
+    "gpuClockMhz": 1000,
+    "gpuExecutionUnits": 4,
+    "npu": null,
+    "aiPerformance": null,
+    "processNode": "12 nm (TSMC 12FFC)",
+    "vulkanVersion": "1.0",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR4",
+    "memoryChannels": 2,
+    "memoryBandwidth": "14.9 GB/s",
+    "maxMemorySizeGb": 6,
+    "isp": "Kirin ISP",
+    "dsp": null,
+    "modem": "Integrated LTE Cat.12/13",
+    "videoEncode": [
+      "1080p@60fps"
+    ],
+    "videoDecode": [
+      "1080p@60fps"
+    ],
+    "formFactor": [
+      "phone"
+    ],
+    "releaseDate": "2018-07-18",
+    "sourceUrl": "https://consumer.huawei.com/en/phones/nova-3i/specs/",
+    "aliases": [
+      "hi6260",
+      "hisilicon-kirin-710",
+      "hisilicon:kirin-710-hi6260",
+      "kirin-710",
+      "kirin-710-hi6260",
+      "kirin710"
+    ],
+    "provenance": {
+      "primarySource": "Huawei Device Specifications",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://consumer.huawei.com/en/phones/nova-3i/specs/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Mainstream mid-tier SoC widely deployed across Huawei Nova and Honor phones."
+    }
+  }
+]

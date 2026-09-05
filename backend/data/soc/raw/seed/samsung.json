@@ -1,0 +1,1243 @@
+[
+  {
+    "id": "samsung:exynos-2400-s5e9945",
+    "name": "Samsung Exynos 2400",
+    "manufacturer": "Samsung",
+    "family": "Exynos",
+    "partNumber": "S5E9945",
+    "architecture": "ARMv9.2-A",
+    "cpuCores": 10,
+    "cpuClusters": [
+      {
+        "name": "Prime",
+        "cores": 1,
+        "microarchitecture": "Cortex-X4",
+        "maxClock": 3200,
+        "efficiencyClass": "prime"
+      },
+      {
+        "name": "Performance High",
+        "cores": 2,
+        "microarchitecture": "Cortex-A720",
+        "maxClock": 2900,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Performance Low",
+        "cores": 3,
+        "microarchitecture": "Cortex-A720",
+        "maxClock": 2600,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Cortex-A520",
+        "maxClock": 1950,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 3200,
+    "cpuBitness": 64,
+    "gpu": "Samsung Xclipse 940",
+    "gpuFamily": "AMD RDNA 3",
+    "gpuArchitecture": "RDNA 3",
+    "gpuClockMhz": 1095,
+    "gpuExecutionUnits": 6,
+    "npu": "Samsung Dual NPU + DSP (2-GNPU + 2-SNPU)",
+    "aiPerformance": "17 TOPS",
+    "processNode": "4 nm (Samsung 4LPP+)",
+    "vulkanVersion": "1.3",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": true,
+    "memoryType": "LPDDR5X",
+    "memoryChannels": 4,
+    "memoryBandwidth": "68.2 GB/s",
+    "maxMemorySizeGb": 24,
+    "isp": "Samsung Exynos ISP (320 MP)",
+    "dsp": "Samsung DSP",
+    "modem": "Exynos 5G Modem (Shannon 5G)",
+    "videoEncode": [
+      "8K@30fps HEVC",
+      "4K@120fps"
+    ],
+    "videoDecode": [
+      "8K@60fps AV1",
+      "8K@30fps HEVC"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2024-01-17",
+    "sourceUrl": "https://semiconductor.samsung.com/processor/mobile-processor/exynos-2400/",
+    "aliases": [
+      "s5e9945",
+      "exynos-2400",
+      "exynos2400"
+    ],
+    "provenance": {
+      "primarySource": "Samsung Semiconductor Official Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry",
+        "Wikimedia Cited Specifications"
+      ],
+      "sourceUrls": [
+        "https://semiconductor.samsung.com/processor/mobile-processor/exynos-2400/",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "10-core CPU with AMD RDNA 3 based Xclipse 940 GPU supporting hardware ray tracing."
+    }
+  },
+  {
+    "id": "samsung:exynos-2200-s5e9925",
+    "name": "Samsung Exynos 2200",
+    "manufacturer": "Samsung",
+    "family": "Exynos",
+    "partNumber": "S5E9925",
+    "architecture": "ARMv9.0-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Prime",
+        "cores": 1,
+        "microarchitecture": "Cortex-X2",
+        "maxClock": 2800,
+        "efficiencyClass": "prime"
+      },
+      {
+        "name": "Performance",
+        "cores": 3,
+        "microarchitecture": "Cortex-A710",
+        "maxClock": 2520,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Cortex-A510",
+        "maxClock": 1820,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2800,
+    "cpuBitness": 64,
+    "gpu": "Samsung Xclipse 920",
+    "gpuFamily": "AMD RDNA 2",
+    "gpuArchitecture": "RDNA 2",
+    "gpuClockMhz": 1300,
+    "gpuExecutionUnits": 3,
+    "npu": "Samsung Dual NPU + DSP",
+    "aiPerformance": "10 TOPS",
+    "processNode": "4 nm (Samsung 4LPE)",
+    "vulkanVersion": "1.3",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": true,
+    "memoryType": "LPDDR5",
+    "memoryChannels": 4,
+    "memoryBandwidth": "51.2 GB/s",
+    "maxMemorySizeGb": 16,
+    "isp": "Samsung Exynos ISP (200 MP)",
+    "dsp": "Samsung DSP",
+    "modem": "Exynos 5G Modem",
+    "videoEncode": [
+      "8K@24fps HEVC",
+      "4K@120fps"
+    ],
+    "videoDecode": [
+      "8K@60fps AV1",
+      "8K@30fps HEVC"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2022-01-18",
+    "sourceUrl": "https://semiconductor.samsung.com/processor/mobile-processor/exynos-2200/",
+    "aliases": [
+      "s5e9925",
+      "exynos-2200",
+      "exynos2200"
+    ],
+    "provenance": {
+      "primarySource": "Samsung Semiconductor Official Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://semiconductor.samsung.com/processor/mobile-processor/exynos-2200/",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "First mobile SoC with AMD RDNA 2 GPU architecture (Xclipse 920)."
+    }
+  },
+  {
+    "id": "samsung:exynos-2100-s5e9840",
+    "name": "Samsung Exynos 2100",
+    "manufacturer": "Samsung",
+    "family": "Exynos",
+    "partNumber": "S5E9840",
+    "architecture": "ARMv8.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Prime",
+        "cores": 1,
+        "microarchitecture": "Cortex-X1",
+        "maxClock": 2910,
+        "efficiencyClass": "prime"
+      },
+      {
+        "name": "Performance",
+        "cores": 3,
+        "microarchitecture": "Cortex-A78",
+        "maxClock": 2810,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Cortex-A55",
+        "maxClock": 2200,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2910,
+    "cpuBitness": 64,
+    "gpu": "Arm Mali-G78 MP14",
+    "gpuFamily": "Arm Mali Valhall",
+    "gpuArchitecture": "Valhall 2nd Gen",
+    "gpuClockMhz": 848,
+    "gpuExecutionUnits": 14,
+    "npu": "Samsung Triple NPU + DSP",
+    "aiPerformance": "26 TOPS",
+    "processNode": "5 nm (Samsung 5LPE)",
+    "vulkanVersion": "1.3",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR5",
+    "memoryChannels": 4,
+    "memoryBandwidth": "51.2 GB/s",
+    "maxMemorySizeGb": 16,
+    "isp": "Samsung Exynos ISP (200 MP)",
+    "dsp": "Samsung DSP",
+    "modem": "Integrated 5G Exynos Modem",
+    "videoEncode": [
+      "8K@30fps HEVC",
+      "4K@120fps"
+    ],
+    "videoDecode": [
+      "8K@60fps AV1",
+      "8K@30fps HEVC"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2021-01-12",
+    "sourceUrl": "https://semiconductor.samsung.com/processor/mobile-processor/exynos-2100/",
+    "aliases": [
+      "s5e9840",
+      "exynos-2100",
+      "exynos2100"
+    ],
+    "provenance": {
+      "primarySource": "Samsung Semiconductor Official Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://semiconductor.samsung.com/processor/mobile-processor/exynos-2100/",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Integrated 5G flagship processor on 5nm EUV process."
+    }
+  },
+  {
+    "id": "samsung:exynos-1480-s5e8845",
+    "name": "Samsung Exynos 1480",
+    "manufacturer": "Samsung",
+    "family": "Exynos",
+    "partNumber": "S5E8845",
+    "architecture": "ARMv8.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 4,
+        "microarchitecture": "Cortex-A78",
+        "maxClock": 2750,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Cortex-A55",
+        "maxClock": 2000,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2750,
+    "cpuBitness": 64,
+    "gpu": "Samsung Xclipse 530",
+    "gpuFamily": "AMD RDNA",
+    "gpuArchitecture": "RDNA 2",
+    "gpuClockMhz": 1000,
+    "gpuExecutionUnits": 2,
+    "npu": "Samsung NPU",
+    "aiPerformance": "4.9 TOPS",
+    "processNode": "4 nm (Samsung 4LPP)",
+    "vulkanVersion": "1.3",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR5",
+    "memoryChannels": 2,
+    "memoryBandwidth": "25.6 GB/s",
+    "maxMemorySizeGb": 12,
+    "isp": "Samsung Exynos ISP (200 MP)",
+    "dsp": "Samsung DSP",
+    "modem": "Integrated 5G Exynos Modem",
+    "videoEncode": [
+      "4K@60fps HEVC"
+    ],
+    "videoDecode": [
+      "4K@60fps AV1",
+      "4K@60fps HEVC"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2024-03-11",
+    "sourceUrl": "https://semiconductor.samsung.com/processor/mobile-processor/exynos-1480/",
+    "aliases": [
+      "s5e8845",
+      "exynos-1480",
+      "exynos1480"
+    ],
+    "provenance": {
+      "primarySource": "Samsung Semiconductor Official Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://semiconductor.samsung.com/processor/mobile-processor/exynos-1480/",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Mid-range SoC featuring Samsung Xclipse 530 GPU co-developed with AMD."
+    }
+  },
+  {
+    "id": "samsung:exynos-1380-s5e8835",
+    "name": "Samsung Exynos 1380",
+    "manufacturer": "Samsung",
+    "family": "Exynos",
+    "partNumber": "S5E8835",
+    "architecture": "ARMv8.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 4,
+        "microarchitecture": "Cortex-A78",
+        "maxClock": 2400,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Cortex-A55",
+        "maxClock": 2000,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2400,
+    "cpuBitness": 64,
+    "gpu": "Arm Mali-G68 MP5",
+    "gpuFamily": "Arm Mali Valhall",
+    "gpuArchitecture": "Valhall 2nd Gen",
+    "gpuClockMhz": 950,
+    "gpuExecutionUnits": 5,
+    "npu": "Samsung NPU",
+    "aiPerformance": "4.9 TOPS",
+    "processNode": "5 nm (Samsung 5LPE)",
+    "vulkanVersion": "1.3",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR5",
+    "memoryChannels": 2,
+    "memoryBandwidth": "25.6 GB/s",
+    "maxMemorySizeGb": 12,
+    "isp": "Samsung Exynos ISP (200 MP)",
+    "dsp": "Samsung DSP",
+    "modem": "Integrated 5G Exynos Modem",
+    "videoEncode": [
+      "4K@30fps"
+    ],
+    "videoDecode": [
+      "4K@30fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2023-02-23",
+    "sourceUrl": "https://semiconductor.samsung.com/processor/mobile-processor/exynos-1380/",
+    "aliases": [
+      "s5e8835",
+      "exynos-1380",
+      "exynos1380"
+    ],
+    "provenance": {
+      "primarySource": "Samsung Semiconductor Official Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://semiconductor.samsung.com/processor/mobile-processor/exynos-1380/",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Mid-tier Exynos processor with 4x Cortex-A78 cores and Mali-G68 MP5."
+    }
+  },
+  {
+    "id": "samsung:exynos-1280-s5e8825",
+    "name": "Samsung Exynos 1280",
+    "manufacturer": "Samsung",
+    "family": "Exynos",
+    "partNumber": "S5E8825",
+    "architecture": "ARMv8.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 2,
+        "microarchitecture": "Cortex-A78",
+        "maxClock": 2400,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 6,
+        "microarchitecture": "Cortex-A55",
+        "maxClock": 2000,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2400,
+    "cpuBitness": 64,
+    "gpu": "Arm Mali-G68 MP4",
+    "gpuFamily": "Arm Mali Valhall",
+    "gpuArchitecture": "Valhall 2nd Gen",
+    "gpuClockMhz": 1000,
+    "gpuExecutionUnits": 4,
+    "npu": "Samsung NPU",
+    "aiPerformance": "4.3 TOPS",
+    "processNode": "5 nm (Samsung 5LPE)",
+    "vulkanVersion": "1.3",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR4X",
+    "memoryChannels": 2,
+    "memoryBandwidth": "17.1 GB/s",
+    "maxMemorySizeGb": 8,
+    "isp": "Samsung Exynos ISP (108 MP)",
+    "dsp": "Samsung DSP",
+    "modem": "Integrated 5G Modem",
+    "videoEncode": [
+      "4K@30fps"
+    ],
+    "videoDecode": [
+      "4K@30fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2022-03-17",
+    "sourceUrl": "https://semiconductor.samsung.com/processor/mobile-processor/exynos-1280/",
+    "aliases": [
+      "s5e8825",
+      "exynos-1280",
+      "exynos1280"
+    ],
+    "provenance": {
+      "primarySource": "Samsung Semiconductor Official Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://semiconductor.samsung.com/processor/mobile-processor/exynos-1280/",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "2+6 core configuration for mainstream 5G Galaxy A series."
+    }
+  },
+  {
+    "id": "samsung:exynos-1080-s5e9815",
+    "name": "Samsung Exynos 1080",
+    "manufacturer": "Samsung",
+    "family": "Exynos",
+    "partNumber": "S5E9815",
+    "architecture": "ARMv8.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Prime",
+        "cores": 1,
+        "microarchitecture": "Cortex-A78",
+        "maxClock": 2800,
+        "efficiencyClass": "prime"
+      },
+      {
+        "name": "Performance",
+        "cores": 3,
+        "microarchitecture": "Cortex-A78",
+        "maxClock": 2600,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Cortex-A55",
+        "maxClock": 2000,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2800,
+    "cpuBitness": 64,
+    "gpu": "Arm Mali-G78 MP10",
+    "gpuFamily": "Arm Mali Valhall",
+    "gpuArchitecture": "Valhall 2nd Gen",
+    "gpuClockMhz": 800,
+    "gpuExecutionUnits": 10,
+    "npu": "Samsung NPU",
+    "aiPerformance": "5.7 TOPS",
+    "processNode": "5 nm (Samsung 5LPE)",
+    "vulkanVersion": "1.3",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR5",
+    "memoryChannels": 4,
+    "memoryBandwidth": "51.2 GB/s",
+    "maxMemorySizeGb": 16,
+    "isp": "Samsung Exynos ISP (200 MP)",
+    "dsp": "Samsung DSP",
+    "modem": "Integrated 5G Modem",
+    "videoEncode": [
+      "4K@60fps"
+    ],
+    "videoDecode": [
+      "4K@60fps"
+    ],
+    "formFactor": [
+      "phone"
+    ],
+    "releaseDate": "2020-11-12",
+    "sourceUrl": "https://semiconductor.samsung.com/processor/mobile-processor/exynos-1080/",
+    "aliases": [
+      "s5e9815",
+      "exynos-1080",
+      "exynos1080"
+    ],
+    "provenance": {
+      "primarySource": "Samsung Semiconductor Official Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://semiconductor.samsung.com/processor/mobile-processor/exynos-1080/",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "First 5nm EUV Exynos processor with Mali-G78 MP10."
+    }
+  },
+  {
+    "id": "samsung:exynos-990-s5e9830",
+    "name": "Samsung Exynos 990",
+    "manufacturer": "Samsung",
+    "family": "Exynos",
+    "partNumber": "S5E9830",
+    "architecture": "ARMv8.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Custom Prime",
+        "cores": 2,
+        "microarchitecture": "Samsung Exynos M5 (Lion)",
+        "maxClock": 2730,
+        "efficiencyClass": "prime"
+      },
+      {
+        "name": "Performance",
+        "cores": 2,
+        "microarchitecture": "Cortex-A76",
+        "maxClock": 2500,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Cortex-A55",
+        "maxClock": 2000,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2730,
+    "cpuBitness": 64,
+    "gpu": "Arm Mali-G77 MP11",
+    "gpuFamily": "Arm Mali Valhall",
+    "gpuArchitecture": "Valhall 1st Gen",
+    "gpuClockMhz": 800,
+    "gpuExecutionUnits": 11,
+    "npu": "Samsung Dual NPU + DSP",
+    "aiPerformance": "10 TOPS",
+    "processNode": "7 nm (Samsung 7LPP EUV)",
+    "vulkanVersion": "1.3",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR5",
+    "memoryChannels": 4,
+    "memoryBandwidth": "44.0 GB/s",
+    "maxMemorySizeGb": 16,
+    "isp": "Samsung Exynos ISP (108 MP)",
+    "dsp": "Samsung DSP",
+    "modem": "Exynos Modem 5123",
+    "videoEncode": [
+      "8K@30fps",
+      "4K@120fps"
+    ],
+    "videoDecode": [
+      "8K@30fps",
+      "4K@120fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2019-10-24",
+    "sourceUrl": "https://semiconductor.samsung.com/processor/mobile-processor/exynos-990/",
+    "aliases": [
+      "s5e9830",
+      "exynos-990",
+      "exynos990"
+    ],
+    "provenance": {
+      "primarySource": "Samsung Semiconductor Official Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry",
+        "Wikimedia Cited Specifications"
+      ],
+      "sourceUrls": [
+        "https://semiconductor.samsung.com/processor/mobile-processor/exynos-990/",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Powered Galaxy S20 and Note 20 global editions with dual custom M5 cores."
+    }
+  },
+  {
+    "id": "samsung:exynos-9825-s5e9825",
+    "name": "Samsung Exynos 9825",
+    "manufacturer": "Samsung",
+    "family": "Exynos",
+    "partNumber": "S5E9825",
+    "architecture": "ARMv8.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Custom Prime",
+        "cores": 2,
+        "microarchitecture": "Samsung Exynos M4 (Cheetah)",
+        "maxClock": 2730,
+        "efficiencyClass": "prime"
+      },
+      {
+        "name": "Performance",
+        "cores": 2,
+        "microarchitecture": "Cortex-A75",
+        "maxClock": 2400,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Cortex-A55",
+        "maxClock": 1950,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2730,
+    "cpuBitness": 64,
+    "gpu": "Arm Mali-G76 MP12",
+    "gpuFamily": "Arm Mali Bifrost",
+    "gpuArchitecture": "Bifrost 3rd Gen",
+    "gpuClockMhz": 754,
+    "gpuExecutionUnits": 12,
+    "npu": "Samsung Neural Processing Unit",
+    "aiPerformance": "1.9 TOPS",
+    "processNode": "7 nm (Samsung 7LPP EUV)",
+    "vulkanVersion": "1.2",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR4X",
+    "memoryChannels": 4,
+    "memoryBandwidth": "34.1 GB/s",
+    "maxMemorySizeGb": 12,
+    "isp": "Samsung Exynos ISP",
+    "dsp": "Samsung DSP",
+    "modem": "Integrated LTE-A Pro Cat.20",
+    "videoEncode": [
+      "8K@30fps",
+      "4K@150fps"
+    ],
+    "videoDecode": [
+      "8K@30fps",
+      "4K@150fps"
+    ],
+    "formFactor": [
+      "phone"
+    ],
+    "releaseDate": "2019-08-07",
+    "sourceUrl": "https://semiconductor.samsung.com/processor/mobile-processor/exynos-9825/",
+    "aliases": [
+      "s5e9825",
+      "exynos-9825",
+      "exynos9825"
+    ],
+    "provenance": {
+      "primarySource": "Samsung Semiconductor Official Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://semiconductor.samsung.com/processor/mobile-processor/exynos-9825/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "7nm EUV shrink of 9820, powered the Galaxy Note 10 series."
+    }
+  },
+  {
+    "id": "samsung:exynos-9820-s5e9820",
+    "name": "Samsung Exynos 9820",
+    "manufacturer": "Samsung",
+    "family": "Exynos",
+    "partNumber": "S5E9820",
+    "architecture": "ARMv8.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Custom Prime",
+        "cores": 2,
+        "microarchitecture": "Samsung Exynos M4 (Cheetah)",
+        "maxClock": 2730,
+        "efficiencyClass": "prime"
+      },
+      {
+        "name": "Performance",
+        "cores": 2,
+        "microarchitecture": "Cortex-A75",
+        "maxClock": 2310,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Cortex-A55",
+        "maxClock": 1950,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2730,
+    "cpuBitness": 64,
+    "gpu": "Arm Mali-G76 MP12",
+    "gpuFamily": "Arm Mali Bifrost",
+    "gpuArchitecture": "Bifrost 3rd Gen",
+    "gpuClockMhz": 702,
+    "gpuExecutionUnits": 12,
+    "npu": "Samsung Neural Processing Unit",
+    "aiPerformance": "1.9 TOPS",
+    "processNode": "8 nm (Samsung 8LPP)",
+    "vulkanVersion": "1.2",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR4X",
+    "memoryChannels": 4,
+    "memoryBandwidth": "34.1 GB/s",
+    "maxMemorySizeGb": 12,
+    "isp": "Samsung Exynos ISP",
+    "dsp": "Samsung DSP",
+    "modem": "Integrated LTE-A Pro Cat.20",
+    "videoEncode": [
+      "8K@30fps",
+      "4K@150fps"
+    ],
+    "videoDecode": [
+      "8K@30fps",
+      "4K@150fps"
+    ],
+    "formFactor": [
+      "phone"
+    ],
+    "releaseDate": "2018-11-14",
+    "sourceUrl": "https://semiconductor.samsung.com/processor/mobile-processor/exynos-9820/",
+    "aliases": [
+      "s5e9820",
+      "exynos-9820",
+      "exynos9820"
+    ],
+    "provenance": {
+      "primarySource": "Samsung Semiconductor Official Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://semiconductor.samsung.com/processor/mobile-processor/exynos-9820/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Powered Samsung Galaxy S10 series."
+    }
+  },
+  {
+    "id": "samsung:exynos-9810-s5e9810",
+    "name": "Samsung Exynos 9810",
+    "manufacturer": "Samsung",
+    "family": "Exynos",
+    "partNumber": "S5E9810",
+    "architecture": "ARMv8.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Custom Prime",
+        "cores": 4,
+        "microarchitecture": "Samsung Exynos M3 (Meerkat)",
+        "maxClock": 2900,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Cortex-A55",
+        "maxClock": 1900,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2900,
+    "cpuBitness": 64,
+    "gpu": "Arm Mali-G72 MP18",
+    "gpuFamily": "Arm Mali Bifrost",
+    "gpuArchitecture": "Bifrost 2nd Gen",
+    "gpuClockMhz": 572,
+    "gpuExecutionUnits": 18,
+    "npu": null,
+    "aiPerformance": null,
+    "processNode": "10 nm (Samsung 10LPP)",
+    "vulkanVersion": "1.1",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR4X",
+    "memoryChannels": 4,
+    "memoryBandwidth": "28.7 GB/s",
+    "maxMemorySizeGb": 8,
+    "isp": "Samsung Exynos ISP",
+    "dsp": "Samsung DSP",
+    "modem": "Integrated LTE-A Pro Cat.18",
+    "videoEncode": [
+      "4K@120fps"
+    ],
+    "videoDecode": [
+      "4K@120fps"
+    ],
+    "formFactor": [
+      "phone"
+    ],
+    "releaseDate": "2018-01-04",
+    "sourceUrl": "https://semiconductor.samsung.com/processor/mobile-processor/exynos-9810/",
+    "aliases": [
+      "s5e9810",
+      "exynos-9810",
+      "exynos9810"
+    ],
+    "provenance": {
+      "primarySource": "Samsung Semiconductor Official Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://semiconductor.samsung.com/processor/mobile-processor/exynos-9810/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Powered Samsung Galaxy S9 and Note 9 series."
+    }
+  },
+  {
+    "id": "samsung:exynos-8895-s5e8895",
+    "name": "Samsung Exynos 8895",
+    "manufacturer": "Samsung",
+    "family": "Exynos",
+    "partNumber": "S5E8895",
+    "architecture": "ARMv8.0-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Custom Prime",
+        "cores": 4,
+        "microarchitecture": "Samsung Exynos M2 (Mongoose)",
+        "maxClock": 2314,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Cortex-A53",
+        "maxClock": 1690,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2314,
+    "cpuBitness": 64,
+    "gpu": "Arm Mali-G71 MP20",
+    "gpuFamily": "Arm Mali Bifrost",
+    "gpuArchitecture": "Bifrost 1st Gen",
+    "gpuClockMhz": 546,
+    "gpuExecutionUnits": 20,
+    "npu": null,
+    "aiPerformance": null,
+    "processNode": "10 nm (Samsung 10LPE)",
+    "vulkanVersion": "1.1",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR4X",
+    "memoryChannels": 4,
+    "memoryBandwidth": "28.7 GB/s",
+    "maxMemorySizeGb": 6,
+    "isp": "Samsung Exynos ISP",
+    "dsp": "Samsung Vision Processing Unit (VPU)",
+    "modem": "Integrated LTE-A Pro Cat.16",
+    "videoEncode": [
+      "4K@120fps"
+    ],
+    "videoDecode": [
+      "4K@120fps"
+    ],
+    "formFactor": [
+      "phone"
+    ],
+    "releaseDate": "2017-02-23",
+    "sourceUrl": "https://semiconductor.samsung.com/processor/mobile-processor/exynos-8895/",
+    "aliases": [
+      "s5e8895",
+      "exynos-8895",
+      "exynos8895"
+    ],
+    "provenance": {
+      "primarySource": "Samsung Semiconductor Official Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://semiconductor.samsung.com/processor/mobile-processor/exynos-8895/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Powered Samsung Galaxy S8 and Note 8 series."
+    }
+  },
+  {
+    "id": "samsung:exynos-8890-s5e8890",
+    "name": "Samsung Exynos 8890",
+    "manufacturer": "Samsung",
+    "family": "Exynos",
+    "partNumber": "S5E8890",
+    "architecture": "ARMv8.0-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Custom Prime",
+        "cores": 4,
+        "microarchitecture": "Samsung Exynos M1 (Mongoose)",
+        "maxClock": 2600,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Cortex-A53",
+        "maxClock": 1586,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2600,
+    "cpuBitness": 64,
+    "gpu": "Arm Mali-T880 MP12",
+    "gpuFamily": "Arm Mali Midgard",
+    "gpuArchitecture": "Midgard 4th Gen",
+    "gpuClockMhz": 650,
+    "gpuExecutionUnits": 12,
+    "npu": null,
+    "aiPerformance": null,
+    "processNode": "14 nm (Samsung 14LPP)",
+    "vulkanVersion": "1.1",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR4",
+    "memoryChannels": 2,
+    "memoryBandwidth": "28.7 GB/s",
+    "maxMemorySizeGb": 4,
+    "isp": "Samsung Exynos ISP",
+    "dsp": "Samsung DSP",
+    "modem": "Integrated LTE-A Cat.12",
+    "videoEncode": [
+      "4K@30fps"
+    ],
+    "videoDecode": [
+      "4K@30fps"
+    ],
+    "formFactor": [
+      "phone"
+    ],
+    "releaseDate": "2015-11-12",
+    "sourceUrl": "https://semiconductor.samsung.com/processor/mobile-processor/exynos-8890/",
+    "aliases": [
+      "s5e8890",
+      "exynos-8890",
+      "exynos8890"
+    ],
+    "provenance": {
+      "primarySource": "Samsung Semiconductor Official Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://semiconductor.samsung.com/processor/mobile-processor/exynos-8890/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "First Samsung SoC with custom Mongoose M1 core. Powered Galaxy S7 series."
+    }
+  },
+  {
+    "id": "samsung:exynos-850-s5e3830",
+    "name": "Samsung Exynos 850",
+    "manufacturer": "Samsung",
+    "family": "Exynos",
+    "partNumber": "S5E3830",
+    "architecture": "ARMv8.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Efficiency Core Cluster",
+        "cores": 8,
+        "microarchitecture": "Cortex-A55",
+        "maxClock": 2000,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2000,
+    "cpuBitness": 64,
+    "gpu": "Arm Mali-G52 MP1",
+    "gpuFamily": "Arm Mali Bifrost",
+    "gpuArchitecture": "Bifrost 2nd Gen",
+    "gpuClockMhz": 850,
+    "gpuExecutionUnits": 1,
+    "npu": null,
+    "aiPerformance": null,
+    "processNode": "8 nm (Samsung 8LPP)",
+    "vulkanVersion": "1.2",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR4X",
+    "memoryChannels": 2,
+    "memoryBandwidth": "17.1 GB/s",
+    "maxMemorySizeGb": 6,
+    "isp": "Samsung Exynos ISP (48 MP)",
+    "dsp": "Samsung DSP",
+    "modem": "Integrated LTE Cat.13",
+    "videoEncode": [
+      "1080p@60fps"
+    ],
+    "videoDecode": [
+      "1080p@60fps"
+    ],
+    "formFactor": [
+      "phone"
+    ],
+    "releaseDate": "2020-05-15",
+    "sourceUrl": "https://semiconductor.samsung.com/processor/mobile-processor/exynos-850/",
+    "aliases": [
+      "s5e3830",
+      "exynos-850",
+      "exynos850"
+    ],
+    "provenance": {
+      "primarySource": "Samsung Semiconductor Official Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://semiconductor.samsung.com/processor/mobile-processor/exynos-850/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Budget 8-core Cortex-A55 SoC powering Galaxy A12, A13, A21s."
+    }
+  },
+  {
+    "id": "samsung:exynos-7870-s5e7870",
+    "name": "Samsung Exynos 7870 Octa",
+    "manufacturer": "Samsung",
+    "family": "Exynos",
+    "partNumber": "S5E7870",
+    "architecture": "ARMv8.0-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Efficiency",
+        "cores": 8,
+        "microarchitecture": "Cortex-A53",
+        "maxClock": 1600,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 1600,
+    "cpuBitness": 64,
+    "gpu": "Arm Mali-T830 MP1",
+    "gpuFamily": "Arm Mali Midgard",
+    "gpuArchitecture": "Midgard 4th Gen",
+    "gpuClockMhz": 700,
+    "gpuExecutionUnits": 1,
+    "npu": null,
+    "aiPerformance": null,
+    "processNode": "14 nm (Samsung 14LPP)",
+    "vulkanVersion": "1.0",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR3",
+    "memoryChannels": 1,
+    "memoryBandwidth": "7.4 GB/s",
+    "maxMemorySizeGb": 3,
+    "isp": "Samsung Exynos ISP",
+    "dsp": null,
+    "modem": "Integrated LTE Cat.6",
+    "videoEncode": [
+      "1080p@60fps"
+    ],
+    "videoDecode": [
+      "1080p@60fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2016-02-15",
+    "sourceUrl": "https://semiconductor.samsung.com/processor/mobile-processor/exynos-7870/",
+    "aliases": [
+      "s5e7870",
+      "exynos-7870",
+      "exynos7870"
+    ],
+    "provenance": {
+      "primarySource": "Samsung Semiconductor Official Specification",
+      "verificationSources": [
+        "Wikimedia Cited Specifications"
+      ],
+      "sourceUrls": [
+        "https://semiconductor.samsung.com/processor/mobile-processor/exynos-7870/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Powered Galaxy J7 (2016) and Tab A 10.1."
+    }
+  },
+  {
+    "id": "samsung:exynos-7420-s5e7420",
+    "name": "Samsung Exynos 7420 Octa",
+    "manufacturer": "Samsung",
+    "family": "Exynos",
+    "partNumber": "S5E7420",
+    "architecture": "ARMv8.0-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 4,
+        "microarchitecture": "Cortex-A57",
+        "maxClock": 2100,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Cortex-A53",
+        "maxClock": 1500,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2100,
+    "cpuBitness": 64,
+    "gpu": "Arm Mali-T760 MP8",
+    "gpuFamily": "Arm Mali Midgard",
+    "gpuArchitecture": "Midgard 3rd Gen",
+    "gpuClockMhz": 772,
+    "gpuExecutionUnits": 8,
+    "npu": null,
+    "aiPerformance": null,
+    "processNode": "14 nm (Samsung 14LPE)",
+    "vulkanVersion": null,
+    "openGlEsVersion": "3.1",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR4",
+    "memoryChannels": 2,
+    "memoryBandwidth": "25.6 GB/s",
+    "maxMemorySizeGb": 4,
+    "isp": "Samsung Exynos ISP",
+    "dsp": null,
+    "modem": "Integrated LTE Cat.6/10",
+    "videoEncode": [
+      "4K@30fps"
+    ],
+    "videoDecode": [
+      "4K@30fps"
+    ],
+    "formFactor": [
+      "phone"
+    ],
+    "releaseDate": "2015-03-01",
+    "sourceUrl": "https://semiconductor.samsung.com/processor/mobile-processor/exynos-7420/",
+    "aliases": [
+      "s5e7420",
+      "exynos-7420",
+      "exynos7420"
+    ],
+    "provenance": {
+      "primarySource": "Samsung Semiconductor Official Specification",
+      "verificationSources": [
+        "Wikimedia Cited Specifications"
+      ],
+      "sourceUrls": [
+        "https://semiconductor.samsung.com/processor/mobile-processor/exynos-7420/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "First 14nm FinFET mobile SoC. Powered Samsung Galaxy S6 and Note 5. No Vulkan support."
+    }
+  }
+]

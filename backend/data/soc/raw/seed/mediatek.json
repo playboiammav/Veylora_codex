@@ -1,0 +1,1187 @@
+[
+  {
+    "id": "mediatek:dimensity-9400-mt6991",
+    "name": "MediaTek Dimensity 9400",
+    "manufacturer": "MediaTek",
+    "family": "Dimensity",
+    "partNumber": "MT6991",
+    "architecture": "ARMv9.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Prime",
+        "cores": 1,
+        "microarchitecture": "Cortex-X925",
+        "maxClock": 3630,
+        "efficiencyClass": "prime"
+      },
+      {
+        "name": "Performance High",
+        "cores": 3,
+        "microarchitecture": "Cortex-X4",
+        "maxClock": 3300,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Performance Big",
+        "cores": 4,
+        "microarchitecture": "Cortex-A720",
+        "maxClock": 2400,
+        "efficiencyClass": "performance"
+      }
+    ],
+    "cpuClockMax": 3630,
+    "cpuBitness": 64,
+    "gpu": "Arm Immortalis-G925 MC12",
+    "gpuFamily": "Arm Immortalis",
+    "gpuArchitecture": "5th Gen Arm GPU",
+    "gpuClockMhz": 1612,
+    "gpuExecutionUnits": 12,
+    "npu": "MediaTek NPU 890",
+    "aiPerformance": "50 TOPS",
+    "processNode": "3 nm (TSMC N3E)",
+    "vulkanVersion": "1.3",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": true,
+    "memoryType": "LPDDR5X",
+    "memoryChannels": 4,
+    "memoryBandwidth": "42.7 GB/s",
+    "maxMemorySizeGb": 24,
+    "isp": "MediaTek Imagiq 1090",
+    "dsp": "Cadence Tensilica",
+    "modem": "MediaTek 5G UltraSave 3.0+ Modem",
+    "videoEncode": [
+      "8K@60fps HDR"
+    ],
+    "videoDecode": [
+      "8K@60fps AV1"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2024-10-09",
+    "sourceUrl": "https://www.mediatek.com/products/smartphones-2/mediatek-dimensity-9400",
+    "aliases": [
+      "mt6991",
+      "dimensity-9400",
+      "d9400"
+    ],
+    "provenance": {
+      "primarySource": "MediaTek Official Product Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry",
+        "Wikimedia Cited Specifications"
+      ],
+      "sourceUrls": [
+        "https://www.mediatek.com/products/smartphones-2/mediatek-dimensity-9400",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Second-generation All Big Core architecture with 3.63 GHz Cortex-X925 prime core."
+    }
+  },
+  {
+    "id": "mediatek:dimensity-9300-plus-mt6989z",
+    "name": "MediaTek Dimensity 9300+",
+    "manufacturer": "MediaTek",
+    "family": "Dimensity",
+    "partNumber": "MT6989Z",
+    "architecture": "ARMv9.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Prime",
+        "cores": 1,
+        "microarchitecture": "Cortex-X4",
+        "maxClock": 3400,
+        "efficiencyClass": "prime"
+      },
+      {
+        "name": "Performance High",
+        "cores": 3,
+        "microarchitecture": "Cortex-X4",
+        "maxClock": 2850,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Performance Big",
+        "cores": 4,
+        "microarchitecture": "Cortex-A720",
+        "maxClock": 2000,
+        "efficiencyClass": "performance"
+      }
+    ],
+    "cpuClockMax": 3400,
+    "cpuBitness": 64,
+    "gpu": "Arm Immortalis-G720 MC12",
+    "gpuFamily": "Arm Immortalis",
+    "gpuArchitecture": "5th Gen Arm GPU",
+    "gpuClockMhz": 1300,
+    "gpuExecutionUnits": 12,
+    "npu": "MediaTek APU 790",
+    "aiPerformance": "45 TOPS",
+    "processNode": "4 nm (TSMC N4P)",
+    "vulkanVersion": "1.3",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": true,
+    "memoryType": "LPDDR5T",
+    "memoryChannels": 4,
+    "memoryBandwidth": "38.4 GB/s",
+    "maxMemorySizeGb": 24,
+    "isp": "MediaTek Imagiq 990",
+    "dsp": "Cadence Tensilica",
+    "modem": "MediaTek 5G M80",
+    "videoEncode": [
+      "8K@30fps"
+    ],
+    "videoDecode": [
+      "8K@60fps AV1"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2024-05-07",
+    "sourceUrl": "https://www.mediatek.com/products/smartphones-2/mediatek-dimensity-9300-plus",
+    "aliases": [
+      "mt6989z",
+      "dimensity-9300-plus",
+      "dimensity-9300+",
+      "d9300plus",
+      "d9300+"
+    ],
+    "provenance": {
+      "primarySource": "MediaTek Official Product Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.mediatek.com/products/smartphones-2/mediatek-dimensity-9300-plus",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "3.40 GHz boosted Cortex-X4 prime core with hardware ray tracing."
+    }
+  },
+  {
+    "id": "mediatek:dimensity-9300-mt6989",
+    "name": "MediaTek Dimensity 9300",
+    "manufacturer": "MediaTek",
+    "family": "Dimensity",
+    "partNumber": "MT6989",
+    "architecture": "ARMv9.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Prime",
+        "cores": 1,
+        "microarchitecture": "Cortex-X4",
+        "maxClock": 3250,
+        "efficiencyClass": "prime"
+      },
+      {
+        "name": "Performance High",
+        "cores": 3,
+        "microarchitecture": "Cortex-X4",
+        "maxClock": 2850,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Performance Big",
+        "cores": 4,
+        "microarchitecture": "Cortex-A720",
+        "maxClock": 2000,
+        "efficiencyClass": "performance"
+      }
+    ],
+    "cpuClockMax": 3250,
+    "cpuBitness": 64,
+    "gpu": "Arm Immortalis-G720 MC12",
+    "gpuFamily": "Arm Immortalis",
+    "gpuArchitecture": "5th Gen Arm GPU",
+    "gpuClockMhz": 1300,
+    "gpuExecutionUnits": 12,
+    "npu": "MediaTek APU 790",
+    "aiPerformance": "45 TOPS",
+    "processNode": "4 nm (TSMC N4P)",
+    "vulkanVersion": "1.3",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": true,
+    "memoryType": "LPDDR5T",
+    "memoryChannels": 4,
+    "memoryBandwidth": "38.4 GB/s",
+    "maxMemorySizeGb": 24,
+    "isp": "MediaTek Imagiq 990",
+    "dsp": "Cadence Tensilica",
+    "modem": "MediaTek 5G M80",
+    "videoEncode": [
+      "8K@30fps"
+    ],
+    "videoDecode": [
+      "8K@60fps AV1"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2023-11-06",
+    "sourceUrl": "https://www.mediatek.com/products/smartphones-2/mediatek-dimensity-9300",
+    "aliases": [
+      "mt6989",
+      "dimensity-9300",
+      "d9300"
+    ],
+    "provenance": {
+      "primarySource": "MediaTek Official Product Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry",
+        "Wikimedia Cited Specifications"
+      ],
+      "sourceUrls": [
+        "https://www.mediatek.com/products/smartphones-2/mediatek-dimensity-9300",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Pioneering All Big Core flagship design with 4x Cortex-X4 and 4x Cortex-A720."
+    }
+  },
+  {
+    "id": "mediatek:dimensity-9200-plus-mt6985w",
+    "name": "MediaTek Dimensity 9200+",
+    "manufacturer": "MediaTek",
+    "family": "Dimensity",
+    "partNumber": "MT6985W",
+    "architecture": "ARMv9-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Prime",
+        "cores": 1,
+        "microarchitecture": "Cortex-X3",
+        "maxClock": 3350,
+        "efficiencyClass": "prime"
+      },
+      {
+        "name": "Performance",
+        "cores": 3,
+        "microarchitecture": "Cortex-A715",
+        "maxClock": 3000,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Cortex-A510",
+        "maxClock": 2000,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 3350,
+    "cpuBitness": 64,
+    "gpu": "Arm Immortalis-G715 MC11",
+    "gpuFamily": "Arm Immortalis",
+    "gpuArchitecture": "Valhall 4th Gen",
+    "gpuClockMhz": 1150,
+    "gpuExecutionUnits": 11,
+    "npu": "MediaTek APU 690",
+    "aiPerformance": "30 TOPS",
+    "processNode": "4 nm (TSMC N4P)",
+    "vulkanVersion": "1.3",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": true,
+    "memoryType": "LPDDR5X",
+    "memoryChannels": 4,
+    "memoryBandwidth": "34.0 GB/s",
+    "maxMemorySizeGb": 16,
+    "isp": "MediaTek Imagiq 890",
+    "dsp": "Cadence Tensilica",
+    "modem": "MediaTek M80 5G",
+    "videoEncode": [
+      "8K@30fps"
+    ],
+    "videoDecode": [
+      "8K@60fps AV1"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2023-05-10",
+    "sourceUrl": "https://www.mediatek.com/products/smartphones-2/mediatek-dimensity-9200-plus",
+    "aliases": [
+      "mt6985w",
+      "dimensity-9200-plus",
+      "dimensity-9200+",
+      "d9200plus"
+    ],
+    "provenance": {
+      "primarySource": "MediaTek Official Product Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.mediatek.com/products/smartphones-2/mediatek-dimensity-9200-plus",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Boosted 3.35 GHz prime core with Immortalis ray tracing."
+    }
+  },
+  {
+    "id": "mediatek:dimensity-9200-mt6985",
+    "name": "MediaTek Dimensity 9200",
+    "manufacturer": "MediaTek",
+    "family": "Dimensity",
+    "partNumber": "MT6985",
+    "architecture": "ARMv9-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Prime",
+        "cores": 1,
+        "microarchitecture": "Cortex-X3",
+        "maxClock": 3050,
+        "efficiencyClass": "prime"
+      },
+      {
+        "name": "Performance",
+        "cores": 3,
+        "microarchitecture": "Cortex-A715",
+        "maxClock": 2850,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Cortex-A510",
+        "maxClock": 1800,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 3050,
+    "cpuBitness": 64,
+    "gpu": "Arm Immortalis-G715 MC11",
+    "gpuFamily": "Arm Immortalis",
+    "gpuArchitecture": "Valhall 4th Gen",
+    "gpuClockMhz": 981,
+    "gpuExecutionUnits": 11,
+    "npu": "MediaTek APU 690",
+    "aiPerformance": "30 TOPS",
+    "processNode": "4 nm (TSMC N4P)",
+    "vulkanVersion": "1.3",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": true,
+    "memoryType": "LPDDR5X",
+    "memoryChannels": 4,
+    "memoryBandwidth": "34.0 GB/s",
+    "maxMemorySizeGb": 16,
+    "isp": "MediaTek Imagiq 890",
+    "dsp": "Cadence Tensilica",
+    "modem": "MediaTek M80 5G",
+    "videoEncode": [
+      "8K@30fps"
+    ],
+    "videoDecode": [
+      "8K@60fps AV1"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2022-11-08",
+    "sourceUrl": "https://www.mediatek.com/products/smartphones-2/mediatek-dimensity-9200",
+    "aliases": [
+      "mt6985",
+      "dimensity-9200",
+      "d9200"
+    ],
+    "provenance": {
+      "primarySource": "MediaTek Official Product Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.mediatek.com/products/smartphones-2/mediatek-dimensity-9200",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "First commercial mobile SoC with hardware ray tracing GPU."
+    }
+  },
+  {
+    "id": "mediatek:dimensity-9000-mt6983",
+    "name": "MediaTek Dimensity 9000",
+    "manufacturer": "MediaTek",
+    "family": "Dimensity",
+    "partNumber": "MT6983",
+    "architecture": "ARMv9-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Prime",
+        "cores": 1,
+        "microarchitecture": "Cortex-X2",
+        "maxClock": 3050,
+        "efficiencyClass": "prime"
+      },
+      {
+        "name": "Performance",
+        "cores": 3,
+        "microarchitecture": "Cortex-A710",
+        "maxClock": 2850,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Cortex-A510",
+        "maxClock": 1800,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 3050,
+    "cpuBitness": 64,
+    "gpu": "Arm Mali-G710 MC10",
+    "gpuFamily": "Arm Mali",
+    "gpuArchitecture": "Valhall 3rd Gen",
+    "gpuClockMhz": 850,
+    "gpuExecutionUnits": 10,
+    "npu": "MediaTek APU 590",
+    "aiPerformance": "20 TOPS",
+    "processNode": "4 nm (TSMC N4)",
+    "vulkanVersion": "1.3",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR5X",
+    "memoryChannels": 4,
+    "memoryBandwidth": "30.0 GB/s",
+    "maxMemorySizeGb": 16,
+    "isp": "MediaTek Imagiq 790",
+    "dsp": "Cadence Tensilica",
+    "modem": "MediaTek 5G Sub-6",
+    "videoEncode": [
+      "4K@60fps HDR"
+    ],
+    "videoDecode": [
+      "8K@60fps AV1"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2021-11-18",
+    "sourceUrl": "https://www.mediatek.com/products/smartphones-2/mediatek-dimensity-9000",
+    "aliases": [
+      "mt6983",
+      "dimensity-9000",
+      "d9000"
+    ],
+    "provenance": {
+      "primarySource": "MediaTek Official Product Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.mediatek.com/products/smartphones-2/mediatek-dimensity-9000",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "First commercial TSMC 4nm smartphone SoC."
+    }
+  },
+  {
+    "id": "mediatek:dimensity-8300-mt6897",
+    "name": "MediaTek Dimensity 8300",
+    "manufacturer": "MediaTek",
+    "family": "Dimensity",
+    "partNumber": "MT6897",
+    "architecture": "ARMv9.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Performance Prime",
+        "cores": 4,
+        "microarchitecture": "Cortex-A715",
+        "maxClock": 3350,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Cortex-A510",
+        "maxClock": 2200,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 3350,
+    "cpuBitness": 64,
+    "gpu": "Arm Mali-G615 MC6",
+    "gpuFamily": "Arm Mali",
+    "gpuArchitecture": "5th Gen Arm GPU",
+    "gpuClockMhz": 1400,
+    "gpuExecutionUnits": 6,
+    "npu": "MediaTek APU 780",
+    "aiPerformance": "20 TOPS",
+    "processNode": "4 nm (TSMC N4P)",
+    "vulkanVersion": "1.3",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR5X",
+    "memoryChannels": 4,
+    "memoryBandwidth": "34.0 GB/s",
+    "maxMemorySizeGb": 16,
+    "isp": "MediaTek Imagiq 980",
+    "dsp": "Cadence Tensilica",
+    "modem": "MediaTek 5G Modem",
+    "videoEncode": [
+      "4K@60fps HDR"
+    ],
+    "videoDecode": [
+      "4K@60fps AV1"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2023-11-21",
+    "sourceUrl": "https://www.mediatek.com/products/smartphones-2/mediatek-dimensity-8300",
+    "aliases": [
+      "mt6897",
+      "dimensity-8300",
+      "dimensity-8300-ultra",
+      "d8300"
+    ],
+    "provenance": {
+      "primarySource": "MediaTek Official Product Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.mediatek.com/products/smartphones-2/mediatek-dimensity-8300",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "High-efficiency upper mid-range with Mali-G615 GPU (Poco X6 Pro)."
+    }
+  },
+  {
+    "id": "mediatek:dimensity-8200-mt6896",
+    "name": "MediaTek Dimensity 8200",
+    "manufacturer": "MediaTek",
+    "family": "Dimensity",
+    "partNumber": "MT6896",
+    "architecture": "ARMv8.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Prime",
+        "cores": 1,
+        "microarchitecture": "Cortex-A78",
+        "maxClock": 3100,
+        "efficiencyClass": "prime"
+      },
+      {
+        "name": "Performance",
+        "cores": 3,
+        "microarchitecture": "Cortex-A78",
+        "maxClock": 3000,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Cortex-A55",
+        "maxClock": 2000,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 3100,
+    "cpuBitness": 64,
+    "gpu": "Arm Mali-G610 MC6",
+    "gpuFamily": "Arm Mali",
+    "gpuArchitecture": "Valhall 3rd Gen",
+    "gpuClockMhz": 950,
+    "gpuExecutionUnits": 6,
+    "npu": "MediaTek APU 580",
+    "aiPerformance": "15 TOPS",
+    "processNode": "4 nm (TSMC N4)",
+    "vulkanVersion": "1.3",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR5",
+    "memoryChannels": 4,
+    "memoryBandwidth": "25.6 GB/s",
+    "maxMemorySizeGb": 16,
+    "isp": "MediaTek Imagiq 785",
+    "dsp": "Cadence Tensilica",
+    "modem": "MediaTek 5G Modem",
+    "videoEncode": [
+      "4K@60fps HDR"
+    ],
+    "videoDecode": [
+      "4K@60fps AV1"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2022-12-08",
+    "sourceUrl": "https://www.mediatek.com/products/smartphones-2/mediatek-dimensity-8200",
+    "aliases": [
+      "mt6896",
+      "dimensity-8200",
+      "dimensity-8200-ultra",
+      "d8200"
+    ],
+    "provenance": {
+      "primarySource": "MediaTek Official Product Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.mediatek.com/products/smartphones-2/mediatek-dimensity-8200",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "4nm evolution of Dimensity 8100."
+    }
+  },
+  {
+    "id": "mediatek:dimensity-8100-mt6895z",
+    "name": "MediaTek Dimensity 8100",
+    "manufacturer": "MediaTek",
+    "family": "Dimensity",
+    "partNumber": "MT6895Z",
+    "architecture": "ARMv8.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 4,
+        "microarchitecture": "Cortex-A78",
+        "maxClock": 2850,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Cortex-A55",
+        "maxClock": 2000,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2850,
+    "cpuBitness": 64,
+    "gpu": "Arm Mali-G610 MC6",
+    "gpuFamily": "Arm Mali",
+    "gpuArchitecture": "Valhall 3rd Gen",
+    "gpuClockMhz": 850,
+    "gpuExecutionUnits": 6,
+    "npu": "MediaTek APU 580",
+    "aiPerformance": "12 TOPS",
+    "processNode": "5 nm (TSMC N5)",
+    "vulkanVersion": "1.3",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR5",
+    "memoryChannels": 4,
+    "memoryBandwidth": "25.6 GB/s",
+    "maxMemorySizeGb": 16,
+    "isp": "MediaTek Imagiq 780",
+    "dsp": "Cadence Tensilica",
+    "modem": "MediaTek 5G Modem",
+    "videoEncode": [
+      "4K@60fps HDR"
+    ],
+    "videoDecode": [
+      "4K@60fps AV1"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2022-03-01",
+    "sourceUrl": "https://www.mediatek.com/products/smartphones-2/mediatek-dimensity-8100",
+    "aliases": [
+      "mt6895z",
+      "mt6895",
+      "dimensity-8100",
+      "d8100"
+    ],
+    "provenance": {
+      "primarySource": "MediaTek Official Product Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.mediatek.com/products/smartphones-2/mediatek-dimensity-8100",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Renowned for power efficiency in mid-tier gaming."
+    }
+  },
+  {
+    "id": "mediatek:dimensity-7300-mt6878",
+    "name": "MediaTek Dimensity 7300",
+    "manufacturer": "MediaTek",
+    "family": "Dimensity",
+    "partNumber": "MT6878",
+    "architecture": "ARMv8.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 4,
+        "microarchitecture": "Cortex-A78",
+        "maxClock": 2500,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Cortex-A55",
+        "maxClock": 2000,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2500,
+    "cpuBitness": 64,
+    "gpu": "Arm Mali-G615 MC2",
+    "gpuFamily": "Arm Mali",
+    "gpuArchitecture": "5th Gen Arm GPU",
+    "gpuClockMhz": 1050,
+    "gpuExecutionUnits": 2,
+    "npu": "MediaTek APU 655",
+    "aiPerformance": "8 TOPS",
+    "processNode": "4 nm (TSMC N4)",
+    "vulkanVersion": "1.3",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR5",
+    "memoryChannels": 2,
+    "memoryBandwidth": "22.0 GB/s",
+    "maxMemorySizeGb": 16,
+    "isp": "MediaTek Imagiq 765",
+    "dsp": "Cadence Tensilica",
+    "modem": "MediaTek 5G Modem",
+    "videoEncode": [
+      "4K@30fps HDR"
+    ],
+    "videoDecode": [
+      "4K@30fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2024-05-30",
+    "sourceUrl": "https://www.mediatek.com/products/smartphones-2/mediatek-dimensity-7300",
+    "aliases": [
+      "mt6878",
+      "dimensity-7300",
+      "dimensity-7300-energy",
+      "d7300"
+    ],
+    "provenance": {
+      "primarySource": "MediaTek Official Product Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.mediatek.com/products/smartphones-2/mediatek-dimensity-7300",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "4nm energy efficient platform with 4x Cortex-A78."
+    }
+  },
+  {
+    "id": "mediatek:dimensity-7050-mt6877v",
+    "name": "MediaTek Dimensity 7050",
+    "manufacturer": "MediaTek",
+    "family": "Dimensity",
+    "partNumber": "MT6877V",
+    "architecture": "ARMv8.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 2,
+        "microarchitecture": "Cortex-A78",
+        "maxClock": 2600,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 6,
+        "microarchitecture": "Cortex-A55",
+        "maxClock": 2000,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2600,
+    "cpuBitness": 64,
+    "gpu": "Arm Mali-G68 MC4",
+    "gpuFamily": "Arm Mali",
+    "gpuArchitecture": "Valhall 2nd Gen",
+    "gpuClockMhz": 800,
+    "gpuExecutionUnits": 4,
+    "npu": "MediaTek APU 3.0",
+    "aiPerformance": "5 TOPS",
+    "processNode": "6 nm (TSMC N6)",
+    "vulkanVersion": "1.2",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR5",
+    "memoryChannels": 2,
+    "memoryBandwidth": "17.0 GB/s",
+    "maxMemorySizeGb": 16,
+    "isp": "MediaTek Imagiq (200 MP)",
+    "dsp": "Cadence Tensilica",
+    "modem": "MediaTek 5G Modem",
+    "videoEncode": [
+      "4K@30fps"
+    ],
+    "videoDecode": [
+      "4K@30fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2023-05-02",
+    "sourceUrl": "https://www.mediatek.com/products/smartphones-2/mediatek-dimensity-7050",
+    "aliases": [
+      "mt6877v",
+      "dimensity-7050",
+      "d7050",
+      "dimensity-1080"
+    ],
+    "provenance": {
+      "primarySource": "MediaTek Official Product Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.mediatek.com/products/smartphones-2/mediatek-dimensity-7050",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Rebadged Dimensity 1080 with 200MP camera support."
+    }
+  },
+  {
+    "id": "mediatek:dimensity-6080-mt6833p",
+    "name": "MediaTek Dimensity 6080",
+    "manufacturer": "MediaTek",
+    "family": "Dimensity",
+    "partNumber": "MT6833P",
+    "architecture": "ARMv8.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 2,
+        "microarchitecture": "Cortex-A76",
+        "maxClock": 2400,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 6,
+        "microarchitecture": "Cortex-A55",
+        "maxClock": 2000,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2400,
+    "cpuBitness": 64,
+    "gpu": "Arm Mali-G57 MC2",
+    "gpuFamily": "Arm Mali",
+    "gpuArchitecture": "Valhall 1st Gen",
+    "gpuClockMhz": 950,
+    "gpuExecutionUnits": 2,
+    "npu": null,
+    "aiPerformance": null,
+    "processNode": "6 nm (TSMC N6)",
+    "vulkanVersion": "1.2",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR4X",
+    "memoryChannels": 2,
+    "memoryBandwidth": "17.0 GB/s",
+    "maxMemorySizeGb": 12,
+    "isp": "MediaTek Imagiq (108 MP)",
+    "dsp": "Cadence Tensilica",
+    "modem": "MediaTek 5G Modem",
+    "videoEncode": [
+      "2K@30fps"
+    ],
+    "videoDecode": [
+      "2K@30fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2023-04-12",
+    "sourceUrl": "https://www.mediatek.com/products/smartphones-2/mediatek-dimensity-6080",
+    "aliases": [
+      "mt6833p",
+      "dimensity-6080",
+      "d6080",
+      "dimensity-810"
+    ],
+    "provenance": {
+      "primarySource": "MediaTek Official Product Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.mediatek.com/products/smartphones-2/mediatek-dimensity-6080",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Refresh of Dimensity 810 with high-clocked Mali-G57."
+    }
+  },
+  {
+    "id": "mediatek:helio-g99-mt6789",
+    "name": "MediaTek Helio G99",
+    "manufacturer": "MediaTek",
+    "family": "Helio",
+    "partNumber": "MT6789",
+    "architecture": "ARMv8.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 2,
+        "microarchitecture": "Cortex-A76",
+        "maxClock": 2200,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 6,
+        "microarchitecture": "Cortex-A55",
+        "maxClock": 2000,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2200,
+    "cpuBitness": 64,
+    "gpu": "Arm Mali-G57 MC2",
+    "gpuFamily": "Arm Mali",
+    "gpuArchitecture": "Valhall 1st Gen",
+    "gpuClockMhz": 950,
+    "gpuExecutionUnits": 2,
+    "npu": null,
+    "aiPerformance": null,
+    "processNode": "6 nm (TSMC N6)",
+    "vulkanVersion": "1.2",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR4X",
+    "memoryChannels": 2,
+    "memoryBandwidth": "17.0 GB/s",
+    "maxMemorySizeGb": 12,
+    "isp": "MediaTek Imagiq (108 MP)",
+    "dsp": "Cadence Tensilica",
+    "modem": "MediaTek 4G LTE Cat-13",
+    "videoEncode": [
+      "2K@30fps"
+    ],
+    "videoDecode": [
+      "2K@30fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2022-05-23",
+    "sourceUrl": "https://www.mediatek.com/products/smartphones-2/mediatek-helio-g99",
+    "aliases": [
+      "mt6789",
+      "helio-g99",
+      "g99",
+      "helio-g99-ultimate"
+    ],
+    "provenance": {
+      "primarySource": "MediaTek Official Product Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.mediatek.com/products/smartphones-2/mediatek-helio-g99",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Extremely widely adopted 6nm 4G gaming SoC."
+    }
+  },
+  {
+    "id": "mediatek:helio-g90t-mt6785v",
+    "name": "MediaTek Helio G90T",
+    "manufacturer": "MediaTek",
+    "family": "Helio",
+    "partNumber": "MT6785V",
+    "architecture": "ARMv8.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 2,
+        "microarchitecture": "Cortex-A76",
+        "maxClock": 2050,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 6,
+        "microarchitecture": "Cortex-A55",
+        "maxClock": 2000,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2050,
+    "cpuBitness": 64,
+    "gpu": "Arm Mali-G76 MC4",
+    "gpuFamily": "Arm Mali",
+    "gpuArchitecture": "Bifrost 3rd Gen",
+    "gpuClockMhz": 800,
+    "gpuExecutionUnits": 4,
+    "npu": "MediaTek APU (1 TMAC)",
+    "aiPerformance": "1 TOPS",
+    "processNode": "12 nm (TSMC 12FFC)",
+    "vulkanVersion": "1.1",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR4X",
+    "memoryChannels": 2,
+    "memoryBandwidth": "17.0 GB/s",
+    "maxMemorySizeGb": 10,
+    "isp": "MediaTek Imagiq (64 MP)",
+    "dsp": "Cadence Tensilica",
+    "modem": "MediaTek 4G LTE Cat-12",
+    "videoEncode": [
+      "4K@30fps"
+    ],
+    "videoDecode": [
+      "4K@30fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2019-07-30",
+    "sourceUrl": "https://www.mediatek.com/products/smartphones-2/mediatek-helio-g90-series",
+    "aliases": [
+      "mt6785v",
+      "helio-g90t",
+      "g90t"
+    ],
+    "provenance": {
+      "primarySource": "MediaTek Official Product Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.mediatek.com/products/smartphones-2/mediatek-helio-g90-series",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Historical breakthrough gaming SoC for Redmi Note 8 Pro."
+    }
+  },
+  {
+    "id": "mediatek:helio-p35-mt6765",
+    "name": "MediaTek Helio P35",
+    "manufacturer": "MediaTek",
+    "family": "Helio",
+    "partNumber": "MT6765",
+    "architecture": "ARMv8-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 4,
+        "microarchitecture": "Cortex-A53",
+        "maxClock": 2300,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Cortex-A53",
+        "maxClock": 1800,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2300,
+    "cpuBitness": 64,
+    "gpu": "PowerVR GE8320",
+    "gpuFamily": "PowerVR",
+    "gpuArchitecture": "Rogue",
+    "gpuClockMhz": 680,
+    "gpuExecutionUnits": null,
+    "npu": null,
+    "aiPerformance": null,
+    "processNode": "12 nm (TSMC 12FFC)",
+    "vulkanVersion": null,
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR4X",
+    "memoryChannels": 2,
+    "memoryBandwidth": "12.8 GB/s",
+    "maxMemorySizeGb": 6,
+    "isp": "Dual ISP (25 MP)",
+    "dsp": "Tensilica",
+    "modem": "4G LTE Cat-7",
+    "videoEncode": [
+      "1080p@30fps"
+    ],
+    "videoDecode": [
+      "1080p@30fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2018-12-24",
+    "sourceUrl": "https://www.mediatek.com/products/smartphones-2/mediatek-helio-p35",
+    "aliases": [
+      "mt6765",
+      "helio-p35",
+      "p35"
+    ],
+    "provenance": {
+      "primarySource": "MediaTek Official Product Specification",
+      "verificationSources": [
+        "Wikimedia Cited Specifications"
+      ],
+      "sourceUrls": [
+        "https://www.mediatek.com/products/smartphones-2/mediatek-helio-p35"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Massive volume budget 4G SoC. Vulkan unsupported."
+    }
+  }
+]

@@ -1,0 +1,394 @@
+[
+  {
+    "id": "unisoc:t820-ums9620",
+    "name": "UNISOC Tanggula T820",
+    "manufacturer": "UNISOC",
+    "family": "Tanggula",
+    "partNumber": "UMS9620",
+    "architecture": "ARMv8.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Prime",
+        "cores": 1,
+        "microarchitecture": "Cortex-A76",
+        "maxClock": 2700,
+        "efficiencyClass": "prime"
+      },
+      {
+        "name": "Performance",
+        "cores": 3,
+        "microarchitecture": "Cortex-A76",
+        "maxClock": 2300,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Cortex-A55",
+        "maxClock": 2180,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2700,
+    "cpuBitness": 64,
+    "gpu": "Arm Mali-G57 MC4",
+    "gpuFamily": "Arm Mali Valhall",
+    "gpuArchitecture": "Valhall 1st Gen",
+    "gpuClockMhz": 850,
+    "gpuExecutionUnits": 4,
+    "npu": "UNISOC NPU",
+    "aiPerformance": "4.8 TOPS",
+    "processNode": "6 nm (TSMC N6)",
+    "vulkanVersion": "1.2",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR4X",
+    "memoryChannels": 2,
+    "memoryBandwidth": "17.1 GB/s",
+    "maxMemorySizeGb": 16,
+    "isp": "UNISOC Vivimagic 6.0 (108 MP)",
+    "dsp": "UNISOC DSP",
+    "modem": "Integrated 5G NR Modem",
+    "videoEncode": [
+      "4K@60fps"
+    ],
+    "videoDecode": [
+      "4K@60fps"
+    ],
+    "formFactor": [
+      "phone",
+      "handheld"
+    ],
+    "releaseDate": "2022-11-29",
+    "sourceUrl": "https://www.unisoc.com/en_us/home/product/T820",
+    "aliases": [
+      "t820",
+      "t820-ums9620",
+      "tanggula-t820",
+      "ums9620",
+      "unisoc-t820",
+      "unisoc-tanggula-t820",
+      "unisoc:t820-ums9620"
+    ],
+    "provenance": {
+      "primarySource": "UNISOC Official Product Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.unisoc.com/en_us/home/product/T820"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Popular 6nm 5G SoC used in gaming handhelds (Anbernic RG556, RG Cube) and smartphones."
+    }
+  },
+  {
+    "id": "unisoc:t760-ums9230",
+    "name": "UNISOC Tanggula T760",
+    "manufacturer": "UNISOC",
+    "family": "Tanggula",
+    "partNumber": "UMS9230",
+    "architecture": "ARMv8.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 4,
+        "microarchitecture": "Cortex-A76",
+        "maxClock": 2200,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Cortex-A55",
+        "maxClock": 2000,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2200,
+    "cpuBitness": 64,
+    "gpu": "Arm Mali-G57 MC4",
+    "gpuFamily": "Arm Mali Valhall",
+    "gpuArchitecture": "Valhall 1st Gen",
+    "gpuClockMhz": 650,
+    "gpuExecutionUnits": 4,
+    "npu": "UNISOC NPU",
+    "aiPerformance": "3.2 TOPS",
+    "processNode": "6 nm (TSMC N6)",
+    "vulkanVersion": "1.2",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR4X",
+    "memoryChannels": 2,
+    "memoryBandwidth": "17.1 GB/s",
+    "maxMemorySizeGb": 12,
+    "isp": "UNISOC Vivimagic 6.0",
+    "dsp": "UNISOC DSP",
+    "modem": "Integrated 5G NR Modem",
+    "videoEncode": [
+      "4K@30fps"
+    ],
+    "videoDecode": [
+      "4K@30fps"
+    ],
+    "formFactor": [
+      "phone"
+    ],
+    "releaseDate": "2021-12-27",
+    "sourceUrl": "https://www.unisoc.com/en_us/home/product/T760",
+    "aliases": [
+      "t760",
+      "t760-ums9230",
+      "ums9230",
+      "unisoc-t760",
+      "unisoc-tanggula-t760",
+      "unisoc:t760-ums9230"
+    ],
+    "provenance": {
+      "primarySource": "UNISOC Official Product Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.unisoc.com/en_us/home/product/T760"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Entry 5G platform built on 6nm EUV."
+    }
+  },
+  {
+    "id": "unisoc:tiger-t606-ums9230",
+    "name": "UNISOC Tiger T606",
+    "manufacturer": "UNISOC",
+    "family": "Tiger",
+    "partNumber": "UMS9230",
+    "architecture": "ARMv8.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 2,
+        "microarchitecture": "Cortex-A75",
+        "maxClock": 1600,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 6,
+        "microarchitecture": "Cortex-A55",
+        "maxClock": 1600,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 1600,
+    "cpuBitness": 64,
+    "gpu": "Arm Mali-G57 MP1",
+    "gpuFamily": "Arm Mali Valhall",
+    "gpuArchitecture": "Valhall 1st Gen",
+    "gpuClockMhz": 650,
+    "gpuExecutionUnits": 1,
+    "npu": null,
+    "aiPerformance": null,
+    "processNode": "12 nm (TSMC 12FFC)",
+    "vulkanVersion": "1.2",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR4X",
+    "memoryChannels": 2,
+    "memoryBandwidth": "12.8 GB/s",
+    "maxMemorySizeGb": 6,
+    "isp": "UNISOC Vivimagic 5.0",
+    "dsp": "UNISOC DSP",
+    "modem": "Integrated 4G LTE Cat.7",
+    "videoEncode": [
+      "1080p@60fps"
+    ],
+    "videoDecode": [
+      "1080p@60fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2021-09-10",
+    "sourceUrl": "https://www.unisoc.com/en_us/home/product/T606",
+    "aliases": [
+      "t606",
+      "tiger-t606",
+      "tiger-t606-ums9230",
+      "ums9230",
+      "unisoc-t606",
+      "unisoc-tiger-t606",
+      "unisoc:tiger-t606-ums9230"
+    ],
+    "provenance": {
+      "primarySource": "UNISOC Official Product Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.unisoc.com/en_us/home/product/T606"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Extremely widespread budget 4G SoC used in Motorola Moto E, Moto G04, Nokia, Tecno, Infinix."
+    }
+  },
+  {
+    "id": "unisoc:tiger-t616-ums9230",
+    "name": "UNISOC Tiger T616",
+    "manufacturer": "UNISOC",
+    "family": "Tiger",
+    "partNumber": "UMS9230",
+    "architecture": "ARMv8.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 2,
+        "microarchitecture": "Cortex-A75",
+        "maxClock": 2000,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 6,
+        "microarchitecture": "Cortex-A55",
+        "maxClock": 1800,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2000,
+    "cpuBitness": 64,
+    "gpu": "Arm Mali-G57 MP1",
+    "gpuFamily": "Arm Mali Valhall",
+    "gpuArchitecture": "Valhall 1st Gen",
+    "gpuClockMhz": 750,
+    "gpuExecutionUnits": 1,
+    "npu": null,
+    "aiPerformance": null,
+    "processNode": "12 nm (TSMC 12FFC)",
+    "vulkanVersion": "1.2",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR4X",
+    "memoryChannels": 2,
+    "memoryBandwidth": "14.9 GB/s",
+    "maxMemorySizeGb": 8,
+    "isp": "UNISOC Vivimagic 5.0 (64 MP)",
+    "dsp": "UNISOC DSP",
+    "modem": "Integrated 4G LTE Cat.7",
+    "videoEncode": [
+      "1080p@60fps"
+    ],
+    "videoDecode": [
+      "1080p@60fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2021-09-10",
+    "sourceUrl": "https://www.unisoc.com/en_us/home/product/T616",
+    "aliases": [
+      "t616",
+      "tiger-t616",
+      "tiger-t616-ums9230",
+      "ums9230",
+      "unisoc-t616",
+      "unisoc-tiger-t616",
+      "unisoc:tiger-t616-ums9230"
+    ],
+    "provenance": {
+      "primarySource": "UNISOC Official Product Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.unisoc.com/en_us/home/product/T616"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Mainstream budget 4G SoC powering Realme, Infinix, and budget tablets."
+    }
+  },
+  {
+    "id": "unisoc:sc9863a-sc9863a",
+    "name": "UNISOC SC9863A",
+    "manufacturer": "UNISOC",
+    "family": "SC",
+    "partNumber": "SC9863A",
+    "architecture": "ARMv8.0-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 4,
+        "microarchitecture": "Cortex-A55",
+        "maxClock": 1600,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Cortex-A55",
+        "maxClock": 1200,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 1600,
+    "cpuBitness": 64,
+    "gpu": "PowerVR GE8322",
+    "gpuFamily": "PowerVR Series 8XE",
+    "gpuArchitecture": "Rogue",
+    "gpuClockMhz": 550,
+    "gpuExecutionUnits": 1,
+    "npu": null,
+    "aiPerformance": null,
+    "processNode": "28 nm (TSMC 28HPC+)",
+    "vulkanVersion": "1.1",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR4X",
+    "memoryChannels": 1,
+    "memoryBandwidth": "7.4 GB/s",
+    "maxMemorySizeGb": 4,
+    "isp": "UNISOC ISP",
+    "dsp": null,
+    "modem": "Integrated 4G LTE Cat.7",
+    "videoEncode": [
+      "1080p@30fps"
+    ],
+    "videoDecode": [
+      "1080p@30fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2018-11-27",
+    "sourceUrl": "https://www.unisoc.com/en_us/home/product/SC9863A",
+    "aliases": [
+      "sc9863a",
+      "sc9863a-sc9863a",
+      "unisoc-sc9863a",
+      "unisoc:sc9863a-sc9863a"
+    ],
+    "provenance": {
+      "primarySource": "UNISOC Official Product Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.unisoc.com/en_us/home/product/SC9863A"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Entry octa-core A55 processor widely used in entry-level global smartphones."
+    }
+  }
+]

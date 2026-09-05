@@ -1,0 +1,2212 @@
+[
+  {
+    "id": "qualcomm:snapdragon-8-elite-sm8750-ab",
+    "name": "Qualcomm Snapdragon 8 Elite",
+    "manufacturer": "Qualcomm",
+    "family": "Snapdragon 8",
+    "partNumber": "SM8750-AB",
+    "architecture": "ARMv9.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Prime",
+        "cores": 2,
+        "microarchitecture": "Qualcomm Oryon (Phoenix L)",
+        "maxClock": 4320,
+        "efficiencyClass": "prime"
+      },
+      {
+        "name": "Performance",
+        "cores": 6,
+        "microarchitecture": "Qualcomm Oryon (Phoenix M)",
+        "maxClock": 3530,
+        "efficiencyClass": "performance"
+      }
+    ],
+    "cpuClockMax": 4320,
+    "cpuBitness": 64,
+    "gpu": "Qualcomm Adreno 830",
+    "gpuFamily": "Adreno 800",
+    "gpuArchitecture": "Sliced Architecture",
+    "gpuClockMhz": 1100,
+    "gpuExecutionUnits": 3,
+    "npu": "Qualcomm Hexagon NPU",
+    "aiPerformance": "45 TOPS",
+    "processNode": "3 nm (TSMC N3E)",
+    "vulkanVersion": "1.3",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": true,
+    "memoryType": "LPDDR5X",
+    "memoryChannels": 4,
+    "memoryBandwidth": "42.7 GB/s",
+    "maxMemorySizeGb": 24,
+    "isp": "Qualcomm Spectra AI ISP (320 MP)",
+    "dsp": "Hexagon DSP",
+    "modem": "Snapdragon X80 5G Modem-RF",
+    "videoEncode": [
+      "8K@60fps H.265",
+      "4K@120fps"
+    ],
+    "videoDecode": [
+      "8K@60fps AV1",
+      "8K@60fps H.265"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2024-10-21",
+    "sourceUrl": "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-8-series-mobile-platforms/snapdragon-8-elite-mobile-platform",
+    "aliases": [
+      "sm8750",
+      "sm8750-ab",
+      "snapdragon-8-elite",
+      "sd8elite",
+      "snapdragon-8-gen-4"
+    ],
+    "provenance": {
+      "primarySource": "Qualcomm Official Platform Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry",
+        "Wikimedia Cited Specifications"
+      ],
+      "sourceUrls": [
+        "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-8-series-mobile-platforms/snapdragon-8-elite-mobile-platform",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "First Qualcomm mobile platform featuring custom Oryon CPU cores and Adreno sliced GPU architecture."
+    }
+  },
+  {
+    "id": "qualcomm:snapdragon-8-gen-3-sm8650-ab",
+    "name": "Qualcomm Snapdragon 8 Gen 3",
+    "manufacturer": "Qualcomm",
+    "family": "Snapdragon 8",
+    "partNumber": "SM8650-AB",
+    "architecture": "ARMv9.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Prime",
+        "cores": 1,
+        "microarchitecture": "Cortex-X4",
+        "maxClock": 3300,
+        "efficiencyClass": "prime"
+      },
+      {
+        "name": "Performance High",
+        "cores": 3,
+        "microarchitecture": "Cortex-A720",
+        "maxClock": 3150,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Performance Low",
+        "cores": 2,
+        "microarchitecture": "Cortex-A720",
+        "maxClock": 2960,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 2,
+        "microarchitecture": "Cortex-A520",
+        "maxClock": 2270,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 3300,
+    "cpuBitness": 64,
+    "gpu": "Qualcomm Adreno 750",
+    "gpuFamily": "Adreno 700",
+    "gpuArchitecture": "Adreno 700",
+    "gpuClockMhz": 903,
+    "gpuExecutionUnits": null,
+    "npu": "Qualcomm Hexagon NPU",
+    "aiPerformance": "45 TOPS",
+    "processNode": "4 nm (TSMC N4P)",
+    "vulkanVersion": "1.3",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": true,
+    "memoryType": "LPDDR5X",
+    "memoryChannels": 4,
+    "memoryBandwidth": "38.4 GB/s",
+    "maxMemorySizeGb": 24,
+    "isp": "Qualcomm Spectra (200 MP)",
+    "dsp": "Hexagon DSP",
+    "modem": "Snapdragon X75 5G Modem-RF",
+    "videoEncode": [
+      "8K@30fps HDR",
+      "4K@120fps"
+    ],
+    "videoDecode": [
+      "8K@60fps AV1",
+      "8K@30fps H.265"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2023-10-24",
+    "sourceUrl": "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-8-series-mobile-platforms/snapdragon-8-gen-3-mobile-platform",
+    "aliases": [
+      "sm8650",
+      "sm8650-ab",
+      "snapdragon-8-gen-3",
+      "sd8gen3"
+    ],
+    "provenance": {
+      "primarySource": "Qualcomm Official Platform Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry",
+        "Wikimedia Cited Specifications"
+      ],
+      "sourceUrls": [
+        "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-8-series-mobile-platforms/snapdragon-8-gen-3-mobile-platform",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Standard retail SM8650-AB tier with 3.3 GHz prime Cortex-X4 core."
+    }
+  },
+  {
+    "id": "qualcomm:snapdragon-8-gen-3-leading-sm8650-ac",
+    "name": "Qualcomm Snapdragon 8 Gen 3 for Galaxy",
+    "manufacturer": "Qualcomm",
+    "family": "Snapdragon 8",
+    "partNumber": "SM8650-AC",
+    "architecture": "ARMv9.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Prime",
+        "cores": 1,
+        "microarchitecture": "Cortex-X4",
+        "maxClock": 3390,
+        "efficiencyClass": "prime"
+      },
+      {
+        "name": "Performance High",
+        "cores": 3,
+        "microarchitecture": "Cortex-A720",
+        "maxClock": 3150,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Performance Low",
+        "cores": 2,
+        "microarchitecture": "Cortex-A720",
+        "maxClock": 2960,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 2,
+        "microarchitecture": "Cortex-A520",
+        "maxClock": 2270,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 3390,
+    "cpuBitness": 64,
+    "gpu": "Qualcomm Adreno 750",
+    "gpuFamily": "Adreno 700",
+    "gpuArchitecture": "Adreno 700",
+    "gpuClockMhz": 1000,
+    "gpuExecutionUnits": null,
+    "npu": "Qualcomm Hexagon NPU",
+    "aiPerformance": "45 TOPS",
+    "processNode": "4 nm (TSMC N4P)",
+    "vulkanVersion": "1.3",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": true,
+    "memoryType": "LPDDR5X",
+    "memoryChannels": 4,
+    "memoryBandwidth": "38.4 GB/s",
+    "maxMemorySizeGb": 24,
+    "isp": "Qualcomm Spectra (200 MP)",
+    "dsp": "Hexagon DSP",
+    "modem": "Snapdragon X75 5G Modem-RF",
+    "videoEncode": [
+      "8K@30fps HDR",
+      "4K@120fps"
+    ],
+    "videoDecode": [
+      "8K@60fps AV1",
+      "8K@30fps H.265"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2024-01-17",
+    "sourceUrl": "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-8-series-mobile-platforms/snapdragon-8-gen-3-mobile-platform",
+    "aliases": [
+      "sm8650-ac",
+      "snapdragon-8-gen-3-for-galaxy",
+      "snapdragon-8-gen-3-leading",
+      "sd8gen3-galaxy"
+    ],
+    "provenance": {
+      "primarySource": "Qualcomm Platform Press & Samsung Galaxy Documentation",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.qualcomm.com/news/releases/2024/01/qualcomm-and-samsung-collaborate-to-bring-snapdragon-8-gen-3-for-galaxy",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "multi-tier-verified",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Higher binned prime core (3.39 GHz vs 3.30 GHz) and GPU (1000 MHz vs 903 MHz) exclusive."
+    }
+  },
+  {
+    "id": "qualcomm:snapdragon-8-gen-2-sm8550-ab",
+    "name": "Qualcomm Snapdragon 8 Gen 2",
+    "manufacturer": "Qualcomm",
+    "family": "Snapdragon 8",
+    "partNumber": "SM8550-AB",
+    "architecture": "ARMv9-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Prime",
+        "cores": 1,
+        "microarchitecture": "Cortex-X3",
+        "maxClock": 3190,
+        "efficiencyClass": "prime"
+      },
+      {
+        "name": "Performance 64b",
+        "cores": 2,
+        "microarchitecture": "Cortex-A715",
+        "maxClock": 2800,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Performance Legacy",
+        "cores": 2,
+        "microarchitecture": "Cortex-A710",
+        "maxClock": 2800,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 3,
+        "microarchitecture": "Cortex-A510",
+        "maxClock": 2000,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 3190,
+    "cpuBitness": 64,
+    "gpu": "Qualcomm Adreno 740",
+    "gpuFamily": "Adreno 700",
+    "gpuArchitecture": "Adreno 700",
+    "gpuClockMhz": 680,
+    "gpuExecutionUnits": null,
+    "npu": "Qualcomm Hexagon NPU",
+    "aiPerformance": "35 TOPS",
+    "processNode": "4 nm (TSMC N4)",
+    "vulkanVersion": "1.3",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": true,
+    "memoryType": "LPDDR5X",
+    "memoryChannels": 4,
+    "memoryBandwidth": "34.0 GB/s",
+    "maxMemorySizeGb": 16,
+    "isp": "Qualcomm Spectra (200 MP)",
+    "dsp": "Hexagon DSP",
+    "modem": "Snapdragon X70 5G Modem-RF",
+    "videoEncode": [
+      "8K@30fps HDR",
+      "4K@120fps"
+    ],
+    "videoDecode": [
+      "8K@60fps AV1",
+      "8K@30fps H.265"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2022-11-15",
+    "sourceUrl": "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-8-series-mobile-platforms/snapdragon-8-gen-2-mobile-platform",
+    "aliases": [
+      "sm8550",
+      "sm8550-ab",
+      "snapdragon-8-gen-2",
+      "sd8gen2"
+    ],
+    "provenance": {
+      "primarySource": "Qualcomm Official Platform Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry",
+        "Wikimedia Cited Specifications"
+      ],
+      "sourceUrls": [
+        "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-8-series-mobile-platforms/snapdragon-8-gen-2-mobile-platform",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Heterogeneous 1+2+2+3 core cluster preserving 32-bit execution on Cortex-A710 cores."
+    }
+  },
+  {
+    "id": "qualcomm:snapdragon-8-gen-2-leading-sm8550-ac",
+    "name": "Qualcomm Snapdragon 8 Gen 2 for Galaxy",
+    "manufacturer": "Qualcomm",
+    "family": "Snapdragon 8",
+    "partNumber": "SM8550-AC",
+    "architecture": "ARMv9-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Prime",
+        "cores": 1,
+        "microarchitecture": "Cortex-X3",
+        "maxClock": 3360,
+        "efficiencyClass": "prime"
+      },
+      {
+        "name": "Performance 64b",
+        "cores": 2,
+        "microarchitecture": "Cortex-A715",
+        "maxClock": 2800,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Performance Legacy",
+        "cores": 2,
+        "microarchitecture": "Cortex-A710",
+        "maxClock": 2800,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 3,
+        "microarchitecture": "Cortex-A510",
+        "maxClock": 2000,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 3360,
+    "cpuBitness": 64,
+    "gpu": "Qualcomm Adreno 740",
+    "gpuFamily": "Adreno 700",
+    "gpuArchitecture": "Adreno 700",
+    "gpuClockMhz": 719,
+    "gpuExecutionUnits": null,
+    "npu": "Qualcomm Hexagon NPU",
+    "aiPerformance": "35 TOPS",
+    "processNode": "4 nm (TSMC N4)",
+    "vulkanVersion": "1.3",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": true,
+    "memoryType": "LPDDR5X",
+    "memoryChannels": 4,
+    "memoryBandwidth": "34.0 GB/s",
+    "maxMemorySizeGb": 16,
+    "isp": "Qualcomm Spectra (200 MP)",
+    "dsp": "Hexagon DSP",
+    "modem": "Snapdragon X70 5G Modem-RF",
+    "videoEncode": [
+      "8K@30fps HDR",
+      "4K@120fps"
+    ],
+    "videoDecode": [
+      "8K@60fps AV1",
+      "8K@30fps H.265"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2023-02-01",
+    "sourceUrl": "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-8-series-mobile-platforms/snapdragon-8-gen-2-mobile-platform",
+    "aliases": [
+      "sm8550-ac",
+      "snapdragon-8-gen-2-for-galaxy",
+      "snapdragon-8-gen-2-leading",
+      "sd8gen2-galaxy"
+    ],
+    "provenance": {
+      "primarySource": "Qualcomm Platform Press & Samsung Galaxy Documentation",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.qualcomm.com/news/releases/2023/02/snapdragon-8-gen-2-powers-samsung-galaxy-s23-series-globally",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "multi-tier-verified",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Higher clocked prime core (3.36 GHz) and GPU (719 MHz)."
+    }
+  },
+  {
+    "id": "qualcomm:snapdragon-8-plus-gen-1-sm8475",
+    "name": "Qualcomm Snapdragon 8+ Gen 1",
+    "manufacturer": "Qualcomm",
+    "family": "Snapdragon 8",
+    "partNumber": "SM8475",
+    "architecture": "ARMv9-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Prime",
+        "cores": 1,
+        "microarchitecture": "Cortex-X2",
+        "maxClock": 3200,
+        "efficiencyClass": "prime"
+      },
+      {
+        "name": "Performance",
+        "cores": 3,
+        "microarchitecture": "Cortex-A710",
+        "maxClock": 2750,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Cortex-A510",
+        "maxClock": 2000,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 3200,
+    "cpuBitness": 64,
+    "gpu": "Qualcomm Adreno 730",
+    "gpuFamily": "Adreno 700",
+    "gpuArchitecture": "Adreno 700",
+    "gpuClockMhz": 900,
+    "gpuExecutionUnits": null,
+    "npu": "Qualcomm 7th Gen AI Engine",
+    "aiPerformance": "27 TOPS",
+    "processNode": "4 nm (TSMC N4)",
+    "vulkanVersion": "1.3",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR5",
+    "memoryChannels": 4,
+    "memoryBandwidth": "25.6 GB/s",
+    "maxMemorySizeGb": 16,
+    "isp": "Qualcomm Spectra (200 MP)",
+    "dsp": "Hexagon DSP",
+    "modem": "Snapdragon X65 5G Modem-RF",
+    "videoEncode": [
+      "8K@30fps HDR",
+      "4K@120fps"
+    ],
+    "videoDecode": [
+      "8K@60fps H.265",
+      "4K@120fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2022-05-20",
+    "sourceUrl": "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-8-series-mobile-platforms/snapdragon-8-plus-gen-1-mobile-platform",
+    "aliases": [
+      "sm8475",
+      "snapdragon-8-plus-gen-1",
+      "snapdragon-8-gen-1-plus",
+      "sd8plusgen1"
+    ],
+    "provenance": {
+      "primarySource": "Qualcomm Official Platform Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry",
+        "Wikimedia Cited Specifications"
+      ],
+      "sourceUrls": [
+        "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-8-series-mobile-platforms/snapdragon-8-plus-gen-1-mobile-platform",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Fabricated on TSMC N4 process resolving thermal throttling of initial 8 Gen 1."
+    }
+  },
+  {
+    "id": "qualcomm:snapdragon-8-gen-1-sm8450",
+    "name": "Qualcomm Snapdragon 8 Gen 1",
+    "manufacturer": "Qualcomm",
+    "family": "Snapdragon 8",
+    "partNumber": "SM8450",
+    "architecture": "ARMv9-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Prime",
+        "cores": 1,
+        "microarchitecture": "Cortex-X2",
+        "maxClock": 3000,
+        "efficiencyClass": "prime"
+      },
+      {
+        "name": "Performance",
+        "cores": 3,
+        "microarchitecture": "Cortex-A710",
+        "maxClock": 2500,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Cortex-A510",
+        "maxClock": 1800,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 3000,
+    "cpuBitness": 64,
+    "gpu": "Qualcomm Adreno 730",
+    "gpuFamily": "Adreno 700",
+    "gpuArchitecture": "Adreno 700",
+    "gpuClockMhz": 818,
+    "gpuExecutionUnits": null,
+    "npu": "Qualcomm 7th Gen AI Engine",
+    "aiPerformance": "27 TOPS",
+    "processNode": "4 nm (Samsung 4LPX)",
+    "vulkanVersion": "1.3",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR5",
+    "memoryChannels": 4,
+    "memoryBandwidth": "25.6 GB/s",
+    "maxMemorySizeGb": 16,
+    "isp": "Qualcomm Spectra (200 MP)",
+    "dsp": "Hexagon DSP",
+    "modem": "Snapdragon X65 5G Modem-RF",
+    "videoEncode": [
+      "8K@30fps HDR",
+      "4K@120fps"
+    ],
+    "videoDecode": [
+      "8K@60fps H.265",
+      "4K@120fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2021-11-30",
+    "sourceUrl": "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-8-series-mobile-platforms/snapdragon-8-gen-1-mobile-platform",
+    "aliases": [
+      "sm8450",
+      "snapdragon-8-gen-1",
+      "sd8gen1"
+    ],
+    "provenance": {
+      "primarySource": "Qualcomm Official Platform Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry",
+        "Wikimedia Cited Specifications"
+      ],
+      "sourceUrls": [
+        "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-8-series-mobile-platforms/snapdragon-8-gen-1-mobile-platform",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Initial ARMv9 flagship; received Vulkan 1.3 OTA driver upgrade on Android 13/14."
+    }
+  },
+  {
+    "id": "qualcomm:snapdragon-888-plus-5g-sm8350-ac",
+    "name": "Qualcomm Snapdragon 888+ 5G",
+    "manufacturer": "Qualcomm",
+    "family": "Snapdragon 8",
+    "partNumber": "SM8350-AC",
+    "architecture": "ARMv8.4-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Prime",
+        "cores": 1,
+        "microarchitecture": "Kryo 680 Prime (Cortex-X1)",
+        "maxClock": 2995,
+        "efficiencyClass": "prime"
+      },
+      {
+        "name": "Performance",
+        "cores": 3,
+        "microarchitecture": "Kryo 680 Gold (Cortex-A78)",
+        "maxClock": 2420,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Kryo 680 Silver (Cortex-A55)",
+        "maxClock": 1800,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2995,
+    "cpuBitness": 64,
+    "gpu": "Qualcomm Adreno 660",
+    "gpuFamily": "Adreno 600",
+    "gpuArchitecture": "Adreno 600",
+    "gpuClockMhz": 840,
+    "gpuExecutionUnits": null,
+    "npu": "Qualcomm Hexagon 780",
+    "aiPerformance": "32 TOPS",
+    "processNode": "5 nm (Samsung 5LPE)",
+    "vulkanVersion": "1.3",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR5",
+    "memoryChannels": 4,
+    "memoryBandwidth": "25.6 GB/s",
+    "maxMemorySizeGb": 16,
+    "isp": "Qualcomm Spectra 580 (200 MP)",
+    "dsp": "Hexagon 780 DSP",
+    "modem": "Snapdragon X60 5G Modem-RF",
+    "videoEncode": [
+      "8K@30fps",
+      "4K@120fps"
+    ],
+    "videoDecode": [
+      "8K@60fps",
+      "4K@120fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2021-06-28",
+    "sourceUrl": "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-8-series-mobile-platforms/snapdragon-888-plus-5g-mobile-platform",
+    "aliases": [
+      "sm8350-ac",
+      "snapdragon-888-plus",
+      "snapdragon-888+",
+      "sd888plus",
+      "sd888+"
+    ],
+    "provenance": {
+      "primarySource": "Qualcomm Official Platform Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-8-series-mobile-platforms/snapdragon-888-plus-5g-mobile-platform",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Prime core boosted to 2.995 GHz and AI performance increased to 32 TOPS."
+    }
+  },
+  {
+    "id": "qualcomm:snapdragon-888-5g-sm8350",
+    "name": "Qualcomm Snapdragon 888 5G",
+    "manufacturer": "Qualcomm",
+    "family": "Snapdragon 8",
+    "partNumber": "SM8350",
+    "architecture": "ARMv8.4-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Prime",
+        "cores": 1,
+        "microarchitecture": "Kryo 680 Prime (Cortex-X1)",
+        "maxClock": 2840,
+        "efficiencyClass": "prime"
+      },
+      {
+        "name": "Performance",
+        "cores": 3,
+        "microarchitecture": "Kryo 680 Gold (Cortex-A78)",
+        "maxClock": 2420,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Kryo 680 Silver (Cortex-A55)",
+        "maxClock": 1800,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2840,
+    "cpuBitness": 64,
+    "gpu": "Qualcomm Adreno 660",
+    "gpuFamily": "Adreno 600",
+    "gpuArchitecture": "Adreno 600",
+    "gpuClockMhz": 840,
+    "gpuExecutionUnits": null,
+    "npu": "Qualcomm Hexagon 780",
+    "aiPerformance": "26 TOPS",
+    "processNode": "5 nm (Samsung 5LPE)",
+    "vulkanVersion": "1.3",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR5",
+    "memoryChannels": 4,
+    "memoryBandwidth": "25.6 GB/s",
+    "maxMemorySizeGb": 16,
+    "isp": "Qualcomm Spectra 580 (200 MP)",
+    "dsp": "Hexagon 780 DSP",
+    "modem": "Snapdragon X60 5G Modem-RF",
+    "videoEncode": [
+      "8K@30fps",
+      "4K@120fps"
+    ],
+    "videoDecode": [
+      "8K@60fps",
+      "4K@120fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2020-12-01",
+    "sourceUrl": "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-8-series-mobile-platforms/snapdragon-888-5g-mobile-platform",
+    "aliases": [
+      "sm8350",
+      "snapdragon-888",
+      "sd888"
+    ],
+    "provenance": {
+      "primarySource": "Qualcomm Official Platform Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-8-series-mobile-platforms/snapdragon-888-5g-mobile-platform",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Integrated X60 5G modem on 5nm node."
+    }
+  },
+  {
+    "id": "qualcomm:snapdragon-870-5g-sm8250-ac",
+    "name": "Qualcomm Snapdragon 870 5G",
+    "manufacturer": "Qualcomm",
+    "family": "Snapdragon 8",
+    "partNumber": "SM8250-AC",
+    "architecture": "ARMv8.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Prime",
+        "cores": 1,
+        "microarchitecture": "Kryo 585 Prime (Cortex-A77)",
+        "maxClock": 3200,
+        "efficiencyClass": "prime"
+      },
+      {
+        "name": "Performance",
+        "cores": 3,
+        "microarchitecture": "Kryo 585 Gold (Cortex-A77)",
+        "maxClock": 2420,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Kryo 585 Silver (Cortex-A55)",
+        "maxClock": 1800,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 3200,
+    "cpuBitness": 64,
+    "gpu": "Qualcomm Adreno 650",
+    "gpuFamily": "Adreno 600",
+    "gpuArchitecture": "Adreno 600",
+    "gpuClockMhz": 670,
+    "gpuExecutionUnits": null,
+    "npu": "Qualcomm 5th Gen AI Engine",
+    "aiPerformance": "15 TOPS",
+    "processNode": "7 nm (TSMC N7P)",
+    "vulkanVersion": "1.3",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR5",
+    "memoryChannels": 4,
+    "memoryBandwidth": "22.0 GB/s",
+    "maxMemorySizeGb": 16,
+    "isp": "Qualcomm Spectra 480 (200 MP)",
+    "dsp": "Hexagon 698 DSP",
+    "modem": "Snapdragon X55 5G Modem-RF",
+    "videoEncode": [
+      "8K@30fps",
+      "4K@120fps"
+    ],
+    "videoDecode": [
+      "8K@60fps",
+      "4K@120fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2021-01-19",
+    "sourceUrl": "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-8-series-mobile-platforms/snapdragon-870-5g-mobile-platform",
+    "aliases": [
+      "sm8250-ac",
+      "snapdragon-870",
+      "sd870"
+    ],
+    "provenance": {
+      "primarySource": "Qualcomm Official Platform Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-8-series-mobile-platforms/snapdragon-870-5g-mobile-platform",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Refined 7nm flagship tier with 3.2 GHz Prime core."
+    }
+  },
+  {
+    "id": "qualcomm:snapdragon-865-plus-5g-sm8250-ab",
+    "name": "Qualcomm Snapdragon 865+ 5G",
+    "manufacturer": "Qualcomm",
+    "family": "Snapdragon 8",
+    "partNumber": "SM8250-AB",
+    "architecture": "ARMv8.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Prime",
+        "cores": 1,
+        "microarchitecture": "Kryo 585 Prime (Cortex-A77)",
+        "maxClock": 3100,
+        "efficiencyClass": "prime"
+      },
+      {
+        "name": "Performance",
+        "cores": 3,
+        "microarchitecture": "Kryo 585 Gold (Cortex-A77)",
+        "maxClock": 2420,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Kryo 585 Silver (Cortex-A55)",
+        "maxClock": 1800,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 3100,
+    "cpuBitness": 64,
+    "gpu": "Qualcomm Adreno 650",
+    "gpuFamily": "Adreno 600",
+    "gpuArchitecture": "Adreno 600",
+    "gpuClockMhz": 670,
+    "gpuExecutionUnits": null,
+    "npu": "Qualcomm 5th Gen AI Engine",
+    "aiPerformance": "15 TOPS",
+    "processNode": "7 nm (TSMC N7P)",
+    "vulkanVersion": "1.3",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR5",
+    "memoryChannels": 4,
+    "memoryBandwidth": "22.0 GB/s",
+    "maxMemorySizeGb": 16,
+    "isp": "Qualcomm Spectra 480 (200 MP)",
+    "dsp": "Hexagon 698 DSP",
+    "modem": "Snapdragon X55 5G Modem-RF",
+    "videoEncode": [
+      "8K@30fps",
+      "4K@120fps"
+    ],
+    "videoDecode": [
+      "8K@60fps",
+      "4K@120fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2020-07-08",
+    "sourceUrl": "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-8-series-mobile-platforms/snapdragon-865-plus-5g-mobile-platform",
+    "aliases": [
+      "sm8250-ab",
+      "snapdragon-865-plus",
+      "snapdragon-865+",
+      "sd865plus",
+      "sd865+"
+    ],
+    "provenance": {
+      "primarySource": "Qualcomm Official Platform Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-8-series-mobile-platforms/snapdragon-865-plus-5g-mobile-platform",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "10% CPU and GPU clock increase over baseline 865."
+    }
+  },
+  {
+    "id": "qualcomm:snapdragon-865-5g-sm8250",
+    "name": "Qualcomm Snapdragon 865 5G",
+    "manufacturer": "Qualcomm",
+    "family": "Snapdragon 8",
+    "partNumber": "SM8250",
+    "architecture": "ARMv8.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Prime",
+        "cores": 1,
+        "microarchitecture": "Kryo 585 Prime (Cortex-A77)",
+        "maxClock": 2840,
+        "efficiencyClass": "prime"
+      },
+      {
+        "name": "Performance",
+        "cores": 3,
+        "microarchitecture": "Kryo 585 Gold (Cortex-A77)",
+        "maxClock": 2420,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Kryo 585 Silver (Cortex-A55)",
+        "maxClock": 1800,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2840,
+    "cpuBitness": 64,
+    "gpu": "Qualcomm Adreno 650",
+    "gpuFamily": "Adreno 600",
+    "gpuArchitecture": "Adreno 600",
+    "gpuClockMhz": 587,
+    "gpuExecutionUnits": null,
+    "npu": "Qualcomm 5th Gen AI Engine",
+    "aiPerformance": "15 TOPS",
+    "processNode": "7 nm (TSMC N7P)",
+    "vulkanVersion": "1.3",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR5",
+    "memoryChannels": 4,
+    "memoryBandwidth": "22.0 GB/s",
+    "maxMemorySizeGb": 16,
+    "isp": "Qualcomm Spectra 480 (200 MP)",
+    "dsp": "Hexagon 698 DSP",
+    "modem": "Snapdragon X55 5G Modem-RF",
+    "videoEncode": [
+      "8K@30fps",
+      "4K@120fps"
+    ],
+    "videoDecode": [
+      "8K@60fps",
+      "4K@120fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2019-12-04",
+    "sourceUrl": "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-8-series-mobile-platforms/snapdragon-865-5g-mobile-platform",
+    "aliases": [
+      "sm8250",
+      "snapdragon-865",
+      "sd865"
+    ],
+    "provenance": {
+      "primarySource": "Qualcomm Official Platform Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-8-series-mobile-platforms/snapdragon-865-5g-mobile-platform",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Groundbreaking flagship bringing LPDDR5 support and 8K video recording."
+    }
+  },
+  {
+    "id": "qualcomm:snapdragon-855-plus-sm8150-ac",
+    "name": "Qualcomm Snapdragon 855+",
+    "manufacturer": "Qualcomm",
+    "family": "Snapdragon 8",
+    "partNumber": "SM8150-AC",
+    "architecture": "ARMv8.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Prime",
+        "cores": 1,
+        "microarchitecture": "Kryo 485 Prime (Cortex-A76)",
+        "maxClock": 2960,
+        "efficiencyClass": "prime"
+      },
+      {
+        "name": "Performance",
+        "cores": 3,
+        "microarchitecture": "Kryo 485 Gold (Cortex-A76)",
+        "maxClock": 2420,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Kryo 485 Silver (Cortex-A55)",
+        "maxClock": 1800,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2960,
+    "cpuBitness": 64,
+    "gpu": "Qualcomm Adreno 640",
+    "gpuFamily": "Adreno 600",
+    "gpuArchitecture": "Adreno 600",
+    "gpuClockMhz": 675,
+    "gpuExecutionUnits": null,
+    "npu": "Qualcomm 4th Gen AI Engine",
+    "aiPerformance": "7 TOPS",
+    "processNode": "7 nm (TSMC N7)",
+    "vulkanVersion": "1.2",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR4X",
+    "memoryChannels": 4,
+    "memoryBandwidth": "17.0 GB/s",
+    "maxMemorySizeGb": 16,
+    "isp": "Qualcomm Spectra 380 (192 MP)",
+    "dsp": "Hexagon 690 DSP",
+    "modem": "Snapdragon X24 LTE / X50 5G",
+    "videoEncode": [
+      "4K@60fps HDR"
+    ],
+    "videoDecode": [
+      "4K@60fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2019-07-15",
+    "sourceUrl": "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-8-series-mobile-platforms/snapdragon-855-plus-mobile-platform",
+    "aliases": [
+      "sm8150-ac",
+      "snapdragon-855-plus",
+      "snapdragon-855+",
+      "sd855plus",
+      "sd855+"
+    ],
+    "provenance": {
+      "primarySource": "Qualcomm Official Platform Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-8-series-mobile-platforms/snapdragon-855-plus-mobile-platform",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Prime core boosted to 2.96 GHz with 15% faster Adreno 640 GPU."
+    }
+  },
+  {
+    "id": "qualcomm:snapdragon-855-sm8150",
+    "name": "Qualcomm Snapdragon 855",
+    "manufacturer": "Qualcomm",
+    "family": "Snapdragon 8",
+    "partNumber": "SM8150",
+    "architecture": "ARMv8.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Prime",
+        "cores": 1,
+        "microarchitecture": "Kryo 485 Prime (Cortex-A76)",
+        "maxClock": 2840,
+        "efficiencyClass": "prime"
+      },
+      {
+        "name": "Performance",
+        "cores": 3,
+        "microarchitecture": "Kryo 485 Gold (Cortex-A76)",
+        "maxClock": 2420,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Kryo 485 Silver (Cortex-A55)",
+        "maxClock": 1800,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2840,
+    "cpuBitness": 64,
+    "gpu": "Qualcomm Adreno 640",
+    "gpuFamily": "Adreno 600",
+    "gpuArchitecture": "Adreno 600",
+    "gpuClockMhz": 585,
+    "gpuExecutionUnits": null,
+    "npu": "Qualcomm 4th Gen AI Engine",
+    "aiPerformance": "7 TOPS",
+    "processNode": "7 nm (TSMC N7)",
+    "vulkanVersion": "1.2",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR4X",
+    "memoryChannels": 4,
+    "memoryBandwidth": "17.0 GB/s",
+    "maxMemorySizeGb": 16,
+    "isp": "Qualcomm Spectra 380 (192 MP)",
+    "dsp": "Hexagon 690 DSP",
+    "modem": "Snapdragon X24 LTE Modem",
+    "videoEncode": [
+      "4K@60fps HDR"
+    ],
+    "videoDecode": [
+      "4K@60fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2018-12-05",
+    "sourceUrl": "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-8-series-mobile-platforms/snapdragon-855-mobile-platform",
+    "aliases": [
+      "sm8150",
+      "snapdragon-855",
+      "sd855"
+    ],
+    "provenance": {
+      "primarySource": "Qualcomm Official Platform Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-8-series-mobile-platforms/snapdragon-855-mobile-platform",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "First commercial 7nm Snapdragon mobile platform."
+    }
+  },
+  {
+    "id": "qualcomm:snapdragon-845-sdm845",
+    "name": "Qualcomm Snapdragon 845",
+    "manufacturer": "Qualcomm",
+    "family": "Snapdragon 8",
+    "partNumber": "SDM845",
+    "architecture": "ARMv8.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 4,
+        "microarchitecture": "Kryo 385 Gold (Cortex-A75)",
+        "maxClock": 2800,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Kryo 385 Silver (Cortex-A55)",
+        "maxClock": 1770,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2800,
+    "cpuBitness": 64,
+    "gpu": "Qualcomm Adreno 630",
+    "gpuFamily": "Adreno 600",
+    "gpuArchitecture": "Adreno 600",
+    "gpuClockMhz": 710,
+    "gpuExecutionUnits": null,
+    "npu": null,
+    "aiPerformance": "3 TOPS",
+    "processNode": "10 nm (Samsung 10LPP)",
+    "vulkanVersion": "1.1",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR4X",
+    "memoryChannels": 4,
+    "memoryBandwidth": "14.9 GB/s",
+    "maxMemorySizeGb": 8,
+    "isp": "Qualcomm Spectra 280 (32 MP)",
+    "dsp": "Hexagon 685 DSP",
+    "modem": "Snapdragon X20 LTE Modem",
+    "videoEncode": [
+      "4K@60fps"
+    ],
+    "videoDecode": [
+      "4K@60fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2017-12-06",
+    "sourceUrl": "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-8-series-mobile-platforms/snapdragon-845-mobile-platform",
+    "aliases": [
+      "sdm845",
+      "snapdragon-845",
+      "sd845"
+    ],
+    "provenance": {
+      "primarySource": "Qualcomm Official Platform Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-8-series-mobile-platforms/snapdragon-845-mobile-platform",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Flagship powering Galaxy S9, Pixel 3, OnePlus 6."
+    }
+  },
+  {
+    "id": "qualcomm:snapdragon-835-msm8998",
+    "name": "Qualcomm Snapdragon 835",
+    "manufacturer": "Qualcomm",
+    "family": "Snapdragon 8",
+    "partNumber": "MSM8998",
+    "architecture": "ARMv8-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 4,
+        "microarchitecture": "Kryo 280 Gold (Cortex-A73)",
+        "maxClock": 2450,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Kryo 280 Silver (Cortex-A53)",
+        "maxClock": 1900,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2450,
+    "cpuBitness": 64,
+    "gpu": "Qualcomm Adreno 540",
+    "gpuFamily": "Adreno 500",
+    "gpuArchitecture": "Adreno 500",
+    "gpuClockMhz": 710,
+    "gpuExecutionUnits": null,
+    "npu": null,
+    "aiPerformance": null,
+    "processNode": "10 nm (Samsung 10LPE)",
+    "vulkanVersion": "1.1",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR4X",
+    "memoryChannels": 2,
+    "memoryBandwidth": "14.9 GB/s",
+    "maxMemorySizeGb": 8,
+    "isp": "Qualcomm Spectra 180 (32 MP)",
+    "dsp": "Hexagon 682 DSP",
+    "modem": "Snapdragon X16 LTE Modem",
+    "videoEncode": [
+      "4K@30fps"
+    ],
+    "videoDecode": [
+      "4K@60fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2017-01-03",
+    "sourceUrl": "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-8-series-mobile-platforms/snapdragon-835-mobile-platform",
+    "aliases": [
+      "msm8998",
+      "snapdragon-835",
+      "sd835"
+    ],
+    "provenance": {
+      "primarySource": "Qualcomm Official Platform Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-8-series-mobile-platforms/snapdragon-835-mobile-platform",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "First 10nm mobile SoC; powers Galaxy S8, Pixel 2."
+    }
+  },
+  {
+    "id": "qualcomm:snapdragon-820-msm8996",
+    "name": "Qualcomm Snapdragon 820",
+    "manufacturer": "Qualcomm",
+    "family": "Snapdragon 8",
+    "partNumber": "MSM8996",
+    "architecture": "ARMv8-A",
+    "cpuCores": 4,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 2,
+        "microarchitecture": "Kryo Gold",
+        "maxClock": 2150,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 2,
+        "microarchitecture": "Kryo Silver",
+        "maxClock": 1593,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2150,
+    "cpuBitness": 64,
+    "gpu": "Qualcomm Adreno 530",
+    "gpuFamily": "Adreno 500",
+    "gpuArchitecture": "Adreno 500",
+    "gpuClockMhz": 624,
+    "gpuExecutionUnits": null,
+    "npu": null,
+    "aiPerformance": null,
+    "processNode": "14 nm (Samsung 14LPP)",
+    "vulkanVersion": "1.0",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR4",
+    "memoryChannels": 2,
+    "memoryBandwidth": "29.8 GB/s",
+    "maxMemorySizeGb": 4,
+    "isp": "Qualcomm Spectra (28 MP)",
+    "dsp": "Hexagon 680 DSP",
+    "modem": "Snapdragon X12 LTE Modem",
+    "videoEncode": [
+      "4K@30fps"
+    ],
+    "videoDecode": [
+      "4K@60fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2015-11-10",
+    "sourceUrl": "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-8-series-mobile-platforms/snapdragon-820-mobile-platform",
+    "aliases": [
+      "msm8996",
+      "snapdragon-820",
+      "sd820"
+    ],
+    "provenance": {
+      "primarySource": "Qualcomm Official Platform Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-8-series-mobile-platforms/snapdragon-820-mobile-platform",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Custom Kryo quad-core return to custom silicon."
+    }
+  },
+  {
+    "id": "qualcomm:snapdragon-800-msm8974",
+    "name": "Qualcomm Snapdragon 800",
+    "manufacturer": "Qualcomm",
+    "family": "Snapdragon 8",
+    "partNumber": "MSM8974",
+    "architecture": "ARMv7-A",
+    "cpuCores": 4,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 4,
+        "microarchitecture": "Krait 400",
+        "maxClock": 2260,
+        "efficiencyClass": "performance"
+      }
+    ],
+    "cpuClockMax": 2260,
+    "cpuBitness": 32,
+    "gpu": "Qualcomm Adreno 330",
+    "gpuFamily": "Adreno 300",
+    "gpuArchitecture": "Adreno 300",
+    "gpuClockMhz": 450,
+    "gpuExecutionUnits": null,
+    "npu": null,
+    "aiPerformance": null,
+    "processNode": "28 nm (TSMC 28HPm)",
+    "vulkanVersion": null,
+    "openGlEsVersion": "3.0",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR3",
+    "memoryChannels": 2,
+    "memoryBandwidth": "12.8 GB/s",
+    "maxMemorySizeGb": 3,
+    "isp": "Dual ISP (21 MP)",
+    "dsp": "Hexagon QDSP6 V5A",
+    "modem": "Gobi LTE Modem",
+    "videoEncode": [
+      "1080p@60fps",
+      "4K@30fps"
+    ],
+    "videoDecode": [
+      "4K@30fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2013-01-08",
+    "sourceUrl": "https://www.qualcomm.com/products/snapdragon/processors/800",
+    "aliases": [
+      "msm8974",
+      "snapdragon-800",
+      "sd800"
+    ],
+    "provenance": {
+      "primarySource": "Qualcomm Official Platform Specification",
+      "verificationSources": [
+        "Wikimedia Cited Specifications"
+      ],
+      "sourceUrls": [
+        "https://www.qualcomm.com/products/snapdragon/processors/800"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Iconic 32-bit quad-core flagship powering Nexus 5 and LG G2. Vulkan unsupported."
+    }
+  },
+  {
+    "id": "qualcomm:snapdragon-7-plus-gen-3-sm7675",
+    "name": "Qualcomm Snapdragon 7+ Gen 3",
+    "manufacturer": "Qualcomm",
+    "family": "Snapdragon 7",
+    "partNumber": "SM7675",
+    "architecture": "ARMv9.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Prime",
+        "cores": 1,
+        "microarchitecture": "Cortex-X4",
+        "maxClock": 2800,
+        "efficiencyClass": "prime"
+      },
+      {
+        "name": "Performance",
+        "cores": 4,
+        "microarchitecture": "Cortex-A720",
+        "maxClock": 2600,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 3,
+        "microarchitecture": "Cortex-A520",
+        "maxClock": 1900,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2800,
+    "cpuBitness": 64,
+    "gpu": "Qualcomm Adreno 732",
+    "gpuFamily": "Adreno 700",
+    "gpuArchitecture": "Adreno 700",
+    "gpuClockMhz": 950,
+    "gpuExecutionUnits": null,
+    "npu": "Qualcomm Hexagon NPU",
+    "aiPerformance": "30 TOPS",
+    "processNode": "4 nm (TSMC N4)",
+    "vulkanVersion": "1.3",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR5X",
+    "memoryChannels": 4,
+    "memoryBandwidth": "34.0 GB/s",
+    "maxMemorySizeGb": 16,
+    "isp": "Qualcomm Spectra (200 MP)",
+    "dsp": "Hexagon DSP",
+    "modem": "Snapdragon X63 5G Modem-RF",
+    "videoEncode": [
+      "4K@60fps HDR"
+    ],
+    "videoDecode": [
+      "4K@120fps AV1"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2024-03-21",
+    "sourceUrl": "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-7-series-mobile-platforms/snapdragon-7-plus-gen-3-mobile-platform",
+    "aliases": [
+      "sm7675",
+      "snapdragon-7-plus-gen-3",
+      "snapdragon-7+-gen-3",
+      "sd7plusgen3"
+    ],
+    "provenance": {
+      "primarySource": "Qualcomm Official Platform Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-7-series-mobile-platforms/snapdragon-7-plus-gen-3-mobile-platform",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Near-flagship sub-8 series with Cortex-X4 prime core."
+    }
+  },
+  {
+    "id": "qualcomm:snapdragon-7-gen-3-sm7550-ab",
+    "name": "Qualcomm Snapdragon 7 Gen 3",
+    "manufacturer": "Qualcomm",
+    "family": "Snapdragon 7",
+    "partNumber": "SM7550-AB",
+    "architecture": "ARMv9.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Prime",
+        "cores": 1,
+        "microarchitecture": "Cortex-A715",
+        "maxClock": 2630,
+        "efficiencyClass": "prime"
+      },
+      {
+        "name": "Performance",
+        "cores": 3,
+        "microarchitecture": "Cortex-A715",
+        "maxClock": 2400,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Cortex-A510",
+        "maxClock": 1800,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2630,
+    "cpuBitness": 64,
+    "gpu": "Qualcomm Adreno 720",
+    "gpuFamily": "Adreno 700",
+    "gpuArchitecture": "Adreno 700",
+    "gpuClockMhz": 800,
+    "gpuExecutionUnits": null,
+    "npu": "Qualcomm Hexagon NPU",
+    "aiPerformance": "18 TOPS",
+    "processNode": "4 nm (TSMC N4)",
+    "vulkanVersion": "1.3",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR5",
+    "memoryChannels": 2,
+    "memoryBandwidth": "25.6 GB/s",
+    "maxMemorySizeGb": 16,
+    "isp": "Qualcomm Spectra (200 MP)",
+    "dsp": "Hexagon DSP",
+    "modem": "Snapdragon X63 5G Modem-RF",
+    "videoEncode": [
+      "4K@60fps HDR"
+    ],
+    "videoDecode": [
+      "4K@60fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2023-11-17",
+    "sourceUrl": "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-7-series-mobile-platforms/snapdragon-7-gen-3-mobile-platform",
+    "aliases": [
+      "sm7550",
+      "sm7550-ab",
+      "snapdragon-7-gen-3",
+      "sd7gen3"
+    ],
+    "provenance": {
+      "primarySource": "Qualcomm Official Platform Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-7-series-mobile-platforms/snapdragon-7-gen-3-mobile-platform",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "TSMC N4 platform for upper mid-range."
+    }
+  },
+  {
+    "id": "qualcomm:snapdragon-7-plus-gen-2-sm7475-ab",
+    "name": "Qualcomm Snapdragon 7+ Gen 2",
+    "manufacturer": "Qualcomm",
+    "family": "Snapdragon 7",
+    "partNumber": "SM7475-AB",
+    "architecture": "ARMv9-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Prime",
+        "cores": 1,
+        "microarchitecture": "Cortex-X2",
+        "maxClock": 2910,
+        "efficiencyClass": "prime"
+      },
+      {
+        "name": "Performance",
+        "cores": 3,
+        "microarchitecture": "Cortex-A710",
+        "maxClock": 2490,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Cortex-A510",
+        "maxClock": 1800,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2910,
+    "cpuBitness": 64,
+    "gpu": "Qualcomm Adreno 725",
+    "gpuFamily": "Adreno 700",
+    "gpuArchitecture": "Adreno 700",
+    "gpuClockMhz": 580,
+    "gpuExecutionUnits": null,
+    "npu": "Qualcomm Hexagon NPU",
+    "aiPerformance": "20 TOPS",
+    "processNode": "4 nm (TSMC N4)",
+    "vulkanVersion": "1.3",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR5",
+    "memoryChannels": 4,
+    "memoryBandwidth": "25.6 GB/s",
+    "maxMemorySizeGb": 16,
+    "isp": "Qualcomm Spectra (200 MP)",
+    "dsp": "Hexagon DSP",
+    "modem": "Snapdragon X62 5G Modem-RF",
+    "videoEncode": [
+      "4K@60fps HDR"
+    ],
+    "videoDecode": [
+      "4K@60fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2023-03-17",
+    "sourceUrl": "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-7-series-mobile-platforms/snapdragon-7-plus-gen-2-mobile-platform",
+    "aliases": [
+      "sm7475",
+      "sm7475-ab",
+      "snapdragon-7-plus-gen-2",
+      "sd7plusgen2"
+    ],
+    "provenance": {
+      "primarySource": "Qualcomm Official Platform Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-7-series-mobile-platforms/snapdragon-7-plus-gen-2-mobile-platform",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Remarkable underclocked 8+ Gen 1 derivative; popular in high-efficiency gaming phones (Poco F5)."
+    }
+  },
+  {
+    "id": "qualcomm:snapdragon-778g-5g-sm7325",
+    "name": "Qualcomm Snapdragon 778G 5G",
+    "manufacturer": "Qualcomm",
+    "family": "Snapdragon 7",
+    "partNumber": "SM7325",
+    "architecture": "ARMv8.4-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Prime",
+        "cores": 1,
+        "microarchitecture": "Kryo 670 Prime (Cortex-A78)",
+        "maxClock": 2400,
+        "efficiencyClass": "prime"
+      },
+      {
+        "name": "Performance",
+        "cores": 3,
+        "microarchitecture": "Kryo 670 Gold (Cortex-A78)",
+        "maxClock": 2200,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Kryo 670 Silver (Cortex-A55)",
+        "maxClock": 1900,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2400,
+    "cpuBitness": 64,
+    "gpu": "Qualcomm Adreno 642L",
+    "gpuFamily": "Adreno 600",
+    "gpuArchitecture": "Adreno 600",
+    "gpuClockMhz": 550,
+    "gpuExecutionUnits": null,
+    "npu": "Qualcomm 6th Gen AI Engine",
+    "aiPerformance": "12 TOPS",
+    "processNode": "6 nm (TSMC N6)",
+    "vulkanVersion": "1.3",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR5",
+    "memoryChannels": 2,
+    "memoryBandwidth": "25.6 GB/s",
+    "maxMemorySizeGb": 16,
+    "isp": "Qualcomm Spectra 570L (192 MP)",
+    "dsp": "Hexagon 770 DSP",
+    "modem": "Snapdragon X53 5G Modem-RF",
+    "videoEncode": [
+      "4K@30fps"
+    ],
+    "videoDecode": [
+      "4K@60fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2021-05-19",
+    "sourceUrl": "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-7-series-mobile-platforms/snapdragon-778g-5g-mobile-platform",
+    "aliases": [
+      "sm7325",
+      "snapdragon-778g",
+      "sd778g"
+    ],
+    "provenance": {
+      "primarySource": "Qualcomm Official Platform Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-7-series-mobile-platforms/snapdragon-778g-5g-mobile-platform",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Extremely widespread mid-range platform with stable thermal profile."
+    }
+  },
+  {
+    "id": "qualcomm:snapdragon-6-gen-1-sm6450",
+    "name": "Qualcomm Snapdragon 6 Gen 1",
+    "manufacturer": "Qualcomm",
+    "family": "Snapdragon 6",
+    "partNumber": "SM6450",
+    "architecture": "ARMv9-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 4,
+        "microarchitecture": "Cortex-A78",
+        "maxClock": 2200,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Cortex-A55",
+        "maxClock": 1800,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2200,
+    "cpuBitness": 64,
+    "gpu": "Qualcomm Adreno 710",
+    "gpuFamily": "Adreno 700",
+    "gpuArchitecture": "Adreno 700",
+    "gpuClockMhz": 600,
+    "gpuExecutionUnits": null,
+    "npu": "Qualcomm 7th Gen AI Engine",
+    "aiPerformance": "10 TOPS",
+    "processNode": "4 nm (Samsung 4LPX)",
+    "vulkanVersion": "1.3",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR5",
+    "memoryChannels": 2,
+    "memoryBandwidth": "22.0 GB/s",
+    "maxMemorySizeGb": 12,
+    "isp": "Qualcomm Spectra (200 MP)",
+    "dsp": "Hexagon DSP",
+    "modem": "Snapdragon X62 5G Modem-RF",
+    "videoEncode": [
+      "4K@30fps HDR"
+    ],
+    "videoDecode": [
+      "4K@30fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2022-09-01",
+    "sourceUrl": "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-6-series-mobile-platforms/snapdragon-6-gen-1-mobile-platform",
+    "aliases": [
+      "sm6450",
+      "snapdragon-6-gen-1",
+      "sd6gen1"
+    ],
+    "provenance": {
+      "primarySource": "Qualcomm Official Platform Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-6-series-mobile-platforms/snapdragon-6-gen-1-mobile-platform",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Mainstream 4nm platform bringing 4x Cortex-A78 cores."
+    }
+  },
+  {
+    "id": "qualcomm:snapdragon-695-5g-sm6375",
+    "name": "Qualcomm Snapdragon 695 5G",
+    "manufacturer": "Qualcomm",
+    "family": "Snapdragon 6",
+    "partNumber": "SM6375",
+    "architecture": "ARMv8.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 2,
+        "microarchitecture": "Kryo 660 Gold (Cortex-A78)",
+        "maxClock": 2200,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 6,
+        "microarchitecture": "Kryo 660 Silver (Cortex-A55)",
+        "maxClock": 1700,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2200,
+    "cpuBitness": 64,
+    "gpu": "Qualcomm Adreno 619",
+    "gpuFamily": "Adreno 600",
+    "gpuArchitecture": "Adreno 600",
+    "gpuClockMhz": 840,
+    "gpuExecutionUnits": null,
+    "npu": null,
+    "aiPerformance": "5 TOPS",
+    "processNode": "6 nm (TSMC N6)",
+    "vulkanVersion": "1.2",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR4X",
+    "memoryChannels": 2,
+    "memoryBandwidth": "17.0 GB/s",
+    "maxMemorySizeGb": 12,
+    "isp": "Qualcomm Spectra 346T (108 MP)",
+    "dsp": "Hexagon 686 DSP",
+    "modem": "Snapdragon X51 5G Modem-RF",
+    "videoEncode": [
+      "1080p@60fps"
+    ],
+    "videoDecode": [
+      "1080p@60fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2021-10-27",
+    "sourceUrl": "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-6-series-mobile-platforms/snapdragon-695-5g-mobile-platform",
+    "aliases": [
+      "sm6375",
+      "snapdragon-695",
+      "sd695"
+    ],
+    "provenance": {
+      "primarySource": "Qualcomm Official Platform Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-6-series-mobile-platforms/snapdragon-695-5g-mobile-platform",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Widely deployed mass-market 5G chipset (Redmi Note 11 Pro 5G, Moto G82)."
+    }
+  },
+  {
+    "id": "qualcomm:snapdragon-680-4g-sm6225",
+    "name": "Qualcomm Snapdragon 680 4G",
+    "manufacturer": "Qualcomm",
+    "family": "Snapdragon 6",
+    "partNumber": "SM6225",
+    "architecture": "ARMv8-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 4,
+        "microarchitecture": "Kryo 265 Gold (Cortex-A73)",
+        "maxClock": 2400,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Kryo 265 Silver (Cortex-A53)",
+        "maxClock": 1900,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2400,
+    "cpuBitness": 64,
+    "gpu": "Qualcomm Adreno 610",
+    "gpuFamily": "Adreno 600",
+    "gpuArchitecture": "Adreno 600",
+    "gpuClockMhz": 1100,
+    "gpuExecutionUnits": null,
+    "npu": null,
+    "aiPerformance": null,
+    "processNode": "6 nm (TSMC N6)",
+    "vulkanVersion": "1.1",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR4X",
+    "memoryChannels": 2,
+    "memoryBandwidth": "17.0 GB/s",
+    "maxMemorySizeGb": 8,
+    "isp": "Qualcomm Spectra 346 (64 MP)",
+    "dsp": "Hexagon 686 DSP",
+    "modem": "Snapdragon X11 LTE Modem",
+    "videoEncode": [
+      "1080p@60fps"
+    ],
+    "videoDecode": [
+      "1080p@60fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2021-10-27",
+    "sourceUrl": "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-6-series-mobile-platforms/snapdragon-680-4g-mobile-platform",
+    "aliases": [
+      "sm6225",
+      "snapdragon-680",
+      "sd680"
+    ],
+    "provenance": {
+      "primarySource": "Qualcomm Official Platform Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-6-series-mobile-platforms/snapdragon-680-4g-mobile-platform",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "High-efficiency 6nm 4G SoC."
+    }
+  },
+  {
+    "id": "qualcomm:snapdragon-4-gen-2-sm4450",
+    "name": "Qualcomm Snapdragon 4 Gen 2",
+    "manufacturer": "Qualcomm",
+    "family": "Snapdragon 4",
+    "partNumber": "SM4450",
+    "architecture": "ARMv8.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 2,
+        "microarchitecture": "Cortex-A78",
+        "maxClock": 2200,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 6,
+        "microarchitecture": "Cortex-A55",
+        "maxClock": 2000,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2200,
+    "cpuBitness": 64,
+    "gpu": "Qualcomm Adreno 613",
+    "gpuFamily": "Adreno 600",
+    "gpuArchitecture": "Adreno 600",
+    "gpuClockMhz": 955,
+    "gpuExecutionUnits": null,
+    "npu": null,
+    "aiPerformance": "5 TOPS",
+    "processNode": "4 nm (Samsung 4LPP)",
+    "vulkanVersion": "1.2",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR5",
+    "memoryChannels": 2,
+    "memoryBandwidth": "25.6 GB/s",
+    "maxMemorySizeGb": 8,
+    "isp": "Qualcomm Spectra (108 MP)",
+    "dsp": "Hexagon DSP",
+    "modem": "Snapdragon X61 5G Modem-RF",
+    "videoEncode": [
+      "1080p@60fps"
+    ],
+    "videoDecode": [
+      "1080p@60fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2023-06-26",
+    "sourceUrl": "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-4-series-mobile-platforms/snapdragon-4-gen-2-mobile-platform",
+    "aliases": [
+      "sm4450",
+      "snapdragon-4-gen-2",
+      "sd4gen2"
+    ],
+    "provenance": {
+      "primarySource": "Qualcomm Official Platform Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-4-series-mobile-platforms/snapdragon-4-gen-2-mobile-platform",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Entry-level 4nm platform with LPDDR5 and 5G connectivity."
+    }
+  },
+  {
+    "id": "qualcomm:snapdragon-4-gen-1-sm4375",
+    "name": "Qualcomm Snapdragon 4 Gen 1",
+    "manufacturer": "Qualcomm",
+    "family": "Snapdragon 4",
+    "partNumber": "SM4375",
+    "architecture": "ARMv8.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 2,
+        "microarchitecture": "Cortex-A78",
+        "maxClock": 2000,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 6,
+        "microarchitecture": "Cortex-A55",
+        "maxClock": 1800,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2000,
+    "cpuBitness": 64,
+    "gpu": "Qualcomm Adreno 619",
+    "gpuFamily": "Adreno 600",
+    "gpuArchitecture": "Adreno 600",
+    "gpuClockMhz": 825,
+    "gpuExecutionUnits": null,
+    "npu": null,
+    "aiPerformance": "5 TOPS",
+    "processNode": "6 nm (TSMC N6)",
+    "vulkanVersion": "1.2",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR4X",
+    "memoryChannels": 2,
+    "memoryBandwidth": "17.0 GB/s",
+    "maxMemorySizeGb": 8,
+    "isp": "Qualcomm Spectra (108 MP)",
+    "dsp": "Hexagon DSP",
+    "modem": "Snapdragon X51 5G Modem-RF",
+    "videoEncode": [
+      "1080p@60fps"
+    ],
+    "videoDecode": [
+      "1080p@60fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2022-09-01",
+    "sourceUrl": "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-4-series-mobile-platforms/snapdragon-4-gen-1-mobile-platform",
+    "aliases": [
+      "sm4375",
+      "snapdragon-4-gen-1",
+      "sd4gen1"
+    ],
+    "provenance": {
+      "primarySource": "Qualcomm Official Platform Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-4-series-mobile-platforms/snapdragon-4-gen-1-mobile-platform",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "TSMC 6nm platform powering budget 5G devices."
+    }
+  }
+]

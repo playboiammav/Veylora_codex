@@ -1,0 +1,33 @@
+{
+  "pipeline": "Veylora Authoritative Mobile SoC Ingestion",
+  "generatedAt": "2026-09-05T13:02:42.190Z",
+  "totalRecords": 87,
+  "byManufacturer": {
+    "Apple": 14,
+    "Google": 4,
+    "HiSilicon": 6,
+    "MediaTek": 15,
+    "Qualcomm": 27,
+    "Samsung": 16,
+    "UNISOC": 5
+  },
+  "byFormFactor": {
+    "phone": 83,
+    "tablet": 70,
+    "desktop": 4,
+    "handheld": 1
+  },
+  "byVulkanVersion": {
+    "None / Pre-Vulkan": 17,
+    "1.3": 40,
+    "1.2": 18,
+    "1.1": 9,
+    "1.0": 3
+  },
+  "hardwareRayTracingSupport": 19,
+  "provenanceTierDistribution": {
+    "tier1-vendor": 85,
+    "multi-tier-verified": 2
+  },
+  "validationStatus": "PASSED"
+}

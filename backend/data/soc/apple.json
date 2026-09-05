@@ -1,0 +1,1103 @@
+[
+  {
+    "id": "apple:a18-apl1v01",
+    "name": "Apple A18",
+    "manufacturer": "Apple",
+    "family": "Apple A-Series",
+    "partNumber": "APL1V01",
+    "architecture": "ARMv9.2-A",
+    "cpuCores": 6,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 2,
+        "microarchitecture": "Apple Everest/Lion",
+        "maxClock": 4040,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Apple Sawtooth",
+        "maxClock": 2200,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 4040,
+    "cpuBitness": 64,
+    "gpu": "Apple 5-Core GPU (Family 9)",
+    "gpuFamily": "Apple Silicon GPU",
+    "gpuArchitecture": "Apple 9th Gen",
+    "gpuClockMhz": 1450,
+    "gpuExecutionUnits": 5,
+    "npu": "Apple 16-Core Neural Engine",
+    "aiPerformance": "35 TOPS",
+    "processNode": "3 nm (TSMC N3P)",
+    "vulkanVersion": null,
+    "openGlEsVersion": "3.0",
+    "rayTracingHardware": true,
+    "memoryType": "LPDDR5X",
+    "memoryChannels": 2,
+    "memoryBandwidth": "60.0 GB/s",
+    "maxMemorySizeGb": 8,
+    "isp": "Apple Photonic Engine",
+    "dsp": "Apple Secure Enclave",
+    "modem": "Qualcomm Snapdragon X70 / X75",
+    "videoEncode": [
+      "4K@60fps Dolby Vision HDR"
+    ],
+    "videoDecode": [
+      "AV1 Hardware Decode",
+      "4K@60fps"
+    ],
+    "formFactor": [
+      "phone"
+    ],
+    "releaseDate": "2024-09-09",
+    "sourceUrl": "https://www.apple.com/iphone-16/specs/",
+    "aliases": [
+      "a18",
+      "a18-apl1v01",
+      "apl1v01",
+      "apple-a18",
+      "apple:a18-apl1v01"
+    ],
+    "provenance": {
+      "primarySource": "Apple Official Product Specifications & Developer SDK",
+      "verificationSources": [
+        "Xcode Device Tree"
+      ],
+      "sourceUrls": [
+        "https://www.apple.com/iphone-16/specs/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Powers iPhone 16 and 16 Plus with 5-core GPU and hardware ray tracing."
+    }
+  },
+  {
+    "id": "apple:a18-pro-apl1v02",
+    "name": "Apple A18 Pro",
+    "manufacturer": "Apple",
+    "family": "Apple A-Series",
+    "partNumber": "APL1V02",
+    "architecture": "ARMv9.2-A",
+    "cpuCores": 6,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 2,
+        "microarchitecture": "Apple Everest/Lion",
+        "maxClock": 4040,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Apple Sawtooth",
+        "maxClock": 2200,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 4040,
+    "cpuBitness": 64,
+    "gpu": "Apple 6-Core GPU (Family 9)",
+    "gpuFamily": "Apple Silicon GPU",
+    "gpuArchitecture": "Apple 9th Gen",
+    "gpuClockMhz": 1450,
+    "gpuExecutionUnits": 6,
+    "npu": "Apple 16-Core Neural Engine",
+    "aiPerformance": "35 TOPS",
+    "processNode": "3 nm (TSMC N3P)",
+    "vulkanVersion": null,
+    "openGlEsVersion": "3.0",
+    "rayTracingHardware": true,
+    "memoryType": "LPDDR5X",
+    "memoryChannels": 2,
+    "memoryBandwidth": "60.0 GB/s",
+    "maxMemorySizeGb": 8,
+    "isp": "Apple Photonic Engine / Image Signal Processor",
+    "dsp": "Apple Secure Enclave",
+    "modem": "Qualcomm Snapdragon X75 5G Modem-RF",
+    "videoEncode": [
+      "4K@120fps ProRes",
+      "4K@60fps Dolby Vision HDR"
+    ],
+    "videoDecode": [
+      "4K@120fps ProRes",
+      "AV1 Hardware Decode"
+    ],
+    "formFactor": [
+      "phone"
+    ],
+    "releaseDate": "2024-09-09",
+    "sourceUrl": "https://www.apple.com/iphone-16-pro/specs/",
+    "aliases": [
+      "a18-pro",
+      "a18-pro-apl1v02",
+      "a18pro",
+      "apl1v02",
+      "apple-a18-pro",
+      "apple:a18-pro-apl1v02",
+      "t8140"
+    ],
+    "provenance": {
+      "primarySource": "Apple Official Product Specifications & Developer SDK",
+      "verificationSources": [
+        "Xcode Device Tree & LLVM Target Definitions"
+      ],
+      "sourceUrls": [
+        "https://www.apple.com/iphone-16-pro/specs/",
+        "https://developer.apple.com/metal/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Powers iPhone 16 Pro and Pro Max. 2nd-generation 3nm silicon with hardware ray tracing."
+    }
+  },
+  {
+    "id": "apple:m4-t8132",
+    "name": "Apple M4",
+    "manufacturer": "Apple",
+    "family": "Apple M-Series",
+    "partNumber": "T8132",
+    "architecture": "ARMv9.2-A",
+    "cpuCores": 10,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 4,
+        "microarchitecture": "Apple Everest/Lion",
+        "maxClock": 4400,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 6,
+        "microarchitecture": "Apple Sawtooth",
+        "maxClock": 2850,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 4400,
+    "cpuBitness": 64,
+    "gpu": "Apple 10-Core GPU (Family 9)",
+    "gpuFamily": "Apple Silicon GPU",
+    "gpuArchitecture": "Apple 9th Gen",
+    "gpuClockMhz": 1500,
+    "gpuExecutionUnits": 10,
+    "npu": "Apple 16-Core Neural Engine",
+    "aiPerformance": "38 TOPS",
+    "processNode": "3 nm (TSMC N3E)",
+    "vulkanVersion": null,
+    "openGlEsVersion": "3.0",
+    "rayTracingHardware": true,
+    "memoryType": "LPDDR5X",
+    "memoryChannels": 4,
+    "memoryBandwidth": "120.0 GB/s",
+    "maxMemorySizeGb": 32,
+    "isp": "Apple ISP with ProRes Engine",
+    "dsp": "Apple Secure Enclave",
+    "modem": null,
+    "videoEncode": [
+      "8K ProRes",
+      "4K@120fps ProRes",
+      "AV1 Decode"
+    ],
+    "videoDecode": [
+      "8K ProRes",
+      "AV1 Decode"
+    ],
+    "formFactor": [
+      "tablet",
+      "desktop"
+    ],
+    "releaseDate": "2024-05-07",
+    "sourceUrl": "https://www.apple.com/ipad-pro/specs/",
+    "aliases": [
+      "apple-m4",
+      "apple:m4-t8132",
+      "m4",
+      "m4-t8132",
+      "t8132"
+    ],
+    "provenance": {
+      "primarySource": "Apple Official Product Specifications & Developer SDK",
+      "verificationSources": [
+        "Xcode Device Tree & LLVM Compiler Targets"
+      ],
+      "sourceUrls": [
+        "https://www.apple.com/ipad-pro/specs/",
+        "https://developer.apple.com/metal/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Powers iPad Pro M4 (2024). Strictly tablet/desktop form factor."
+    }
+  },
+  {
+    "id": "apple:m3-t8112",
+    "name": "Apple M3",
+    "manufacturer": "Apple",
+    "family": "Apple M-Series",
+    "partNumber": "T8112",
+    "architecture": "ARMv8.6-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 4,
+        "microarchitecture": "Apple Coll",
+        "maxClock": 4050,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Apple Sawtooth",
+        "maxClock": 2750,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 4050,
+    "cpuBitness": 64,
+    "gpu": "Apple 10-Core GPU (Family 9)",
+    "gpuFamily": "Apple Silicon GPU",
+    "gpuArchitecture": "Apple 9th Gen",
+    "gpuClockMhz": 1398,
+    "gpuExecutionUnits": 10,
+    "npu": "Apple 16-Core Neural Engine",
+    "aiPerformance": "18 TOPS",
+    "processNode": "3 nm (TSMC N3B)",
+    "vulkanVersion": null,
+    "openGlEsVersion": "3.0",
+    "rayTracingHardware": true,
+    "memoryType": "LPDDR5",
+    "memoryChannels": 4,
+    "memoryBandwidth": "100.0 GB/s",
+    "maxMemorySizeGb": 24,
+    "isp": "Apple ISP",
+    "dsp": "Apple Secure Enclave",
+    "modem": null,
+    "videoEncode": [
+      "4K ProRes",
+      "AV1 Decode"
+    ],
+    "videoDecode": [
+      "AV1 Hardware Decode",
+      "8K ProRes"
+    ],
+    "formFactor": [
+      "tablet",
+      "desktop"
+    ],
+    "releaseDate": "2023-10-30",
+    "sourceUrl": "https://www.apple.com/macbook-pro/specs/",
+    "aliases": [
+      "apple-m3",
+      "apple:m3-t8112",
+      "m3",
+      "m3-t8112",
+      "t8112"
+    ],
+    "provenance": {
+      "primarySource": "Apple Official Product Specifications",
+      "verificationSources": [
+        "Xcode Device Tree"
+      ],
+      "sourceUrls": [
+        "https://www.apple.com/macbook-pro/specs/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Dynamic Caching, hardware ray tracing, AV1 decode. Tablet and desktop form factor."
+    }
+  },
+  {
+    "id": "apple:a17-pro-apl1v02-t8130",
+    "name": "Apple A17 Pro",
+    "manufacturer": "Apple",
+    "family": "Apple A-Series",
+    "partNumber": "APL1V02",
+    "architecture": "ARMv8.6-A",
+    "cpuCores": 6,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 2,
+        "microarchitecture": "Apple Coll",
+        "maxClock": 3780,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Apple Sawtooth",
+        "maxClock": 2110,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 3780,
+    "cpuBitness": 64,
+    "gpu": "Apple 6-Core GPU (Family 9)",
+    "gpuFamily": "Apple Silicon GPU",
+    "gpuArchitecture": "Apple 9th Gen",
+    "gpuClockMhz": 1398,
+    "gpuExecutionUnits": 6,
+    "npu": "Apple 16-Core Neural Engine",
+    "aiPerformance": "35 TOPS",
+    "processNode": "3 nm (TSMC N3B)",
+    "vulkanVersion": null,
+    "openGlEsVersion": "3.0",
+    "rayTracingHardware": true,
+    "memoryType": "LPDDR5",
+    "memoryChannels": 2,
+    "memoryBandwidth": "51.2 GB/s",
+    "maxMemorySizeGb": 8,
+    "isp": "Apple Photonic Engine",
+    "dsp": "Apple Secure Enclave",
+    "modem": "Qualcomm Snapdragon X70 5G Modem-RF",
+    "videoEncode": [
+      "4K@60fps ProRes",
+      "4K@60fps Dolby Vision"
+    ],
+    "videoDecode": [
+      "AV1 Hardware Decode",
+      "4K@60fps ProRes"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2023-09-12",
+    "sourceUrl": "https://www.apple.com/iphone-15-pro/specs/",
+    "aliases": [
+      "a17-pro",
+      "a17-pro-apl1v02-t8130",
+      "a17pro",
+      "apl1v02",
+      "apple-a17-pro",
+      "apple:a17-pro-apl1v02-t8130",
+      "t8130"
+    ],
+    "provenance": {
+      "primarySource": "Apple Official Product Specifications & Developer SDK",
+      "verificationSources": [
+        "Xcode Device Tree"
+      ],
+      "sourceUrls": [
+        "https://www.apple.com/iphone-15-pro/specs/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "First mobile SoC with hardware-accelerated ray tracing and mesh shaders in Metal 3."
+    }
+  },
+  {
+    "id": "apple:a16-bionic-apl1w07",
+    "name": "Apple A16 Bionic",
+    "manufacturer": "Apple",
+    "family": "Apple A-Series",
+    "partNumber": "APL1W07",
+    "architecture": "ARMv8.6-A",
+    "cpuCores": 6,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 2,
+        "microarchitecture": "Apple Everest",
+        "maxClock": 3460,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Apple Sawtooth",
+        "maxClock": 2020,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 3460,
+    "cpuBitness": 64,
+    "gpu": "Apple 5-Core GPU (Family 8)",
+    "gpuFamily": "Apple Silicon GPU",
+    "gpuArchitecture": "Apple 8th Gen",
+    "gpuClockMhz": 1398,
+    "gpuExecutionUnits": 5,
+    "npu": "Apple 16-Core Neural Engine",
+    "aiPerformance": "17 TOPS",
+    "processNode": "4 nm (TSMC N4P)",
+    "vulkanVersion": null,
+    "openGlEsVersion": "3.0",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR5",
+    "memoryChannels": 2,
+    "memoryBandwidth": "51.2 GB/s",
+    "maxMemorySizeGb": 6,
+    "isp": "Apple Photonic Engine",
+    "dsp": "Apple Secure Enclave",
+    "modem": "Qualcomm Snapdragon X65 5G Modem-RF",
+    "videoEncode": [
+      "4K@60fps Dolby Vision",
+      "4K@30fps ProRes"
+    ],
+    "videoDecode": [
+      "4K@60fps ProRes"
+    ],
+    "formFactor": [
+      "phone"
+    ],
+    "releaseDate": "2022-09-07",
+    "sourceUrl": "https://www.apple.com/iphone-14-pro/specs/",
+    "aliases": [
+      "a16",
+      "a16-bionic",
+      "a16-bionic-apl1w07",
+      "apl1w07",
+      "apple-a16",
+      "apple-a16-bionic",
+      "apple:a16-bionic-apl1w07",
+      "t8120"
+    ],
+    "provenance": {
+      "primarySource": "Apple Official Product Specifications & Developer SDK",
+      "verificationSources": [
+        "Xcode Device Tree"
+      ],
+      "sourceUrls": [
+        "https://www.apple.com/iphone-14-pro/specs/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Powers iPhone 14 Pro, iPhone 14 Pro Max, iPhone 15, and iPhone 15 Plus."
+    }
+  },
+  {
+    "id": "apple:m2-t8112",
+    "name": "Apple M2",
+    "manufacturer": "Apple",
+    "family": "Apple M-Series",
+    "partNumber": "T8112",
+    "architecture": "ARMv8.5-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 4,
+        "microarchitecture": "Apple Avalanche",
+        "maxClock": 3490,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Apple Blizzard",
+        "maxClock": 2420,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 3490,
+    "cpuBitness": 64,
+    "gpu": "Apple 10-Core GPU (Family 8)",
+    "gpuFamily": "Apple Silicon GPU",
+    "gpuArchitecture": "Apple 8th Gen",
+    "gpuClockMhz": 1398,
+    "gpuExecutionUnits": 10,
+    "npu": "Apple 16-Core Neural Engine",
+    "aiPerformance": "15.8 TOPS",
+    "processNode": "5 nm (TSMC N5P)",
+    "vulkanVersion": null,
+    "openGlEsVersion": "3.0",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR5",
+    "memoryChannels": 4,
+    "memoryBandwidth": "100.0 GB/s",
+    "maxMemorySizeGb": 24,
+    "isp": "Apple ISP",
+    "dsp": "Apple Secure Enclave",
+    "modem": null,
+    "videoEncode": [
+      "8K H.264/HEVC",
+      "ProRes Encode"
+    ],
+    "videoDecode": [
+      "8K H.264/HEVC",
+      "ProRes Decode"
+    ],
+    "formFactor": [
+      "tablet",
+      "desktop"
+    ],
+    "releaseDate": "2022-06-06",
+    "sourceUrl": "https://www.apple.com/ipad-pro/specs/",
+    "aliases": [
+      "apple-m2",
+      "apple:m2-t8112",
+      "m2",
+      "m2-t8112",
+      "t8112"
+    ],
+    "provenance": {
+      "primarySource": "Apple Official Product Specifications",
+      "verificationSources": [
+        "Xcode Device Tree"
+      ],
+      "sourceUrls": [
+        "https://www.apple.com/ipad-pro/specs/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Powers iPad Pro M2 (2022) and iPad Air M2 (2024). Strictly tablet/desktop."
+    }
+  },
+  {
+    "id": "apple:a15-bionic-apl1w05",
+    "name": "Apple A15 Bionic",
+    "manufacturer": "Apple",
+    "family": "Apple A-Series",
+    "partNumber": "APL1W05",
+    "architecture": "ARMv8.5-A",
+    "cpuCores": 6,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 2,
+        "microarchitecture": "Apple Avalanche",
+        "maxClock": 3230,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Apple Blizzard",
+        "maxClock": 2020,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 3230,
+    "cpuBitness": 64,
+    "gpu": "Apple 5-Core GPU (Family 7)",
+    "gpuFamily": "Apple Silicon GPU",
+    "gpuArchitecture": "Apple 7th Gen",
+    "gpuClockMhz": 1200,
+    "gpuExecutionUnits": 5,
+    "npu": "Apple 16-Core Neural Engine",
+    "aiPerformance": "15.8 TOPS",
+    "processNode": "5 nm (TSMC N5P)",
+    "vulkanVersion": null,
+    "openGlEsVersion": "3.0",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR4X",
+    "memoryChannels": 2,
+    "memoryBandwidth": "34.1 GB/s",
+    "maxMemorySizeGb": 6,
+    "isp": "Apple ISP with Smart HDR 4",
+    "dsp": "Apple Secure Enclave",
+    "modem": "Qualcomm Snapdragon X60 5G Modem-RF",
+    "videoEncode": [
+      "4K@60fps Dolby Vision",
+      "4K@30fps ProRes"
+    ],
+    "videoDecode": [
+      "4K@60fps ProRes"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2021-09-14",
+    "sourceUrl": "https://www.apple.com/iphone-13-pro/specs/",
+    "aliases": [
+      "a15",
+      "a15-bionic",
+      "a15-bionic-apl1w05",
+      "apl1w05",
+      "apple-a15",
+      "apple-a15-bionic",
+      "apple:a15-bionic-apl1w05",
+      "t8110"
+    ],
+    "provenance": {
+      "primarySource": "Apple Official Product Specifications",
+      "verificationSources": [
+        "Xcode Device Tree"
+      ],
+      "sourceUrls": [
+        "https://www.apple.com/iphone-13-pro/specs/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Powers iPhone 13 series, iPhone 14 / 14 Plus, iPhone SE 3rd gen, iPad mini 6."
+    }
+  },
+  {
+    "id": "apple:m1-t8103",
+    "name": "Apple M1",
+    "manufacturer": "Apple",
+    "family": "Apple M-Series",
+    "partNumber": "T8103",
+    "architecture": "ARMv8.5-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 4,
+        "microarchitecture": "Apple Firestorm",
+        "maxClock": 3200,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Apple Icestorm",
+        "maxClock": 2064,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 3200,
+    "cpuBitness": 64,
+    "gpu": "Apple 8-Core GPU (Family 7)",
+    "gpuFamily": "Apple Silicon GPU",
+    "gpuArchitecture": "Apple 7th Gen",
+    "gpuClockMhz": 1278,
+    "gpuExecutionUnits": 8,
+    "npu": "Apple 16-Core Neural Engine",
+    "aiPerformance": "11 TOPS",
+    "processNode": "5 nm (TSMC N5)",
+    "vulkanVersion": null,
+    "openGlEsVersion": "3.0",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR4X",
+    "memoryChannels": 4,
+    "memoryBandwidth": "68.25 GB/s",
+    "maxMemorySizeGb": 16,
+    "isp": "Apple ISP",
+    "dsp": "Apple Secure Enclave",
+    "modem": null,
+    "videoEncode": [
+      "4K@60fps ProRes/HEVC"
+    ],
+    "videoDecode": [
+      "4K@60fps ProRes/HEVC"
+    ],
+    "formFactor": [
+      "tablet",
+      "desktop"
+    ],
+    "releaseDate": "2020-11-10",
+    "sourceUrl": "https://www.apple.com/ipad-pro/specs/",
+    "aliases": [
+      "apple-m1",
+      "apple:m1-t8103",
+      "m1",
+      "m1-t8103",
+      "t8103"
+    ],
+    "provenance": {
+      "primarySource": "Apple Official Product Specifications",
+      "verificationSources": [
+        "Xcode Device Tree"
+      ],
+      "sourceUrls": [
+        "https://www.apple.com/ipad-pro/specs/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "First Apple Silicon Mac and iPad processor. Powers iPad Pro M1 (2021) and iPad Air M1 (2022)."
+    }
+  },
+  {
+    "id": "apple:a14-bionic-apl1w01",
+    "name": "Apple A14 Bionic",
+    "manufacturer": "Apple",
+    "family": "Apple A-Series",
+    "partNumber": "APL1W01",
+    "architecture": "ARMv8.5-A",
+    "cpuCores": 6,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 2,
+        "microarchitecture": "Apple Firestorm",
+        "maxClock": 3100,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Apple Icestorm",
+        "maxClock": 1823,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 3100,
+    "cpuBitness": 64,
+    "gpu": "Apple 4-Core GPU (Family 7)",
+    "gpuFamily": "Apple Silicon GPU",
+    "gpuArchitecture": "Apple 7th Gen",
+    "gpuClockMhz": 1000,
+    "gpuExecutionUnits": 4,
+    "npu": "Apple 16-Core Neural Engine",
+    "aiPerformance": "11 TOPS",
+    "processNode": "5 nm (TSMC N5)",
+    "vulkanVersion": null,
+    "openGlEsVersion": "3.0",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR4X",
+    "memoryChannels": 2,
+    "memoryBandwidth": "34.1 GB/s",
+    "maxMemorySizeGb": 6,
+    "isp": "Apple ISP with Smart HDR 3",
+    "dsp": "Apple Secure Enclave",
+    "modem": "Qualcomm Snapdragon X55 5G Modem-RF",
+    "videoEncode": [
+      "4K@60fps Dolby Vision HDR"
+    ],
+    "videoDecode": [
+      "4K@60fps HDR"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2020-09-15",
+    "sourceUrl": "https://www.apple.com/iphone-12-pro/specs/",
+    "aliases": [
+      "a14",
+      "a14-bionic",
+      "a14-bionic-apl1w01",
+      "apl1w01",
+      "apple-a14",
+      "apple-a14-bionic",
+      "apple:a14-bionic-apl1w01",
+      "t8101"
+    ],
+    "provenance": {
+      "primarySource": "Apple Official Product Specifications",
+      "verificationSources": [
+        "Xcode Device Tree"
+      ],
+      "sourceUrls": [
+        "https://www.apple.com/iphone-12-pro/specs/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "First commercially available 5nm chipset. Powers iPhone 12 series and iPad 10th gen."
+    }
+  },
+  {
+    "id": "apple:a13-bionic-apl1w85",
+    "name": "Apple A13 Bionic",
+    "manufacturer": "Apple",
+    "family": "Apple A-Series",
+    "partNumber": "APL1W85",
+    "architecture": "ARMv8.4-A",
+    "cpuCores": 6,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 2,
+        "microarchitecture": "Apple Lightning",
+        "maxClock": 2650,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Apple Thunder",
+        "maxClock": 1800,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2650,
+    "cpuBitness": 64,
+    "gpu": "Apple 4-Core GPU (Family 6)",
+    "gpuFamily": "Apple Silicon GPU",
+    "gpuArchitecture": "Apple 6th Gen",
+    "gpuClockMhz": 1100,
+    "gpuExecutionUnits": 4,
+    "npu": "Apple 8-Core Neural Engine",
+    "aiPerformance": "6 TOPS",
+    "processNode": "7 nm (TSMC N7P)",
+    "vulkanVersion": null,
+    "openGlEsVersion": "3.0",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR4X",
+    "memoryChannels": 2,
+    "memoryBandwidth": "29.8 GB/s",
+    "maxMemorySizeGb": 4,
+    "isp": "Apple ISP",
+    "dsp": "Apple Secure Enclave",
+    "modem": "Intel XMM 7660 LTE-A",
+    "videoEncode": [
+      "4K@60fps HDR"
+    ],
+    "videoDecode": [
+      "4K@60fps HDR"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2019-09-10",
+    "sourceUrl": "https://www.apple.com/iphone-11-pro/specs/",
+    "aliases": [
+      "a13",
+      "a13-bionic",
+      "a13-bionic-apl1w85",
+      "apl1w85",
+      "apple-a13",
+      "apple-a13-bionic",
+      "apple:a13-bionic-apl1w85",
+      "t8030"
+    ],
+    "provenance": {
+      "primarySource": "Apple Official Product Specifications",
+      "verificationSources": [
+        "Xcode Device Tree"
+      ],
+      "sourceUrls": [
+        "https://www.apple.com/iphone-11-pro/specs/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Powers iPhone 11 series, iPhone SE 2nd gen, iPad 9th gen."
+    }
+  },
+  {
+    "id": "apple:a12-bionic-apl1w81",
+    "name": "Apple A12 Bionic",
+    "manufacturer": "Apple",
+    "family": "Apple A-Series",
+    "partNumber": "APL1W81",
+    "architecture": "ARMv8.3-A",
+    "cpuCores": 6,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 2,
+        "microarchitecture": "Apple Vortex",
+        "maxClock": 2490,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Apple Tempest",
+        "maxClock": 1590,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2490,
+    "cpuBitness": 64,
+    "gpu": "Apple 4-Core GPU (Family 5)",
+    "gpuFamily": "Apple Silicon GPU",
+    "gpuArchitecture": "Apple 5th Gen",
+    "gpuClockMhz": 1125,
+    "gpuExecutionUnits": 4,
+    "npu": "Apple 8-Core Neural Engine",
+    "aiPerformance": "5 TOPS",
+    "processNode": "7 nm (TSMC N7)",
+    "vulkanVersion": null,
+    "openGlEsVersion": "3.0",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR4X",
+    "memoryChannels": 2,
+    "memoryBandwidth": "29.8 GB/s",
+    "maxMemorySizeGb": 4,
+    "isp": "Apple ISP",
+    "dsp": "Apple Secure Enclave",
+    "modem": "Intel XMM 7560 LTE-A",
+    "videoEncode": [
+      "4K@60fps HDR"
+    ],
+    "videoDecode": [
+      "4K@60fps HDR"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2018-09-12",
+    "sourceUrl": "https://www.apple.com/iphone-xs/specs/",
+    "aliases": [
+      "a12",
+      "a12-bionic",
+      "a12-bionic-apl1w81",
+      "apl1w81",
+      "apple-a12",
+      "apple-a12-bionic",
+      "apple:a12-bionic-apl1w81",
+      "t8020"
+    ],
+    "provenance": {
+      "primarySource": "Apple Official Product Specifications",
+      "verificationSources": [
+        "Xcode Device Tree"
+      ],
+      "sourceUrls": [
+        "https://www.apple.com/iphone-xs/specs/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "First 7nm smartphone SoC. Powers iPhone XS, XS Max, XR, iPad Air 3, iPad mini 5."
+    }
+  },
+  {
+    "id": "apple:a11-bionic-apl1w72",
+    "name": "Apple A11 Bionic",
+    "manufacturer": "Apple",
+    "family": "Apple A-Series",
+    "partNumber": "APL1W72",
+    "architecture": "ARMv8.2-A",
+    "cpuCores": 6,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 2,
+        "microarchitecture": "Apple Monsoon",
+        "maxClock": 2390,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Apple Mistral",
+        "maxClock": 1420,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2390,
+    "cpuBitness": 64,
+    "gpu": "Apple 3-Core GPU (Family 4)",
+    "gpuFamily": "Apple Silicon GPU",
+    "gpuArchitecture": "Apple 4th Gen",
+    "gpuClockMhz": 1066,
+    "gpuExecutionUnits": 3,
+    "npu": "Apple 2-Core Neural Engine",
+    "aiPerformance": "0.6 TOPS",
+    "processNode": "10 nm (TSMC 10FF)",
+    "vulkanVersion": null,
+    "openGlEsVersion": "3.0",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR4X",
+    "memoryChannels": 2,
+    "memoryBandwidth": "29.8 GB/s",
+    "maxMemorySizeGb": 3,
+    "isp": "Apple ISP",
+    "dsp": "Apple Secure Enclave",
+    "modem": "Qualcomm MDM9655 / Intel XMM 7480",
+    "videoEncode": [
+      "4K@60fps"
+    ],
+    "videoDecode": [
+      "4K@60fps"
+    ],
+    "formFactor": [
+      "phone"
+    ],
+    "releaseDate": "2017-09-12",
+    "sourceUrl": "https://www.apple.com/iphone-x/specs/",
+    "aliases": [
+      "a11",
+      "a11-bionic",
+      "a11-bionic-apl1w72",
+      "apl1w72",
+      "apple-a11",
+      "apple-a11-bionic",
+      "apple:a11-bionic-apl1w72",
+      "t8015"
+    ],
+    "provenance": {
+      "primarySource": "Apple Official Product Specifications",
+      "verificationSources": [
+        "Xcode Device Tree"
+      ],
+      "sourceUrls": [
+        "https://www.apple.com/iphone-x/specs/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "First Apple SoC with custom in-house designed GPU and Neural Engine. Powers iPhone X and iPhone 8."
+    }
+  },
+  {
+    "id": "apple:a10-fusion-apl1024",
+    "name": "Apple A10 Fusion",
+    "manufacturer": "Apple",
+    "family": "Apple A-Series",
+    "partNumber": "APL1024",
+    "architecture": "ARMv8.0-A",
+    "cpuCores": 4,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 2,
+        "microarchitecture": "Apple Hurricane",
+        "maxClock": 2340,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 2,
+        "microarchitecture": "Apple Zephyr",
+        "maxClock": 1050,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2340,
+    "cpuBitness": 64,
+    "gpu": "PowerVR Series7XT GT7600 Plus",
+    "gpuFamily": "PowerVR Series 7XT",
+    "gpuArchitecture": "Rogue",
+    "gpuClockMhz": 900,
+    "gpuExecutionUnits": 6,
+    "npu": null,
+    "aiPerformance": null,
+    "processNode": "16 nm (TSMC 16FF+)",
+    "vulkanVersion": null,
+    "openGlEsVersion": "3.0",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR4",
+    "memoryChannels": 2,
+    "memoryBandwidth": "25.6 GB/s",
+    "maxMemorySizeGb": 3,
+    "isp": "Apple ISP",
+    "dsp": "Apple Secure Enclave",
+    "modem": "Qualcomm MDM9645 / Intel XMM 7360",
+    "videoEncode": [
+      "4K@30fps"
+    ],
+    "videoDecode": [
+      "4K@30fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2016-09-07",
+    "sourceUrl": "https://www.apple.com/iphone-7/specs/",
+    "aliases": [
+      "a10",
+      "a10-fusion",
+      "a10-fusion-apl1024",
+      "apl1024",
+      "apple-a10",
+      "apple-a10-fusion",
+      "apple:a10-fusion-apl1024",
+      "t8010"
+    ],
+    "provenance": {
+      "primarySource": "Apple Official Product Specifications",
+      "verificationSources": [
+        "Xcode Device Tree"
+      ],
+      "sourceUrls": [
+        "https://www.apple.com/iphone-7/specs/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "First quad-core Apple SoC. Powers iPhone 7, iPad 6th/7th gen, iPod touch 7."
+    }
+  }
+]

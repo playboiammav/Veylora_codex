@@ -398,3 +398,79 @@ export interface CpuDetailResponse {
   source: 'real';
 }
 
+export interface SocCpuCluster {
+  name?: string;
+  cores: number;
+  microarchitecture: string;
+  maxClock: number; // MHz
+  efficiencyClass?: 'prime' | 'performance' | 'efficiency';
+  isa?: string | null;
+}
+
+export interface SocProvenance {
+  primarySource: string;
+  verificationSources?: string[];
+  sourceUrls: string[];
+  sourceTier: 'tier1-vendor' | 'tier2-wikimedia-spine' | 'tier3-khronos-conformance' | 'multi-tier-verified';
+  licenseClassification: string;
+  verificationNotes?: string | null;
+}
+
+export interface SocDevice {
+  id: string;
+  name: string;
+  manufacturer: 'Qualcomm' | 'MediaTek' | 'Samsung' | 'Google' | 'Apple' | 'HiSilicon' | 'UNISOC';
+  family: string;
+  partNumber?: string | null;
+  architecture: string;
+  cpuCores: number;
+  cpuClusters: SocCpuCluster[];
+  cpuClockMax: number;
+  cpuBitness?: number | null;
+  gpu: string;
+  gpuFamily: string;
+  gpuArchitecture?: string | null;
+  gpuClockMhz?: number | null;
+  gpuExecutionUnits?: number | null;
+  npu: string | null;
+  aiPerformance?: string | null;
+  processNode: string;
+  vulkanVersion: string | null;
+  openGlEsVersion: string | null;
+  rayTracingHardware?: boolean | null;
+  memoryType?: string | null;
+  memoryChannels?: number | null;
+  memoryBandwidth?: string | null;
+  maxMemorySizeGb?: number | null;
+  isp?: string | null;
+  dsp?: string | null;
+  modem?: string | null;
+  videoEncode?: string[] | null;
+  videoDecode?: string[] | null;
+  formFactor: ('phone' | 'tablet' | 'handheld' | 'auto' | 'desktop')[];
+  releaseDate: string | null;
+  sourceUrl: string;
+  aliases: string[];
+  provenance: SocProvenance;
+}
+
+export interface SocPagination {
+  page: number;
+  pageSize: number;
+  total: number;
+  totalPages: number;
+}
+
+export interface SocSearchResponse {
+  total: number;
+  page: number;
+  pageSize: number;
+  totalPages: number;
+  results: SocDevice[];
+}
+
+export interface SocDetailResponse {
+  soc: SocDevice;
+  source: 'real';
+}
+

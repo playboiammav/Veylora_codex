@@ -1,0 +1,344 @@
+[
+  {
+    "id": "google:tensor-g4-zumapro",
+    "name": "Google Tensor G4",
+    "manufacturer": "Google",
+    "family": "Tensor",
+    "partNumber": "Zuma Pro",
+    "architecture": "ARMv9.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Prime",
+        "cores": 1,
+        "microarchitecture": "Cortex-X4",
+        "maxClock": 3100,
+        "efficiencyClass": "prime"
+      },
+      {
+        "name": "Performance",
+        "cores": 3,
+        "microarchitecture": "Cortex-A720",
+        "maxClock": 2600,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Cortex-A520",
+        "maxClock": 1920,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 3100,
+    "cpuBitness": 64,
+    "gpu": "Arm Mali-G715 MP7",
+    "gpuFamily": "Arm Mali Valhall",
+    "gpuArchitecture": "Valhall 4th Gen",
+    "gpuClockMhz": 940,
+    "gpuExecutionUnits": 7,
+    "npu": "Google Tensor G4 TPU",
+    "aiPerformance": "45 TOPS",
+    "processNode": "4 nm (Samsung 4LPP+)",
+    "vulkanVersion": "1.3",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": true,
+    "memoryType": "LPDDR5X",
+    "memoryChannels": 4,
+    "memoryBandwidth": "68.2 GB/s",
+    "maxMemorySizeGb": 16,
+    "isp": "Google Tensor ISP",
+    "dsp": "Google Tensor Security (Titan M2)",
+    "modem": "Samsung Exynos Modem 5400",
+    "videoEncode": [
+      "4K@60fps HDR",
+      "8K@30fps"
+    ],
+    "videoDecode": [
+      "8K@60fps AV1",
+      "4K@60fps HDR"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2024-08-13",
+    "sourceUrl": "https://store.google.com/product/pixel_9_pro",
+    "aliases": [
+      "tensor-g4",
+      "zumapro",
+      "zuma-pro",
+      "tensor4",
+      "g4"
+    ],
+    "provenance": {
+      "primarySource": "Google Store Official Specifications & AOSP Documentation",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry",
+        "AOSP Hardware Tree"
+      ],
+      "sourceUrls": [
+        "https://store.google.com/product/pixel_9_pro",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Powers the Pixel 9 series. 1+3+4 core topology manufactured on Samsung 4LPP+ node."
+    }
+  },
+  {
+    "id": "google:tensor-g3-zuma",
+    "name": "Google Tensor G3",
+    "manufacturer": "Google",
+    "family": "Tensor",
+    "partNumber": "Zuma",
+    "architecture": "ARMv9.0-A",
+    "cpuCores": 9,
+    "cpuClusters": [
+      {
+        "name": "Prime",
+        "cores": 1,
+        "microarchitecture": "Cortex-X3",
+        "maxClock": 2910,
+        "efficiencyClass": "prime"
+      },
+      {
+        "name": "Performance",
+        "cores": 4,
+        "microarchitecture": "Cortex-A715",
+        "maxClock": 2370,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Cortex-A510",
+        "maxClock": 1700,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2910,
+    "cpuBitness": 64,
+    "gpu": "Arm Mali-G715 MP7",
+    "gpuFamily": "Arm Mali Valhall",
+    "gpuArchitecture": "Valhall 4th Gen",
+    "gpuClockMhz": 890,
+    "gpuExecutionUnits": 7,
+    "npu": "Google Tensor G3 TPU",
+    "aiPerformance": "35 TOPS",
+    "processNode": "4 nm (Samsung 4LPP)",
+    "vulkanVersion": "1.3",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": true,
+    "memoryType": "LPDDR5X",
+    "memoryChannels": 4,
+    "memoryBandwidth": "64.0 GB/s",
+    "maxMemorySizeGb": 12,
+    "isp": "Google Tensor ISP",
+    "dsp": "Google Titan M2",
+    "modem": "Samsung Exynos Modem 5300",
+    "videoEncode": [
+      "4K@60fps HDR"
+    ],
+    "videoDecode": [
+      "8K@30fps AV1",
+      "4K@60fps"
+    ],
+    "formFactor": [
+      "phone"
+    ],
+    "releaseDate": "2023-10-04",
+    "sourceUrl": "https://store.google.com/product/pixel_8_pro",
+    "aliases": [
+      "tensor-g3",
+      "zuma",
+      "tensor3",
+      "g3"
+    ],
+    "provenance": {
+      "primarySource": "Google Store Official Specifications & AOSP Documentation",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry",
+        "AOSP Hardware Tree"
+      ],
+      "sourceUrls": [
+        "https://store.google.com/product/pixel_8_pro",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Powers the Pixel 8 and 8 Pro with 9-core CPU topology (1+4+4)."
+    }
+  },
+  {
+    "id": "google:tensor-g2-cloudripper",
+    "name": "Google Tensor G2",
+    "manufacturer": "Google",
+    "family": "Tensor",
+    "partNumber": "GS201",
+    "architecture": "ARMv8.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Prime",
+        "cores": 2,
+        "microarchitecture": "Cortex-X1",
+        "maxClock": 2850,
+        "efficiencyClass": "prime"
+      },
+      {
+        "name": "Performance",
+        "cores": 2,
+        "microarchitecture": "Cortex-A78",
+        "maxClock": 2350,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Cortex-A55",
+        "maxClock": 1800,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2850,
+    "cpuBitness": 64,
+    "gpu": "Arm Mali-G710 MP7",
+    "gpuFamily": "Arm Mali Valhall",
+    "gpuArchitecture": "Valhall 3rd Gen",
+    "gpuClockMhz": 848,
+    "gpuExecutionUnits": 7,
+    "npu": "Google Tensor G2 TPU",
+    "aiPerformance": "10 TOPS",
+    "processNode": "5 nm (Samsung 5LPE)",
+    "vulkanVersion": "1.3",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR5",
+    "memoryChannels": 4,
+    "memoryBandwidth": "51.2 GB/s",
+    "maxMemorySizeGb": 12,
+    "isp": "Google Tensor ISP",
+    "dsp": "Google Titan M2",
+    "modem": "Samsung Exynos Modem 5300",
+    "videoEncode": [
+      "4K@60fps HDR"
+    ],
+    "videoDecode": [
+      "4K@60fps AV1",
+      "4K@60fps HDR"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2022-10-06",
+    "sourceUrl": "https://store.google.com/product/pixel_7_pro",
+    "aliases": [
+      "tensor-g2",
+      "gs201",
+      "cloudripper",
+      "tensor2",
+      "g2"
+    ],
+    "provenance": {
+      "primarySource": "Google Store Official Specifications & AOSP Documentation",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry",
+        "AOSP Hardware Tree"
+      ],
+      "sourceUrls": [
+        "https://store.google.com/product/pixel_7_pro",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Powers the Pixel 7, Pixel 7 Pro, Pixel 7a, and Pixel Tablet. Dual Cortex-X1 architecture."
+    }
+  },
+  {
+    "id": "google:tensor-g1-whitechapel",
+    "name": "Google Tensor",
+    "manufacturer": "Google",
+    "family": "Tensor",
+    "partNumber": "GS101",
+    "architecture": "ARMv8.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Prime",
+        "cores": 2,
+        "microarchitecture": "Cortex-X1",
+        "maxClock": 2800,
+        "efficiencyClass": "prime"
+      },
+      {
+        "name": "Performance",
+        "cores": 2,
+        "microarchitecture": "Cortex-A76",
+        "maxClock": 2250,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Cortex-A55",
+        "maxClock": 1800,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2800,
+    "cpuBitness": 64,
+    "gpu": "Arm Mali-G78 MP20",
+    "gpuFamily": "Arm Mali Valhall",
+    "gpuArchitecture": "Valhall 2nd Gen",
+    "gpuClockMhz": 848,
+    "gpuExecutionUnits": 20,
+    "npu": "Google Tensor TPU",
+    "aiPerformance": "5 TOPS",
+    "processNode": "5 nm (Samsung 5LPE)",
+    "vulkanVersion": "1.3",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR5",
+    "memoryChannels": 4,
+    "memoryBandwidth": "51.2 GB/s",
+    "maxMemorySizeGb": 12,
+    "isp": "Google Tensor ISP",
+    "dsp": "Google Titan M2",
+    "modem": "Samsung Exynos Modem 5123",
+    "videoEncode": [
+      "4K@60fps HDR"
+    ],
+    "videoDecode": [
+      "4K@60fps HDR"
+    ],
+    "formFactor": [
+      "phone"
+    ],
+    "releaseDate": "2021-10-19",
+    "sourceUrl": "https://store.google.com/product/pixel_6_pro",
+    "aliases": [
+      "tensor-g1",
+      "gs101",
+      "whitechapel",
+      "tensor1",
+      "original-tensor",
+      "g1"
+    ],
+    "provenance": {
+      "primarySource": "Google Store Official Specifications & AOSP Documentation",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry",
+        "AOSP Hardware Tree"
+      ],
+      "sourceUrls": [
+        "https://store.google.com/product/pixel_6_pro",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "First Google in-house SoC, powered the Pixel 6 and 6 Pro."
+    }
+  }
+]
