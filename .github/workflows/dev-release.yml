@@ -130,8 +130,14 @@ jobs:
       - name: Verify DEV APK Signature
         run: |
           echo "Verifying APK signing certificate..."
-          apksigner verify --verbose dist/veylora-dev.apk
-          apksigner verify --print-certs dist/veylora-dev.apk
+          APKSIGNER=$(find "${ANDROID_HOME}/build-tools" -name apksigner | sort -V | tail -n 1)
+          if [ -z "$APKSIGNER" ] || [ ! -x "$APKSIGNER" ]; then
+            echo "::error::apksigner not found in Android build-tools!"
+            exit 1
+          fi
+          echo "Using apksigner at: ${APKSIGNER}"
+          "$APKSIGNER" verify --verbose dist/veylora-dev.apk
+          "$APKSIGNER" verify --print-certs dist/veylora-dev.apk
 
       - name: Generate latest.json metadata contract
         env:
