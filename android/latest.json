@@ -1,11 +1,11 @@
 {
-  "versionCode": 1015,
-  "versionName": "1.1.1015-dev",
-  "apkUrl": "https://github.com/playboiammav/Veylora_codex/releases/download/v1.1.1015-dev/veylora-dev.apk",
+  "versionCode": 1016,
+  "versionName": "1.1.1016-dev",
+  "apkUrl": "https://github.com/playboiammav/Veylora_codex/releases/download/v1.1.1016-dev/veylora-dev.apk",
   "apkName": "veylora-dev.apk",
   "apkSize": 0,
   "sha256": "",
-  "releaseNotes": "Veylora DEV build 1.1.1015-dev (commit b08b910)",
-  "commitSha": "b08b9104a5e8b14195d9ac2a6069ae8a7722746b",
-  "publishedAt": "2026-09-05T18:17:47Z"
+  "releaseNotes": "Veylora DEV build 1.1.1016-dev (commit b11e3bc)",
+  "commitSha": "b11e3bc90f6480295ca67559899b159617667116",
+  "publishedAt": "2026-09-05T21:48:12Z"
 }

@@ -69,6 +69,34 @@ val buildTimestamp = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.US).app
   timeZone = TimeZone.getTimeZone("UTC")
 }.format(Date())
 
+val isCi = providers.environmentVariable("CI").orNull?.equals("true", ignoreCase = true) == true
+  || providers.environmentVariable("GITHUB_ACTIONS").orNull?.equals("true", ignoreCase = true) == true
+
+val isDevSigningRequired = providers.environmentVariable("DEV_SIGNING_REQUIRED").orNull?.equals("true", ignoreCase = true) == true
+  || providers.gradleProperty("devSigningRequired").orNull?.equals("true", ignoreCase = true) == true
+  || isCi
+
+val devKeystorePath = providers.environmentVariable("DEV_KEYSTORE_PATH").orNull
+  ?: providers.gradleProperty("devKeystorePath").orNull
+  ?: (listOf(file("${rootDir}/dev-release.jks"), file("${rootDir}/dev.keystore")).firstOrNull { it.exists() }?.absolutePath
+      ?: "${rootDir}/dev-release.jks")
+
+val devKeystorePassword = providers.environmentVariable("DEV_KEYSTORE_PASSWORD").orNull
+  ?: providers.environmentVariable("DEV_STORE_PASSWORD").orNull
+  ?: providers.gradleProperty("devKeystorePassword").orNull
+
+val devKeyAlias = providers.environmentVariable("DEV_KEY_ALIAS").orNull
+  ?: providers.gradleProperty("devKeyAlias").orNull
+  ?: "dev"
+
+val devKeyPassword = providers.environmentVariable("DEV_KEY_PASSWORD").orNull
+  ?: providers.gradleProperty("devKeyPassword").orNull
+  ?: devKeystorePassword
+
+val hasDevSigning = file(devKeystorePath).exists() &&
+  !devKeystorePassword.isNullOrBlank() &&
+  !devKeyAlias.isNullOrBlank()
+
 android {
   namespace = "com.example"
   compileSdk { version = release(36) { minorApiLevel = 1 } }
@@ -85,11 +113,87 @@ android {
 
   flavorDimensions += "environment"
 
+  signingConfigs {
+    val defaultDebugKeystore = file("${System.getProperty("user.home")}/.android/debug.keystore")
+    val localDebugKeystore = listOf(file("${rootDir}/debug.keystore"), defaultDebugKeystore).firstOrNull { it.exists() }
+      ?: defaultDebugKeystore
+
+    val debugSigning = create("debugConfig") {
+      storeFile = localDebugKeystore
+      storePassword = "android"
+      keyAlias = "androiddebugkey"
+      keyPassword = "android"
+    }
+
+    create("devSigning") {
+      if (hasDevSigning) {
+        storeFile = file(devKeystorePath)
+        storePassword = devKeystorePassword
+        keyAlias = devKeyAlias
+        keyPassword = devKeyPassword
+      } else if (!isDevSigningRequired) {
+        // Safe local fallback for developers building assembleDevRelease locally without CI secrets
+        storeFile = debugSigning.storeFile
+        storePassword = debugSigning.storePassword
+        keyAlias = debugSigning.keyAlias
+        keyPassword = debugSigning.keyPassword
+      } else {
+        // In CI or when DEV_SIGNING_REQUIRED is set: do NOT fall back to ephemeral debug key.
+        // Pointing to the expected keystore path will trigger validation failure if missing.
+        storeFile = file(devKeystorePath)
+        storePassword = devKeystorePassword ?: ""
+        keyAlias = devKeyAlias
+        keyPassword = devKeyPassword ?: ""
+      }
+    }
+
+    val prodKeystorePath = providers.environmentVariable("PROD_KEYSTORE_PATH").orNull
+      ?: providers.environmentVariable("KEYSTORE_PATH").orNull
+      ?: "${rootDir}/my-upload-key.jks"
+
+    val prodSigning = create("prodRelease") {
+      if (file(prodKeystorePath).exists()) {
+        storeFile = file(prodKeystorePath)
+        storePassword = providers.environmentVariable("PROD_STORE_PASSWORD").orNull
+          ?: providers.environmentVariable("STORE_PASSWORD").orNull
+        keyAlias = providers.environmentVariable("PROD_KEY_ALIAS").orNull
+          ?: providers.environmentVariable("KEY_ALIAS").orNull
+          ?: "upload"
+        keyPassword = providers.environmentVariable("PROD_KEY_PASSWORD").orNull
+          ?: providers.environmentVariable("KEY_PASSWORD").orNull
+      } else if (!isCi) {
+        // Safe local fallback for developers building assembleProdRelease locally without prod secrets
+        storeFile = debugSigning.storeFile
+        storePassword = debugSigning.storePassword
+        keyAlias = debugSigning.keyAlias
+        keyPassword = debugSigning.keyPassword
+      } else {
+        storeFile = file(prodKeystorePath)
+        storePassword = providers.environmentVariable("PROD_STORE_PASSWORD").orNull
+          ?: providers.environmentVariable("STORE_PASSWORD").orNull
+        keyAlias = providers.environmentVariable("PROD_KEY_ALIAS").orNull
+          ?: providers.environmentVariable("KEY_ALIAS").orNull
+          ?: "upload"
+        keyPassword = providers.environmentVariable("PROD_KEY_PASSWORD").orNull
+          ?: providers.environmentVariable("KEY_PASSWORD").orNull
+      }
+    }
+
+    // Keep "release" config for backward compatibility with existing prod build scripts
+    create("release") {
+      storeFile = prodSigning.storeFile
+      storePassword = prodSigning.storePassword
+      keyAlias = prodSigning.keyAlias
+      keyPassword = prodSigning.keyPassword
+    }
+  }
+
   productFlavors {
     create("dev") {
       dimension = "environment"
       versionCode = devVersionCode
       versionName = devVersionName
+      signingConfig = signingConfigs.getByName("devSigning")
       buildConfigField("boolean", "IS_DEV_BUILD", "true")
       buildConfigField("String", "DEV_UPDATE_METADATA_URL", "\"$devUpdateMetadataUrl\"")
       buildConfigField("String", "GIT_COMMIT_SHA", "\"$gitCommitSha\"")
@@ -99,6 +203,7 @@ android {
     }
     create("prod") {
       dimension = "environment"
+      signingConfig = signingConfigs.getByName("prodRelease")
       buildConfigField("boolean", "IS_DEV_BUILD", "false")
       buildConfigField("String", "DEV_UPDATE_METADATA_URL", "\"\"")
       buildConfigField("String", "GIT_COMMIT_SHA", "\"$gitCommitSha\"")
@@ -108,33 +213,12 @@ android {
     }
   }
 
-  signingConfigs {
-    create("release") {
-      val keystorePath = System.getenv("KEYSTORE_PATH") ?: "${rootDir}/my-upload-key.jks"
-      storeFile = file(keystorePath)
-      storePassword = System.getenv("STORE_PASSWORD")
-      keyAlias = "upload"
-      keyPassword = System.getenv("KEY_PASSWORD")
-    }
-    create("debugConfig") {
-      storeFile = file("${rootDir}/debug.keystore")
-      storePassword = "android"
-      keyAlias = "androiddebugkey"
-      keyPassword = "android"
-    }
-  }
-
   buildTypes {
     release {
       isCrunchPngs = false
       isMinifyEnabled = false
       proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-      val keystorePath = System.getenv("KEYSTORE_PATH") ?: "${rootDir}/my-upload-key.jks"
-      if (file(keystorePath).exists()) {
-        signingConfig = signingConfigs.getByName("release")
-      } else {
-        signingConfig = signingConfigs.getByName("debugConfig")
-      }
+      // signingConfig is determined by product flavors: dev uses devSigning, prod uses prodRelease
     }
     debug { signingConfig = signingConfigs.getByName("debugConfig") }
   }
@@ -287,3 +371,18 @@ tasks.register("generateDevUpdateMetadata") {
     println(json)
   }
 }
+
+gradle.taskGraph.whenReady {
+  val isDevReleaseRequested = allTasks.any {
+    it.name.contains("DevRelease", ignoreCase = true)
+  }
+  if (isDevReleaseRequested && isDevSigningRequired && !hasDevSigning) {
+    throw GradleException(
+      "Stable DEV signing configuration is REQUIRED for DEV release builds in CI or when DEV_SIGNING_REQUIRED=true.\n" +
+      "Missing or invalid DEV signing credentials (keystore exists: ${file(devKeystorePath).exists()} at '$devKeystorePath', " +
+      "password set: ${!devKeystorePassword.isNullOrBlank()}, alias: '$devKeyAlias').\n" +
+      "Ephemeral debug keystore fallback is strictly forbidden for published DEV releases to preserve update compatibility across builds."
+    )
+  }
+}
+
