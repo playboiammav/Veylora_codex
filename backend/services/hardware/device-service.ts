@@ -4,7 +4,9 @@ import type {
   DeviceRecord,
   DeviceSearchResponse,
   DeviceDetailResponse,
+  SocDevice,
 } from "@/lib/normalized-types";
+import { socService } from "./soc-service";
 
 export interface DeviceSearchParams {
   query?: string;
@@ -13,6 +15,22 @@ export interface DeviceSearchParams {
   socId?: string;
   page?: number;
   pageSize?: number;
+}
+
+export interface DeviceResolutionParams {
+  manufacturer?: string;
+  model?: string;
+  codename?: string;
+  socManufacturer?: string;
+  socModel?: string;
+  identifier?: string;
+}
+
+export interface DeviceResolutionResult {
+  device: DeviceRecord | null;
+  soc: SocDevice | null;
+  matchedBy: "manufacturer_model" | "manufacturer_codename" | "soc" | "identifier" | null;
+  source: "real";
 }
 
 function normalizeString(str?: string | null): string {
@@ -185,6 +203,107 @@ export class DeviceService {
     if (!model) return null;
     const cleanModel = model.toLowerCase().trim();
     return this.modelMap.get(cleanModel) ?? this.idMap.get(cleanModel) ?? null;
+  }
+
+  public resolveDevice(params: DeviceResolutionParams): DeviceResolutionResult {
+    this.ensureLoaded();
+
+    const normMfr = params.manufacturer ? params.manufacturer.toLowerCase().trim() : undefined;
+    const cleanModel = params.model ? params.model.toLowerCase().trim() : undefined;
+    const strippedModel = cleanModel ? cleanModel.replace(/[^a-z0-9]/g, "") : undefined;
+    const cleanCodename = params.codename ? params.codename.toLowerCase().trim() : undefined;
+    const cleanIdent = params.identifier ? params.identifier.toLowerCase().trim() : undefined;
+
+    const filterByManufacturer = (records: DeviceRecord[], mfr?: string): DeviceRecord[] => {
+      if (!mfr) return records;
+      return records.filter((d) => {
+        const b = d.brand.toLowerCase();
+        if (b === mfr) return true;
+        // Umbrella brand aliases
+        if (mfr === "xiaomi" && (b === "redmi" || b === "poco" || b === "black shark")) return true;
+        if (mfr === "vivo" && b === "iqoo") return true;
+        if (mfr === "oppo" && (b === "oneplus" || b === "realme")) return true;
+        return false;
+      });
+    };
+
+    const mfrPool = filterByManufacturer(this.devices, normMfr);
+
+    // 1. Deterministic Match: manufacturer + model
+    if (normMfr && cleanModel) {
+      // 1a. Exact model number match in manufacturer pool
+      for (const d of mfrPool) {
+        if (Array.isArray(d.modelNumbers)) {
+          for (const mn of d.modelNumbers) {
+            const cleanMn = mn.toLowerCase().trim();
+            const strippedMn = cleanMn.replace(/[^a-z0-9]/g, "");
+            if (cleanMn === cleanModel || (strippedModel && strippedMn === strippedModel)) {
+              const soc = d.socId ? socService.getSocById(d.socId) : null;
+              return { device: d, soc, matchedBy: "manufacturer_model", source: "real" };
+            }
+          }
+        }
+      }
+      // 1b. Exact market name match in manufacturer pool
+      for (const d of mfrPool) {
+        const cleanMkt = d.marketName.toLowerCase().trim();
+        if (cleanMkt === cleanModel) {
+          const soc = d.socId ? socService.getSocById(d.socId) : null;
+          return { device: d, soc, matchedBy: "manufacturer_model", source: "real" };
+        }
+      }
+    }
+
+    // 2. Deterministic Match: manufacturer + device codename
+    if (normMfr && cleanCodename) {
+      for (const d of mfrPool) {
+        if (Array.isArray(d.deviceCodenames)) {
+          for (const cn of d.deviceCodenames) {
+            if (cn.toLowerCase().trim() === cleanCodename) {
+              const soc = d.socId ? socService.getSocById(d.socId) : null;
+              return { device: d, soc, matchedBy: "manufacturer_codename", source: "real" };
+            }
+          }
+        }
+      }
+    }
+
+    // 3. Deterministic Match: SoC manufacturer + SoC model
+    if (params.socModel) {
+      const resolvedSoc = socService.resolveSoc(params.socModel, params.socManufacturer);
+      if (resolvedSoc) {
+        // If we have a manufacturer and/or model, check if any device in pool matches this SoC
+        if (normMfr && cleanModel) {
+          const deviceWithSoc = mfrPool.find((d) => {
+            if (d.socId !== resolvedSoc.id) return false;
+            const mkt = d.marketName.toLowerCase();
+            return mkt.includes(cleanModel) || cleanModel.includes(mkt);
+          });
+          if (deviceWithSoc) {
+            return { device: deviceWithSoc, soc: resolvedSoc, matchedBy: "soc", source: "real" };
+          }
+        }
+        // Even if full device record is not matched, return resolved SoC with matchedBy: "soc"
+        return { device: null, soc: resolvedSoc, matchedBy: "soc", source: "real" };
+      }
+    }
+
+    // 4. Deterministic Match: known aliases / identifiers
+    if (cleanIdent) {
+      const byId = this.getDeviceById(cleanIdent);
+      if (byId) {
+        const soc = byId.socId ? socService.getSocById(byId.socId) : null;
+        return { device: byId, soc, matchedBy: "identifier", source: "real" };
+      }
+      // Check if identifier resolves directly as SoC
+      const bySoc = socService.resolveSoc(cleanIdent);
+      if (bySoc) {
+        return { device: null, soc: bySoc, matchedBy: "identifier", source: "real" };
+      }
+    }
+
+    // 5. Runtime-only fallback: catalog miss
+    return { device: null, soc: null, matchedBy: null, source: "real" };
   }
 
   private scoreDevice(device: DeviceRecord, query: string): number {

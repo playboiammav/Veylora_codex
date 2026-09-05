@@ -1,0 +1,309 @@
+name: Deploy Veylora Backend to Cloud Run
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'backend/**'
+      - '.github/workflows/deploy-backend.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: cloudrun-backend-deployment
+  cancel-in-progress: false
+
+jobs:
+  validate-and-deploy:
+    name: Validate and Deploy Cloud Run Backend
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # -----------------------------------------------------------
+      # Pre-Deployment Validation 1: Repository Structure
+      # -----------------------------------------------------------
+      - name: Validate repository structure
+        run: |
+          echo "=== Step 1: Validating repository structure ==="
+          MISSING_STRUCTURE=0
+
+          check_path() {
+            if [ ! -e "$1" ]; then
+              echo "::error::Required repository path missing: $1"
+              MISSING_STRUCTURE=1
+            else
+              echo "✓ Found: $1"
+            fi
+          }
+
+          check_path "backend"
+          check_path "backend/package.json"
+          check_path "backend/next.config.ts"
+          check_path "backend/data/cpu/amd.json"
+          check_path "backend/data/cpu/intel.json"
+          check_path "backend/data/gpu/amd.json"
+          check_path "backend/data/gpu/intel.json"
+          check_path "backend/data/gpu/nvidia.json"
+          check_path "backend/data/soc"
+          check_path "backend/data/devices"
+
+          if [ $MISSING_STRUCTURE -ne 0 ]; then
+            echo "::error::Repository structure validation failed!"
+            exit 1
+          fi
+          echo "Repository structure validated successfully."
+
+      # -----------------------------------------------------------
+      # Pre-Deployment Validation 2: Backend Dockerfile
+      # -----------------------------------------------------------
+      - name: Validate backend Dockerfile
+        run: |
+          echo "=== Step 2: Validating backend Dockerfile ==="
+          DOCKERFILE="backend/Dockerfile"
+          if [ ! -f "$DOCKERFILE" ]; then
+            echo "::error::backend/Dockerfile does not exist!"
+            exit 1
+          fi
+
+          grep -q "FROM node:20-alpine AS deps" "$DOCKERFILE" || {
+            echo "::error::Dockerfile missing deps stage (node:20-alpine)"
+            exit 1
+          }
+          grep -q "FROM node:20-alpine AS builder" "$DOCKERFILE" || {
+            echo "::error::Dockerfile missing builder stage (node:20-alpine)"
+            exit 1
+          }
+          grep -q "FROM node:20-alpine AS runner" "$DOCKERFILE" || {
+            echo "::error::Dockerfile missing runner stage (node:20-alpine)"
+            exit 1
+          }
+          grep -q "EXPOSE 8080" "$DOCKERFILE" || {
+            echo "::error::Dockerfile does not expose port 8080"
+            exit 1
+          }
+          grep -q "standalone" "$DOCKERFILE" || {
+            echo "::error::Dockerfile does not copy standalone build output"
+            exit 1
+          }
+          grep -q "server.js" "$DOCKERFILE" || {
+            echo "::error::Dockerfile CMD does not invoke server.js"
+            exit 1
+          }
+
+          echo "Dockerfile validated successfully (multi-stage Next.js standalone setup verified)."
+
+      # -----------------------------------------------------------
+      # Setup Node.js & Install Dependencies
+      # -----------------------------------------------------------
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: backend/package-lock.json
+
+      - name: Install dependencies
+        working-directory: backend
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci
+          else
+            npm install
+          fi
+
+      # -----------------------------------------------------------
+      # Pre-Deployment Validation 3: ESLint
+      # -----------------------------------------------------------
+      - name: Run backend lint
+        working-directory: backend
+        run: |
+          echo "=== Step 3: Running backend ESLint ==="
+          npm run lint
+
+      # -----------------------------------------------------------
+      # Pre-Deployment Validation 4: TypeScript Check
+      # -----------------------------------------------------------
+      - name: Run TypeScript check
+        working-directory: backend
+        run: |
+          echo "=== Step 4: Running TypeScript typecheck ==="
+          npx tsc --noEmit
+
+      # -----------------------------------------------------------
+      # Pre-Deployment Validation 5: Production Build
+      # -----------------------------------------------------------
+      - name: Run production build
+        working-directory: backend
+        env:
+          NEXT_TELEMETRY_DISABLED: 1
+          NODE_ENV: production
+        run: |
+          echo "=== Step 5: Running Next.js production build ==="
+          npm run build
+          if [ ! -f .next/standalone/server.js ]; then
+            echo "::error::Standalone build verification failed: .next/standalone/server.js not found!"
+            exit 1
+          fi
+          echo "Standalone build generated successfully."
+
+      # -----------------------------------------------------------
+      # Validation 6: Required Secrets & WIF Credentials Check
+      # -----------------------------------------------------------
+      - name: Validate Required Secrets & Workload Identity Federation
+        env:
+          GCP_WORKLOAD_IDENTITY_PROVIDER: ${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}
+          GCP_SERVICE_ACCOUNT: ${{ secrets.GCP_SERVICE_ACCOUNT }}
+          APP_URL: ${{ secrets.APP_URL }}
+          NEXT_PUBLIC_PRICE_API_BASE_URL: ${{ secrets.NEXT_PUBLIC_PRICE_API_BASE_URL }}
+          RAWG_API_KEY: ${{ secrets.RAWG_API_KEY }}
+          TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
+          TMDB_READ_ACCESS_TOKEN: ${{ secrets.TMDB_READ_ACCESS_TOKEN }}
+          TV_API_KEY: ${{ secrets.TV_API_KEY }}
+          STEAM_API_KEY: ${{ secrets.STEAM_API_KEY }}
+          EPIC_CLIENT_ID: ${{ secrets.EPIC_CLIENT_ID }}
+          EPIC_CLIENT_SECRET: ${{ secrets.EPIC_CLIENT_SECRET }}
+          APPLE_KEY_ID: ${{ secrets.APPLE_KEY_ID }}
+          APPLE_ISSUER_ID: ${{ secrets.APPLE_ISSUER_ID }}
+          APPLE_PRIVATE_KEY: ${{ secrets.APPLE_PRIVATE_KEY }}
+        run: |
+          echo "=== Step 6: Validating Required Secrets and WIF Configuration ==="
+          MISSING_SECRETS=()
+
+          # WIF Authentication secrets
+          [ -z "$GCP_WORKLOAD_IDENTITY_PROVIDER" ] && MISSING_SECRETS+=("GCP_WORKLOAD_IDENTITY_PROVIDER")
+          [ -z "$GCP_SERVICE_ACCOUNT" ] && MISSING_SECRETS+=("GCP_SERVICE_ACCOUNT")
+
+          # Required provider variables
+          [ -z "$APP_URL" ] && MISSING_SECRETS+=("APP_URL")
+          [ -z "$NEXT_PUBLIC_PRICE_API_BASE_URL" ] && MISSING_SECRETS+=("NEXT_PUBLIC_PRICE_API_BASE_URL")
+          [ -z "$RAWG_API_KEY" ] && MISSING_SECRETS+=("RAWG_API_KEY")
+          [ -z "$TMDB_API_KEY" ] && MISSING_SECRETS+=("TMDB_API_KEY")
+          [ -z "$TMDB_READ_ACCESS_TOKEN" ] && MISSING_SECRETS+=("TMDB_READ_ACCESS_TOKEN")
+          [ -z "$TV_API_KEY" ] && MISSING_SECRETS+=("TV_API_KEY")
+          [ -z "$STEAM_API_KEY" ] && MISSING_SECRETS+=("STEAM_API_KEY")
+          [ -z "$EPIC_CLIENT_ID" ] && MISSING_SECRETS+=("EPIC_CLIENT_ID")
+          [ -z "$EPIC_CLIENT_SECRET" ] && MISSING_SECRETS+=("EPIC_CLIENT_SECRET")
+          [ -z "$APPLE_KEY_ID" ] && MISSING_SECRETS+=("APPLE_KEY_ID")
+          [ -z "$APPLE_ISSUER_ID" ] && MISSING_SECRETS+=("APPLE_ISSUER_ID")
+          [ -z "$APPLE_PRIVATE_KEY" ] && MISSING_SECRETS+=("APPLE_PRIVATE_KEY")
+
+          if [ ${#MISSING_SECRETS[@]} -ne 0 ]; then
+            echo "::error::CRITICAL: Production deployment aborted due to missing secret configuration!"
+            echo "::error::Missing required secret(s): ${MISSING_SECRETS[*]}"
+            echo "The following secrets must be configured in GitHub Actions secrets or Secret Manager before production deployment:"
+            for secret in "${MISSING_SECRETS[@]}"; do
+              echo "  - $secret"
+            done
+            exit 1
+          fi
+          echo "All required authentication and production secrets are configured."
+
+      # -----------------------------------------------------------
+      # GCP Authentication via Workload Identity Federation (OIDC)
+      # -----------------------------------------------------------
+      - name: Authenticate to Google Cloud
+        id: auth
+        uses: google-github-actions/auth@v3
+        with:
+          workload_identity_provider: ${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ secrets.GCP_SERVICE_ACCOUNT }}
+          project_id: aura-music-568f9
+
+      # -----------------------------------------------------------
+      # Deploy to Cloud Run
+      # -----------------------------------------------------------
+      - name: Deploy to Cloud Run
+        id: deploy
+        uses: google-github-actions/deploy-cloudrun@v3
+        with:
+          service: veylora-backend
+          project_id: aura-music-568f9
+          region: us-central1
+          source: backend/
+          flags: '--allow-unauthenticated'
+          env_vars: |
+            NODE_ENV=production
+            NEXT_TELEMETRY_DISABLED=1
+            APP_URL=${{ secrets.APP_URL }}
+            NEXT_PUBLIC_PRICE_API_BASE_URL=${{ secrets.NEXT_PUBLIC_PRICE_API_BASE_URL }}
+            RAWG_API_KEY=${{ secrets.RAWG_API_KEY }}
+            TMDB_API_KEY=${{ secrets.TMDB_API_KEY }}
+            TMDB_READ_ACCESS_TOKEN=${{ secrets.TMDB_READ_ACCESS_TOKEN }}
+            TV_API_KEY=${{ secrets.TV_API_KEY }}
+            STEAM_API_KEY=${{ secrets.STEAM_API_KEY }}
+            EPIC_CLIENT_ID=${{ secrets.EPIC_CLIENT_ID }}
+            EPIC_CLIENT_SECRET=${{ secrets.EPIC_CLIENT_SECRET }}
+            APPLE_KEY_ID=${{ secrets.APPLE_KEY_ID }}
+            APPLE_ISSUER_ID=${{ secrets.APPLE_ISSUER_ID }}
+            APPLE_PRIVATE_KEY=${{ secrets.APPLE_PRIVATE_KEY }}
+
+      # -----------------------------------------------------------
+      # Post-Deployment Live Verification & Health Probing
+      # -----------------------------------------------------------
+      - name: Verify Live Cloud Run Service
+        env:
+          SERVICE_URL: ${{ steps.deploy.outputs.url }}
+        run: |
+          echo "=== Post-Deployment Live Verification ==="
+          echo "Captured Cloud Run Service URL: ${SERVICE_URL}"
+
+          if [ -z "${SERVICE_URL}" ]; then
+            echo "::error::Deploy action did not return a valid Cloud Run service URL!"
+            exit 1
+          fi
+
+          # 1. Verify URL is reachable over HTTPS
+          echo "Probing root endpoint over HTTPS..."
+          HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 15 "${SERVICE_URL}/" || echo "000")
+          echo "Root HTTP Status: ${HTTP_STATUS}"
+          if [ "$HTTP_STATUS" -eq 000 ]; then
+            echo "::error::Cloud Run service is unreachable over HTTPS!"
+            exit 1
+          fi
+
+          # 2. Test representative live endpoints
+          test_endpoint() {
+            local path="$1"
+            local full_url="${SERVICE_URL}${path}"
+            echo -n "Testing endpoint ${path} ... "
+            local status
+            status=$(curl -s -o /dev/null -w "%{http_code}" --max-time 20 "${full_url}" || echo "000")
+            echo "HTTP ${status}"
+            if [ "$status" -ne 200 ]; then
+              echo "::error::Endpoint ${path} failed with HTTP ${status}!"
+              return 1
+            fi
+            return 0
+          }
+
+          FAILED=0
+          test_endpoint "/api/games?category=trending" || FAILED=1
+          test_endpoint "/api/movies?category=trending" || FAILED=1
+          test_endpoint "/api/hardware/cpus" || FAILED=1
+          test_endpoint "/api/hardware/gpus" || FAILED=1
+          test_endpoint "/api/hardware/socs" || FAILED=1
+          test_endpoint "/api/hardware/devices" || FAILED=1
+
+          if [ $FAILED -ne 0 ]; then
+            echo "::error::One or more live health probes failed!"
+            exit 1
+          fi
+
+          # 3. Report revision and traffic
+          echo "=== Deployment Confirmation ==="
+          echo "Service URL: ${SERVICE_URL}"
+          echo "Deployed Git Commit SHA: ${GITHUB_SHA}"
+          gcloud run services describe veylora-backend \
+            --project aura-music-568f9 \
+            --region us-central1 \
+            --format="table(status.latestReadyRevisionName,status.traffic.percent,status.traffic.revisionName)"
