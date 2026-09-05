@@ -43,6 +43,8 @@ def slugify(text):
 
 def norm_tokens(s):
     if not s: return []
+    s = re.sub(r'\(\s*\d+(?:\.\d+)?\s*nm\+?\s*\)', '', s, flags=re.IGNORECASE)
+    s = re.sub(r'\b\d+(?:\.\d+)?\s*nm\+\b', '', s, flags=re.IGNORECASE)
     s = s.replace('+', ' plus ')
     s = re.sub(r'[^a-z0-9]', ' ', s.lower())
     return [t for t in s.split() if t]

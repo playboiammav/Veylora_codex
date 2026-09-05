@@ -843,9 +843,12 @@
     "sourceUrl": "https://www.apple.com/iphone-11-pro/specs/",
     "aliases": [
       "a13",
+      "a13 bionic",
       "a13-bionic",
       "a13-bionic-apl1w85",
       "apl1w85",
+      "apple a13",
+      "apple a13 bionic",
       "apple-a13",
       "apple-a13-bionic",
       "apple:a13-bionic-apl1w85",
@@ -1776,8 +1779,12 @@
       "hi3690",
       "hi3690 5g",
       "hi36905g",
+      "hisilicon kirin 990",
+      "hisilicon kirin 990 5g",
       "hisilicon-kirin-990-5g",
       "hisilicon:kirin-990-5g-hi3690",
+      "kirin 990",
+      "kirin 990 5g",
       "kirin-990",
       "kirin-990-5g",
       "kirin-990-5g-hi3690",
@@ -1937,10 +1944,16 @@
     "sourceUrl": "https://consumer.huawei.com/en/phones/nova-3i/specs/",
     "aliases": [
       "hi6260",
+      "hi6260f",
+      "hisilicon kirin 710f",
       "hisilicon-kirin-710",
+      "hisilicon-kirin-710f",
       "hisilicon:kirin-710-hi6260",
+      "kirin 710",
+      "kirin 710f",
       "kirin-710",
       "kirin-710-hi6260",
+      "kirin-710f",
       "kirin710"
     ],
     "provenance": {
@@ -2100,9 +2113,21 @@
     "sourceUrl": "https://www.mediatek.com/products/smartphones-2/mediatek-dimensity-7300",
     "aliases": [
       "d7300",
+      "dimensity 7300 energy",
+      "dimensity 7300 max",
+      "dimensity 7300 plus",
+      "dimensity 7300 pro",
+      "dimensity 7300 ultra",
+      "dimensity 7300+",
+      "dimensity 7300x",
       "dimensity-7300",
       "dimensity-7300-energy",
       "dimensity-7300-mt6878",
+      "mediatek dimensity 7300 energy",
+      "mediatek dimensity 7300 max",
+      "mediatek dimensity 7300 pro",
+      "mediatek dimensity 7300 ultra",
+      "mediatek dimensity 7300x",
       "mediatek-dimensity-7300",
       "mediatek:dimensity-7300-mt6878",
       "mt6878"
@@ -2846,12 +2871,22 @@
     "sourceUrl": "https://www.mediatek.com/products/smartphones-2/mediatek-helio-g99",
     "aliases": [
       "g99",
+      "helio g99",
+      "helio g99 ultimate",
+      "helio g99 ultra",
+      "helio g99-ultra",
       "helio-g99",
       "helio-g99-mt6789",
       "helio-g99-ultimate",
+      "helio-g99-ultra",
+      "mediatek helio g99 ultimate",
       "mediatek-helio-g99",
       "mediatek:helio-g99-mt6789",
-      "mt6789"
+      "mt6789",
+      "mt8781",
+      "mt8781v",
+      "mt8781v-ca",
+      "mt8781v/ca"
     ],
     "provenance": {
       "primarySource": "MediaTek Official Product Specification",
@@ -2925,8 +2960,16 @@
     "sourceUrl": "https://www.mediatek.com/products/smartphones-2/mediatek-dimensity-8100",
     "aliases": [
       "d8100",
+      "dimensity 8100",
+      "dimensity 8100 max",
+      "dimensity 8100 ultra",
+      "dimensity 8100-max",
+      "dimensity 8100-ultra",
       "dimensity-8100",
+      "dimensity-8100-max",
       "dimensity-8100-mt6895z",
+      "dimensity-8100-ultra",
+      "mediatek dimensity 8100 max",
       "mediatek-dimensity-8100",
       "mediatek:dimensity-8100-mt6895z",
       "mt6895",
@@ -6211,10 +6254,12 @@
     "releaseDate": "2019-10-24",
     "sourceUrl": "https://semiconductor.samsung.com/processor/mobile-processor/exynos-990/",
     "aliases": [
+      "exynos 990",
       "exynos-990",
       "exynos-990-s5e9830",
       "exynos990",
       "s5e9830",
+      "samsung exynos 990",
       "samsung-exynos-990",
       "samsung:exynos-990-s5e9830"
     ],
@@ -7167,6 +7212,1944 @@
       "sourceTier": "tier1-vendor",
       "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
       "verificationNotes": "Entry octa-core A55 processor widely used in entry-level global smartphones."
+    }
+  },
+  {
+    "id": "mediatek:dimensity-6300-mt6835t",
+    "name": "MediaTek Dimensity 6300",
+    "manufacturer": "MediaTek",
+    "family": "Dimensity",
+    "partNumber": "MT6835T",
+    "architecture": "ARMv8.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 2,
+        "microarchitecture": "Cortex-A76",
+        "maxClock": 2400,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 6,
+        "microarchitecture": "Cortex-A55",
+        "maxClock": 2000,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2400,
+    "cpuBitness": 64,
+    "gpu": "Arm Mali-G57 MC2",
+    "gpuFamily": "Arm Mali Valhall",
+    "gpuArchitecture": "Valhall 1st Gen",
+    "gpuClockMhz": 950,
+    "gpuExecutionUnits": 2,
+    "npu": null,
+    "aiPerformance": null,
+    "processNode": "6 nm (TSMC N6)",
+    "vulkanVersion": "1.2",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR4X",
+    "memoryChannels": 2,
+    "memoryBandwidth": "17.0 GB/s",
+    "maxMemorySizeGb": 16,
+    "isp": "MediaTek Imagiq (108 MP)",
+    "dsp": "MediaTek NeuroPilot",
+    "modem": "MediaTek 5G Modem (Sub-6GHz)",
+    "videoEncode": [
+      "1080p@60fps"
+    ],
+    "videoDecode": [
+      "1080p@60fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2024-04-19",
+    "sourceUrl": "https://www.mediatek.com/products/smartphones-2/mediatek-dimensity-6300",
+    "aliases": [
+      "d6300",
+      "dimensity-6300",
+      "dimensity 6300",
+      "dimensity-6300-mt6835t",
+      "mediatek-dimensity-6300",
+      "mediatek:dimensity-6300-mt6835t",
+      "mt6835t",
+      "mt6835"
+    ],
+    "provenance": {
+      "primarySource": "MediaTek Official Product Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.mediatek.com/products/smartphones-2/mediatek-dimensity-6300",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "TSMC N6 6nm octa-core budget 5G platform."
+    }
+  },
+  {
+    "id": "mediatek:dimensity-700-mt6833",
+    "name": "MediaTek Dimensity 700 5G",
+    "manufacturer": "MediaTek",
+    "family": "Dimensity",
+    "partNumber": "MT6833",
+    "architecture": "ARMv8.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 2,
+        "microarchitecture": "Cortex-A76",
+        "maxClock": 2200,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 6,
+        "microarchitecture": "Cortex-A55",
+        "maxClock": 2000,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2200,
+    "cpuBitness": 64,
+    "gpu": "Arm Mali-G57 MC2",
+    "gpuFamily": "Arm Mali Valhall",
+    "gpuArchitecture": "Valhall 1st Gen",
+    "gpuClockMhz": 950,
+    "gpuExecutionUnits": 2,
+    "npu": null,
+    "aiPerformance": null,
+    "processNode": "7 nm (TSMC N7)",
+    "vulkanVersion": "1.2",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR4X",
+    "memoryChannels": 2,
+    "memoryBandwidth": "17.0 GB/s",
+    "maxMemorySizeGb": 12,
+    "isp": "MediaTek Imagiq (64 MP)",
+    "dsp": null,
+    "modem": "MediaTek 5G Sub-6GHz Modem",
+    "videoEncode": [
+      "1080p@30fps"
+    ],
+    "videoDecode": [
+      "1080p@60fps",
+      "2K@30fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2020-11-10",
+    "sourceUrl": "https://www.mediatek.com/products/smartphones-2/mediatek-dimensity-700",
+    "aliases": [
+      "d700",
+      "dimensity-700",
+      "dimensity 700",
+      "dimensity 700 5g",
+      "dimensity-700-5g",
+      "dimensity-700-mt6833",
+      "mediatek-dimensity-700",
+      "mediatek:dimensity-700-mt6833",
+      "mt6833",
+      "mt6833v",
+      "mt6833_za"
+    ],
+    "provenance": {
+      "primarySource": "MediaTek Official Product Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.mediatek.com/products/smartphones-2/mediatek-dimensity-700",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Mass-market 7nm 5G platform."
+    }
+  },
+  {
+    "id": "qualcomm:snapdragon-400-msm8226",
+    "name": "Qualcomm Snapdragon 400",
+    "manufacturer": "Qualcomm",
+    "family": "Snapdragon 4",
+    "partNumber": "MSM8226",
+    "architecture": "ARMv7-A",
+    "cpuCores": 4,
+    "cpuClusters": [
+      {
+        "name": "Cores",
+        "cores": 4,
+        "microarchitecture": "Cortex-A7",
+        "maxClock": 1200,
+        "efficiencyClass": "performance"
+      }
+    ],
+    "cpuClockMax": 1200,
+    "cpuBitness": 32,
+    "gpu": "Qualcomm Adreno 305",
+    "gpuFamily": "Adreno 300",
+    "gpuArchitecture": "Adreno 300",
+    "gpuClockMhz": 450,
+    "gpuExecutionUnits": null,
+    "npu": null,
+    "aiPerformance": null,
+    "processNode": "28 nm (TSMC 28LP)",
+    "vulkanVersion": null,
+    "openGlEsVersion": "3.0",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR2/LPDDR3",
+    "memoryChannels": 1,
+    "memoryBandwidth": "4.3 GB/s",
+    "maxMemorySizeGb": 2,
+    "isp": "Qualcomm ISP",
+    "dsp": "Hexagon QDSP6V4",
+    "modem": "Integrated 3G HSPA+ / 4G LTE Cat.4",
+    "videoEncode": [
+      "1080p@30fps"
+    ],
+    "videoDecode": [
+      "1080p@30fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2013-06-04",
+    "sourceUrl": "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-4-series-mobile-platforms/snapdragon-400-processor",
+    "aliases": [
+      "msm8226",
+      "msm8926",
+      "msm8228",
+      "snapdragon-400",
+      "snapdragon 400",
+      "qualcomm-snapdragon-400",
+      "qualcomm:snapdragon-400-msm8226"
+    ],
+    "provenance": {
+      "primarySource": "Qualcomm Official Product Specification",
+      "verificationSources": [
+        "FCC ID Hardware Filings"
+      ],
+      "sourceUrls": [
+        "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-4-series-mobile-platforms/snapdragon-400-processor"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Historic 28nm quad-core Cortex-A7 entry processor."
+    }
+  },
+  {
+    "id": "mediatek:helio-p22-mt6762",
+    "name": "MediaTek Helio P22",
+    "manufacturer": "MediaTek",
+    "family": "Helio P",
+    "partNumber": "MT6762",
+    "architecture": "ARMv8-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 4,
+        "microarchitecture": "Cortex-A53",
+        "maxClock": 2000,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Cortex-A53",
+        "maxClock": 1500,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2000,
+    "cpuBitness": 64,
+    "gpu": "IMG PowerVR GE8320",
+    "gpuFamily": "PowerVR Rogue",
+    "gpuArchitecture": "Rogue",
+    "gpuClockMhz": 650,
+    "gpuExecutionUnits": 1,
+    "npu": null,
+    "aiPerformance": null,
+    "processNode": "12 nm (TSMC 12FFC)",
+    "vulkanVersion": "1.1",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR3/LPDDR4X",
+    "memoryChannels": 2,
+    "memoryBandwidth": "12.0 GB/s",
+    "maxMemorySizeGb": 6,
+    "isp": "MediaTek Imagiq (21 MP)",
+    "dsp": null,
+    "modem": "4G LTE Cat.7/13 Modem",
+    "videoEncode": [
+      "1080p@30fps"
+    ],
+    "videoDecode": [
+      "1080p@30fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2018-05-22",
+    "sourceUrl": "https://www.mediatek.com/products/smartphones-2/mediatek-helio-p22",
+    "aliases": [
+      "helio-p22",
+      "helio p22",
+      "mt6762",
+      "mt6762v",
+      "mt6762r",
+      "mediatek-helio-p22",
+      "mediatek:helio-p22-mt6762"
+    ],
+    "provenance": {
+      "primarySource": "MediaTek Official Product Specification",
+      "verificationSources": [
+        "Imagination PowerVR Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.mediatek.com/products/smartphones-2/mediatek-helio-p22"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "12nm octa-core Cortex-A53 with PowerVR Rogue GPU."
+    }
+  },
+  {
+    "id": "qualcomm:snapdragon-410-msm8916",
+    "name": "Qualcomm Snapdragon 410",
+    "manufacturer": "Qualcomm",
+    "family": "Snapdragon 4",
+    "partNumber": "MSM8916",
+    "architecture": "ARMv8-A",
+    "cpuCores": 4,
+    "cpuClusters": [
+      {
+        "name": "Cores",
+        "cores": 4,
+        "microarchitecture": "Cortex-A53",
+        "maxClock": 1200,
+        "efficiencyClass": "performance"
+      }
+    ],
+    "cpuClockMax": 1200,
+    "cpuBitness": 64,
+    "gpu": "Qualcomm Adreno 306",
+    "gpuFamily": "Adreno 300",
+    "gpuArchitecture": "Adreno 300",
+    "gpuClockMhz": 400,
+    "gpuExecutionUnits": null,
+    "npu": null,
+    "aiPerformance": null,
+    "processNode": "28 nm (TSMC 28LP)",
+    "vulkanVersion": null,
+    "openGlEsVersion": "3.0",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR2/LPDDR3",
+    "memoryChannels": 1,
+    "memoryBandwidth": "4.3 GB/s",
+    "maxMemorySizeGb": 2,
+    "isp": "Qualcomm ISP (13.5 MP)",
+    "dsp": "Hexagon QDSP6V5",
+    "modem": "Snapdragon X5 LTE (Cat.4)",
+    "videoEncode": [
+      "1080p@30fps"
+    ],
+    "videoDecode": [
+      "1080p@30fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2013-12-09",
+    "sourceUrl": "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-4-series-mobile-platforms/snapdragon-410-processor",
+    "aliases": [
+      "msm8916",
+      "snapdragon-410",
+      "snapdragon 410",
+      "snapdragon 410 64-bit",
+      "qualcomm-snapdragon-410",
+      "qualcomm:snapdragon-410-msm8916"
+    ],
+    "provenance": {
+      "primarySource": "Qualcomm Official Product Specification",
+      "verificationSources": [
+        "FCC ID Hardware Filings"
+      ],
+      "sourceUrls": [
+        "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-4-series-mobile-platforms/snapdragon-410-processor"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Qualcomm first 64-bit mobile processor with Adreno 306 GPU."
+    }
+  },
+  {
+    "id": "qualcomm:snapdragon-765g-sm7250-ab",
+    "name": "Qualcomm Snapdragon 765G 5G",
+    "manufacturer": "Qualcomm",
+    "family": "Snapdragon 7",
+    "partNumber": "SM7250-AB",
+    "architecture": "ARMv8.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Prime",
+        "cores": 1,
+        "microarchitecture": "Kryo 475 Prime (Cortex-A76)",
+        "maxClock": 2400,
+        "efficiencyClass": "prime"
+      },
+      {
+        "name": "Performance",
+        "cores": 1,
+        "microarchitecture": "Kryo 475 Gold (Cortex-A76)",
+        "maxClock": 2200,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 6,
+        "microarchitecture": "Kryo 475 Silver (Cortex-A55)",
+        "maxClock": 1800,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2400,
+    "cpuBitness": 64,
+    "gpu": "Qualcomm Adreno 620",
+    "gpuFamily": "Adreno 600",
+    "gpuArchitecture": "Adreno 600",
+    "gpuClockMhz": 625,
+    "gpuExecutionUnits": null,
+    "npu": "Hexagon 696 NPU",
+    "aiPerformance": "5.5 TOPS",
+    "processNode": "7 nm (Samsung 7LPP EUV)",
+    "vulkanVersion": "1.1",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR4X",
+    "memoryChannels": 2,
+    "memoryBandwidth": "17.0 GB/s",
+    "maxMemorySizeGb": 12,
+    "isp": "Spectra 355 (192 MP)",
+    "dsp": "Hexagon 696 DSP",
+    "modem": "Snapdragon X52 5G Modem",
+    "videoEncode": [
+      "4K@30fps"
+    ],
+    "videoDecode": [
+      "4K@60fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2019-12-04",
+    "sourceUrl": "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-7-series-mobile-platforms/snapdragon-765g-5g-mobile-platform",
+    "aliases": [
+      "sm7250-ab",
+      "sm7250",
+      "snapdragon 765g",
+      "snapdragon-765g",
+      "snapdragon 765g 5g",
+      "sd765g",
+      "qualcomm-snapdragon-765g",
+      "qualcomm:snapdragon-765g-sm7250-ab"
+    ],
+    "provenance": {
+      "primarySource": "Qualcomm Official Product Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-7-series-mobile-platforms/snapdragon-765g-5g-mobile-platform",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Integrated 5G mobile platform on Samsung 7nm EUV."
+    }
+  },
+  {
+    "id": "mediatek:helio-g85-mt6769z",
+    "name": "MediaTek Helio G85",
+    "manufacturer": "MediaTek",
+    "family": "Helio G",
+    "partNumber": "MT6769Z",
+    "architecture": "ARMv8.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 2,
+        "microarchitecture": "Cortex-A75",
+        "maxClock": 2000,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 6,
+        "microarchitecture": "Cortex-A55",
+        "maxClock": 1800,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2000,
+    "cpuBitness": 64,
+    "gpu": "Arm Mali-G52 MC2",
+    "gpuFamily": "Arm Mali Bifrost",
+    "gpuArchitecture": "Bifrost 2nd Gen",
+    "gpuClockMhz": 1000,
+    "gpuExecutionUnits": 2,
+    "npu": null,
+    "aiPerformance": null,
+    "processNode": "12 nm (TSMC 12FFC)",
+    "vulkanVersion": "1.1",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR4X",
+    "memoryChannels": 2,
+    "memoryBandwidth": "14.4 GB/s",
+    "maxMemorySizeGb": 8,
+    "isp": "MediaTek Imagiq (48 MP)",
+    "dsp": null,
+    "modem": "4G LTE Cat.7/13 Modem",
+    "videoEncode": [
+      "2K@30fps"
+    ],
+    "videoDecode": [
+      "2K@30fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2020-04-30",
+    "sourceUrl": "https://www.mediatek.com/products/smartphones-2/mediatek-helio-g85",
+    "aliases": [
+      "helio-g85",
+      "helio g85",
+      "mt6769z",
+      "mt6769v/cz",
+      "mt6769cz",
+      "mediatek-helio-g85",
+      "mediatek:helio-g85-mt6769z"
+    ],
+    "provenance": {
+      "primarySource": "MediaTek Official Product Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.mediatek.com/products/smartphones-2/mediatek-helio-g85",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "12nm gaming-focused platform with 1.0 GHz Mali-G52 GPU."
+    }
+  },
+  {
+    "id": "qualcomm:snapdragon-665-sdm665",
+    "name": "Qualcomm Snapdragon 665",
+    "manufacturer": "Qualcomm",
+    "family": "Snapdragon 6",
+    "partNumber": "SDM665",
+    "architecture": "ARMv8-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 4,
+        "microarchitecture": "Kryo 260 Gold (Cortex-A73)",
+        "maxClock": 2000,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Kryo 260 Silver (Cortex-A53)",
+        "maxClock": 1800,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2000,
+    "cpuBitness": 64,
+    "gpu": "Qualcomm Adreno 610",
+    "gpuFamily": "Adreno 600",
+    "gpuArchitecture": "Adreno 600",
+    "gpuClockMhz": 600,
+    "gpuExecutionUnits": null,
+    "npu": "Hexagon 686 DSP Vector Extensions",
+    "aiPerformance": null,
+    "processNode": "11 nm (Samsung 11LPP)",
+    "vulkanVersion": "1.1",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR4X",
+    "memoryChannels": 2,
+    "memoryBandwidth": "14.9 GB/s",
+    "maxMemorySizeGb": 8,
+    "isp": "Spectra 165 (48 MP)",
+    "dsp": "Hexagon 686 DSP",
+    "modem": "Snapdragon X12 LTE Modem",
+    "videoEncode": [
+      "4K@30fps"
+    ],
+    "videoDecode": [
+      "4K@30fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2019-04-09",
+    "sourceUrl": "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-6-series-mobile-platforms/snapdragon-665-mobile-platform",
+    "aliases": [
+      "sdm665",
+      "snapdragon-665",
+      "snapdragon 665",
+      "sd665",
+      "qualcomm-snapdragon-665",
+      "qualcomm:snapdragon-665-sdm665"
+    ],
+    "provenance": {
+      "primarySource": "Qualcomm Official Product Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-6-series-mobile-platforms/snapdragon-665-mobile-platform",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "11nm mainstream mobile platform with Adreno 610 GPU."
+    }
+  },
+  {
+    "id": "qualcomm:snapdragon-s4-plus-msm8960",
+    "name": "Qualcomm Snapdragon S4 Plus",
+    "manufacturer": "Qualcomm",
+    "family": "Snapdragon S4",
+    "partNumber": "MSM8960",
+    "architecture": "ARMv7-A",
+    "cpuCores": 2,
+    "cpuClusters": [
+      {
+        "name": "Cores",
+        "cores": 2,
+        "microarchitecture": "Krait",
+        "maxClock": 1500,
+        "efficiencyClass": "performance"
+      }
+    ],
+    "cpuClockMax": 1500,
+    "cpuBitness": 32,
+    "gpu": "Qualcomm Adreno 225",
+    "gpuFamily": "Adreno 200",
+    "gpuArchitecture": "Adreno 200",
+    "gpuClockMhz": 400,
+    "gpuExecutionUnits": null,
+    "npu": null,
+    "aiPerformance": null,
+    "processNode": "28 nm (TSMC 28LP)",
+    "vulkanVersion": null,
+    "openGlEsVersion": "2.0",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR2",
+    "memoryChannels": 2,
+    "memoryBandwidth": "8.0 GB/s",
+    "maxMemorySizeGb": 2,
+    "isp": "Qualcomm ISP (20 MP)",
+    "dsp": "Hexagon QDSP6",
+    "modem": "Integrated 4G LTE Cat.3 Modem",
+    "videoEncode": [
+      "1080p@30fps"
+    ],
+    "videoDecode": [
+      "1080p@30fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2012-02-27",
+    "sourceUrl": "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-s4-processor",
+    "aliases": [
+      "msm8960",
+      "msm8960t",
+      "snapdragon-s4-plus",
+      "snapdragon s4 plus",
+      "qualcomm-snapdragon-s4-plus",
+      "qualcomm:snapdragon-s4-plus-msm8960"
+    ],
+    "provenance": {
+      "primarySource": "Qualcomm Official Product Specification",
+      "verificationSources": [
+        "FCC ID Hardware Filings"
+      ],
+      "sourceUrls": [
+        "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-s4-processor"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Early LTE platform with dual Krait architecture and Adreno 225."
+    }
+  },
+  {
+    "id": "qualcomm:snapdragon-660-sdm660",
+    "name": "Qualcomm Snapdragon 660",
+    "manufacturer": "Qualcomm",
+    "family": "Snapdragon 6",
+    "partNumber": "SDM660",
+    "architecture": "ARMv8-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 4,
+        "microarchitecture": "Kryo 260 Gold (Cortex-A73)",
+        "maxClock": 2200,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Kryo 260 Silver (Cortex-A53)",
+        "maxClock": 1840,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2200,
+    "cpuBitness": 64,
+    "gpu": "Qualcomm Adreno 512",
+    "gpuFamily": "Adreno 500",
+    "gpuArchitecture": "Adreno 500",
+    "gpuClockMhz": 650,
+    "gpuExecutionUnits": null,
+    "npu": null,
+    "aiPerformance": null,
+    "processNode": "14 nm (Samsung 14LPP)",
+    "vulkanVersion": "1.1",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR4",
+    "memoryChannels": 2,
+    "memoryBandwidth": "14.9 GB/s",
+    "maxMemorySizeGb": 8,
+    "isp": "Spectra 160 (48 MP)",
+    "dsp": "Hexagon 680 DSP",
+    "modem": "Snapdragon X12 LTE Modem",
+    "videoEncode": [
+      "4K@30fps"
+    ],
+    "videoDecode": [
+      "4K@30fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2017-05-09",
+    "sourceUrl": "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-6-series-mobile-platforms/snapdragon-660-mobile-platform",
+    "aliases": [
+      "sdm660",
+      "snapdragon-660",
+      "snapdragon 660",
+      "sd660",
+      "qualcomm-snapdragon-660",
+      "qualcomm:snapdragon-660-sdm660"
+    ],
+    "provenance": {
+      "primarySource": "Qualcomm Official Product Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-6-series-mobile-platforms/snapdragon-660-mobile-platform",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "14nm performance upper-midrange processor with Adreno 512."
+    }
+  },
+  {
+    "id": "qualcomm:snapdragon-425-msm8917",
+    "name": "Qualcomm Snapdragon 425",
+    "manufacturer": "Qualcomm",
+    "family": "Snapdragon 4",
+    "partNumber": "MSM8917",
+    "architecture": "ARMv8-A",
+    "cpuCores": 4,
+    "cpuClusters": [
+      {
+        "name": "Cores",
+        "cores": 4,
+        "microarchitecture": "Cortex-A53",
+        "maxClock": 1400,
+        "efficiencyClass": "performance"
+      }
+    ],
+    "cpuClockMax": 1400,
+    "cpuBitness": 64,
+    "gpu": "Qualcomm Adreno 308",
+    "gpuFamily": "Adreno 300",
+    "gpuArchitecture": "Adreno 300",
+    "gpuClockMhz": 500,
+    "gpuExecutionUnits": null,
+    "npu": null,
+    "aiPerformance": null,
+    "processNode": "28 nm (TSMC 28LP)",
+    "vulkanVersion": null,
+    "openGlEsVersion": "3.0",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR3",
+    "memoryChannels": 1,
+    "memoryBandwidth": "5.3 GB/s",
+    "maxMemorySizeGb": 3,
+    "isp": "Qualcomm ISP (16 MP)",
+    "dsp": "Hexagon 536 DSP",
+    "modem": "Snapdragon X6 LTE Modem",
+    "videoEncode": [
+      "1080p@30fps"
+    ],
+    "videoDecode": [
+      "1080p@30fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2016-02-11",
+    "sourceUrl": "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-4-series-mobile-platforms/snapdragon-425-mobile-platform",
+    "aliases": [
+      "msm8917",
+      "snapdragon-425",
+      "snapdragon 425",
+      "sd425",
+      "qualcomm-snapdragon-425",
+      "qualcomm:snapdragon-425-msm8917"
+    ],
+    "provenance": {
+      "primarySource": "Qualcomm Official Product Specification",
+      "verificationSources": [
+        "FCC ID Hardware Filings"
+      ],
+      "sourceUrls": [
+        "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-4-series-mobile-platforms/snapdragon-425-mobile-platform"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Mass-market 28nm quad-core Cortex-A53 platform."
+    }
+  },
+  {
+    "id": "qualcomm:snapdragon-615-msm8939",
+    "name": "Qualcomm Snapdragon 615",
+    "manufacturer": "Qualcomm",
+    "family": "Snapdragon 6",
+    "partNumber": "MSM8939",
+    "architecture": "ARMv8-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 4,
+        "microarchitecture": "Cortex-A53",
+        "maxClock": 1500,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Cortex-A53",
+        "maxClock": 1000,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 1500,
+    "cpuBitness": 64,
+    "gpu": "Qualcomm Adreno 405",
+    "gpuFamily": "Adreno 400",
+    "gpuArchitecture": "Adreno 400",
+    "gpuClockMhz": 550,
+    "gpuExecutionUnits": null,
+    "npu": null,
+    "aiPerformance": null,
+    "processNode": "28 nm (TSMC 28LP)",
+    "vulkanVersion": null,
+    "openGlEsVersion": "3.0",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR3",
+    "memoryChannels": 1,
+    "memoryBandwidth": "6.4 GB/s",
+    "maxMemorySizeGb": 4,
+    "isp": "Qualcomm ISP (21 MP)",
+    "dsp": "Hexagon V50 DSP",
+    "modem": "Snapdragon X5 LTE Modem",
+    "videoEncode": [
+      "1080p@60fps"
+    ],
+    "videoDecode": [
+      "1080p@60fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2014-02-24",
+    "sourceUrl": "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-6-series-mobile-platforms/snapdragon-615-processor",
+    "aliases": [
+      "msm8939",
+      "snapdragon-615",
+      "snapdragon 615",
+      "sd615",
+      "qualcomm-snapdragon-615",
+      "qualcomm:snapdragon-615-msm8939"
+    ],
+    "provenance": {
+      "primarySource": "Qualcomm Official Product Specification",
+      "verificationSources": [
+        "FCC ID Hardware Filings"
+      ],
+      "sourceUrls": [
+        "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-6-series-mobile-platforms/snapdragon-615-processor"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "Qualcomm first 64-bit octa-core processor with Adreno 405 GPU."
+    }
+  },
+  {
+    "id": "qualcomm:snapdragon-8s-gen-3-sm8635",
+    "name": "Qualcomm Snapdragon 8s Gen 3",
+    "manufacturer": "Qualcomm",
+    "family": "Snapdragon 8",
+    "partNumber": "SM8635",
+    "architecture": "ARMv9.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Prime",
+        "cores": 1,
+        "microarchitecture": "Cortex-X4",
+        "maxClock": 3000,
+        "efficiencyClass": "prime"
+      },
+      {
+        "name": "Performance",
+        "cores": 4,
+        "microarchitecture": "Cortex-A720",
+        "maxClock": 2800,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 3,
+        "microarchitecture": "Cortex-A520",
+        "maxClock": 2000,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 3000,
+    "cpuBitness": 64,
+    "gpu": "Qualcomm Adreno 735",
+    "gpuFamily": "Adreno 700",
+    "gpuArchitecture": "Adreno 700",
+    "gpuClockMhz": 1100,
+    "gpuExecutionUnits": null,
+    "npu": "Hexagon NPU",
+    "aiPerformance": null,
+    "processNode": "4 nm (TSMC N4P)",
+    "vulkanVersion": "1.3",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": true,
+    "memoryType": "LPDDR5X",
+    "memoryChannels": 4,
+    "memoryBandwidth": "64.0 GB/s",
+    "maxMemorySizeGb": 24,
+    "isp": "Cognitive Spectra ISP (200 MP)",
+    "dsp": "Hexagon Vector Extensions",
+    "modem": "Snapdragon X70 5G Modem",
+    "videoEncode": [
+      "4K@60fps"
+    ],
+    "videoDecode": [
+      "4K@60fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2024-03-18",
+    "sourceUrl": "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-8-series-mobile-platforms/snapdragon-8s-gen-3-mobile-platform",
+    "aliases": [
+      "sm8635",
+      "snapdragon-8s-gen-3",
+      "snapdragon 8s gen 3",
+      "snapdragon 8s gen3",
+      "sd8sgen3",
+      "qualcomm-snapdragon-8s-gen-3",
+      "qualcomm:snapdragon-8s-gen-3-sm8635"
+    ],
+    "provenance": {
+      "primarySource": "Qualcomm Official Product Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-8-series-mobile-platforms/snapdragon-8s-gen-3-mobile-platform",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "4nm sub-flagship 2024 mobile platform with hardware ray tracing."
+    }
+  },
+  {
+    "id": "qualcomm:snapdragon-662-sm6115",
+    "name": "Qualcomm Snapdragon 662",
+    "manufacturer": "Qualcomm",
+    "family": "Snapdragon 6",
+    "partNumber": "SM6115",
+    "architecture": "ARMv8-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 4,
+        "microarchitecture": "Kryo 260 Gold (Cortex-A73)",
+        "maxClock": 2000,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Kryo 260 Silver (Cortex-A53)",
+        "maxClock": 1800,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2000,
+    "cpuBitness": 64,
+    "gpu": "Qualcomm Adreno 610",
+    "gpuFamily": "Adreno 600",
+    "gpuArchitecture": "Adreno 600",
+    "gpuClockMhz": 600,
+    "gpuExecutionUnits": null,
+    "npu": null,
+    "aiPerformance": null,
+    "processNode": "11 nm (Samsung 11LPP)",
+    "vulkanVersion": "1.1",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR4X",
+    "memoryChannels": 2,
+    "memoryBandwidth": "14.9 GB/s",
+    "maxMemorySizeGb": 8,
+    "isp": "Spectra 340T (48 MP)",
+    "dsp": "Hexagon 683 DSP",
+    "modem": "Snapdragon X11 LTE Modem",
+    "videoEncode": [
+      "1080p@60fps"
+    ],
+    "videoDecode": [
+      "1080p@60fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2020-01-20",
+    "sourceUrl": "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-6-series-mobile-platforms/snapdragon-662-mobile-platform",
+    "aliases": [
+      "sm6115",
+      "snapdragon-662",
+      "snapdragon 662",
+      "sd662",
+      "qualcomm-snapdragon-662",
+      "qualcomm:snapdragon-662-sm6115"
+    ],
+    "provenance": {
+      "primarySource": "Qualcomm Official Product Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-6-series-mobile-platforms/snapdragon-662-mobile-platform",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "11nm mid-range platform featuring Spectra 340T triple ISP."
+    }
+  },
+  {
+    "id": "qualcomm:snapdragon-450-sdm450",
+    "name": "Qualcomm Snapdragon 450",
+    "manufacturer": "Qualcomm",
+    "family": "Snapdragon 4",
+    "partNumber": "SDM450",
+    "architecture": "ARMv8-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Cores",
+        "cores": 8,
+        "microarchitecture": "Cortex-A53",
+        "maxClock": 1800,
+        "efficiencyClass": "performance"
+      }
+    ],
+    "cpuClockMax": 1800,
+    "cpuBitness": 64,
+    "gpu": "Qualcomm Adreno 506",
+    "gpuFamily": "Adreno 500",
+    "gpuArchitecture": "Adreno 500",
+    "gpuClockMhz": 600,
+    "gpuExecutionUnits": null,
+    "npu": null,
+    "aiPerformance": null,
+    "processNode": "14 nm (Samsung 14LPP)",
+    "vulkanVersion": "1.1",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR3",
+    "memoryChannels": 1,
+    "memoryBandwidth": "7.5 GB/s",
+    "maxMemorySizeGb": 4,
+    "isp": "Qualcomm ISP (21 MP)",
+    "dsp": "Hexagon 546 DSP",
+    "modem": "Snapdragon X9 LTE Modem",
+    "videoEncode": [
+      "1080p@60fps"
+    ],
+    "videoDecode": [
+      "1080p@60fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2017-06-28",
+    "sourceUrl": "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-4-series-mobile-platforms/snapdragon-450-mobile-platform",
+    "aliases": [
+      "sdm450",
+      "snapdragon-450",
+      "snapdragon 450",
+      "sd450",
+      "qualcomm-snapdragon-450",
+      "qualcomm:snapdragon-450-sdm450"
+    ],
+    "provenance": {
+      "primarySource": "Qualcomm Official Product Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-4-series-mobile-platforms/snapdragon-450-mobile-platform",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "14nm 8x Cortex-A53 entry-to-mid platform with Adreno 506."
+    }
+  },
+  {
+    "id": "mediatek:helio-g81-ultra",
+    "name": "MediaTek Helio G81 Ultra",
+    "manufacturer": "MediaTek",
+    "family": "Helio G",
+    "partNumber": null,
+    "architecture": "ARMv8.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 2,
+        "microarchitecture": "Cortex-A75",
+        "maxClock": 2000,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 6,
+        "microarchitecture": "Cortex-A55",
+        "maxClock": 1800,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2000,
+    "cpuBitness": 64,
+    "gpu": "Arm Mali-G52 MC2",
+    "gpuFamily": "Arm Mali Bifrost",
+    "gpuArchitecture": "Bifrost 2nd Gen",
+    "gpuClockMhz": 950,
+    "gpuExecutionUnits": 2,
+    "npu": null,
+    "aiPerformance": null,
+    "processNode": "12 nm (TSMC 12FFC)",
+    "vulkanVersion": "1.1",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR4X",
+    "memoryChannels": 2,
+    "memoryBandwidth": "14.4 GB/s",
+    "maxMemorySizeGb": 8,
+    "isp": "MediaTek Imagiq (50 MP)",
+    "dsp": null,
+    "modem": "4G LTE Cat.7/13 Modem",
+    "videoEncode": [
+      "1080p@30fps"
+    ],
+    "videoDecode": [
+      "1080p@60fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2024-08-31",
+    "sourceUrl": "https://www.mediatek.com/products/smartphones-2/mediatek-helio-g81",
+    "aliases": [
+      "helio g81 ultra",
+      "helio-g81-ultra",
+      "helio g81",
+      "helio-g81",
+      "helio g81 extreme",
+      "mediatek helio g81 ultra",
+      "mediatek-helio-g81-ultra",
+      "mediatek:helio-g81-ultra"
+    ],
+    "provenance": {
+      "primarySource": "MediaTek Official Product Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.mediatek.com/products/smartphones-2/mediatek-helio-g81",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "12nm modern refresh of G80/G85 platform for budget smartphones."
+    }
+  },
+  {
+    "id": "qualcomm:snapdragon-625-msm8953",
+    "name": "Qualcomm Snapdragon 625",
+    "manufacturer": "Qualcomm",
+    "family": "Snapdragon 6",
+    "partNumber": "MSM8953",
+    "architecture": "ARMv8-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Cores",
+        "cores": 8,
+        "microarchitecture": "Cortex-A53",
+        "maxClock": 2000,
+        "efficiencyClass": "performance"
+      }
+    ],
+    "cpuClockMax": 2000,
+    "cpuBitness": 64,
+    "gpu": "Qualcomm Adreno 506",
+    "gpuFamily": "Adreno 500",
+    "gpuArchitecture": "Adreno 500",
+    "gpuClockMhz": 650,
+    "gpuExecutionUnits": null,
+    "npu": null,
+    "aiPerformance": null,
+    "processNode": "14 nm (Samsung 14LPP)",
+    "vulkanVersion": "1.1",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR3",
+    "memoryChannels": 1,
+    "memoryBandwidth": "7.5 GB/s",
+    "maxMemorySizeGb": 4,
+    "isp": "Qualcomm ISP (24 MP)",
+    "dsp": "Hexagon 546 DSP",
+    "modem": "Snapdragon X9 LTE Modem",
+    "videoEncode": [
+      "4K@30fps"
+    ],
+    "videoDecode": [
+      "4K@30fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2016-02-11",
+    "sourceUrl": "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-6-series-mobile-platforms/snapdragon-625-mobile-platform",
+    "aliases": [
+      "msm8953",
+      "snapdragon-625",
+      "snapdragon 625",
+      "sd625",
+      "qualcomm-snapdragon-625",
+      "qualcomm:snapdragon-625-msm8953"
+    ],
+    "provenance": {
+      "primarySource": "Qualcomm Official Product Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-6-series-mobile-platforms/snapdragon-625-mobile-platform",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "14nm 8x Cortex-A53 high-efficiency mobile platform."
+    }
+  },
+  {
+    "id": "qualcomm:snapdragon-750g-sm7225",
+    "name": "Qualcomm Snapdragon 750G 5G",
+    "manufacturer": "Qualcomm",
+    "family": "Snapdragon 7",
+    "partNumber": "SM7225",
+    "architecture": "ARMv8.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 2,
+        "microarchitecture": "Kryo 570 Gold (Cortex-A77)",
+        "maxClock": 2200,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 6,
+        "microarchitecture": "Kryo 570 Silver (Cortex-A55)",
+        "maxClock": 1800,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2200,
+    "cpuBitness": 64,
+    "gpu": "Qualcomm Adreno 619",
+    "gpuFamily": "Adreno 600",
+    "gpuArchitecture": "Adreno 600",
+    "gpuClockMhz": 800,
+    "gpuExecutionUnits": null,
+    "npu": "Hexagon 694 NPU",
+    "aiPerformance": "4.0 TOPS",
+    "processNode": "8 nm (Samsung 8LPP)",
+    "vulkanVersion": "1.1",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR4X",
+    "memoryChannels": 2,
+    "memoryBandwidth": "17.0 GB/s",
+    "maxMemorySizeGb": 12,
+    "isp": "Spectra 355L (192 MP)",
+    "dsp": "Hexagon 694 DSP",
+    "modem": "Snapdragon X52 5G Modem",
+    "videoEncode": [
+      "4K@30fps"
+    ],
+    "videoDecode": [
+      "4K@30fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2020-09-22",
+    "sourceUrl": "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-7-series-mobile-platforms/snapdragon-750g-5g-mobile-platform",
+    "aliases": [
+      "sm7225",
+      "snapdragon-750g",
+      "snapdragon 750g",
+      "snapdragon 750g 5g",
+      "sd750g",
+      "qualcomm-snapdragon-750g",
+      "qualcomm:snapdragon-750g-sm7225"
+    ],
+    "provenance": {
+      "primarySource": "Qualcomm Official Product Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-7-series-mobile-platforms/snapdragon-750g-5g-mobile-platform",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "8nm 5G gaming platform with Kryo 570 (Cortex-A77) cores."
+    }
+  },
+  {
+    "id": "unisoc:tiger-t612-ums9230",
+    "name": "UNISOC Tiger T612",
+    "manufacturer": "UNISOC",
+    "family": "Tiger T",
+    "partNumber": "UMS9230",
+    "architecture": "ARMv8.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 2,
+        "microarchitecture": "Cortex-A75",
+        "maxClock": 1800,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 6,
+        "microarchitecture": "Cortex-A55",
+        "maxClock": 1800,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 1800,
+    "cpuBitness": 64,
+    "gpu": "Arm Mali-G57 MP1",
+    "gpuFamily": "Arm Mali Valhall",
+    "gpuArchitecture": "Valhall 1st Gen",
+    "gpuClockMhz": 614,
+    "gpuExecutionUnits": 1,
+    "npu": null,
+    "aiPerformance": null,
+    "processNode": "12 nm (TSMC 12FFC)",
+    "vulkanVersion": "1.2",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR4X",
+    "memoryChannels": 2,
+    "memoryBandwidth": "14.9 GB/s",
+    "maxMemorySizeGb": 6,
+    "isp": "UNISOC Vivimagic 5.0 (50 MP)",
+    "dsp": null,
+    "modem": "LTE Cat.7 Modem",
+    "videoEncode": [
+      "1080p@30fps"
+    ],
+    "videoDecode": [
+      "1080p@60fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2022-05-01",
+    "sourceUrl": "https://www.unisoc.com/en_us/home/TZ-T612",
+    "aliases": [
+      "t612",
+      "tiger-t612",
+      "tiger t612",
+      "unisoc-t612",
+      "unisoc t612",
+      "ums9230",
+      "unisoc:tiger-t612-ums9230"
+    ],
+    "provenance": {
+      "primarySource": "UNISOC Official Product Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.unisoc.com/en_us/home/TZ-T612",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "12nm octa-core budget platform with Mali-G57 MP1."
+    }
+  },
+  {
+    "id": "mediatek:dimensity-6020-mt6833",
+    "name": "MediaTek Dimensity 6020",
+    "manufacturer": "MediaTek",
+    "family": "Dimensity",
+    "partNumber": "MT6833",
+    "architecture": "ARMv8.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 2,
+        "microarchitecture": "Cortex-A76",
+        "maxClock": 2200,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 6,
+        "microarchitecture": "Cortex-A55",
+        "maxClock": 2000,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2200,
+    "cpuBitness": 64,
+    "gpu": "Arm Mali-G57 MC2",
+    "gpuFamily": "Arm Mali Valhall",
+    "gpuArchitecture": "Valhall 1st Gen",
+    "gpuClockMhz": 950,
+    "gpuExecutionUnits": 2,
+    "npu": null,
+    "aiPerformance": null,
+    "processNode": "7 nm (TSMC N7)",
+    "vulkanVersion": "1.2",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR4X",
+    "memoryChannels": 2,
+    "memoryBandwidth": "17.0 GB/s",
+    "maxMemorySizeGb": 12,
+    "isp": "MediaTek Imagiq (64 MP)",
+    "dsp": null,
+    "modem": "MediaTek 5G Sub-6GHz Modem",
+    "videoEncode": [
+      "1080p@30fps"
+    ],
+    "videoDecode": [
+      "2K@30fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2023-03-01",
+    "sourceUrl": "https://www.mediatek.com/products/smartphones-2/mediatek-dimensity-6020",
+    "aliases": [
+      "d6020",
+      "dimensity-6020",
+      "dimensity 6020",
+      "dimensity-6020-mt6833",
+      "mediatek-dimensity-6020",
+      "mediatek:dimensity-6020-mt6833"
+    ],
+    "provenance": {
+      "primarySource": "MediaTek Official Product Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.mediatek.com/products/smartphones-2/mediatek-dimensity-6020",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "7nm 5G platform rebrand of Dimensity 700 with upgraded display pipeline."
+    }
+  },
+  {
+    "id": "qualcomm:snapdragon-730g-sdm730g",
+    "name": "Qualcomm Snapdragon 730G",
+    "manufacturer": "Qualcomm",
+    "family": "Snapdragon 7",
+    "partNumber": "SDM730G",
+    "architecture": "ARMv8-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 2,
+        "microarchitecture": "Kryo 470 Gold (Cortex-A76)",
+        "maxClock": 2200,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 6,
+        "microarchitecture": "Kryo 470 Silver (Cortex-A55)",
+        "maxClock": 1800,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2200,
+    "cpuBitness": 64,
+    "gpu": "Qualcomm Adreno 618",
+    "gpuFamily": "Adreno 600",
+    "gpuArchitecture": "Adreno 600",
+    "gpuClockMhz": 500,
+    "gpuExecutionUnits": null,
+    "npu": "Hexagon 688 DSP Vector Extensions",
+    "aiPerformance": null,
+    "processNode": "8 nm (Samsung 8LPP)",
+    "vulkanVersion": "1.1",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR4X",
+    "memoryChannels": 2,
+    "memoryBandwidth": "14.9 GB/s",
+    "maxMemorySizeGb": 8,
+    "isp": "Spectra 350 (192 MP)",
+    "dsp": "Hexagon 688 DSP",
+    "modem": "Snapdragon X15 LTE Modem",
+    "videoEncode": [
+      "4K@30fps"
+    ],
+    "videoDecode": [
+      "4K@30fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2019-04-09",
+    "sourceUrl": "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-7-series-mobile-platforms/snapdragon-730g-mobile-platform",
+    "aliases": [
+      "sdm730g",
+      "snapdragon-730g",
+      "snapdragon 730g",
+      "sd730g",
+      "qualcomm-snapdragon-730g",
+      "qualcomm:snapdragon-730g-sdm730g"
+    ],
+    "provenance": {
+      "primarySource": "Qualcomm Official Product Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-7-series-mobile-platforms/snapdragon-730g-mobile-platform",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "8nm gaming platform with Adreno 618 and Snapdragon Elite Gaming features."
+    }
+  },
+  {
+    "id": "qualcomm:snapdragon-720g-sm7125",
+    "name": "Qualcomm Snapdragon 720G",
+    "manufacturer": "Qualcomm",
+    "family": "Snapdragon 7",
+    "partNumber": "SM7125",
+    "architecture": "ARMv8-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 2,
+        "microarchitecture": "Kryo 465 Gold (Cortex-A76)",
+        "maxClock": 2300,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 6,
+        "microarchitecture": "Kryo 465 Silver (Cortex-A55)",
+        "maxClock": 1800,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2300,
+    "cpuBitness": 64,
+    "gpu": "Qualcomm Adreno 618",
+    "gpuFamily": "Adreno 600",
+    "gpuArchitecture": "Adreno 600",
+    "gpuClockMhz": 500,
+    "gpuExecutionUnits": null,
+    "npu": "Hexagon 692 DSP Vector Extensions",
+    "aiPerformance": null,
+    "processNode": "8 nm (Samsung 8LPP)",
+    "vulkanVersion": "1.1",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR4X",
+    "memoryChannels": 2,
+    "memoryBandwidth": "14.9 GB/s",
+    "maxMemorySizeGb": 8,
+    "isp": "Spectra 350L (192 MP)",
+    "dsp": "Hexagon 692 DSP",
+    "modem": "Snapdragon X15 LTE Modem",
+    "videoEncode": [
+      "4K@30fps"
+    ],
+    "videoDecode": [
+      "4K@30fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2020-01-20",
+    "sourceUrl": "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-7-series-mobile-platforms/snapdragon-720g-mobile-platform",
+    "aliases": [
+      "sm7125",
+      "snapdragon-720g",
+      "snapdragon 720g",
+      "sd720g",
+      "qualcomm-snapdragon-720g",
+      "qualcomm:snapdragon-720g-sm7125"
+    ],
+    "provenance": {
+      "primarySource": "Qualcomm Official Product Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.qualcomm.com/products/mobile/snapdragon/smartphones/snapdragon-7-series-mobile-platforms/snapdragon-720g-mobile-platform",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "8nm mobile platform with 2.3 GHz Kryo 465 Gold performance cores."
+    }
+  },
+  {
+    "id": "mediatek:helio-p60-mt6771",
+    "name": "MediaTek Helio P60",
+    "manufacturer": "MediaTek",
+    "family": "Helio P",
+    "partNumber": "MT6771",
+    "architecture": "ARMv8-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 4,
+        "microarchitecture": "Cortex-A73",
+        "maxClock": 2000,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 4,
+        "microarchitecture": "Cortex-A53",
+        "maxClock": 2000,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2000,
+    "cpuBitness": 64,
+    "gpu": "Arm Mali-G72 MP3",
+    "gpuFamily": "Arm Mali Bifrost",
+    "gpuArchitecture": "Bifrost 2nd Gen",
+    "gpuClockMhz": 800,
+    "gpuExecutionUnits": 3,
+    "npu": "MediaTek NeuroPilot APU",
+    "aiPerformance": null,
+    "processNode": "12 nm (TSMC 12FFC)",
+    "vulkanVersion": "1.1",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR4X",
+    "memoryChannels": 2,
+    "memoryBandwidth": "14.4 GB/s",
+    "maxMemorySizeGb": 8,
+    "isp": "MediaTek Imagiq (32 MP)",
+    "dsp": "MediaTek APU",
+    "modem": "4G LTE Cat.7/13 Modem",
+    "videoEncode": [
+      "1080p@30fps"
+    ],
+    "videoDecode": [
+      "1080p@30fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2018-02-26",
+    "sourceUrl": "https://www.mediatek.com/products/smartphones-2/mediatek-helio-p60",
+    "aliases": [
+      "helio-p60",
+      "helio p60",
+      "mt6771",
+      "mt6771v",
+      "mediatek-helio-p60",
+      "mediatek:helio-p60-mt6771"
+    ],
+    "provenance": {
+      "primarySource": "MediaTek Official Product Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.mediatek.com/products/smartphones-2/mediatek-helio-p60",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "12nm octa-core big.LITTLE platform with dedicated NeuroPilot APU."
+    }
+  },
+  {
+    "id": "mediatek:helio-g80-mt6769v",
+    "name": "MediaTek Helio G80",
+    "manufacturer": "MediaTek",
+    "family": "Helio G",
+    "partNumber": "MT6769V",
+    "architecture": "ARMv8.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 2,
+        "microarchitecture": "Cortex-A75",
+        "maxClock": 2000,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 6,
+        "microarchitecture": "Cortex-A55",
+        "maxClock": 1800,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2000,
+    "cpuBitness": 64,
+    "gpu": "Arm Mali-G52 MC2",
+    "gpuFamily": "Arm Mali Bifrost",
+    "gpuArchitecture": "Bifrost 2nd Gen",
+    "gpuClockMhz": 950,
+    "gpuExecutionUnits": 2,
+    "npu": null,
+    "aiPerformance": null,
+    "processNode": "12 nm (TSMC 12FFC)",
+    "vulkanVersion": "1.1",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR4X",
+    "memoryChannels": 2,
+    "memoryBandwidth": "14.4 GB/s",
+    "maxMemorySizeGb": 8,
+    "isp": "MediaTek Imagiq (48 MP)",
+    "dsp": null,
+    "modem": "4G LTE Cat.7/13 Modem",
+    "videoEncode": [
+      "2K@30fps"
+    ],
+    "videoDecode": [
+      "2K@30fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2020-02-03",
+    "sourceUrl": "https://www.mediatek.com/products/smartphones-2/mediatek-helio-g80",
+    "aliases": [
+      "helio-g80",
+      "helio g80",
+      "mt6769v",
+      "mt6769",
+      "mediatek-helio-g80",
+      "mediatek:helio-g80-mt6769v"
+    ],
+    "provenance": {
+      "primarySource": "MediaTek Official Product Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.mediatek.com/products/smartphones-2/mediatek-helio-g80",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "12nm mainstream gaming chipset with 950MHz Mali-G52 MC2."
+    }
+  },
+  {
+    "id": "mediatek:dimensity-800u-mt6853v",
+    "name": "MediaTek Dimensity 800U 5G",
+    "manufacturer": "MediaTek",
+    "family": "Dimensity",
+    "partNumber": "MT6853V",
+    "architecture": "ARMv8.2-A",
+    "cpuCores": 8,
+    "cpuClusters": [
+      {
+        "name": "Performance",
+        "cores": 2,
+        "microarchitecture": "Cortex-A76",
+        "maxClock": 2400,
+        "efficiencyClass": "performance"
+      },
+      {
+        "name": "Efficiency",
+        "cores": 6,
+        "microarchitecture": "Cortex-A55",
+        "maxClock": 2000,
+        "efficiencyClass": "efficiency"
+      }
+    ],
+    "cpuClockMax": 2400,
+    "cpuBitness": 64,
+    "gpu": "Arm Mali-G57 MC3",
+    "gpuFamily": "Arm Mali Valhall",
+    "gpuArchitecture": "Valhall 1st Gen",
+    "gpuClockMhz": 850,
+    "gpuExecutionUnits": 3,
+    "npu": "MediaTek APU",
+    "aiPerformance": "2.4 TOPS",
+    "processNode": "7 nm (TSMC N7)",
+    "vulkanVersion": "1.2",
+    "openGlEsVersion": "3.2",
+    "rayTracingHardware": false,
+    "memoryType": "LPDDR4X",
+    "memoryChannels": 2,
+    "memoryBandwidth": "17.0 GB/s",
+    "maxMemorySizeGb": 12,
+    "isp": "MediaTek Imagiq (64 MP)",
+    "dsp": "MediaTek APU",
+    "modem": "MediaTek 5G Sub-6GHz Dual SIM Modem",
+    "videoEncode": [
+      "4K@30fps"
+    ],
+    "videoDecode": [
+      "4K@30fps"
+    ],
+    "formFactor": [
+      "phone",
+      "tablet"
+    ],
+    "releaseDate": "2020-08-18",
+    "sourceUrl": "https://www.mediatek.com/products/smartphones-2/mediatek-dimensity-800u",
+    "aliases": [
+      "d800u",
+      "dimensity-800u",
+      "dimensity 800u",
+      "dimensity 800u 5g",
+      "dimensity-800u-5g",
+      "dimensity-800u-mt6853v",
+      "mediatek-dimensity-800u",
+      "mediatek:dimensity-800u-mt6853v",
+      "mt6853v",
+      "mt6853"
+    ],
+    "provenance": {
+      "primarySource": "MediaTek Official Product Specification",
+      "verificationSources": [
+        "Khronos Vulkan Conformance Registry"
+      ],
+      "sourceUrls": [
+        "https://www.mediatek.com/products/smartphones-2/mediatek-dimensity-800u",
+        "https://vulkan.gpuinfo.org/"
+      ],
+      "sourceTier": "tier1-vendor",
+      "licenseClassification": "Factual Hardware Specifications with Vendor Attribution",
+      "verificationNotes": "7nm 5G platform with 2.4GHz Cortex-A76 cores and 3-core Mali-G57."
     }
   }
 ]

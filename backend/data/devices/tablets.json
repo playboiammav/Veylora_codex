@@ -733,9 +733,9 @@
     ],
     "deviceType": "tablet",
     "formFactor": "tablet",
-    "socId": null,
-    "socName": "Apple A13 Bionic (7 nm+)",
-    "chipsetPartNumber": null,
+    "socId": "apple:a13-bionic-apl1w85",
+    "socName": "Apple A13 Bionic",
+    "chipsetPartNumber": "APL1W85",
     "ramGb": [
       3
     ],
@@ -745,8 +745,8 @@
       64,
       256
     ],
-    "gpu": "Apple GPU (4-core graphics)",
-    "gpuArchitecture": null,
+    "gpu": "Apple 4-Core GPU (Family 6)",
+    "gpuArchitecture": "Apple 6th Gen",
     "displayResolution": "1620 x 2160 pixels",
     "displayWidth": 1620,
     "displayHeight": 2160,
@@ -3612,9 +3612,9 @@
     ],
     "deviceType": "tablet",
     "formFactor": "tablet",
-    "socId": "qualcomm:snapdragon-8-gen-3-sm8650-ab",
-    "socName": "Qualcomm Snapdragon 8 Gen 3",
-    "chipsetPartNumber": "SM8650-AB",
+    "socId": null,
+    "socName": "Qualcomm SM8845 Snapdragon 8 Gen 5 (3 nm)",
+    "chipsetPartNumber": null,
     "ramGb": [
       12,
       16
@@ -3624,8 +3624,8 @@
     "storageGb": [
       512
     ],
-    "gpu": "Qualcomm Adreno 750",
-    "gpuArchitecture": "Adreno 700",
+    "gpu": "Adreno 829",
+    "gpuArchitecture": null,
     "displayResolution": "1920 x 3000 pixels",
     "displayWidth": 1920,
     "displayHeight": 3000,
@@ -3639,9 +3639,9 @@
     "currentAndroidVersion": null,
     "iosVersion": null,
     "androidApiLevel": 36,
-    "vulkanSupported": true,
-    "vulkanVersion": "1.3",
-    "openGlEsVersion": "3.2",
+    "vulkanSupported": null,
+    "vulkanVersion": null,
+    "openGlEsVersion": null,
     "releaseDate": "2026-03-01",
     "sourceUrl": "https://www.mobiledokan.co/product/honor-magicpad4/",
     "sourceName": "Google Play / Secondary Technical Synthesis",
@@ -4305,9 +4305,9 @@
     ],
     "deviceType": "tablet",
     "formFactor": "tablet",
-    "socId": null,
-    "socName": "Qualcomm SM8635 Snapdragon 8s Gen 3 (4 nm)",
-    "chipsetPartNumber": null,
+    "socId": "qualcomm:snapdragon-8s-gen-3-sm8635",
+    "socName": "Qualcomm Snapdragon 8s Gen 3",
+    "chipsetPartNumber": "SM8635",
     "ramGb": [
       8,
       16
@@ -4317,8 +4317,8 @@
     "storageGb": [
       512
     ],
-    "gpu": "Adreno 735",
-    "gpuArchitecture": null,
+    "gpu": "Qualcomm Adreno 735",
+    "gpuArchitecture": "Adreno 700",
     "displayResolution": "1920 x 3000 pixels",
     "displayWidth": 1920,
     "displayHeight": 3000,
@@ -4332,9 +4332,9 @@
     "currentAndroidVersion": null,
     "iosVersion": null,
     "androidApiLevel": 34,
-    "vulkanSupported": null,
-    "vulkanVersion": null,
-    "openGlEsVersion": null,
+    "vulkanSupported": true,
+    "vulkanVersion": "1.3",
+    "openGlEsVersion": "3.2",
     "releaseDate": "2024-10-17",
     "sourceUrl": "https://www.mobiledokan.co/product/honor-pad-gt-pro/",
     "sourceName": "Google Play / Secondary Technical Synthesis",
@@ -4426,9 +4426,9 @@
     ],
     "deviceType": "tablet",
     "formFactor": "tablet",
-    "socId": null,
-    "socName": "Qualcomm SM8635 Snapdragon 8s Gen 3 (4 nm)",
-    "chipsetPartNumber": null,
+    "socId": "qualcomm:snapdragon-8s-gen-3-sm8635",
+    "socName": "Qualcomm Snapdragon 8s Gen 3",
+    "chipsetPartNumber": "SM8635",
     "ramGb": [
       8,
       16
@@ -4439,8 +4439,8 @@
       512,
       1024
     ],
-    "gpu": "Adreno 735",
-    "gpuArchitecture": null,
+    "gpu": "Qualcomm Adreno 735",
+    "gpuArchitecture": "Adreno 700",
     "displayResolution": "1920 x 3000 pixels",
     "displayWidth": 1920,
     "displayHeight": 3000,
@@ -4454,9 +4454,9 @@
     "currentAndroidVersion": null,
     "iosVersion": null,
     "androidApiLevel": 34,
-    "vulkanSupported": null,
-    "vulkanVersion": null,
-    "openGlEsVersion": null,
+    "vulkanSupported": true,
+    "vulkanVersion": "1.3",
+    "openGlEsVersion": "3.2",
     "releaseDate": "2024-07-19",
     "sourceUrl": "https://www.mobiledokan.co/product/honor-magicpad-2-12-3/",
     "sourceName": "Google Play / Secondary Technical Synthesis",
@@ -6793,9 +6793,9 @@
     ],
     "deviceType": "tablet",
     "formFactor": "tablet",
-    "socId": "qualcomm:snapdragon-4-gen-1-sm4375",
-    "socName": "Qualcomm Snapdragon 4 Gen 1",
-    "chipsetPartNumber": "SM4375",
+    "socId": null,
+    "socName": "Qualcomm SM7450-AB Snapdragon 7 Gen 1 (4 nm)",
+    "chipsetPartNumber": null,
     "ramGb": [
       6,
       8
@@ -6805,8 +6805,8 @@
     "storageGb": [
       128
     ],
-    "gpu": "Qualcomm Adreno 619",
-    "gpuArchitecture": "Adreno 600",
+    "gpu": "Adreno 644",
+    "gpuArchitecture": null,
     "displayResolution": "1440 x 2200 pixels",
     "displayWidth": 1440,
     "displayHeight": 2200,
@@ -6817,9 +6817,9 @@
     "currentAndroidVersion": null,
     "iosVersion": null,
     "androidApiLevel": null,
-    "vulkanSupported": true,
-    "vulkanVersion": "1.2",
-    "openGlEsVersion": "3.2",
+    "vulkanSupported": null,
+    "vulkanVersion": null,
+    "openGlEsVersion": null,
     "releaseDate": "2023-07-22",
     "sourceUrl": "https://www.mobiledokan.co/product/huawei-matepad-11-5/",
     "sourceName": "Google Play / Secondary Technical Synthesis",
@@ -7912,9 +7912,9 @@
     ],
     "deviceType": "tablet",
     "formFactor": "tablet",
-    "socId": null,
-    "socName": "HiSilicon Kirin 990 (7 nm+)",
-    "chipsetPartNumber": null,
+    "socId": "hisilicon:kirin-990-5g-hi3690",
+    "socName": "HiSilicon Kirin 990 5G",
+    "chipsetPartNumber": "Hi3690 5G",
     "ramGb": [
       6,
       8
@@ -7924,8 +7924,8 @@
     "storageGb": [
       512
     ],
-    "gpu": "Mali-G76 MP16",
-    "gpuArchitecture": null,
+    "gpu": "Arm Mali-G76 MP16",
+    "gpuArchitecture": "Bifrost 3rd Gen",
     "displayResolution": "1600 x 2560 pixels",
     "displayWidth": 1600,
     "displayHeight": 2560,
@@ -7936,9 +7936,9 @@
     "currentAndroidVersion": null,
     "iosVersion": null,
     "androidApiLevel": 29,
-    "vulkanSupported": null,
-    "vulkanVersion": null,
-    "openGlEsVersion": null,
+    "vulkanSupported": true,
+    "vulkanVersion": "1.2",
+    "openGlEsVersion": "3.2",
     "releaseDate": "2019-12-01",
     "sourceUrl": "https://www.mobiledokan.co/product/huawei-matepad-pro/",
     "sourceName": "Google Play / Secondary Technical Synthesis",
@@ -8550,9 +8550,9 @@
     ],
     "deviceType": "tablet",
     "formFactor": "tablet",
-    "socId": null,
-    "socName": "Qualcomm MSM8917 Snapdragon 425 (28 nm)",
-    "chipsetPartNumber": null,
+    "socId": "qualcomm:snapdragon-425-msm8917",
+    "socName": "Qualcomm Snapdragon 425",
+    "chipsetPartNumber": "MSM8917",
     "ramGb": [
       2,
       3,
@@ -8564,8 +8564,8 @@
     "storageGb": [
       32
     ],
-    "gpu": "Adreno 308",
-    "gpuArchitecture": null,
+    "gpu": "Qualcomm Adreno 308",
+    "gpuArchitecture": "Adreno 300",
     "displayResolution": "800 x 1280 pixels",
     "displayWidth": 800,
     "displayHeight": 1280,
@@ -8576,9 +8576,9 @@
     "currentAndroidVersion": null,
     "iosVersion": null,
     "androidApiLevel": 24,
-    "vulkanSupported": null,
+    "vulkanSupported": false,
     "vulkanVersion": null,
-    "openGlEsVersion": null,
+    "openGlEsVersion": "3.0",
     "releaseDate": "2017-05-01",
     "sourceUrl": "https://www.mobiledokan.co/product/huawei-mediapad-t3-8-0/",
     "sourceName": "Google Play / Secondary Technical Synthesis",
@@ -8610,9 +8610,9 @@
     ],
     "deviceType": "tablet",
     "formFactor": "tablet",
-    "socId": null,
-    "socName": "Qualcomm SM8635 Snapdragon 8s Gen 3 (4 nm)",
-    "chipsetPartNumber": null,
+    "socId": "qualcomm:snapdragon-8s-gen-3-sm8635",
+    "socName": "Qualcomm Snapdragon 8s Gen 3",
+    "chipsetPartNumber": "SM8635",
     "ramGb": [
       8,
       12
@@ -8623,8 +8623,8 @@
       128,
       256
     ],
-    "gpu": "Adreno 735",
-    "gpuArchitecture": null,
+    "gpu": "Qualcomm Adreno 735",
+    "gpuArchitecture": "Adreno 700",
     "displayResolution": "1968 x 2800 pixels",
     "displayWidth": 1968,
     "displayHeight": 2800,
@@ -8638,9 +8638,9 @@
     "currentAndroidVersion": null,
     "iosVersion": null,
     "androidApiLevel": 36,
-    "vulkanSupported": null,
-    "vulkanVersion": null,
-    "openGlEsVersion": null,
+    "vulkanSupported": true,
+    "vulkanVersion": "1.3",
+    "openGlEsVersion": "3.2",
     "releaseDate": "2026-06-01",
     "sourceUrl": "https://www.gsmarena.com/vivo-iqoo-pad5c.php",
     "sourceName": "GSMArena Technical Hardware Tree",
@@ -8799,9 +8799,9 @@
     ],
     "deviceType": "tablet",
     "formFactor": "tablet",
-    "socId": null,
-    "socName": "Qualcomm SM8635 Snapdragon 8s Gen 3 (4 nm)",
-    "chipsetPartNumber": null,
+    "socId": "qualcomm:snapdragon-8s-gen-3-sm8635",
+    "socName": "Qualcomm Snapdragon 8s Gen 3",
+    "chipsetPartNumber": "SM8635",
     "ramGb": [
       8,
       12
@@ -8813,8 +8813,8 @@
       256,
       512
     ],
-    "gpu": "Adreno 735",
-    "gpuArchitecture": null,
+    "gpu": "Qualcomm Adreno 735",
+    "gpuArchitecture": "Adreno 700",
     "displayResolution": "1968 x 2800 pixels",
     "displayWidth": 1968,
     "displayHeight": 2800,
@@ -8828,9 +8828,9 @@
     "currentAndroidVersion": null,
     "iosVersion": null,
     "androidApiLevel": 34,
-    "vulkanSupported": null,
-    "vulkanVersion": null,
-    "openGlEsVersion": null,
+    "vulkanSupported": true,
+    "vulkanVersion": "1.3",
+    "openGlEsVersion": "3.2",
     "releaseDate": "2024-06-04",
     "sourceUrl": "https://www.gsmarena.com/vivo-iqoo-pad2.php",
     "sourceName": "GSMArena Technical Hardware Tree",
@@ -9053,9 +9053,9 @@
     ],
     "deviceType": "tablet",
     "formFactor": "tablet",
-    "socId": null,
-    "socName": "Mediatek Dimensity 6300 (6 nm)",
-    "chipsetPartNumber": null,
+    "socId": "mediatek:dimensity-6300-mt6835t",
+    "socName": "MediaTek Dimensity 6300",
+    "chipsetPartNumber": "MT6835T",
     "ramGb": [
       8
     ],
@@ -9064,8 +9064,8 @@
     "storageGb": [
       128
     ],
-    "gpu": "Mali-G57 MC2",
-    "gpuArchitecture": null,
+    "gpu": "Arm Mali-G57 MC2",
+    "gpuArchitecture": "Valhall 1st Gen",
     "displayResolution": "1600 x 2560 pixels",
     "displayWidth": 1600,
     "displayHeight": 2560,
@@ -9079,9 +9079,9 @@
     "currentAndroidVersion": null,
     "iosVersion": null,
     "androidApiLevel": 35,
-    "vulkanSupported": null,
-    "vulkanVersion": null,
-    "openGlEsVersion": null,
+    "vulkanSupported": true,
+    "vulkanVersion": "1.2",
+    "openGlEsVersion": "3.2",
     "releaseDate": "2026-04-30",
     "sourceUrl": "https://www.gsmarena.com/motorola-moto-pad-2026.php",
     "sourceName": "GSMArena Technical Hardware Tree",
@@ -9119,9 +9119,9 @@
     ],
     "deviceType": "tablet",
     "formFactor": "tablet",
-    "socId": null,
-    "socName": "Mediatek Helio G85 (12 nm)",
-    "chipsetPartNumber": null,
+    "socId": "mediatek:helio-g85-mt6769z",
+    "socName": "MediaTek Helio G85",
+    "chipsetPartNumber": "MT6769Z",
     "ramGb": [
       4
     ],
@@ -9130,8 +9130,8 @@
     "storageGb": [
       128
     ],
-    "gpu": "Mali-G52 MC2",
-    "gpuArchitecture": null,
+    "gpu": "Arm Mali-G52 MC2",
+    "gpuArchitecture": "Bifrost 2nd Gen",
     "displayResolution": "1200 x 1920 pixels",
     "displayWidth": 1200,
     "displayHeight": 1920,
@@ -9142,9 +9142,9 @@
     "currentAndroidVersion": null,
     "iosVersion": null,
     "androidApiLevel": 35,
-    "vulkanSupported": null,
-    "vulkanVersion": null,
-    "openGlEsVersion": null,
+    "vulkanSupported": true,
+    "vulkanVersion": "1.1",
+    "openGlEsVersion": "3.2",
     "releaseDate": "2025-10-01",
     "sourceUrl": "https://www.gsmarena.com/motorola-moto-pad-60-lite.php",
     "sourceName": "GSMArena Technical Hardware Tree",
@@ -9183,9 +9183,9 @@
     ],
     "deviceType": "tablet",
     "formFactor": "tablet",
-    "socId": null,
-    "socName": "Mediatek Dimensity 6300 (6 nm)",
-    "chipsetPartNumber": null,
+    "socId": "mediatek:dimensity-6300-mt6835t",
+    "socName": "MediaTek Dimensity 6300",
+    "chipsetPartNumber": "MT6835T",
     "ramGb": [
       8
     ],
@@ -9194,8 +9194,8 @@
     "storageGb": [
       128
     ],
-    "gpu": "Mali-G57 MC2",
-    "gpuArchitecture": null,
+    "gpu": "Arm Mali-G57 MC2",
+    "gpuArchitecture": "Valhall 1st Gen",
     "displayResolution": "1600 x 2560 pixels",
     "displayWidth": 1600,
     "displayHeight": 2560,
@@ -9209,9 +9209,9 @@
     "currentAndroidVersion": null,
     "iosVersion": null,
     "androidApiLevel": 35,
-    "vulkanSupported": null,
-    "vulkanVersion": null,
-    "openGlEsVersion": null,
+    "vulkanSupported": true,
+    "vulkanVersion": "1.2",
+    "openGlEsVersion": "3.2",
     "releaseDate": "2025-09-22",
     "sourceUrl": "https://www.gsmarena.com/motorola-moto-pad-60-neo.php",
     "sourceName": "GSMArena Technical Hardware Tree",
@@ -9354,12 +9354,12 @@
     "deviceCodenames": null
   },
   {
-    "id": "motorola:moto-tab-g70-moto-tab-g70-lte",
+    "id": "motorola:moto-tab-g70",
     "brand": "Motorola",
     "marketName": "Moto Tab G70",
     "modelNumbers": [
-      "moto tab g70 LTE",
-      "moto tab g70"
+      "moto tab g70",
+      "moto tab g70 LTE"
     ],
     "aliases": [
       "moto tab g70",
@@ -9417,8 +9417,8 @@
     "region": null,
     "storageExpandable": true,
     "deviceCodenames": [
-      "mototabg70",
-      "mototabg70LTE"
+      "mototabg70LTE",
+      "mototabg70"
     ]
   },
   {
@@ -9496,9 +9496,9 @@
     ],
     "deviceType": "tablet",
     "formFactor": "tablet",
-    "socId": null,
-    "socName": "Mediatek Dimensity 7300 Ultra (4 nm)",
-    "chipsetPartNumber": null,
+    "socId": "mediatek:dimensity-7300-mt6878",
+    "socName": "MediaTek Dimensity 7300",
+    "chipsetPartNumber": "MT6878",
     "ramGb": [
       8
     ],
@@ -9508,8 +9508,8 @@
       128,
       256
     ],
-    "gpu": "Mali-G615 MC2",
-    "gpuArchitecture": null,
+    "gpu": "Arm Mali-G615 MC2",
+    "gpuArchitecture": "5th Gen Arm GPU",
     "displayResolution": "1980 x 2800 pixels",
     "displayWidth": 1980,
     "displayHeight": 2800,
@@ -9523,9 +9523,9 @@
     "currentAndroidVersion": null,
     "iosVersion": null,
     "androidApiLevel": 36,
-    "vulkanSupported": null,
-    "vulkanVersion": null,
-    "openGlEsVersion": null,
+    "vulkanSupported": true,
+    "vulkanVersion": "1.3",
+    "openGlEsVersion": "3.2",
     "releaseDate": "2025-12-24",
     "sourceUrl": "https://www.gsmarena.com/oneplus_pad_go_2-review-2931.php",
     "sourceName": "GSMArena Technical Hardware Tree",
@@ -10144,9 +10144,9 @@
     ],
     "deviceType": "tablet",
     "formFactor": "tablet",
-    "socId": "qualcomm:snapdragon-8-gen-3-sm8650-ab",
-    "socName": "Qualcomm Snapdragon 8 Gen 3",
-    "chipsetPartNumber": "SM8650-AB",
+    "socId": null,
+    "socName": "Qualcomm SM8845 Snapdragon 8 Gen 5 (3 nm)",
+    "chipsetPartNumber": null,
     "ramGb": [
       8,
       12
@@ -10157,8 +10157,8 @@
       256,
       512
     ],
-    "gpu": "Qualcomm Adreno 750",
-    "gpuArchitecture": "Adreno 700",
+    "gpu": "Adreno 829",
+    "gpuArchitecture": null,
     "displayResolution": "1680 x 2520 pixels",
     "displayWidth": 1680,
     "displayHeight": 2520,
@@ -10172,9 +10172,9 @@
     "currentAndroidVersion": null,
     "iosVersion": null,
     "androidApiLevel": 36,
-    "vulkanSupported": true,
-    "vulkanVersion": "1.3",
-    "openGlEsVersion": "3.2",
+    "vulkanSupported": null,
+    "vulkanVersion": null,
+    "openGlEsVersion": null,
     "releaseDate": "2026-04-21",
     "sourceUrl": "https://www.gsmarena.com/oppo-pad-mini.php",
     "sourceName": "GSMArena Technical Hardware Tree",
@@ -10213,9 +10213,9 @@
     ],
     "deviceType": "tablet",
     "formFactor": "tablet",
-    "socId": null,
-    "socName": "Mediatek Dimensity 7300 Ultra (4 nm)",
-    "chipsetPartNumber": null,
+    "socId": "mediatek:dimensity-7300-mt6878",
+    "socName": "MediaTek Dimensity 7300",
+    "chipsetPartNumber": "MT6878",
     "ramGb": [
       8,
       12
@@ -10226,8 +10226,8 @@
       128,
       256
     ],
-    "gpu": "Mali-G615 MC2",
-    "gpuArchitecture": null,
+    "gpu": "Arm Mali-G615 MC2",
+    "gpuArchitecture": "5th Gen Arm GPU",
     "displayResolution": "1980 x 2800 pixels",
     "displayWidth": 1980,
     "displayHeight": 2800,
@@ -10241,9 +10241,9 @@
     "currentAndroidVersion": null,
     "iosVersion": null,
     "androidApiLevel": 36,
-    "vulkanSupported": null,
-    "vulkanVersion": null,
-    "openGlEsVersion": null,
+    "vulkanSupported": true,
+    "vulkanVersion": "1.3",
+    "openGlEsVersion": "3.2",
     "releaseDate": "2025-12-31",
     "sourceUrl": "https://www.gsmarena.com/oppo_pad_5_matte_display_edition_unboxing-news-71107.php",
     "sourceName": "GSMArena Technical Hardware Tree",
@@ -10403,8 +10403,8 @@
     "storageExpandable": false,
     "deviceCodenames": [
       "OP6192L1",
-      "OP6160L1",
-      "OP6193L1"
+      "OP6193L1",
+      "OP6160L1"
     ]
   },
   {
@@ -11133,9 +11133,9 @@
     ],
     "deviceType": "tablet",
     "formFactor": "tablet",
-    "socId": "qualcomm:snapdragon-4-gen-2-sm4450",
-    "socName": "Qualcomm Snapdragon 4 Gen 2",
-    "chipsetPartNumber": "SM4450",
+    "socId": null,
+    "socName": "Qualcomm SM7435-AB Snapdragon 7s Gen 2 (4 nm)",
+    "chipsetPartNumber": null,
     "ramGb": [
       8
     ],
@@ -11145,8 +11145,8 @@
       128,
       256
     ],
-    "gpu": "Qualcomm Adreno 613",
-    "gpuArchitecture": "Adreno 600",
+    "gpu": "Adreno 710",
+    "gpuArchitecture": null,
     "displayResolution": "1600 x 2560 pixels",
     "displayWidth": 1600,
     "displayHeight": 2560,
@@ -11160,9 +11160,9 @@
     "currentAndroidVersion": null,
     "iosVersion": null,
     "androidApiLevel": 34,
-    "vulkanSupported": true,
-    "vulkanVersion": "1.2",
-    "openGlEsVersion": "3.2",
+    "vulkanSupported": null,
+    "vulkanVersion": null,
+    "openGlEsVersion": null,
     "releaseDate": "2024-08-27",
     "sourceUrl": "https://www.gsmarena.com/xiaomi-poco-pad-5g.php",
     "sourceName": "GSMArena Technical Hardware Tree",
@@ -11197,9 +11197,9 @@
     ],
     "deviceType": "tablet",
     "formFactor": "tablet",
-    "socId": "qualcomm:snapdragon-4-gen-2-sm4450",
-    "socName": "Qualcomm Snapdragon 4 Gen 2",
-    "chipsetPartNumber": "SM4450",
+    "socId": null,
+    "socName": "Qualcomm SM7435-AB Snapdragon 7s Gen 2 (4 nm)",
+    "chipsetPartNumber": null,
     "ramGb": [
       8
     ],
@@ -11208,8 +11208,8 @@
     "storageGb": [
       256
     ],
-    "gpu": "Qualcomm Adreno 613",
-    "gpuArchitecture": "Adreno 600",
+    "gpu": "Adreno 710",
+    "gpuArchitecture": null,
     "displayResolution": "1600 x 2560 pixels",
     "displayWidth": 1600,
     "displayHeight": 2560,
@@ -11223,9 +11223,9 @@
     "currentAndroidVersion": null,
     "iosVersion": null,
     "androidApiLevel": 34,
-    "vulkanSupported": true,
-    "vulkanVersion": "1.2",
-    "openGlEsVersion": "3.2",
+    "vulkanSupported": null,
+    "vulkanVersion": null,
+    "openGlEsVersion": null,
     "releaseDate": "2024-05-23",
     "sourceUrl": "https://www.gsmarena.com/poco_pad-review-2721.php",
     "sourceName": "GSMArena Technical Hardware Tree",
@@ -11257,9 +11257,9 @@
     ],
     "deviceType": "tablet",
     "formFactor": "tablet",
-    "socId": null,
-    "socName": "Mediatek Dimensity 7300 Max (4 nm)",
-    "chipsetPartNumber": null,
+    "socId": "mediatek:dimensity-7300-mt6878",
+    "socName": "MediaTek Dimensity 7300",
+    "chipsetPartNumber": "MT6878",
     "ramGb": [
       8
     ],
@@ -11268,8 +11268,8 @@
     "storageGb": [
       256
     ],
-    "gpu": "Mali-G615 MC2",
-    "gpuArchitecture": null,
+    "gpu": "Arm Mali-G615 MC2",
+    "gpuArchitecture": "5th Gen Arm GPU",
     "displayResolution": "2000 x 2800 pixels",
     "displayWidth": 2000,
     "displayHeight": 2800,
@@ -11283,9 +11283,9 @@
     "currentAndroidVersion": null,
     "iosVersion": null,
     "androidApiLevel": 36,
-    "vulkanSupported": null,
-    "vulkanVersion": null,
-    "openGlEsVersion": null,
+    "vulkanSupported": true,
+    "vulkanVersion": "1.3",
+    "openGlEsVersion": "3.2",
     "releaseDate": "2026-01-12",
     "sourceUrl": "https://www.mobiledokan.co/product/realme-pad-3/",
     "sourceName": "Google Play / Secondary Technical Synthesis",
@@ -11562,9 +11562,9 @@
     ],
     "deviceType": "tablet",
     "formFactor": "tablet",
-    "socId": null,
-    "socName": "Mediatek MT6769V/CU Helio G80 (12 nm)",
-    "chipsetPartNumber": null,
+    "socId": "mediatek:helio-g80-mt6769v",
+    "socName": "MediaTek Helio G80",
+    "chipsetPartNumber": "MT6769V",
     "ramGb": [
       1,
       2,
@@ -11577,8 +11577,8 @@
     "storageGb": [
       128
     ],
-    "gpu": "Mali-G52 MC2",
-    "gpuArchitecture": null,
+    "gpu": "Arm Mali-G52 MC2",
+    "gpuArchitecture": "Bifrost 2nd Gen",
     "displayResolution": "1200 x 2000 pixels",
     "displayWidth": 1200,
     "displayHeight": 2000,
@@ -11589,9 +11589,9 @@
     "currentAndroidVersion": null,
     "iosVersion": null,
     "androidApiLevel": 30,
-    "vulkanSupported": null,
-    "vulkanVersion": null,
-    "openGlEsVersion": null,
+    "vulkanSupported": true,
+    "vulkanVersion": "1.1",
+    "openGlEsVersion": "3.2",
     "releaseDate": "2021-09-16",
     "sourceUrl": "https://www.mobiledokan.co/product/realme-pad/",
     "sourceName": "Google Play / Secondary Technical Synthesis",
@@ -11950,9 +11950,9 @@
     ],
     "deviceType": "tablet",
     "formFactor": "tablet",
-    "socId": null,
-    "socName": "Mediatek Helio G85 (12 nm)",
-    "chipsetPartNumber": null,
+    "socId": "mediatek:helio-g85-mt6769z",
+    "socName": "MediaTek Helio G85",
+    "chipsetPartNumber": "MT6769Z",
     "ramGb": [
       4,
       6
@@ -11963,8 +11963,8 @@
       64,
       128
     ],
-    "gpu": "Mali-G52 MC2",
-    "gpuArchitecture": null,
+    "gpu": "Arm Mali-G52 MC2",
+    "gpuArchitecture": "Bifrost 2nd Gen",
     "displayResolution": "800 x 1340 pixels",
     "displayWidth": 800,
     "displayHeight": 1340,
@@ -11978,9 +11978,9 @@
     "currentAndroidVersion": null,
     "iosVersion": null,
     "androidApiLevel": 34,
-    "vulkanSupported": null,
-    "vulkanVersion": null,
-    "openGlEsVersion": null,
+    "vulkanSupported": true,
+    "vulkanVersion": "1.1",
+    "openGlEsVersion": "3.2",
     "releaseDate": "2024-08-08",
     "sourceUrl": "https://www.gsmarena.com/xiaomi-redmi-pad-se-8-7.php",
     "sourceName": "GSMArena Technical Hardware Tree",
@@ -12019,9 +12019,9 @@
     ],
     "deviceType": "tablet",
     "formFactor": "tablet",
-    "socId": "qualcomm:snapdragon-4-gen-2-sm4450",
-    "socName": "Qualcomm Snapdragon 4 Gen 2",
-    "chipsetPartNumber": "SM4450",
+    "socId": null,
+    "socName": "Qualcomm SM7435-AB Snapdragon 7s Gen 2 (4 nm)",
+    "chipsetPartNumber": null,
     "ramGb": [
       6,
       8
@@ -12032,8 +12032,8 @@
       128,
       256
     ],
-    "gpu": "Qualcomm Adreno 613",
-    "gpuArchitecture": "Adreno 600",
+    "gpu": "Adreno 710",
+    "gpuArchitecture": null,
     "displayResolution": "1600 x 2560 pixels",
     "displayWidth": 1600,
     "displayHeight": 2560,
@@ -12047,9 +12047,9 @@
     "currentAndroidVersion": null,
     "iosVersion": null,
     "androidApiLevel": 34,
-    "vulkanSupported": true,
-    "vulkanVersion": "1.2",
-    "openGlEsVersion": "3.2",
+    "vulkanSupported": null,
+    "vulkanVersion": null,
+    "openGlEsVersion": null,
     "releaseDate": "2024-05-30",
     "sourceUrl": "https://www.gsmarena.com/xiaomi_redmi_pad_pro-review-2718.php",
     "sourceName": "GSMArena Technical Hardware Tree",
@@ -12081,9 +12081,9 @@
     ],
     "deviceType": "tablet",
     "formFactor": "tablet",
-    "socId": "qualcomm:snapdragon-4-gen-2-sm4450",
-    "socName": "Qualcomm Snapdragon 4 Gen 2",
-    "chipsetPartNumber": "SM4450",
+    "socId": null,
+    "socName": "Qualcomm SM7435-AB Snapdragon 7s Gen 2 (4 nm)",
+    "chipsetPartNumber": null,
     "ramGb": [
       6,
       8
@@ -12094,8 +12094,8 @@
       128,
       256
     ],
-    "gpu": "Qualcomm Adreno 613",
-    "gpuArchitecture": "Adreno 600",
+    "gpu": "Adreno 710",
+    "gpuArchitecture": null,
     "displayResolution": "1600 x 2560 pixels",
     "displayWidth": 1600,
     "displayHeight": 2560,
@@ -12109,9 +12109,9 @@
     "currentAndroidVersion": null,
     "iosVersion": null,
     "androidApiLevel": 34,
-    "vulkanSupported": true,
-    "vulkanVersion": "1.2",
-    "openGlEsVersion": "3.2",
+    "vulkanSupported": null,
+    "vulkanVersion": null,
+    "openGlEsVersion": null,
     "releaseDate": "2024-04-15",
     "sourceUrl": "https://www.gsmarena.com/xiaomi_redmi_pad_pro-review-2718.php",
     "sourceName": "GSMArena Technical Hardware Tree",
@@ -12269,8 +12269,8 @@
     "marketName": "Galaxy Tab A11+ (Exynos)",
     "modelNumbers": [
       "SM-X236B",
-      "SM-X135F",
-      "SM-X135N"
+      "SM-X135N",
+      "SM-X135F"
     ],
     "aliases": [
       "galaxy tab a11+ (exynos)",
@@ -12337,9 +12337,9 @@
     "region": "International",
     "storageExpandable": true,
     "deviceCodenames": [
-      "gta11wifi",
       "gta11",
-      "gta11pwifi"
+      "gta11pwifi",
+      "gta11wifi"
     ]
   },
   {
@@ -12413,9 +12413,9 @@
     "region": "USA / Canada / China",
     "storageExpandable": true,
     "deviceCodenames": [
-      "gta11wifi",
       "gta11",
-      "gta11pwifi"
+      "gta11pwifi",
+      "gta11wifi"
     ]
   },
   {
@@ -12582,10 +12582,10 @@
       "SM-X133",
       "SM-X135",
       "SM-X135F",
-      "SM-X135G",
       "SM-X130",
-      "SM-X230",
-      "SM-X135N"
+      "SM-X135N",
+      "SM-X135G",
+      "SM-X230"
     ],
     "aliases": [
       "galaxy tab a11",
@@ -12661,9 +12661,9 @@
     "region": null,
     "storageExpandable": true,
     "deviceCodenames": [
-      "gta11wifi",
       "gta11",
-      "gta11pwifi"
+      "gta11pwifi",
+      "gta11wifi"
     ]
   },
   {
@@ -13275,12 +13275,12 @@
       "SM-X215",
       "SM-X216B",
       "SM-X216R",
-      "SM-X210R",
-      "SM-X115N",
       "SM-X115",
       "SM-X110",
-      "SM-X117",
-      "SM-X117U"
+      "SM-X210R",
+      "SM-X115N",
+      "SM-X117U",
+      "SM-X117"
     ],
     "aliases": [
       "galaxy tab a9+",
@@ -13441,8 +13441,8 @@
     "region": null,
     "storageExpandable": true,
     "deviceCodenames": [
-      "gts9fewifi",
-      "gts9fepwifi"
+      "gts9fepwifi",
+      "gts9fewifi"
     ]
   },
   {
@@ -13519,8 +13519,8 @@
     "region": null,
     "storageExpandable": true,
     "deviceCodenames": [
-      "gts9fewifi",
-      "gts9fepwifi"
+      "gts9fepwifi",
+      "gts9fewifi"
     ]
   },
   {
@@ -13533,8 +13533,8 @@
       "SM-X210",
       "SM-X210R",
       "SM-X115N",
-      "SM-X117",
-      "SM-X117U"
+      "SM-X117U",
+      "SM-X117"
     ],
     "aliases": [
       "galaxy tab a9",
@@ -13985,9 +13985,9 @@
     ],
     "deviceType": "tablet",
     "formFactor": "tablet",
-    "socId": null,
-    "socName": "Qualcomm SM7150 Snapdragon 732G (8 nm)\nQualcomm SM7125 Snapdragon 720G (8 nm)",
-    "chipsetPartNumber": null,
+    "socId": "qualcomm:snapdragon-720g-sm7125",
+    "socName": "Qualcomm Snapdragon 720G",
+    "chipsetPartNumber": "SM7125",
     "ramGb": [
       4
     ],
@@ -13997,8 +13997,8 @@
       64,
       128
     ],
-    "gpu": "Adreno 618",
-    "gpuArchitecture": null,
+    "gpu": "Qualcomm Adreno 618",
+    "gpuArchitecture": "Adreno 600",
     "displayResolution": "1200 x 2000 pixels",
     "displayWidth": 1200,
     "displayHeight": 2000,
@@ -14009,9 +14009,9 @@
     "currentAndroidVersion": null,
     "iosVersion": null,
     "androidApiLevel": 31,
-    "vulkanSupported": null,
-    "vulkanVersion": null,
-    "openGlEsVersion": null,
+    "vulkanSupported": true,
+    "vulkanVersion": "1.1",
+    "openGlEsVersion": "3.2",
     "releaseDate": "2022-05-23",
     "sourceUrl": "https://www.gsmarena.com/samsung-galaxy-tab-s6-lite-2022.php",
     "sourceName": "GSMArena Technical Hardware Tree",
@@ -14198,8 +14198,8 @@
     "region": null,
     "storageExpandable": true,
     "deviceCodenames": [
-      "gts8pwifi",
-      "gts8wifi"
+      "gts8wifi",
+      "gts8pwifi"
     ]
   },
   {
@@ -14284,8 +14284,8 @@
     "region": null,
     "storageExpandable": true,
     "deviceCodenames": [
-      "gts8pwifi",
-      "gts8wifi"
+      "gts8wifi",
+      "gts8pwifi"
     ]
   },
   {
@@ -14436,8 +14436,8 @@
     "region": null,
     "storageExpandable": true,
     "deviceCodenames": [
-      "gta7lite",
-      "gta7litewifi"
+      "gta7litewifi",
+      "gta7lite"
     ]
   },
   {
@@ -14534,9 +14534,9 @@
     ],
     "deviceType": "tablet",
     "formFactor": "tablet",
-    "socId": null,
-    "socName": "Qualcomm SM7225 Snapdragon 750G 5G (8 nm) - 5G model",
-    "chipsetPartNumber": null,
+    "socId": "qualcomm:snapdragon-750g-sm7225",
+    "socName": "Qualcomm Snapdragon 750G 5G",
+    "chipsetPartNumber": "SM7225",
     "ramGb": [
       4,
       6,
@@ -14549,8 +14549,8 @@
       128,
       256
     ],
-    "gpu": "Adreno 619 - 5G model\nAdreno 642L - Wi-Fi model",
-    "gpuArchitecture": null,
+    "gpu": "Qualcomm Adreno 619",
+    "gpuArchitecture": "Adreno 600",
     "displayResolution": "1600 x 2560 pixels",
     "displayWidth": 1600,
     "displayHeight": 2560,
@@ -14561,9 +14561,9 @@
     "currentAndroidVersion": null,
     "iosVersion": null,
     "androidApiLevel": 30,
-    "vulkanSupported": null,
-    "vulkanVersion": null,
-    "openGlEsVersion": null,
+    "vulkanSupported": true,
+    "vulkanVersion": "1.1",
+    "openGlEsVersion": "3.2",
     "releaseDate": "2021-06-18",
     "sourceUrl": "https://www.gsmarena.com/samsung_galaxy_tab_s7_fe-review-2304.php",
     "sourceName": "GSMArena / Google Play Verified",
@@ -14593,9 +14593,9 @@
     "marketName": "Galaxy Tab Active3",
     "modelNumbers": [
       "SM-T575",
+      "SM-T575N",
       "SM-T577U",
-      "SM-T577",
-      "SM-T575N"
+      "SM-T577"
     ],
     "aliases": [
       "galaxy tab active3",
@@ -14683,9 +14683,9 @@
     ],
     "deviceType": "tablet",
     "formFactor": "tablet",
-    "socId": null,
-    "socName": "Qualcomm SM6115 Snapdragon 662 (11 nm)",
-    "chipsetPartNumber": null,
+    "socId": "qualcomm:snapdragon-662-sm6115",
+    "socName": "Qualcomm Snapdragon 662",
+    "chipsetPartNumber": "SM6115",
     "ramGb": [
       3,
       4
@@ -14696,8 +14696,8 @@
       32,
       64
     ],
-    "gpu": "Adreno 610",
-    "gpuArchitecture": null,
+    "gpu": "Qualcomm Adreno 610",
+    "gpuArchitecture": "Adreno 600",
     "displayResolution": "1200 x 2000 pixels",
     "displayWidth": 1200,
     "displayHeight": 2000,
@@ -14708,9 +14708,9 @@
     "currentAndroidVersion": null,
     "iosVersion": null,
     "androidApiLevel": 29,
-    "vulkanSupported": null,
-    "vulkanVersion": null,
-    "openGlEsVersion": null,
+    "vulkanSupported": true,
+    "vulkanVersion": "1.1",
+    "openGlEsVersion": "3.2",
     "releaseDate": "2020-09-11",
     "sourceUrl": "https://www.gsmarena.com/samsung-galaxy-tab-a7-10-4-2020.php",
     "sourceName": "GSMArena Technical Hardware Tree",
@@ -14738,10 +14738,10 @@
       "SM-T870",
       "SM-T875",
       "SM-T876B",
-      "SM-T970",
-      "SM-T975",
       "SM-T875N",
-      "SM-T975N"
+      "SM-T975",
+      "SM-T975N",
+      "SM-T970"
     ],
     "aliases": [
       "galaxy tab s7",
@@ -14819,9 +14819,9 @@
     "storageExpandable": true,
     "deviceCodenames": [
       "gts7xl",
-      "gts7l",
+      "gts7lwifi",
       "gts7xlwifi",
-      "gts7lwifi"
+      "gts7l"
     ]
   },
   {
@@ -14832,10 +14832,10 @@
       "SM-T970",
       "SM-T976B",
       "SM-T975",
-      "SM-T875",
       "SM-T875N",
-      "SM-T975N",
-      "SM-T870"
+      "SM-T870",
+      "SM-T875",
+      "SM-T975N"
     ],
     "aliases": [
       "galaxy tab s7+",
@@ -14913,9 +14913,9 @@
     "storageExpandable": true,
     "deviceCodenames": [
       "gts7xl",
-      "gts7l",
+      "gts7lwifi",
       "gts7xlwifi",
-      "gts7lwifi"
+      "gts7l"
     ]
   },
   {
@@ -15121,8 +15121,8 @@
     "modelNumbers": [
       "SM-T540",
       "SM-T547",
-      "SM-T547U",
-      "SM-T545"
+      "SM-T545",
+      "SM-T547U"
     ],
     "aliases": [
       "galaxy tab active pro",
@@ -15198,8 +15198,8 @@
       "SM-T865",
       "SM-T867",
       "SM-T867V",
-      "SM-T865N",
       "SM-T867R4",
+      "SM-T865N",
       "SM-T867U"
     ],
     "aliases": [
@@ -15273,8 +15273,8 @@
     "region": null,
     "storageExpandable": true,
     "deviceCodenames": [
-      "gts6lwifi",
-      "gts6l"
+      "gts6l",
+      "gts6lwifi"
     ]
   },
   {
@@ -15285,8 +15285,8 @@
       "SM-T290",
       "SM-T295",
       "SM-T295C",
-      "SM-T295N",
-      "SM-T297"
+      "SM-T297",
+      "SM-T295N"
     ],
     "aliases": [
       "galaxy tab a 8.0 (2019)",
@@ -15353,8 +15353,8 @@
     "region": null,
     "storageExpandable": true,
     "deviceCodenames": [
-      "gto",
-      "gtowifi"
+      "gtowifi",
+      "gto"
     ]
   },
   {
@@ -15496,13 +15496,13 @@
     "modelNumbers": [
       "SM-T725",
       "SM-T720",
-      "SM-T727A",
-      "SM-T727U",
       "SM-T725C",
-      "SM-T727V",
-      "SM-T727",
       "SM-T727R4",
-      "SM-T725N"
+      "SM-T727",
+      "SM-T725N",
+      "SM-T727V",
+      "SM-T727U",
+      "SM-T727A"
     ],
     "aliases": [
       "galaxy tab s5e",
@@ -15578,9 +15578,9 @@
     "region": null,
     "storageExpandable": true,
     "deviceCodenames": [
-      "gts4lvwifichn",
       "gts4lvwifi",
-      "gts4lv"
+      "gts4lv",
+      "gts4lvwifichn"
     ]
   },
   {
@@ -15675,9 +15675,9 @@
     ],
     "deviceType": "tablet",
     "formFactor": "tablet",
-    "socId": null,
-    "socName": "Qualcomm MSM8917 Snapdragon 425 (28 nm)",
-    "chipsetPartNumber": null,
+    "socId": "qualcomm:snapdragon-425-msm8917",
+    "socName": "Qualcomm Snapdragon 425",
+    "chipsetPartNumber": "MSM8917",
     "ramGb": [
       2
     ],
@@ -15686,8 +15686,8 @@
     "storageGb": [
       32
     ],
-    "gpu": "Adreno 308",
-    "gpuArchitecture": null,
+    "gpu": "Qualcomm Adreno 308",
+    "gpuArchitecture": "Adreno 300",
     "displayResolution": "800 x 1280 pixels",
     "displayWidth": 800,
     "displayHeight": 1280,
@@ -15698,9 +15698,9 @@
     "currentAndroidVersion": null,
     "iosVersion": null,
     "androidApiLevel": 26,
-    "vulkanSupported": null,
+    "vulkanSupported": false,
     "vulkanVersion": null,
-    "openGlEsVersion": null,
+    "openGlEsVersion": "3.0",
     "releaseDate": "2018-09-01",
     "sourceUrl": "https://www.gsmarena.com/samsung-galaxy-tab-a-8-0-2018.php",
     "sourceName": "GSMArena Technical Hardware Tree",
@@ -15727,9 +15727,9 @@
     "modelNumbers": [
       "SM-T590",
       "SM-T595",
-      "SM-T597V",
+      "SM-T597P",
       "SM-T597W",
-      "SM-T597P"
+      "SM-T597V"
     ],
     "aliases": [
       "galaxy tab a 10.5",
@@ -15751,9 +15751,9 @@
     ],
     "deviceType": "tablet",
     "formFactor": "tablet",
-    "socId": null,
-    "socName": "Qualcomm SDM450 Snapdragon 450 (14 nm)",
-    "chipsetPartNumber": null,
+    "socId": "qualcomm:snapdragon-450-sdm450",
+    "socName": "Qualcomm Snapdragon 450",
+    "chipsetPartNumber": "SDM450",
     "ramGb": [
       3
     ],
@@ -15762,8 +15762,8 @@
     "storageGb": [
       32
     ],
-    "gpu": "Adreno 506",
-    "gpuArchitecture": null,
+    "gpu": "Qualcomm Adreno 506",
+    "gpuArchitecture": "Adreno 500",
     "displayResolution": "1200 x 1920 pixels",
     "displayWidth": 1200,
     "displayHeight": 1920,
@@ -15774,9 +15774,9 @@
     "currentAndroidVersion": null,
     "iosVersion": null,
     "androidApiLevel": 26,
-    "vulkanSupported": null,
-    "vulkanVersion": null,
-    "openGlEsVersion": null,
+    "vulkanSupported": true,
+    "vulkanVersion": "1.1",
+    "openGlEsVersion": "3.2",
     "releaseDate": "2018-08-01",
     "sourceUrl": "https://www.gsmarena.com/samsung-galaxy-tab-a-10-5.php",
     "sourceName": "GSMArena Technical Hardware Tree",
@@ -15795,8 +15795,8 @@
     "region": null,
     "storageExpandable": true,
     "deviceCodenames": [
-      "gta2xlltevzw",
       "gta2xlltecs",
+      "gta2xlltevzw",
       "gta2xlltespr"
     ]
   },
@@ -15876,9 +15876,9 @@
     "modelNumbers": [
       "SM-T395",
       "SM-T395C",
-      "SM-T390",
       "SM-T395N",
-      "SM-T397U"
+      "SM-T397U",
+      "SM-T390"
     ],
     "aliases": [
       "galaxy tab active2",
@@ -15947,11 +15947,11 @@
     "region": null,
     "storageExpandable": true,
     "deviceCodenames": [
-      "gtactive2lteue",
-      "gtactive2ltechn",
-      "gtactive2lte",
       "gtactive2wifi",
-      "gtactive2ltekx"
+      "gtactive2lte",
+      "gtactive2ltekx",
+      "gtactive2ltechn",
+      "gtactive2lteue"
     ]
   },
   {
@@ -15976,9 +15976,9 @@
     ],
     "deviceType": "tablet",
     "formFactor": "tablet",
-    "socId": null,
-    "socName": "Qualcomm MSM8917 Snapdragon 425 (28 nm)",
-    "chipsetPartNumber": null,
+    "socId": "qualcomm:snapdragon-425-msm8917",
+    "socName": "Qualcomm Snapdragon 425",
+    "chipsetPartNumber": "MSM8917",
     "ramGb": [
       2
     ],
@@ -15988,8 +15988,8 @@
       16,
       32
     ],
-    "gpu": "Adreno 308",
-    "gpuArchitecture": null,
+    "gpu": "Qualcomm Adreno 308",
+    "gpuArchitecture": "Adreno 300",
     "displayResolution": "800 x 1280 pixels",
     "displayWidth": 800,
     "displayHeight": 1280,
@@ -16000,9 +16000,9 @@
     "currentAndroidVersion": null,
     "iosVersion": null,
     "androidApiLevel": 24,
-    "vulkanSupported": null,
+    "vulkanSupported": false,
     "vulkanVersion": null,
-    "openGlEsVersion": null,
+    "openGlEsVersion": "3.0",
     "releaseDate": "2017-09-01",
     "sourceUrl": "https://www.gsmarena.com/samsung-galaxy-tab-a-8-0-2017.php",
     "sourceName": "GSMArena Technical Hardware Tree",
@@ -16246,9 +16246,9 @@
     ],
     "deviceType": "tablet",
     "formFactor": "tablet",
-    "socId": null,
-    "socName": "Qualcomm MSM8916 Snapdragon 410 (28 nm)\nSpreadtrum SC9830",
-    "chipsetPartNumber": null,
+    "socId": "qualcomm:snapdragon-410-msm8916",
+    "socName": "Qualcomm Snapdragon 410",
+    "chipsetPartNumber": "MSM8916",
     "ramGb": [
       1,
       1.5
@@ -16258,8 +16258,8 @@
     "storageGb": [
       8
     ],
-    "gpu": "Adreno 306\nMali-400MP2",
-    "gpuArchitecture": null,
+    "gpu": "Qualcomm Adreno 306",
+    "gpuArchitecture": "Adreno 300",
     "displayResolution": "800 x 1280 pixels",
     "displayWidth": 800,
     "displayHeight": 1280,
@@ -16270,9 +16270,9 @@
     "currentAndroidVersion": null,
     "iosVersion": null,
     "androidApiLevel": 21,
-    "vulkanSupported": null,
+    "vulkanSupported": false,
     "vulkanVersion": null,
-    "openGlEsVersion": null,
+    "openGlEsVersion": "3.0",
     "releaseDate": "2016-03-01",
     "sourceUrl": "https://www.gsmarena.com/samsung-galaxy-tab-a-7-0-2016.php",
     "sourceName": "GSMArena Technical Hardware Tree",
@@ -16305,15 +16305,15 @@
       "SM-T377A",
       "SM-T378V",
       "SM-T377V",
-      "SM-T377R4",
-      "SM-T378S",
-      "SM-T375S",
-      "SM-T378L",
       "SM-T378K",
+      "SM-T377R4",
+      "SM-T378L",
+      "SM-T378S",
+      "SAMSUNG-SM-T377A",
       "SM-T3777",
+      "SM-T375S",
       "SM-T375L",
-      "SM-T377T",
-      "SAMSUNG-SM-T377A"
+      "SM-T377T"
     ],
     "aliases": [
       "galaxy tab e 8.0",
@@ -16367,9 +16367,9 @@
     ],
     "deviceType": "tablet",
     "formFactor": "tablet",
-    "socId": null,
-    "socName": "Qualcomm MSM8916 Snapdragon 410 (28 nm)",
-    "chipsetPartNumber": null,
+    "socId": "qualcomm:snapdragon-410-msm8916",
+    "socName": "Qualcomm Snapdragon 410",
+    "chipsetPartNumber": "MSM8916",
     "ramGb": [
       1,
       1.5
@@ -16379,8 +16379,8 @@
     "storageGb": [
       16
     ],
-    "gpu": "Adreno 306",
-    "gpuArchitecture": null,
+    "gpu": "Qualcomm Adreno 306",
+    "gpuArchitecture": "Adreno 300",
     "displayResolution": "800 x 1280 pixels",
     "displayWidth": 800,
     "displayHeight": 1280,
@@ -16391,9 +16391,9 @@
     "currentAndroidVersion": null,
     "iosVersion": null,
     "androidApiLevel": 21,
-    "vulkanSupported": null,
+    "vulkanSupported": false,
     "vulkanVersion": null,
-    "openGlEsVersion": null,
+    "openGlEsVersion": "3.0",
     "releaseDate": "2016-01-01",
     "sourceUrl": "https://www.gsmarena.com/samsung-galaxy-tab-e-8-0.php",
     "sourceName": "GSMArena Technical Hardware Tree",
@@ -16412,17 +16412,17 @@
     "region": null,
     "storageExpandable": true,
     "deviceCodenames": [
-      "gteslteatt",
-      "gtesltetw",
-      "gteslteskt",
-      "gtesltebmc",
-      "gtesqltespr",
-      "gtesveltevzw",
-      "gtesltelgt",
       "gtesltetmo",
-      "gtesqlteusc",
       "gtesltevzw",
-      "gtesltektt"
+      "gteslteskt",
+      "gtesqlteusc",
+      "gtesltebmc",
+      "gtesveltevzw",
+      "gteslteatt",
+      "gtesqltespr",
+      "gtesltektt",
+      "gtesltelgt",
+      "gtesltetw"
     ]
   },
   {
@@ -16495,12 +16495,12 @@
     "region": "International",
     "storageExpandable": true,
     "deviceCodenames": [
-      "gts28ltekx",
-      "gts28lte",
-      "gts28wifichn",
       "gts28ltechn",
       "gts28wifi",
-      "gts28vewifi"
+      "gts28lte",
+      "gts28vewifi",
+      "gts28wifichn",
+      "gts28ltekx"
     ]
   },
   {
@@ -16573,12 +16573,12 @@
     "region": "USA / Canada / China",
     "storageExpandable": true,
     "deviceCodenames": [
-      "gts28ltekx",
-      "gts28lte",
-      "gts28wifichn",
       "gts28ltechn",
       "gts28wifi",
-      "gts28vewifi"
+      "gts28lte",
+      "gts28vewifi",
+      "gts28wifichn",
+      "gts28ltekx"
     ]
   },
   {
@@ -16589,8 +16589,8 @@
       "SM-T813N",
       "SM-T819N",
       "SAMSUNG-SM-T818A",
-      "SM-T815N0",
-      "SAMSUNG-SM-T817A"
+      "SAMSUNG-SM-T817A",
+      "SM-T815N0"
     ],
     "aliases": [
       "galaxy tab s2 9.7 (exynos)",
@@ -16670,20 +16670,20 @@
     "region": "International",
     "storageExpandable": true,
     "deviceCodenames": [
-      "gts210ltespr",
-      "gts210vewifi",
-      "gts210lteatt",
-      "gts210ltetmo",
-      "gts210wifi",
-      "gts210lteusc",
       "gts210ltevzw",
-      "gts210velteatt",
       "gts210ltekx",
+      "gts210lteusc",
+      "gts210lteatt",
+      "gts210wifi",
+      "gts210velte",
+      "gts210vewifi",
+      "gts210ltespr",
+      "gts210lte",
+      "gts210veltevzw",
       "gts210veltecan",
       "gts210veltetmo",
-      "gts210veltevzw",
-      "gts210velte",
-      "gts210lte",
+      "gts210ltetmo",
+      "gts210velteatt",
       "gts210ltecan"
     ]
   },
@@ -16773,20 +16773,20 @@
     "region": "USA / Canada / China",
     "storageExpandable": true,
     "deviceCodenames": [
-      "gts210ltespr",
-      "gts210vewifi",
-      "gts210lteatt",
-      "gts210ltetmo",
-      "gts210wifi",
-      "gts210lteusc",
       "gts210ltevzw",
-      "gts210velteatt",
       "gts210ltekx",
+      "gts210lteusc",
+      "gts210lteatt",
+      "gts210wifi",
+      "gts210velte",
+      "gts210vewifi",
+      "gts210ltespr",
+      "gts210lte",
+      "gts210veltevzw",
       "gts210veltecan",
       "gts210veltetmo",
-      "gts210veltevzw",
-      "gts210velte",
-      "gts210lte",
+      "gts210ltetmo",
+      "gts210velteatt",
       "gts210ltecan"
     ]
   },
@@ -16937,10 +16937,10 @@
     "storageExpandable": true,
     "deviceCodenames": [
       "gtelwifiue",
-      "gtelwifi",
       "gtel3g",
+      "gtelltevzw",
       "gtelwifichn",
-      "gtelltevzw"
+      "gtelwifi"
     ]
   },
   {
@@ -17083,13 +17083,13 @@
       "SM-T550",
       "SM-P555",
       "SM-P550",
-      "SM-P555L",
-      "SM-P555Y",
-      "SM-P555K",
-      "SM-P555S",
-      "SM-T555C",
+      "SM-P555C",
       "SM-T550X",
-      "SM-P555C"
+      "SM-P555K",
+      "SM-T555C",
+      "SM-P555Y",
+      "SM-P555L",
+      "SM-P555S"
     ],
     "aliases": [
       "galaxy tab a 9.7",
@@ -17178,17 +17178,17 @@
     "region": null,
     "storageExpandable": true,
     "deviceCodenames": [
-      "gt5note10lteskt",
-      "gt5note10ltehktw",
       "gt5note10ltechn",
-      "gt5note10wifi",
+      "gt5note10lteskt",
+      "gt5note10ltektt",
       "gt5note10wifichn",
-      "gt5note10lte",
       "gt510wifichn",
-      "gt5note10ltelgt",
       "gt510wifi",
-      "gt510ltechn",
-      "gt5note10ltektt"
+      "gt5note10ltelgt",
+      "gt5note10ltehktw",
+      "gt5note10wifi",
+      "gt5note10lte",
+      "gt510ltechn"
     ]
   },
   {
@@ -17344,9 +17344,9 @@
     ],
     "deviceType": "tablet",
     "formFactor": "tablet",
-    "socId": null,
-    "socName": "Qualcomm MSM8916 Snapdragon 410 (28 nm)",
-    "chipsetPartNumber": null,
+    "socId": "qualcomm:snapdragon-410-msm8916",
+    "socName": "Qualcomm Snapdragon 410",
+    "chipsetPartNumber": "MSM8916",
     "ramGb": [
       1,
       1.5
@@ -17356,8 +17356,8 @@
     "storageGb": [
       16
     ],
-    "gpu": "Adreno 306",
-    "gpuArchitecture": null,
+    "gpu": "Qualcomm Adreno 306",
+    "gpuArchitecture": "Adreno 300",
     "displayResolution": "800 x 1280 pixels",
     "displayWidth": 800,
     "displayHeight": 1280,
@@ -17368,9 +17368,9 @@
     "currentAndroidVersion": null,
     "iosVersion": null,
     "androidApiLevel": 19,
-    "vulkanSupported": null,
+    "vulkanSupported": false,
     "vulkanVersion": null,
-    "openGlEsVersion": null,
+    "openGlEsVersion": "3.0",
     "releaseDate": "2015-01-01",
     "sourceUrl": "https://www.gsmarena.com/samsung-galaxy-tab-4-10-1-2015.php",
     "sourceName": "GSMArena Technical Hardware Tree",
@@ -17413,9 +17413,9 @@
     ],
     "deviceType": "tablet",
     "formFactor": "tablet",
-    "socId": null,
-    "socName": "Qualcomm Snapdragon 400 (28 nm)",
-    "chipsetPartNumber": null,
+    "socId": "qualcomm:snapdragon-400-msm8226",
+    "socName": "Qualcomm Snapdragon 400",
+    "chipsetPartNumber": "MSM8226",
     "ramGb": [
       1,
       1.5
@@ -17425,8 +17425,8 @@
     "storageGb": [
       16
     ],
-    "gpu": "Adreno 305",
-    "gpuArchitecture": null,
+    "gpu": "Qualcomm Adreno 305",
+    "gpuArchitecture": "Adreno 300",
     "displayResolution": "800 x 1280 pixels",
     "displayWidth": 800,
     "displayHeight": 1280,
@@ -17437,9 +17437,9 @@
     "currentAndroidVersion": null,
     "iosVersion": null,
     "androidApiLevel": 19,
-    "vulkanSupported": null,
+    "vulkanSupported": false,
     "vulkanVersion": null,
-    "openGlEsVersion": null,
+    "openGlEsVersion": "3.0",
     "releaseDate": "2014-12-01",
     "sourceUrl": "https://www.gsmarena.com/samsung-galaxy-tab-active.php",
     "sourceName": "GSMArena Technical Hardware Tree",
@@ -17477,9 +17477,9 @@
     ],
     "deviceType": "tablet",
     "formFactor": "tablet",
-    "socId": null,
-    "socName": "Qualcomm Snapdragon 400 (28 nm)",
-    "chipsetPartNumber": null,
+    "socId": "qualcomm:snapdragon-400-msm8226",
+    "socName": "Qualcomm Snapdragon 400",
+    "chipsetPartNumber": "MSM8226",
     "ramGb": [
       1,
       1.5
@@ -17489,8 +17489,8 @@
     "storageGb": [
       16
     ],
-    "gpu": "Adreno 305",
-    "gpuArchitecture": null,
+    "gpu": "Qualcomm Adreno 305",
+    "gpuArchitecture": "Adreno 300",
     "displayResolution": "800 x 1280 pixels",
     "displayWidth": 800,
     "displayHeight": 1280,
@@ -17501,9 +17501,9 @@
     "currentAndroidVersion": null,
     "iosVersion": null,
     "androidApiLevel": 19,
-    "vulkanSupported": null,
+    "vulkanSupported": false,
     "vulkanVersion": null,
-    "openGlEsVersion": null,
+    "openGlEsVersion": "3.0",
     "releaseDate": "2014-12-01",
     "sourceUrl": "https://www.gsmarena.com/samsung-galaxy-tab-active-lte.php",
     "sourceName": "GSMArena Technical Hardware Tree",
@@ -17530,21 +17530,21 @@
     "modelNumbers": [
       "SM-T800",
       "T805S",
-      "SM-T805",
       "SM-T807T",
-      "SCT21",
-      "SM-T807",
-      "SM-T807R4",
-      "SM-T807P",
-      "SM-T805L",
-      "SM-T805W",
-      "SM-T800X",
-      "SAMSUNG-SM-T807A",
-      "SM-T807V",
-      "SM-T805S",
-      "SM-T805M",
       "SM-T805Y",
+      "SM-T807",
       "SM-T805C",
+      "SM-T805S",
+      "SAMSUNG-SM-T807A",
+      "SCT21",
+      "SM-T805W",
+      "SM-T805M",
+      "SM-T807P",
+      "SM-T807V",
+      "SM-T805",
+      "SM-T807R4",
+      "SM-T800X",
+      "SM-T805L",
       "SM-T805K"
     ],
     "aliases": [
@@ -17645,19 +17645,19 @@
     "region": null,
     "storageExpandable": true,
     "deviceCodenames": [
-      "chagallwifi",
-      "chagallltetmo",
       "chagalllte",
+      "chagallltevzw",
       "SCT21",
       "chagallltespr",
+      "chagallhltektt",
       "chagallwifikx",
       "chagalllteatt",
-      "chagallhltelgt",
-      "chagallhltektt",
       "chagallltecan",
-      "chagallhlteskt",
       "chagalllteusc",
-      "chagallltevzw"
+      "chagallltetmo",
+      "chagallhlteskt",
+      "chagallwifi",
+      "chagallhltelgt"
     ]
   },
   {
@@ -17728,14 +17728,14 @@
     "marketName": "Galaxy Tab S 8.4",
     "modelNumbers": [
       "SM-T700",
-      "SM-T705M",
-      "SM-T705W",
-      "SAMSUNG-SM-T707A",
-      "SM-T705Y",
-      "SM-T705C",
-      "SM-T705",
       "SM-T707V",
-      "SC-03G"
+      "SM-T705",
+      "SM-T705C",
+      "SM-T705W",
+      "SM-T705Y",
+      "SC-03G",
+      "SAMSUNG-SM-T707A",
+      "SM-T705M"
     ],
     "aliases": [
       "galaxy tab s 8.4",
@@ -17813,13 +17813,13 @@
     "region": null,
     "storageExpandable": true,
     "deviceCodenames": [
-      "klimtlteatt",
-      "klimtwifi",
       "klimtltecan",
-      "klimtltevzw",
       "klimtwifikx",
-      "klimtlte",
-      "SC-03G"
+      "klimtltevzw",
+      "klimtwifi",
+      "klimtlteatt",
+      "SC-03G",
+      "klimtlte"
     ]
   },
   {
@@ -17894,9 +17894,9 @@
     "modelNumbers": [
       "SM-T530",
       "SM-T530NU",
+      "SM-T533",
       "SM-T536",
-      "SM-T530X",
-      "SM-T533"
+      "SM-T530X"
     ],
     "aliases": [
       "galaxy tab 4 10.1",
@@ -17920,9 +17920,9 @@
     ],
     "deviceType": "tablet",
     "formFactor": "tablet",
-    "socId": null,
-    "socName": "Qualcomm Snapdragon 400 (28 nm)",
-    "chipsetPartNumber": null,
+    "socId": "qualcomm:snapdragon-400-msm8226",
+    "socName": "Qualcomm Snapdragon 400",
+    "chipsetPartNumber": "MSM8226",
     "ramGb": [
       1,
       1.5
@@ -17932,8 +17932,8 @@
     "storageGb": [
       16
     ],
-    "gpu": "Adreno 305",
-    "gpuArchitecture": null,
+    "gpu": "Qualcomm Adreno 305",
+    "gpuArchitecture": "Adreno 300",
     "displayResolution": "800 x 1280 pixels",
     "displayWidth": 800,
     "displayHeight": 1280,
@@ -17944,9 +17944,9 @@
     "currentAndroidVersion": null,
     "iosVersion": null,
     "androidApiLevel": 19,
-    "vulkanSupported": null,
+    "vulkanSupported": false,
     "vulkanVersion": null,
-    "openGlEsVersion": null,
+    "openGlEsVersion": "3.0",
     "releaseDate": "2014-06-01",
     "sourceUrl": "https://www.gsmarena.com/samsung-galaxy-tab-4-10-1.php",
     "sourceName": "GSMArena Technical Hardware Tree",
@@ -17965,9 +17965,9 @@
     "region": null,
     "storageExpandable": true,
     "deviceCodenames": [
-      "matisse10wifikx",
-      "matissewifi",
       "matissewifiue",
+      "matissewifi",
+      "matisse10wifikx",
       "matissewifikx",
       "matissevewifi"
     ]
@@ -18103,13 +18103,13 @@
     "modelNumbers": [
       "SM-T330",
       "SM-T330NU",
-      "SM-T337V",
-      "SM-T335L",
-      "SAMSUNG-SM-T337A",
       "SM-T331",
-      "SM-T330X",
-      "SM-T335K",
+      "SM-T337V",
+      "SAMSUNG-SM-T337A",
       "SM-T337T",
+      "SM-T335L",
+      "SM-T335K",
+      "SM-T330X",
       "SM-T335"
     ],
     "aliases": [
@@ -18149,9 +18149,9 @@
     ],
     "deviceType": "tablet",
     "formFactor": "tablet",
-    "socId": null,
-    "socName": "Qualcomm Snapdragon 400 (28 nm)",
-    "chipsetPartNumber": null,
+    "socId": "qualcomm:snapdragon-400-msm8226",
+    "socName": "Qualcomm Snapdragon 400",
+    "chipsetPartNumber": "MSM8226",
     "ramGb": [
       1,
       1.5
@@ -18161,8 +18161,8 @@
     "storageGb": [
       16
     ],
-    "gpu": "Adreno 305",
-    "gpuArchitecture": null,
+    "gpu": "Qualcomm Adreno 305",
+    "gpuArchitecture": "Adreno 300",
     "displayResolution": "800 x 1280 pixels",
     "displayWidth": 800,
     "displayHeight": 1280,
@@ -18173,9 +18173,9 @@
     "currentAndroidVersion": null,
     "iosVersion": null,
     "androidApiLevel": 19,
-    "vulkanSupported": null,
+    "vulkanSupported": false,
     "vulkanVersion": null,
-    "openGlEsVersion": null,
+    "openGlEsVersion": "3.0",
     "releaseDate": "2014-06-01",
     "sourceUrl": "https://www.gsmarena.com/samsung-galaxy-tab-4-8-0.php",
     "sourceName": "GSMArena Technical Hardware Tree",
@@ -18194,16 +18194,16 @@
     "region": null,
     "storageExpandable": true,
     "deviceCodenames": [
-      "milletlteatt",
-      "milletwifikx",
-      "millet3g",
-      "milletwifiue",
-      "milletwifi",
-      "milletltetmo",
       "milletltelgt",
+      "milletwifikx",
+      "milletlte",
+      "milletwifi",
+      "milletwifiue",
       "milletltevzw",
+      "millet3g",
       "milletltektt",
-      "milletlte"
+      "milletlteatt",
+      "milletltetmo"
     ]
   },
   {
@@ -18339,19 +18339,19 @@
       "SM-T235",
       "SM-T230NU",
       "SM-T235Y",
-      "SM-T232",
-      "SM-T237P",
-      "SM-T230NY",
-      "SM-T2397",
       "SM-T239",
-      "SM-T237V",
-      "403SC",
-      "SM-T230NT",
       "SM-T230NW",
-      "SM-T239M",
-      "SM-T231",
+      "SM-T237P",
+      "SM-T232",
+      "SM-T2397",
       "SM-T239C",
-      "SM-T230X"
+      "403SC",
+      "SM-T237V",
+      "SM-T230NT",
+      "SM-T230X",
+      "SM-T231",
+      "SM-T230NY",
+      "SM-T239M"
     ],
     "aliases": [
       "403sc",
@@ -18452,20 +18452,20 @@
     "region": null,
     "storageExpandable": true,
     "deviceCodenames": [
+      "degaslte",
+      "degasltespr",
+      "degasvelte",
+      "degasltevzw",
       "degaswifi",
+      "degaswifibmwzc",
+      "403SC",
+      "degasveltechn",
+      "degas2wifi",
+      "degas2wifibmwchn",
+      "degaswifidtv",
       "degaswifiue",
       "degaswifiopenbnn",
-      "degasveltechn",
-      "degasltevzw",
-      "degaswifibmwzc",
-      "degas2wifibmwchn",
-      "403SC",
-      "degasvelte",
-      "degaswifidtv",
-      "degas3g",
-      "degaslte",
-      "degas2wifi",
-      "degasltespr"
+      "degas3g"
     ]
   },
   {
@@ -18786,8 +18786,8 @@
     "region": null,
     "storageExpandable": true,
     "deviceCodenames": [
-      "picassowifi",
-      "picassolte"
+      "picassolte",
+      "picassowifi"
     ]
   },
   {
@@ -18858,9 +18858,9 @@
     "marketName": "Galaxy Tab Pro 12.2",
     "modelNumbers": [
       "SM-T9000",
-      "SM-T905",
+      "SM-T900X",
       "SM-T900",
-      "SM-T900X"
+      "SM-T905"
     ],
     "aliases": [
       "galaxy tab pro 12.2",
@@ -18924,8 +18924,8 @@
     "region": null,
     "storageExpandable": true,
     "deviceCodenames": [
-      "v2wifi",
-      "v2lte"
+      "v2lte",
+      "v2wifi"
     ]
   },
   {
@@ -18999,8 +18999,8 @@
     "marketName": "Galaxy Tab 3 Lite 7.0",
     "modelNumbers": [
       "SM-T110",
-      "SM-T116NQ",
-      "SM-T113"
+      "SM-T113",
+      "SM-T116NQ"
     ],
     "aliases": [
       "galaxy tab 3 lite 7.0",
@@ -19061,8 +19061,8 @@
     "region": null,
     "storageExpandable": true,
     "deviceCodenames": [
-      "goyavewifi",
-      "goyave3g"
+      "goyave3g",
+      "goyavewifi"
     ]
   },
   {
@@ -19132,9 +19132,9 @@
     "marketName": "Galaxy Tab Pro 8.4",
     "modelNumbers": [
       "SM-T320",
+      "SM-T320NU",
       "SM-T320X",
-      "SM-T325",
-      "SM-T320NU"
+      "SM-T325"
     ],
     "aliases": [
       "galaxy tab pro 8.4",
@@ -19200,10 +19200,10 @@
     "region": null,
     "storageExpandable": true,
     "deviceCodenames": [
-      "mondrianwifikx",
       "mondrianwifiue",
       "mondrianwifi",
-      "mondrianlte"
+      "mondrianlte",
+      "mondrianwifikx"
     ]
   },
   {
@@ -19340,12 +19340,12 @@
       "SM-T215",
       "SM-T217S",
       "SM-T217T",
-      "SM-T210L",
-      "SM-T210",
-      "SM-T210R",
-      "SM-T211M",
       "SAMSUNG-SM-T217A",
-      "SM-T212"
+      "SM-T210L",
+      "SM-T210R",
+      "SM-T212",
+      "SM-T210",
+      "SM-T211M"
     ],
     "aliases": [
       "galaxy tab 3 7.0",
@@ -19429,14 +19429,14 @@
     "region": null,
     "storageExpandable": true,
     "deviceCodenames": [
-      "lt02wifilgt",
-      "lt02lteatt",
-      "lt02ltetmo",
+      "lt023g",
       "lt023gdtv",
       "lt02lte",
-      "lt023g",
+      "lt02wifi",
+      "lt02wifilgt",
+      "lt02ltetmo",
       "lt02ltespr",
-      "lt02wifi"
+      "lt02lteatt"
     ]
   },
   {
@@ -19516,9 +19516,9 @@
       "SM-T310",
       "SM-T315",
       "SM-T312",
+      "SM-T315T",
       "SM-T210X",
-      "SM-T310X",
-      "SM-T315T"
+      "SM-T310X"
     ],
     "aliases": [
       "galaxy tab 3 8.0",
@@ -19592,9 +19592,9 @@
     "storageExpandable": true,
     "deviceCodenames": [
       "lt02lduwifi",
-      "lt013g",
+      "lt01wifi",
       "lt01lte",
-      "lt01wifi"
+      "lt013g"
     ]
   },
   {
@@ -19733,9 +19733,9 @@
     ],
     "deviceType": "tablet",
     "formFactor": "tablet",
-    "socId": null,
-    "socName": "Qualcomm MSM8960 Snapdragon S4 Plus",
-    "chipsetPartNumber": null,
+    "socId": "qualcomm:snapdragon-s4-plus-msm8960",
+    "socName": "Qualcomm Snapdragon S4 Plus",
+    "chipsetPartNumber": "MSM8960",
     "ramGb": [
       1
     ],
@@ -19744,8 +19744,8 @@
     "storageGb": [
       8
     ],
-    "gpu": "Adreno 225",
-    "gpuArchitecture": null,
+    "gpu": "Qualcomm Adreno 225",
+    "gpuArchitecture": "Adreno 200",
     "displayResolution": "600 x 1024 pixels",
     "displayWidth": 600,
     "displayHeight": 1024,
@@ -19756,9 +19756,9 @@
     "currentAndroidVersion": null,
     "iosVersion": null,
     "androidApiLevel": 19,
-    "vulkanSupported": null,
+    "vulkanSupported": false,
     "vulkanVersion": null,
-    "openGlEsVersion": null,
+    "openGlEsVersion": "2.0",
     "releaseDate": "2012-08-01",
     "sourceUrl": "https://www.gsmarena.com/samsung-galaxy-tab-2-7-0-i705.php",
     "sourceName": "GSMArena Technical Hardware Tree",
@@ -20041,9 +20041,9 @@
     ],
     "deviceType": "tablet",
     "formFactor": "tablet",
-    "socId": null,
-    "socName": "Qualcomm MSM8960 Snapdragon S4 Plus",
-    "chipsetPartNumber": null,
+    "socId": "qualcomm:snapdragon-s4-plus-msm8960",
+    "socName": "Qualcomm Snapdragon S4 Plus",
+    "chipsetPartNumber": "MSM8960",
     "ramGb": [
       1
     ],
@@ -20053,8 +20053,8 @@
       8,
       16
     ],
-    "gpu": "Adreno 225",
-    "gpuArchitecture": null,
+    "gpu": "Qualcomm Adreno 225",
+    "gpuArchitecture": "Adreno 200",
     "displayResolution": "800 x 1280 pixels",
     "displayWidth": 800,
     "displayHeight": 1280,
@@ -20065,9 +20065,9 @@
     "currentAndroidVersion": null,
     "iosVersion": null,
     "androidApiLevel": 19,
-    "vulkanSupported": null,
+    "vulkanSupported": false,
     "vulkanVersion": null,
-    "openGlEsVersion": null,
+    "openGlEsVersion": "2.0",
     "releaseDate": "2012-01-01",
     "sourceUrl": "https://www.gsmarena.com/samsung-galaxy-tab-2-10-1-cdma.php",
     "sourceName": "GSMArena Technical Hardware Tree",
@@ -21214,8 +21214,8 @@
     "modelNumbers": [
       "SGP621",
       "SGP611",
-      "SGP612",
-      "SGP641"
+      "SGP641",
+      "SGP612"
     ],
     "aliases": [
       "sgp611",
@@ -21272,10 +21272,10 @@
     "region": null,
     "storageExpandable": true,
     "deviceCodenames": [
-      "SGP612",
-      "SGP641",
       "SGP611",
-      "SGP621"
+      "SGP641",
+      "SGP621",
+      "SGP612"
     ]
   },
   {
@@ -21644,12 +21644,12 @@
     ]
   },
   {
-    "id": "sony:xperia-tablet-s-sgpt13",
+    "id": "sony:xperia-tablet-s-sgpt12",
     "brand": "Sony",
     "marketName": "Xperia Tablet S",
     "modelNumbers": [
-      "SGPT13",
-      "SGPT12"
+      "SGPT12",
+      "SGPT13"
     ],
     "aliases": [
       "sgpt12",
@@ -21910,9 +21910,9 @@
     ],
     "deviceType": "tablet",
     "formFactor": "tablet",
-    "socId": null,
-    "socName": "Qualcomm SM8635 Snapdragon 8s Gen 3 (4 nm)",
-    "chipsetPartNumber": null,
+    "socId": "qualcomm:snapdragon-8s-gen-3-sm8635",
+    "socName": "Qualcomm Snapdragon 8s Gen 3",
+    "chipsetPartNumber": "SM8635",
     "ramGb": [
       8,
       12,
@@ -21925,8 +21925,8 @@
       256,
       512
     ],
-    "gpu": "Adreno 735",
-    "gpuArchitecture": null,
+    "gpu": "Qualcomm Adreno 735",
+    "gpuArchitecture": "Adreno 700",
     "displayResolution": "1968 x 2800 pixels",
     "displayWidth": 1968,
     "displayHeight": 2800,
@@ -21940,9 +21940,9 @@
     "currentAndroidVersion": null,
     "iosVersion": null,
     "androidApiLevel": 35,
-    "vulkanSupported": null,
-    "vulkanVersion": null,
-    "openGlEsVersion": null,
+    "vulkanSupported": true,
+    "vulkanVersion": "1.3",
+    "openGlEsVersion": "3.2",
     "releaseDate": "2025-10-17",
     "sourceUrl": "https://www.gsmarena.com/vivo-pad5e.php",
     "sourceName": "GSMArena Technical Hardware Tree",
@@ -22170,9 +22170,9 @@
     ],
     "deviceType": "tablet",
     "formFactor": "tablet",
-    "socId": null,
-    "socName": "Qualcomm SM8635 Snapdragon 8s Gen 3 (4 nm)",
-    "chipsetPartNumber": null,
+    "socId": "qualcomm:snapdragon-8s-gen-3-sm8635",
+    "socName": "Qualcomm Snapdragon 8s Gen 3",
+    "chipsetPartNumber": "SM8635",
     "ramGb": [
       8,
       12
@@ -22184,8 +22184,8 @@
       256,
       512
     ],
-    "gpu": "Adreno 735",
-    "gpuArchitecture": null,
+    "gpu": "Qualcomm Adreno 735",
+    "gpuArchitecture": "Adreno 700",
     "displayResolution": "1968 x 2800 pixels",
     "displayWidth": 1968,
     "displayHeight": 2800,
@@ -22199,9 +22199,9 @@
     "currentAndroidVersion": null,
     "iosVersion": null,
     "androidApiLevel": 34,
-    "vulkanSupported": null,
-    "vulkanVersion": null,
-    "openGlEsVersion": null,
+    "vulkanSupported": true,
+    "vulkanVersion": "1.3",
+    "openGlEsVersion": "3.2",
     "releaseDate": "2024-07-05",
     "sourceUrl": "https://www.gsmarena.com/vivo-pad3.php",
     "sourceName": "GSMArena Technical Hardware Tree",
@@ -22482,9 +22482,9 @@
     ],
     "deviceType": "tablet",
     "formFactor": "tablet",
-    "socId": null,
-    "socName": "Mediatek Helio G85 (12 nm)",
-    "chipsetPartNumber": null,
+    "socId": "mediatek:helio-g85-mt6769z",
+    "socName": "MediaTek Helio G85",
+    "chipsetPartNumber": "MT6769Z",
     "ramGb": [
       4,
       6
@@ -22494,8 +22494,8 @@
     "storageGb": [
       128
     ],
-    "gpu": "Mali-G52 MC2",
-    "gpuArchitecture": null,
+    "gpu": "Arm Mali-G52 MC2",
+    "gpuArchitecture": "Bifrost 2nd Gen",
     "displayResolution": "800 x 1280 pixels",
     "displayWidth": 800,
     "displayHeight": 1280,
@@ -22506,9 +22506,9 @@
     "currentAndroidVersion": null,
     "iosVersion": null,
     "androidApiLevel": 36,
-    "vulkanSupported": null,
-    "vulkanVersion": null,
-    "openGlEsVersion": null,
+    "vulkanSupported": true,
+    "vulkanVersion": "1.1",
+    "openGlEsVersion": "3.2",
     "releaseDate": "2026-04-01",
     "sourceUrl": "https://www.gsmarena.com/xiaomi-black-shark-pad-se.php",
     "sourceName": "GSMArena Technical Hardware Tree",
@@ -22540,9 +22540,9 @@
     ],
     "deviceType": "tablet",
     "formFactor": "tablet",
-    "socId": null,
-    "socName": "Qualcomm SM8635 Snapdragon 8s Gen 3 (4 nm)",
-    "chipsetPartNumber": null,
+    "socId": "qualcomm:snapdragon-8s-gen-3-sm8635",
+    "socName": "Qualcomm Snapdragon 8s Gen 3",
+    "chipsetPartNumber": "SM8635",
     "ramGb": [
       12
     ],
@@ -22551,8 +22551,8 @@
     "storageGb": [
       256
     ],
-    "gpu": "Adreno 735",
-    "gpuArchitecture": null,
+    "gpu": "Qualcomm Adreno 735",
+    "gpuArchitecture": "Adreno 700",
     "displayResolution": "1600 x 2560 pixels",
     "displayWidth": 1600,
     "displayHeight": 2560,
@@ -22566,9 +22566,9 @@
     "currentAndroidVersion": null,
     "iosVersion": null,
     "androidApiLevel": 36,
-    "vulkanSupported": null,
-    "vulkanVersion": null,
-    "openGlEsVersion": null,
+    "vulkanSupported": true,
+    "vulkanVersion": "1.3",
+    "openGlEsVersion": "3.2",
     "releaseDate": "2026-02-01",
     "sourceUrl": "https://www.gsmarena.com/xiaomi-black-shark-gaming-tablet.php",
     "sourceName": "GSMArena Technical Hardware Tree",
@@ -23173,9 +23173,9 @@
     ],
     "deviceType": "tablet",
     "formFactor": "tablet",
-    "socId": null,
-    "socName": "Qualcomm SM8635 Snapdragon 8s Gen 3 (4 nm)",
-    "chipsetPartNumber": null,
+    "socId": "qualcomm:snapdragon-8s-gen-3-sm8635",
+    "socName": "Qualcomm Snapdragon 8s Gen 3",
+    "chipsetPartNumber": "SM8635",
     "ramGb": [
       8,
       12
@@ -23187,8 +23187,8 @@
       256,
       512
     ],
-    "gpu": "Adreno 735",
-    "gpuArchitecture": null,
+    "gpu": "Qualcomm Adreno 735",
+    "gpuArchitecture": "Adreno 700",
     "displayResolution": "2136 x 3200 pixels",
     "displayWidth": 2136,
     "displayHeight": 3200,
@@ -23202,9 +23202,9 @@
     "currentAndroidVersion": null,
     "iosVersion": null,
     "androidApiLevel": 35,
-    "vulkanSupported": null,
-    "vulkanVersion": null,
-    "openGlEsVersion": null,
+    "vulkanSupported": true,
+    "vulkanVersion": "1.3",
+    "openGlEsVersion": "3.2",
     "releaseDate": "2024-10-29",
     "sourceUrl": "https://www.gsmarena.com/xiaomi_pad_7_pro-review-2832.php",
     "sourceName": "GSMArena Technical Hardware Tree",
@@ -23699,9 +23699,9 @@
     ],
     "deviceType": "tablet",
     "formFactor": "tablet",
-    "socId": null,
-    "socName": "Qualcomm SDM660 Snapdragon 660 (14 nm)",
-    "chipsetPartNumber": null,
+    "socId": "qualcomm:snapdragon-660-sdm660",
+    "socName": "Qualcomm Snapdragon 660",
+    "chipsetPartNumber": "SDM660",
     "ramGb": [
       4
     ],
@@ -23711,8 +23711,8 @@
       64,
       128
     ],
-    "gpu": "Adreno 512",
-    "gpuArchitecture": null,
+    "gpu": "Qualcomm Adreno 512",
+    "gpuArchitecture": "Adreno 500",
     "displayResolution": "1200 x 1920 pixels",
     "displayWidth": 1200,
     "displayHeight": 1920,
@@ -23723,9 +23723,9 @@
     "currentAndroidVersion": null,
     "iosVersion": null,
     "androidApiLevel": 26,
-    "vulkanSupported": null,
-    "vulkanVersion": null,
-    "openGlEsVersion": null,
+    "vulkanSupported": true,
+    "vulkanVersion": "1.1",
+    "openGlEsVersion": "3.2",
     "releaseDate": "2018-08-01",
     "sourceUrl": "https://www.gsmarena.com/xiaomi-mi-pad-4-plus.php",
     "sourceName": "GSMArena Technical Hardware Tree",
@@ -23761,9 +23761,9 @@
     ],
     "deviceType": "tablet",
     "formFactor": "tablet",
-    "socId": null,
-    "socName": "Qualcomm SDM660 Snapdragon 660 (14 nm)",
-    "chipsetPartNumber": null,
+    "socId": "qualcomm:snapdragon-660-sdm660",
+    "socName": "Qualcomm Snapdragon 660",
+    "chipsetPartNumber": "SDM660",
     "ramGb": [
       3,
       4
@@ -23774,8 +23774,8 @@
       32,
       64
     ],
-    "gpu": "Adreno 512",
-    "gpuArchitecture": null,
+    "gpu": "Qualcomm Adreno 512",
+    "gpuArchitecture": "Adreno 500",
     "displayResolution": "1200 x 1920 pixels",
     "displayWidth": 1200,
     "displayHeight": 1920,
@@ -23786,9 +23786,9 @@
     "currentAndroidVersion": null,
     "iosVersion": null,
     "androidApiLevel": 26,
-    "vulkanSupported": null,
-    "vulkanVersion": null,
-    "openGlEsVersion": null,
+    "vulkanSupported": true,
+    "vulkanVersion": "1.1",
+    "openGlEsVersion": "3.2",
     "releaseDate": "2018-06-01",
     "sourceUrl": "https://www.gsmarena.com/xiaomi-mi-pad-4.php",
     "sourceName": "GSMArena Technical Hardware Tree",

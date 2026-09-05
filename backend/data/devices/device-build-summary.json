@@ -32,17 +32,17 @@
     "GSMArena / Google Play Verified": 104
   },
   "recordsBySoCManufacturer": {
-    "Apple": 48,
-    "Qualcomm": 942,
+    "Apple": 53,
+    "Qualcomm": 1377,
     "Google": 21,
-    "Mediatek": 270,
-    "Hisilicon": 68,
-    "Unisoc": 32,
-    "Samsung": 107
+    "Mediatek": 646,
+    "Hisilicon": 101,
+    "Unisoc": 57,
+    "Samsung": 117
   },
-  "socLinkedCount": 1488,
-  "socUnresolvedCount": 2641,
-  "socLinkageRate": "36.04%",
+  "socLinkedCount": 2372,
+  "socUnresolvedCount": 1757,
+  "socLinkageRate": "57.45%",
   "regionalVariantCount": 52,
   "duplicateCount": 1,
   "excludedRumorCount": 193,
@@ -53,9 +53,9 @@
     "storage": "3.61% (149/4129)",
     "displayResolution": "0.00% (0/4129)",
     "refreshRate": "60.01% (2478/4129)",
-    "SoC": "63.96% (2641/4129)",
-    "Vulkan": "62.90% (2597/4129)",
-    "OpenGLES": "65.12% (2689/4129)",
+    "SoC": "42.55% (1757/4129)",
+    "Vulkan": "41.61% (1718/4129)",
+    "OpenGLES": "43.84% (1810/4129)",
     "osApi": "12.55% (518/4129)",
     "releaseDate": "0.31% (13/4129)"
   },
@@ -434,11 +434,6 @@
   "unresolvedSocExamples": [
     {
       "brand": "Apple",
-      "marketName": "iPad 10.2 (2021)",
-      "rawChipset": "Apple A13 Bionic (7 nm+)"
-    },
-    {
-      "brand": "Apple",
       "marketName": "iPad 2 CDMA",
       "rawChipset": "Apple A5 (45 nm)"
     },
@@ -506,7 +501,12 @@
       "brand": "Apple",
       "marketName": "iPad Pro 12.9 (2015)",
       "rawChipset": "Apple A9X (16 nm)"
+    },
+    {
+      "brand": "Apple",
+      "marketName": "iPad Pro 12.9 (2017)",
+      "rawChipset": "Apple A10X Fusion (10 nm)"
     }
   ],
-  "buildTimestamp": "2026-09-05T16:28:54.140924+00:00"
+  "buildTimestamp": "2026-09-05T16:53:30.472419+00:00"
 }
