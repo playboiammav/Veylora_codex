@@ -82,6 +82,14 @@ export class CpuService {
         if (!record.id || !record.name) continue;
         loadedCpus.push(record);
         loadedMap.set(record.id.toLowerCase().trim(), record);
+        if (Array.isArray(record.aliasIds)) {
+          for (const alias of record.aliasIds) {
+            const cleanAlias = alias?.toLowerCase().trim();
+            if (cleanAlias && !loadedMap.has(cleanAlias)) {
+              loadedMap.set(cleanAlias, record);
+            }
+          }
+        }
       }
     }
 

@@ -1,0 +1,66 @@
+{
+  "timestamp": "2026-09-05T00:59:12.451Z",
+  "baselineRecordsCount": 7178,
+  "importedPrimarySkus": 2979,
+  "retainedLegacyCount": 7161,
+  "duplicatesSkipped": 385,
+  "conflictsResolved": 17,
+  "totalMergedRecords": 10140,
+  "provenanceDistribution": {
+    "toUpperCase78/intel-processors (GPL-3.0, stated source Intel ARK)": 2976,
+    "toUpperCase78/intel-processors (GPL-3.0, community PR #3 by mvarian, non-ARK)": 3,
+    "cpu-db (Public Domain / AGPL-3.0, CPU-World)": 7161
+  },
+  "sampleModernProcessors": [
+    {
+      "id": "intel:core-i7-13700k",
+      "name": "Intel Core i7-13700K",
+      "cores": 16,
+      "threads": 24,
+      "baseClock": 3400,
+      "boostClock": 5400,
+      "socket": "LGA1700",
+      "tdp": "253 W"
+    },
+    {
+      "id": "intel:core-ultra-7-155h",
+      "name": "Intel Core Ultra 7 155H",
+      "cores": 16,
+      "threads": 22,
+      "baseClock": 1400,
+      "boostClock": 4800,
+      "socket": "FCBGA2049",
+      "tdp": "115 W"
+    },
+    {
+      "id": "intel:core-i9-14900k",
+      "name": "Intel Core i9-14900K",
+      "cores": 24,
+      "threads": 32,
+      "baseClock": 2400,
+      "boostClock": 6000,
+      "socket": "LGA1700",
+      "tdp": "253 W"
+    },
+    {
+      "id": "intel:core-i5-12400",
+      "name": "Intel Core i5-12400",
+      "cores": 6,
+      "threads": 12,
+      "baseClock": 2500,
+      "boostClock": 4400,
+      "socket": "LGA1700",
+      "tdp": "117 W"
+    },
+    {
+      "id": "intel:processor-300",
+      "name": "Intel Processor 300",
+      "cores": 2,
+      "threads": 4,
+      "baseClock": null,
+      "boostClock": 3900,
+      "socket": "FCLGA1700",
+      "tdp": "46 W"
+    }
+  ]
+}

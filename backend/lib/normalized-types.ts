@@ -371,6 +371,12 @@ export interface CpuDevice {
   l3Cache?: string | null;
   power?: string | null;
   sourceReferences?: string[];
+  provenance?: string | null;
+  isLegacy?: boolean | null;
+  augmentedFields?: string[] | null;
+  aliasIds?: string[] | null;
+  memoryTypes?: string | null;
+  maxMemorySize?: string | null;
 }
 
 export interface CpuPagination {
