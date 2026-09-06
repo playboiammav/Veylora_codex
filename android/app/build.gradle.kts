@@ -59,7 +59,7 @@ val devVersionName = (providers.environmentVariable("DEV_VERSION_NAME").orNull
 
 val backendBaseUrl = providers.environmentVariable("BACKEND_BASE_URL").orNull
   ?: providers.gradleProperty("backendBaseUrl").orNull
-  ?: "https://api.veylora.app/"
+  ?: "https://veylora-codex.vercel.app/"
 
 val devUpdateMetadataUrl = providers.environmentVariable("DEV_UPDATE_METADATA_URL").orNull
   ?: providers.gradleProperty("devUpdateMetadataUrl").orNull
