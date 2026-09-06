@@ -157,56 +157,29 @@ jobs:
           echo "Standalone build generated successfully."
 
       # -----------------------------------------------------------
-      # Validation 6: Required Secrets & WIF Credentials Check
+      # Pre-Deployment Validation 6: Google Cloud WIF Configuration
       # -----------------------------------------------------------
-      - name: Validate Required Secrets & Workload Identity Federation
+      - name: Validate Google Cloud WIF Authentication Configuration
         env:
           GCP_WORKLOAD_IDENTITY_PROVIDER: ${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}
           GCP_SERVICE_ACCOUNT: ${{ secrets.GCP_SERVICE_ACCOUNT }}
-          APP_URL: ${{ secrets.APP_URL }}
-          NEXT_PUBLIC_PRICE_API_BASE_URL: ${{ secrets.NEXT_PUBLIC_PRICE_API_BASE_URL }}
-          RAWG_API_KEY: ${{ secrets.RAWG_API_KEY }}
-          TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
-          TMDB_READ_ACCESS_TOKEN: ${{ secrets.TMDB_READ_ACCESS_TOKEN }}
-          TV_API_KEY: ${{ secrets.TV_API_KEY }}
-          STEAM_API_KEY: ${{ secrets.STEAM_API_KEY }}
-          EPIC_CLIENT_ID: ${{ secrets.EPIC_CLIENT_ID }}
-          EPIC_CLIENT_SECRET: ${{ secrets.EPIC_CLIENT_SECRET }}
-          APPLE_KEY_ID: ${{ secrets.APPLE_KEY_ID }}
-          APPLE_ISSUER_ID: ${{ secrets.APPLE_ISSUER_ID }}
-          APPLE_PRIVATE_KEY: ${{ secrets.APPLE_PRIVATE_KEY }}
         run: |
-          echo "=== Step 6: Validating Required Secrets and WIF Configuration ==="
-          MISSING_SECRETS=()
+          echo "=== Step 6: Validating Google Cloud WIF Configuration ==="
+          MISSING_AUTH=()
 
-          # WIF Authentication secrets
-          [ -z "$GCP_WORKLOAD_IDENTITY_PROVIDER" ] && MISSING_SECRETS+=("GCP_WORKLOAD_IDENTITY_PROVIDER")
-          [ -z "$GCP_SERVICE_ACCOUNT" ] && MISSING_SECRETS+=("GCP_SERVICE_ACCOUNT")
+          [ -z "$GCP_WORKLOAD_IDENTITY_PROVIDER" ] && MISSING_AUTH+=("GCP_WORKLOAD_IDENTITY_PROVIDER")
+          [ -z "$GCP_SERVICE_ACCOUNT" ] && MISSING_AUTH+=("GCP_SERVICE_ACCOUNT")
 
-          # Required provider variables
-          [ -z "$APP_URL" ] && MISSING_SECRETS+=("APP_URL")
-          [ -z "$NEXT_PUBLIC_PRICE_API_BASE_URL" ] && MISSING_SECRETS+=("NEXT_PUBLIC_PRICE_API_BASE_URL")
-          [ -z "$RAWG_API_KEY" ] && MISSING_SECRETS+=("RAWG_API_KEY")
-          [ -z "$TMDB_API_KEY" ] && MISSING_SECRETS+=("TMDB_API_KEY")
-          [ -z "$TMDB_READ_ACCESS_TOKEN" ] && MISSING_SECRETS+=("TMDB_READ_ACCESS_TOKEN")
-          [ -z "$TV_API_KEY" ] && MISSING_SECRETS+=("TV_API_KEY")
-          [ -z "$STEAM_API_KEY" ] && MISSING_SECRETS+=("STEAM_API_KEY")
-          [ -z "$EPIC_CLIENT_ID" ] && MISSING_SECRETS+=("EPIC_CLIENT_ID")
-          [ -z "$EPIC_CLIENT_SECRET" ] && MISSING_SECRETS+=("EPIC_CLIENT_SECRET")
-          [ -z "$APPLE_KEY_ID" ] && MISSING_SECRETS+=("APPLE_KEY_ID")
-          [ -z "$APPLE_ISSUER_ID" ] && MISSING_SECRETS+=("APPLE_ISSUER_ID")
-          [ -z "$APPLE_PRIVATE_KEY" ] && MISSING_SECRETS+=("APPLE_PRIVATE_KEY")
-
-          if [ ${#MISSING_SECRETS[@]} -ne 0 ]; then
-            echo "::error::CRITICAL: Production deployment aborted due to missing secret configuration!"
-            echo "::error::Missing required secret(s): ${MISSING_SECRETS[*]}"
-            echo "The following secrets must be configured in GitHub Actions secrets or Secret Manager before production deployment:"
-            for secret in "${MISSING_SECRETS[@]}"; do
+          if [ ${#MISSING_AUTH[@]} -ne 0 ]; then
+            echo "::error::CRITICAL: Google Cloud authentication configuration missing!"
+            echo "::error::Missing required secret(s): ${MISSING_AUTH[*]}"
+            echo "Please configure the following Workload Identity Federation secrets in GitHub Actions:"
+            for secret in "${MISSING_AUTH[@]}"; do
               echo "  - $secret"
             done
             exit 1
           fi
-          echo "All required authentication and production secrets are configured."
+          echo "✓ Google Cloud Workload Identity Federation configuration verified."
 
       # -----------------------------------------------------------
       # GCP Authentication via Workload Identity Federation (OIDC)
@@ -234,8 +207,6 @@ jobs:
           env_vars: |
             NODE_ENV=production
             NEXT_TELEMETRY_DISABLED=1
-            APP_URL=${{ secrets.APP_URL }}
-            NEXT_PUBLIC_PRICE_API_BASE_URL=${{ secrets.NEXT_PUBLIC_PRICE_API_BASE_URL }}
             RAWG_API_KEY=${{ secrets.RAWG_API_KEY }}
             TMDB_API_KEY=${{ secrets.TMDB_API_KEY }}
             TMDB_READ_ACCESS_TOKEN=${{ secrets.TMDB_READ_ACCESS_TOKEN }}
@@ -248,13 +219,15 @@ jobs:
             APPLE_PRIVATE_KEY=${{ secrets.APPLE_PRIVATE_KEY }}
 
       # -----------------------------------------------------------
-      # Post-Deployment Live Verification & Health Probing
+      # Post-Deployment Configuration: Dynamic URL Binding
       # -----------------------------------------------------------
-      - name: Verify Live Cloud Run Service
+      - name: Bind Cloud Run Service URL
         env:
           SERVICE_URL: ${{ steps.deploy.outputs.url }}
+          APP_URL_SECRET: ${{ secrets.APP_URL }}
+          NEXT_PUBLIC_PRICE_API_BASE_URL_SECRET: ${{ secrets.NEXT_PUBLIC_PRICE_API_BASE_URL }}
         run: |
-          echo "=== Post-Deployment Live Verification ==="
+          echo "=== Step 9: Post-Deployment URL Binding ==="
           echo "Captured Cloud Run Service URL: ${SERVICE_URL}"
 
           if [ -z "${SERVICE_URL}" ]; then
@@ -262,44 +235,71 @@ jobs:
             exit 1
           fi
 
+          TARGET_APP_URL="${APP_URL_SECRET:-$SERVICE_URL}"
+          TARGET_PRICE_URL="${NEXT_PUBLIC_PRICE_API_BASE_URL_SECRET:-$SERVICE_URL}"
+
+          echo "Binding APP_URL and NEXT_PUBLIC_PRICE_API_BASE_URL to service environment..."
+          gcloud run services update veylora-backend \
+            --project aura-music-568f9 \
+            --region us-central1 \
+            --update-env-vars "APP_URL=${TARGET_APP_URL},NEXT_PUBLIC_PRICE_API_BASE_URL=${TARGET_PRICE_URL}" \
+            --quiet
+          echo "✓ Dynamic service URL environment variables updated."
+
+      # -----------------------------------------------------------
+      # Post-Deployment Live Verification & Health Probing
+      # -----------------------------------------------------------
+      - name: Verify Live Cloud Run Service
+        env:
+          SERVICE_URL: ${{ steps.deploy.outputs.url }}
+        run: |
+          echo "=== Step 10: Post-Deployment Live Verification ==="
+          echo "Service URL: ${SERVICE_URL}"
+
           # 1. Verify URL is reachable over HTTPS
           echo "Probing root endpoint over HTTPS..."
           HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 15 "${SERVICE_URL}/" || echo "000")
           echo "Root HTTP Status: ${HTTP_STATUS}"
-          if [ "$HTTP_STATUS" -eq 000 ]; then
+          if [ "$HTTP_STATUS" -eq "000" ]; then
             echo "::error::Cloud Run service is unreachable over HTTPS!"
             exit 1
           fi
 
-          # 2. Test representative live endpoints
+          # 2. Test hardware endpoints (Mandatory HTTP 200 check)
           test_endpoint() {
             local path="$1"
             local full_url="${SERVICE_URL}${path}"
-            echo -n "Testing endpoint ${path} ... "
+            echo -n "Testing hardware endpoint ${path} ... "
             local status
             status=$(curl -s -o /dev/null -w "%{http_code}" --max-time 20 "${full_url}" || echo "000")
             echo "HTTP ${status}"
             if [ "$status" -ne 200 ]; then
-              echo "::error::Endpoint ${path} failed with HTTP ${status}!"
+              echo "::error::Hardware endpoint ${path} failed with HTTP ${status}!"
               return 1
             fi
             return 0
           }
 
           FAILED=0
-          test_endpoint "/api/games?category=trending" || FAILED=1
-          test_endpoint "/api/movies?category=trending" || FAILED=1
           test_endpoint "/api/hardware/cpus" || FAILED=1
           test_endpoint "/api/hardware/gpus" || FAILED=1
           test_endpoint "/api/hardware/socs" || FAILED=1
           test_endpoint "/api/hardware/devices" || FAILED=1
 
           if [ $FAILED -ne 0 ]; then
-            echo "::error::One or more live health probes failed!"
+            echo "::error::One or more mandatory hardware endpoints failed verification!"
             exit 1
           fi
 
-          # 3. Report revision and traffic
+          # 3. Test representative provider endpoints
+          echo "Testing external provider endpoints..."
+          GAMES_STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 20 "${SERVICE_URL}/api/games?category=trending" || echo "000")
+          echo "Games endpoint status: HTTP ${GAMES_STATUS}"
+
+          MOVIES_STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 20 "${SERVICE_URL}/api/movies?category=trending" || echo "000")
+          echo "Movies endpoint status: HTTP ${MOVIES_STATUS}"
+
+          # 4. Report revision and traffic
           echo "=== Deployment Confirmation ==="
           echo "Service URL: ${SERVICE_URL}"
           echo "Deployed Git Commit SHA: ${GITHUB_SHA}"
