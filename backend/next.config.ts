@@ -8,6 +8,9 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: false,
   },
+  outputFileTracingIncludes: {
+    '/api/**/*': ['./data/**/*'],
+  },
   // Allow access to remote image placeholder.
   images: {
     remotePatterns: [
@@ -53,7 +56,8 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  output: 'standalone',
+  // Vercel optimizes serverless functions natively. Standalone mode is preserved for containerized Cloud Run / Docker builds.
+  output: process.env.VERCEL ? undefined : 'standalone',
   transpilePackages: ['motion'],
   webpack: (config, {dev}) => {
     // HMR is disabled in AI Studio via DISABLE_HMR env var.
